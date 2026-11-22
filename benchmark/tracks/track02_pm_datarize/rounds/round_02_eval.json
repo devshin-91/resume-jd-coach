@@ -1,0 +1,107 @@
+{
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "STRONG_PARTIAL",
+      "evidence_quote": "이커머스 SaaS 셀러용 CRM 쿠폰·메시지 발송 기능 기획 및 배포 전 검수",
+      "source": "r2_resume_portfolio.md",
+      "gap_type": "expression_gap",
+      "action_hint": "배포 후 지표 모니터링과 개선 루프가 여전히 빠져 있습니다."
+    },
+    {
+      "id": "MH-2",
+      "grade": "WEAK",
+      "evidence_quote": "기획서와 화면 흐름을 정리해 출시",
+      "source": "r2_resume_portfolio.md",
+      "gap_type": "expression_gap",
+      "action_hint": "여전히 구체적 정책·예외 케이스 구조화 사례가 없습니다."
+    },
+    {
+      "id": "MH-3",
+      "grade": "PARTIAL",
+      "evidence_quote": "CX팀 VOC 확인 및 콘솔 화면 문구 개선 업무 수행",
+      "source": "r2_resume_portfolio.md",
+      "gap_type": "expression_gap",
+      "action_hint": "VOC 정량 분류와 소규모 실험 근거가 여전히 빠져 있습니다."
+    },
+    {
+      "id": "MH-4",
+      "grade": "PARTIAL",
+      "evidence_quote": "ChatGPT, Claude로 기획 초안 작성 및 아이디어 정리",
+      "source": "r2_resume_portfolio.md",
+      "gap_type": "expression_gap",
+      "action_hint": "AI 결과물의 정확성 자체 검증 사례가 여전히 없습니다."
+    },
+    {
+      "id": "MH-5",
+      "grade": "PARTIAL",
+      "evidence_quote": "개발팀·디자인팀과 협업하여 정기 배포 진행",
+      "source": "r2_resume_portfolio.md",
+      "gap_type": "expression_gap",
+      "action_hint": "의견 충돌 조율 사례가 여전히 없습니다."
+    },
+    {
+      "id": "PI-1",
+      "grade": "WEAK",
+      "evidence_quote": "기획서와 화면 흐름을 정리해 출시했고, 고객 반응이 긍정적이었음.",
+      "source": "r2_resume_portfolio.md",
+      "gap_type": "expression_gap",
+      "action_hint": "케이스 스터디 흐름이 아직 보강되지 않았습니다."
+    },
+    {
+      "id": "PI-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "expression_gap",
+      "action_hint": "정량 지표가 여전히 비어 있습니다."
+    },
+    {
+      "id": "PI-3",
+      "grade": "WEAK",
+      "evidence_quote": "기획서와 화면 흐름을 정리해 출시",
+      "source": "r2_resume_portfolio.md",
+      "gap_type": "expression_gap",
+      "action_hint": "본인 주도 의사결정과 회고가 여전히 빠져 있습니다."
+    },
+    {
+      "id": "PR-1",
+      "grade": "FULL",
+      "evidence_quote": "이커머스 SaaS 셀러용 CRM 쿠폰·메시지 발송 기능 기획",
+      "source": "r2_resume_portfolio.md"
+    },
+    {
+      "id": "PR-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "expression_gap",
+      "action_hint": "데이터 분석 툴/API 이해 근거를 보강하세요."
+    },
+    {
+      "id": "PR-3",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "미보유 우대사항이므로 창작 금지."
+    },
+    {
+      "id": "AF-1",
+      "grade": "STRONG_PARTIAL",
+      "evidence_quote": "데이터라이즈 Product Manager(Junior) 지원",
+      "source": "r2_resume_portfolio.md",
+      "gap_type": "expression_gap",
+      "action_hint": "상단 2~3줄 핵심 요약 문단을 추가하세요."
+    },
+    {
+      "id": "AF-2",
+      "grade": "PARTIAL",
+      "evidence_quote": "포트폴리오 요약 / 기획서와 화면 흐름을 정리해 출시했고",
+      "source": "r2_resume_portfolio.md",
+      "gap_type": "expression_gap",
+      "action_hint": "성과와 케이스 스터디 구조를 상단에 배치하세요."
+    }
+  ],
+  "round": 2
+}

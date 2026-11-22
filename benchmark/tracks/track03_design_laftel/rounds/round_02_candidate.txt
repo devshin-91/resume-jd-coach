@@ -1,0 +1,26 @@
+=== SOURCE: r2_resume.md ===
+# 이지우 — 프로덕트 디자이너 지원
+
+## 경력 (4년)
+- 뮤직스트림 (2022.05 ~ 현재): 모바일 앱 UX/UI 리디자인, 굿즈 커머스 화면 디자인
+## 스킬 키워드
+Figma, UX/UI, 디자인시스템, 프로토타이핑, Claude, Cursor, A/B 테스트, 사용성 테스트, 핸드오프, Jira, Notion, Slack, 커머스, 구독
+
+=== SOURCE: r1_portfolio.pptx ===
+--- Slide 1 ---
+이지우 포트폴리오
+모바일 앱 UI/UX 디자인 모음
+[Speaker Notes]
+표지 슬라이드
+
+--- Slide 2 ---
+프로젝트 1: 뮤직스트림 홈 화면 리디자인
+깔끔한 다크모드 UI와 카드 레이아웃으로 시각적 완성도를 높였습니다.
+[Speaker Notes]
+시각 리디자인 중심
+
+--- Slide 3 ---
+프로젝트 2: 굿즈 샵 화면 디자인
+모바일 커머스 상품 상세 UI 시안 제작
+[Speaker Notes]
+화면 시안 위주

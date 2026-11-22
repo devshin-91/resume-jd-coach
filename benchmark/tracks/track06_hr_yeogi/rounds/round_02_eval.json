@@ -1,0 +1,91 @@
+{
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "FULL",
+      "evidence_quote": "서울 소재 4년제 대학교 경영학과 2026년 8월 졸업",
+      "source": "r2_resume.hwpx"
+    },
+    {
+      "id": "MH-2",
+      "grade": "STRONG_PARTIAL",
+      "evidence_quote": "1년 예산 4,500만 원 영수증 교차검증 Excel 자동검산 시트 구축으로 정산 오류 0건 달성",
+      "source": "r2_resume.hwpx",
+      "gap_type": "expression_gap",
+      "action_hint": "인턴 급여·근태 자료 검증에서의 정확성 수치도 함께 연결하면 완벽합니다."
+    },
+    {
+      "id": "MH-3",
+      "grade": "FULL",
+      "evidence_quote": "임직원 85명 근태·급여 기초자료 Excel(VLOOKUP·SUMIFS·피벗테이블) 취합 / 자동검산 시트 구축",
+      "source": "r2_resume.hwpx"
+    },
+    {
+      "id": "MH-4",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "expression_gap",
+      "action_hint": "[⚠️ 삭제 회귀 감지!] Round 1에 있던 '개인정보 동의서 보안 캐비닛·암호화 관리' 근거가 수정 과정에서 사라졌습니다! 필수 자격 항목이므로 반드시 복원·보강하세요."
+    },
+    {
+      "id": "MH-5",
+      "grade": "STRONG_PARTIAL",
+      "evidence_quote": "재직·경력증명서 60건+ 발급, 입퇴사 문의 응대",
+      "source": "r2_resume.hwpx",
+      "gap_type": "expression_gap",
+      "action_hint": "임직원 응대 기준/SLA 등 신뢰감을 주는 구체 기준을 1줄 보태세요."
+    },
+    {
+      "id": "PI-1",
+      "grade": "STRONG_PARTIAL",
+      "evidence_quote": "임직원 85명 근태·급여 기초자료 / 4대보험 취득·상실 보조 / 1년 예산 4,500만 원 영수증 교차검증",
+      "source": "r2_resume.hwpx",
+      "gap_type": "expression_gap",
+      "action_hint": "인턴 업무의 검증 프로세스와 효율화 결과를 좀 더 선명히 구조화하세요."
+    },
+    {
+      "id": "PI-2",
+      "grade": "STRONG_PARTIAL",
+      "evidence_quote": "정산 오류 0건 달성 / 재직·경력증명서 60건+ 발급",
+      "source": "r2_resume.hwpx",
+      "gap_type": "expression_gap",
+      "action_hint": "급여 취합 시 시간 단축이나 수기 누락 방지 성과도 함께 제시하세요."
+    },
+    {
+      "id": "PI-3",
+      "grade": "FULL",
+      "evidence_quote": "ERP 정보관리사 인사 1급 / 근로기준법·노동법·소득세법 관련 세법개론 이수",
+      "source": "r2_resume.hwpx"
+    },
+    {
+      "id": "PR-1",
+      "grade": "FULL",
+      "evidence_quote": "근로기준법·노동법·소득세법 관련 세법개론 이수 / ERP 정보관리사 인사 1급",
+      "source": "r2_resume.hwpx"
+    },
+    {
+      "id": "PR-2",
+      "grade": "FULL",
+      "evidence_quote": "스타트업 A HR 인턴 (2025.07 ~ 2025.12, 6개월) / flex(플렉스) 인사시스템 4대보험 취득·상실 보조",
+      "source": "r2_resume.hwpx"
+    },
+    {
+      "id": "AF-1",
+      "grade": "STRONG_PARTIAL",
+      "evidence_quote": "여기어때컴퍼니 HR Manager (신입) 지원",
+      "source": "r2_resume.hwpx",
+      "gap_type": "expression_gap",
+      "action_hint": "상단 2줄 핵심 요약 문단을 추가하세요."
+    },
+    {
+      "id": "AF-2",
+      "grade": "STRONG_PARTIAL",
+      "evidence_quote": "경험 1: 스타트업 A HR 인턴 / 자격: 컴퓨터활용능력 1급, ERP 정보관리사 인사 1급",
+      "source": "r2_resume.hwpx",
+      "gap_type": "expression_gap",
+      "action_hint": "불릿 계층을 나눠 가독성을 높이세요."
+    }
+  ],
+  "round": 2
+}

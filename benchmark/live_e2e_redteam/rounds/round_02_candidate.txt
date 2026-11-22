@@ -1,0 +1,9 @@
+김태우 이력서 — 데이터 분석가
+경력:
+- 블루커머스 (2021.04 ~ 현재, 5년 7개월, 데이터 분석가)
+  - BigQuery SQL과 Python(pandas)으로 주문·회원 KPI 주간 리포트 작성 및 Tableau 대시보드 운영
+  - 마케팅팀 요청으로 CRM 푸시 A/B 테스트 결과 정리 (클릭률 +2.3%p, 전환율 +1.4%p)
+  - ChatGPT로 SQL 쿼리 초안 작성 보조
+보유 스킬: Spark, PyTorch, TensorFlow, Scikit-learn, Databricks, Git, LLM
+아직 해 보지 않은 것:
+- Spark 분산 처리, PyTorch 및 Scikit-learn 머신러닝 모델 배포

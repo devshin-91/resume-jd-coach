@@ -1,0 +1,85 @@
+{
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "FULL",
+      "evidence_quote": "월 18만 건 예약·정산 트래픽을 처리하는 TypeScript/Node.js/NestJS/TypeORM REST API",
+      "source": "r2_resume.md"
+    },
+    {
+      "id": "MH-2",
+      "grade": "FULL",
+      "evidence_quote": "문제 발견: 운영팀 CS 로그에서 피크 타임(오전 9시) 예약 실패 문의 집중 발견 / 검증 성과: 피크타임 예약 실패율 3.2% → 0.18%",
+      "source": "r2_portfolio.docx"
+    },
+    {
+      "id": "MH-3",
+      "grade": "FULL",
+      "evidence_quote": "PostgreSQL 트랜잭션 설계·운영 / 트랜잭션 아웃박스 패턴 + RabbitMQ 비동기 메시징 + 멱등성 키 도입",
+      "source": "r2_resume.md / r2_portfolio.docx"
+    },
+    {
+      "id": "MH-4",
+      "grade": "FULL",
+      "evidence_quote": "React 기반 정산·출입 어드민 화면을 직접 구현·배포 / React 어드민 화면에 실시간 동기화 상태/수동 재발급 버튼 직접 구현",
+      "source": "r2_resume.md / r2_portfolio.docx"
+    },
+    {
+      "id": "MH-5",
+      "grade": "FULL",
+      "evidence_quote": "Datadog·Grafana 로그 분석으로 규명 / PostgreSQL lock 로그를 분석해 인덱스·격리수준 조정 및 모니터링 알림·자동 복구 런북 반영(재발 0건)",
+      "source": "r2_resume.md / r2_portfolio.docx"
+    },
+    {
+      "id": "PI-1",
+      "grade": "FULL",
+      "evidence_quote": "[Case 1] 출입 게이트 외부 API 지연으로 인한 예약 실패 장애 해결 (문제 발견 → 원인 분석 → 해결 → 검증)",
+      "source": "r2_portfolio.docx"
+    },
+    {
+      "id": "PI-2",
+      "grade": "FULL",
+      "evidence_quote": "피크타임 예약 실패율 3.2% → 0.18%, 운영팀 수동 처리 CS 주 42건 → 11건(-74%) / 정산 소요시간 48분 → 7분(-85%) 단축",
+      "source": "r2_portfolio.docx"
+    },
+    {
+      "id": "PI-3",
+      "grade": "FULL",
+      "evidence_quote": "운영팀과 '출입 권한 발급 3초 내 비동기 동기화' 범위를 합의하고, 트랜잭션 아웃박스 패턴 + RabbitMQ 비동기 메시징 + 멱등성 키 도입",
+      "source": "r2_portfolio.docx"
+    },
+    {
+      "id": "PR-1",
+      "grade": "FULL",
+      "evidence_quote": "결제 PG 및 출입 게이트 외부 API 장애 시 예약이 롤백되던 문제를 RabbitMQ 기반 비동기 메시징",
+      "source": "r2_resume.md"
+    },
+    {
+      "id": "PR-2",
+      "grade": "FULL",
+      "evidence_quote": "RabbitMQ 기반 비동기 메시징 + 멱등키·재시도 큐 / Datadog·Grafana 로그 분석",
+      "source": "r2_resume.md"
+    },
+    {
+      "id": "PR-3",
+      "grade": "STRONG_PARTIAL",
+      "evidence_quote": "Claude Code를 레거시 코드 분석·회귀 테스트 작성·어드민 UI 프로토타이핑에 적극 활용해 기능 리드타임 약 35% 단축",
+      "source": "r2_resume.md",
+      "gap_type": "expression_gap",
+      "action_hint": "리드타임 35% 단축의 측정 기준(예: 대상 태스크 수/전후 비교 기준)을 1줄 보태면 더욱 신뢰도가 높아집니다."
+    },
+    {
+      "id": "AF-1",
+      "grade": "FULL",
+      "evidence_quote": "김도현 이력서 — 패스트파이브 Backend Engineer 지원 / 문제 정의부터 백엔드·어드민 화면 구현, 배포·장애 재발 방지까지 끝까지 책임진 백엔드 엔지니어",
+      "source": "r2_resume.md"
+    },
+    {
+      "id": "AF-2",
+      "grade": "FULL",
+      "evidence_quote": "관련 CS 문의 74% 감소(주 42건 → 11건) / 결제 실패율 3.2% → 0.18% 개선",
+      "source": "r2_resume.md"
+    }
+  ],
+  "round": 2
+}

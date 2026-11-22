@@ -1,0 +1,192 @@
+{
+  "company": "데이터라이즈",
+  "role_title": "Product Manager (Junior)",
+  "language": "ko",
+  "domain_mode": "portfolio",
+  "pass_threshold": 80.0,
+  "ats_lexical_share": 0.5,
+  "category_weights": {
+    "must_have": 45,
+    "portfolio_impact": 25,
+    "preferred": 15,
+    "ats_framing": 15
+  },
+  "categories": {
+    "must_have": [
+      {
+        "id": "MH-1",
+        "title": "서비스 기획·PM 실무 경험(3년 이하) 및 배포 전 검수~배포 후 개선 E2E 실행",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-2",
+        "title": "기능 정책, 화면 흐름, 예외 케이스의 논리적 구조화 및 문서화 역량",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-3",
+        "title": "VOC 및 제품 사용 데이터 기반 고객 문제 정의·소규모 실험·고도화 경험",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "MH-4",
+        "title": "생성형 AI(Claude·ChatGPT 등) 업무 활용 및 결과물 정확성·적합성 자체 검증",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "MH-5",
+        "title": "개발·CX·세일즈 등 다직군 협업 및 의견 충돌 시 근거 기반 조율 경험",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "portfolio_impact": [
+      {
+        "id": "PI-1",
+        "title": "요구사항 분석→기능 정책/예외 케이스→출시→개선 케이스 스터디 증빙",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-2",
+        "title": "전/후 비교 가능한 정량 성과 지표(전환율·잔존율·CS 감소·활성화 등)",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-3",
+        "title": "본인 주도 범위 및 빠른 실행/실패 회고·학습 기록 제시",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "preferred": [
+      {
+        "id": "PR-1",
+        "title": "SaaS·이커머스·CRM 마케팅 솔루션 실무 경험",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "PR-2",
+        "title": "SQL·GA4·Amplitude 등 데이터 직접 추출·분석 및 웹/API 구조 이해",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "PR-3",
+        "title": "코딩 에이전트 활용 프로토타이핑/업무 자동화 또는 영어·일본어 자료 리서치",
+        "weight": 1,
+        "is_knockout": false
+      }
+    ],
+    "ats_framing": [
+      {
+        "id": "AF-1",
+        "title": "타깃 포지션(SaaS/CRM 데이터 기반 Junior PM) 헤더·요약 정합성",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "AF-2",
+        "title": "채용담당자 10초 스캔 가독성 및 핵심 기획 산출물·성과 상단 배치",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ]
+  },
+  "keywords": [
+    {
+      "term": "PM",
+      "aliases": [
+        "Product Manager",
+        "서비스 기획"
+      ],
+      "tier": "must"
+    },
+    {
+      "term": "정책",
+      "aliases": [
+        "기능 정책",
+        "예외 케이스",
+        "PRD",
+        "기능 명세"
+      ],
+      "tier": "must"
+    },
+    {
+      "term": "VOC",
+      "aliases": [
+        "고객의 목소리",
+        "CX",
+        "고객 피드백"
+      ],
+      "tier": "must"
+    },
+    {
+      "term": "실험",
+      "aliases": [
+        "A/B 테스트",
+        "AB 테스트",
+        "가설 검증"
+      ],
+      "tier": "must"
+    },
+    {
+      "term": "Claude",
+      "aliases": [
+        "ChatGPT",
+        "생성형 AI"
+      ],
+      "tier": "must"
+    },
+    {
+      "term": "SaaS",
+      "aliases": [
+        "이커머스",
+        "CRM"
+      ],
+      "tier": "preferred"
+    },
+    {
+      "term": "SQL",
+      "aliases": [
+        "GA4",
+        "Amplitude"
+      ],
+      "tier": "preferred"
+    },
+    {
+      "term": "프로토타입",
+      "aliases": [
+        "프로토타이핑",
+        "코딩 에이전트"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-3"
+    },
+    {
+      "term": "API",
+      "aliases": [
+        "데이터 흐름",
+        "서버"
+      ],
+      "tier": "preferred"
+    },
+    {
+      "term": "영어",
+      "aliases": [
+        "일본어",
+        "글로벌"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-3"
+    }
+  ],
+  "rubric_hash": "9badeadfd824cda4",
+  "locked_at": "2026-11-22T02:30:07+00:00"
+}

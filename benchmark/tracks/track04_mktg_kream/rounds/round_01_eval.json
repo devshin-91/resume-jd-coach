@@ -1,0 +1,79 @@
+{
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "FULL",
+      "evidence_quote": "패션·스니커즈 이커머스 플랫폼에서 5년간 브랜드 마케팅, 온오프라인(O4O) 프로모션",
+      "source": "r1_resume_portfolio.md"
+    },
+    {
+      "id": "MH-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "expression_gap",
+      "action_hint": "[KNOCKOUT 경고] 팝업·홍보를 리딩했지만 외부 홍보/행사 운영 에이전시(대행사) 선정·커뮤니케이션·운영 관리 경험이 전혀 기재되어 있지 않습니다. 실제 대행사 협업 이력이 있다면 반드시 구체적으로 명시하세요."
+    },
+    {
+      "id": "MH-3",
+      "grade": "FULL",
+      "evidence_quote": "캠페인 기간 거래액 18억(+165% YoY), 신규 회원가입 4.8만 명, 앱 유입 트래픽 +210% / 팝업 방문자 QR 쿠폰 전환율을 14%→29%로 2배 개선",
+      "source": "r1_resume_portfolio.md"
+    },
+    {
+      "id": "MH-4",
+      "grade": "FULL",
+      "evidence_quote": "유관부서(MD·PR·디지털마케팅) 및 외부 파트너사 12곳 협업 조율",
+      "source": "r1_resume_portfolio.md"
+    },
+    {
+      "id": "PI-1",
+      "grade": "FULL",
+      "evidence_quote": "파트너 발굴·제안·라이선싱 계약 구조 설계부터 기획전·O4O 성수 팝업 스토어 런칭까지 총괄 리딩 / 팝업 방문자 QR 쿠폰 전환율을 14%→29%로 2배 개선",
+      "source": "r1_resume_portfolio.md"
+    },
+    {
+      "id": "PI-2",
+      "grade": "FULL",
+      "evidence_quote": "거래액 18억(+165% YoY), 신규 회원가입 4.8만 명, 앱 유입 트래픽 +210% / 자발적 UGC 3,400건 생성",
+      "source": "r1_resume_portfolio.md"
+    },
+    {
+      "id": "PI-3",
+      "grade": "FULL",
+      "evidence_quote": "글로벌 IP·패션 브랜드 콜라보레이션 독립 리딩 (기여도 100%)",
+      "source": "r1_resume_portfolio.md"
+    },
+    {
+      "id": "PR-1",
+      "grade": "FULL",
+      "evidence_quote": "패션·스니커즈 이커머스 플랫폼에서 5년간 / 글로벌 IP·패션 브랜드 콜라보레이션 독립 리딩",
+      "source": "r1_resume_portfolio.md"
+    },
+    {
+      "id": "PR-2",
+      "grade": "FULL",
+      "evidence_quote": "O4O 성수 팝업 스토어 / PR 보도자료·SNS 바이럴 캠페인 / 자발적 UGC 3,400건",
+      "source": "r1_resume_portfolio.md"
+    },
+    {
+      "id": "PR-3",
+      "grade": "FULL",
+      "evidence_quote": "SQL·Redash 기반 성과 분석 / 해외 스트릿 브랜드 파트너사와 영문 제안서 작성 및 화상 미팅 진행",
+      "source": "r1_resume_portfolio.md"
+    },
+    {
+      "id": "AF-1",
+      "grade": "FULL",
+      "evidence_quote": "최유진 이력서·포트폴리오 — 크림(KREAM) 플랫폼 브랜드 마케터 지원",
+      "source": "r1_resume_portfolio.md"
+    },
+    {
+      "id": "AF-2",
+      "grade": "FULL",
+      "evidence_quote": "캠페인 기간 거래액 18억(+165% YoY), 신규 회원가입 4.8만 명, 앱 유입 트래픽 +210%",
+      "source": "r1_resume_portfolio.md"
+    }
+  ],
+  "round": 1
+}

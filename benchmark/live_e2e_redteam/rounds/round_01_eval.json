@@ -1,0 +1,150 @@
+{
+  "round": 1,
+  "rubric_hash": "1864ea17d4d4a7c2",
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "STRONG_PARTIAL",
+      "evidence_quote": "블루커머스 (2021.04 ~ 현재, 5년 7개월, 데이터 분석가)",
+      "source": "round_01_candidate.txt - 경력",
+      "gap_type": "true_gap",
+      "action_hint": "데이터 분석 경력(5년 7개월)은 5년 이상 연차 기준을 충족하지만 '모델링' 실무 경력은 확인되지 않습니다. 실제 운영한 통계·예측·세그멘테이션 모형이 있다면 구체화하고, 없다면 분석·실험 경력의 깊이로 보완하세요."
+    },
+    {
+      "id": "MH-2",
+      "grade": "WEAK",
+      "evidence_quote": "BigQuery SQL과 Python(pandas)으로 주문·회원 KPI 주간 리포트 작성 및 Tableau 대시보드 운영",
+      "source": "round_01_candidate.txt - 경력",
+      "gap_type": "transferable_gap",
+      "action_hint": "BigQuery SQL·Python(pandas) 리포트 작성만 언급되어 있고, 다중 원천 테이블을 정리해 분석용 데이터 마트를 직접 설계한 경험과 Spark 분산 처리는 빠져 있습니다. 실제 BigQuery·Python 기반 마트·테이블 설계 경험이 있다면 구체화해 전이 역량으로 연결하되, 미경험인 Spark는 창작하지 마세요."
+    },
+    {
+      "id": "MH-3",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "이력서에 PyTorch·Scikit-learn 머신러닝 모델 배포를 아직 해 보지 않았다고 명시되어 있습니다. 실제 미보유 역량(Knockout 요건)이므로 문구 과장·창작은 절대 금지이며, 소규모 실전 ML 배포 프로젝트 수행 또는 타 강점 보강·공고 적합도 재검토가 필요합니다."
+    },
+    {
+      "id": "MH-4",
+      "grade": "WEAK",
+      "evidence_quote": "ChatGPT로 SQL 쿼리 초안 작성 보조",
+      "source": "round_01_candidate.txt - 경력",
+      "gap_type": "expression_gap",
+      "action_hint": "단순 'SQL 쿼리 초안 보조'만으로는 업무 자동화·효율화 증빙이 약합니다. 실제 반복 리포트·추출 업무를 Python/SQL이나 생성형 AI 도구로 자동화해 소요 시간·공수를 줄인 사례가 있다면 구체적 흐름과 절감 효과를 명시하세요."
+    },
+    {
+      "id": "MH-5",
+      "grade": "PARTIAL",
+      "evidence_quote": "Tableau 대시보드 운영 / 마케팅팀 요청으로 CRM 푸시 A/B 테스트 결과 정리 (클릭률 +2.3%p, 전환율 +1.4%p)",
+      "source": "round_01_candidate.txt - 경력",
+      "gap_type": "expression_gap",
+      "action_hint": "'결과 정리' 수준을 넘어 본인이 직접 세운 가설, 실험군/대조군 설계, 통계적 유의성 검증 방법(t-test/카이제곱 등)과 Tableau 대시보드로 추적한 핵심 지표·의사결정 반영 사례를 구체화하세요."
+    },
+    {
+      "id": "MH-6",
+      "grade": "STRONG_PARTIAL",
+      "evidence_quote": "마케팅팀 요청으로 CRM 푸시 A/B 테스트 결과 정리 (클릭률 +2.3%p, 전환율 +1.4%p)",
+      "source": "round_01_candidate.txt - 경력",
+      "gap_type": "expression_gap",
+      "action_hint": "마케팅팀 요청 수행에 그치지 않고, 클릭률·전환율 개선 이후 리텐션·매출 등 후속 KPI에 미친 영향과 본인이 제안한 개선 액션을 함께 서술하세요."
+    },
+    {
+      "id": "MH-7",
+      "grade": "WEAK",
+      "evidence_quote": "BigQuery SQL과 Python(pandas)으로 주문·회원 KPI 주간 리포트 작성 / 마케팅팀 요청으로 CRM 푸시 A/B 테스트 결과 정리",
+      "source": "round_01_candidate.txt - 경력",
+      "gap_type": "expression_gap",
+      "action_hint": "실무에서 Git·코드 리뷰나 모듈화/재사용 SQL·Python 스크립트를 관리한 경험이 있다면 구체적 협업 방식과 함께 명시하고, 현업 KPI에 대해 어떤 책임을 갖고 의사결정을 지원했는지 보강하세요."
+    },
+    {
+      "id": "PI-1",
+      "grade": "WEAK",
+      "evidence_quote": "마케팅팀 요청으로 CRM 푸시 A/B 테스트 결과 정리 (클릭률 +2.3%p, 전환율 +1.4%p)",
+      "source": "round_01_candidate.txt - 경력",
+      "gap_type": "expression_gap",
+      "action_hint": "대표 프로젝트 2건(예: CRM 푸시 A/B 테스트, 주문·회원 KPI 대시보드/리포트)을 '비즈니스 문제 → 데이터/가설 설계 → 분석 접근 → 실행 결과' 구조의 케이스 스터디로 확장하세요."
+    },
+    {
+      "id": "PI-2",
+      "grade": "PARTIAL",
+      "evidence_quote": "마케팅팀 요청으로 CRM 푸시 A/B 테스트 결과 정리 (클릭률 +2.3%p, 전환율 +1.4%p)",
+      "source": "round_01_candidate.txt - 경력",
+      "gap_type": "expression_gap",
+      "action_hint": "클릭률·전환율의 실험 전/후 기준 수치와 대상 모수(발송 건수·데이터 규모), 그리고 KPI 대시보드/리포트 운영을 통해 단축한 의사결정 시간이나 개선된 비즈니스 지표를 수치로 보강하세요."
+    },
+    {
+      "id": "PI-3",
+      "grade": "WEAK",
+      "evidence_quote": "마케팅팀 요청으로 CRM 푸시 A/B 테스트 결과 정리",
+      "source": "round_01_candidate.txt - 경력",
+      "gap_type": "expression_gap",
+      "action_hint": "'요청으로 정리' 같은 수동 표현 대신, 본인이 직접 설계·제안·검증한 판단(예: 타깃 세그먼트 기준 제안, 실험 채택 의사결정 근거)을 명확히 분리해 서술하세요."
+    },
+    {
+      "id": "PI-4",
+      "grade": "WEAK",
+      "evidence_quote": "Tableau 대시보드 운영",
+      "source": "round_01_candidate.txt - 경력",
+      "gap_type": "expression_gap",
+      "action_hint": "보안상 민감 수치를 마스킹한 Tableau 대시보드 설계 구조, SQL/Python 분석 파이프라인 흐름도, 또는 GitHub/노션 케이스 포트폴리오 산출물을 첨부·연결하세요."
+    },
+    {
+      "id": "PR-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "예측·추천·타겟팅 실서비스 모델 적용 경험이 아직 없다면 허위로 기재하지 말고, 보유 강점(CRM 실험·KPI 분석)과 필수 요건 보강에 집중하세요."
+    },
+    {
+      "id": "PR-2",
+      "grade": "PARTIAL",
+      "evidence_quote": "마케팅팀 요청으로 CRM 푸시 A/B 테스트 결과 정리 (클릭률 +2.3%p, 전환율 +1.4%p)",
+      "source": "round_01_candidate.txt - 경력",
+      "gap_type": "expression_gap",
+      "action_hint": "단발성 결과 정리가 아니라 마케팅팀과 어떤 가설을 논의하고 실험 결과를 후속 캠페인 개선에 어떻게 반영했는지 협업 과정을 구체화하세요."
+    },
+    {
+      "id": "PR-3",
+      "grade": "WEAK",
+      "evidence_quote": "Tableau 대시보드 운영",
+      "source": "round_01_candidate.txt - 경력",
+      "gap_type": "transferable_gap",
+      "action_hint": "운영한 Tableau 대시보드나 리포트가 현업 팀의 반복 추출 요청을 실제로 얼마나 줄였는지(셀프서비스 활용도·사용자 수 등) 근거가 있다면 연결해 제시하세요."
+    },
+    {
+      "id": "PR-4",
+      "grade": "WEAK",
+      "evidence_quote": "ChatGPT로 SQL 쿼리 초안 작성 보조",
+      "source": "round_01_candidate.txt - 경력",
+      "gap_type": "expression_gap",
+      "action_hint": "생성형 AI를 활용해 스스로 분석 워크플로우·리포트 요약·QA 검증 등의 병목을 해결하고 실질적 업무 성과를 낸 구체 사례가 있다면 보강하세요."
+    },
+    {
+      "id": "PR-5",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "금융·신용 데이터 경험이 없다면 창작하지 마세요. 단, 커머스 회원·결제 데이터의 개인정보 비식별화·접근권한 관리 실무 경험이 실제로 있다면 보조 근거로 간략히 언급할 수 있습니다."
+    },
+    {
+      "id": "AF-1",
+      "grade": "WEAK",
+      "evidence_quote": "김태우 이력서 — 데이터 분석가",
+      "source": "round_01_candidate.txt - 헤더",
+      "gap_type": "expression_gap",
+      "action_hint": "상단에 2~3줄 핵심 요약(5년 7개월 커머스 데이터 분석가, SQL·Python 기반 KPI·CRM 실험 성과, AI 활용 방향)을 배치해 타깃 직무와의 접점을 즉시 드러내세요."
+    },
+    {
+      "id": "AF-2",
+      "grade": "PARTIAL",
+      "evidence_quote": "블루커머스 (2021.04 ~ 현재, 5년 7개월, 데이터 분석가)",
+      "source": "round_01_candidate.txt - 경력",
+      "gap_type": "expression_gap",
+      "action_hint": "단일 불릿 나열을 '프로젝트/과제별 목표-실행-성과' 구조로 정리하고, 이력서 본문에서 미경험 항목을 별도 목록으로 나열하기보다 실제 보유 역량과 검증된 성과 중심으로 재구성하세요."
+    }
+  ]
+}

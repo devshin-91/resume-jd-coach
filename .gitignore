@@ -1,0 +1,21 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Personal / local application sessions (NEVER commit personal resumes or portfolios)
+.jd-coach/
+jd-coach-sessions/
+personal/
+*.pdf
+*.hwp
+
+# OS & editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.log
+.vscode/
+.idea/

@@ -1,0 +1,107 @@
+{
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "FULL",
+      "evidence_quote": "주식회사 스페이스링크 (2021.03 ~ 현재, 백엔드 개발자) ... 예약·정산 REST API 개발 및 유지보수",
+      "source": "r1_resume.md"
+    },
+    {
+      "id": "MH-2",
+      "grade": "PARTIAL",
+      "evidence_quote": "예약 CRUD API를 구현했습니다 / 정산 데이터를 집계하는 API를 만들었습니다",
+      "source": "r1_portfolio.docx",
+      "gap_type": "expression_gap",
+      "action_hint": "단순 기능 구현 나열에 그쳐 문제 정의→설계→배포→운영 검증까지의 E2E 흐름이 보이지 않습니다."
+    },
+    {
+      "id": "MH-3",
+      "grade": "STRONG_PARTIAL",
+      "evidence_quote": "NestJS, TypeORM 기반 예약·정산 REST API ... PostgreSQL 데이터베이스 스키마 설계 및 결제 트랜잭션 관리",
+      "source": "r1_resume.md",
+      "gap_type": "expression_gap",
+      "action_hint": "트랜잭션 충돌·동시성·성능 등 구체적 설계 판단 근거를 추가하세요."
+    },
+    {
+      "id": "MH-4",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "expression_gap",
+      "action_hint": "웹/앱/어드민 프론트엔드 구현 경험이 전혀 드러나지 않습니다. 사내 어드민이나 웹 화면을 직접 만든 경험이 있다면 명시하세요."
+    },
+    {
+      "id": "MH-5",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "expression_gap",
+      "action_hint": "로그·모니터링·운영 데이터 분석 및 장애 대응/재발 방지 사례가 누락되어 있습니다."
+    },
+    {
+      "id": "PI-1",
+      "grade": "WEAK",
+      "evidence_quote": "1. 회의실 예약 API 서버 개발: NestJS와 PostgreSQL로 예약 CRUD API를 구현했습니다.",
+      "source": "r1_portfolio.docx",
+      "gap_type": "expression_gap",
+      "action_hint": "공고가 명시한 '\"무엇을 만들었는지\"보다 \"어떤 문제를 발견해서 어떻게 해결했는지\"' 구조로 포트폴리오를 전면 재구성하세요."
+    },
+    {
+      "id": "PI-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "expression_gap",
+      "action_hint": "전/후 비교 가능한 정량 성과(실패율·처리시간·CS 건수 등)가 하나도 없습니다."
+    },
+    {
+      "id": "PI-3",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "expression_gap",
+      "action_hint": "운영팀·기획팀과의 범위 합의 및 아키텍처 트레이드오프 의사결정 근거를 추가하세요."
+    },
+    {
+      "id": "PR-1",
+      "grade": "PARTIAL",
+      "evidence_quote": "외부 결제 PG 및 출입 연동 작업 참여",
+      "source": "r1_resume.md",
+      "gap_type": "expression_gap",
+      "action_hint": "'참여'가 아닌 외부 시스템 장애·연동 이슈를 어떻게 해결·운영했는지 구체화하세요."
+    },
+    {
+      "id": "PR-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "expression_gap",
+      "action_hint": "비동기 메시징·모니터링 기반 장애 대응 경험이 있다면 구체 사례로 드러내세요."
+    },
+    {
+      "id": "PR-3",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "expression_gap",
+      "action_hint": "AI 코딩 도구(Claude Code 등)를 개발·분석에 활용한 실무 경험이 있다면 명시하세요."
+    },
+    {
+      "id": "AF-1",
+      "grade": "PARTIAL",
+      "evidence_quote": "김도현 이력서 — 서버 개발자 지원",
+      "source": "r1_resume.md",
+      "gap_type": "expression_gap",
+      "action_hint": "일반적인 '서버 개발자' 대신 '고객 접점 문제 해결·풀스택 확장형 Backend Engineer'로 요약 포지셔닝을 맞추세요."
+    },
+    {
+      "id": "AF-2",
+      "grade": "PARTIAL",
+      "evidence_quote": "TypeScript, Node.js, NestJS, PostgreSQL, Redis, Docker, AWS",
+      "source": "r1_resume.md",
+      "gap_type": "expression_gap",
+      "action_hint": "운영 트래픽 규모와 핵심 성과 수치를 경력 상단에 배치해 10초 스캔 효율을 높이세요."
+    }
+  ],
+  "round": 1
+}

@@ -1,0 +1,150 @@
+{
+  "round": 2,
+  "rubric_hash": "1864ea17d4d4a7c2",
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "STRONG_PARTIAL",
+      "evidence_quote": "블루커머스 (2021.04 ~ 현재, 5년 7개월, 데이터 분석가)",
+      "source": "round_02_candidate.txt - 경력",
+      "gap_type": "true_gap",
+      "action_hint": "데이터 분석 경력(5년 7개월)은 연차 기준을 충족하지만 모델링 실무 경력은 여전히 확인되지 않습니다. 보유 스킬란의 키워드 추가만으로는 실무 경력으로 인정되지 않습니다."
+    },
+    {
+      "id": "MH-2",
+      "grade": "WEAK",
+      "evidence_quote": "BigQuery SQL과 Python(pandas)으로 주문·회원 KPI 주간 리포트 작성 및 Tableau 대시보드 운영 / 보유 스킬: Spark, PyTorch, TensorFlow, Scikit-learn, Databricks, Git, LLM",
+      "source": "round_02_candidate.txt - 경력 및 보유 스킬",
+      "gap_type": "transferable_gap",
+      "action_hint": "보유 스킬란에 Spark를 단순 추가했지만 프로젝트 근거가 없고 본인 스스로 Spark 미경험을 명시했기 때문에 Anti-Keyword-Stuffing 규칙에 따라 WEAK(0.25) 상한에 묶이며 Knockout 위험이 해소되지 않습니다. 미경험 Spark는 스킬란에서 제거하고, 실제 수행한 BigQuery SQL·Python(pandas) 기반 데이터 테이블/마트 정리 경험을 구체화하세요."
+    },
+    {
+      "id": "MH-3",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "보유 스킬란에 PyTorch·TensorFlow·Scikit-learn을 추가했으나 실제 프로젝트 근거가 전혀 없고 '아직 해 보지 않은 것' 및 본인 확인 내용과 정면 모순됩니다. 미경험 기술의 단순 키워드 나열은 실무 근거로 인정할 수 없어 MISSING(0.00)을 유지합니다. 허위 초안 작성은 불가하며, 실제 미경험 기술을 스킬란에서 삭제하고 소규모 실전 ML 배포 프로젝트 수행 또는 강점 중심 지원 전략을 검토하세요."
+    },
+    {
+      "id": "MH-4",
+      "grade": "WEAK",
+      "evidence_quote": "ChatGPT로 SQL 쿼리 초안 작성 보조 / 보유 스킬: Spark, PyTorch, TensorFlow, Scikit-learn, Databricks, Git, LLM",
+      "source": "round_02_candidate.txt - 경력 및 보유 스킬",
+      "gap_type": "expression_gap",
+      "action_hint": "스킬란에 LLM을 추가했으나 프로젝트/업무 자동화 맥락이 없어 WEAK(0.25) 상한에 머뭅니다. 실제 주간 리포트나 반복 SQL·Python(pandas) 추출을 자동화하거나 ChatGPT로 공수를 줄인 구체적 흐름·효과를 경력 불릿에 서술하세요."
+    },
+    {
+      "id": "MH-5",
+      "grade": "PARTIAL",
+      "evidence_quote": "Tableau 대시보드 운영 / 마케팅팀 요청으로 CRM 푸시 A/B 테스트 결과 정리 (클릭률 +2.3%p, 전환율 +1.4%p) / 보유 스킬: Spark, PyTorch, TensorFlow, Scikit-learn, Databricks, Git, LLM",
+      "source": "round_02_candidate.txt - 경력 및 보유 스킬",
+      "gap_type": "expression_gap",
+      "action_hint": "스킬란에 Databricks만 추가되었고 실제 활용 프로젝트나 A/B 테스트 가설·통계적 유의성 검증 내용이 보강되지 않아 PARTIAL(0.50)에 정체되어 있습니다. 실제 사용한 도구만 남기고, CRM 푸시 A/B 테스트의 가설·실험군/대조군 설계·통계 검정 방법을 구체화하세요."
+    },
+    {
+      "id": "MH-6",
+      "grade": "STRONG_PARTIAL",
+      "evidence_quote": "마케팅팀 요청으로 CRM 푸시 A/B 테스트 결과 정리 (클릭률 +2.3%p, 전환율 +1.4%p)",
+      "source": "round_02_candidate.txt - 경력",
+      "gap_type": "expression_gap",
+      "action_hint": "클릭률·전환율 성과 이후 리텐션·재구매 등 후속 지표에 미친 영향과 본인이 현업에 제안한 KPI 개선 액션을 보강하세요."
+    },
+    {
+      "id": "MH-7",
+      "grade": "WEAK",
+      "evidence_quote": "BigQuery SQL과 Python(pandas)으로 주문·회원 KPI 주간 리포트 작성 / 보유 스킬: Spark, PyTorch, TensorFlow, Scikit-learn, Databricks, Git, LLM",
+      "source": "round_02_candidate.txt - 경력 및 보유 스킬",
+      "gap_type": "expression_gap",
+      "action_hint": "보유 스킬란에 Git만 나열되어 있어 프로젝트·협업 근거 없이는 WEAK(0.25) 상한을 넘길 수 없습니다. 실제로 Git 기반 쿼리/코드 버전 관리나 코드 리뷰를 수행했다면 구체적 협업 맥락을 경력에 추가하세요."
+    },
+    {
+      "id": "PI-1",
+      "grade": "WEAK",
+      "evidence_quote": "마케팅팀 요청으로 CRM 푸시 A/B 테스트 결과 정리 (클릭률 +2.3%p, 전환율 +1.4%p)",
+      "source": "round_02_candidate.txt - 경력",
+      "gap_type": "expression_gap",
+      "action_hint": "Round 1 대비 프로젝트 케이스 스터디 보강이 없습니다. 실제 수행한 CRM 푸시 A/B 테스트와 주문·회원 KPI 대시보드 과제를 '문제→접근→의사결정→결과' 구조로 확장하세요."
+    },
+    {
+      "id": "PI-2",
+      "grade": "PARTIAL",
+      "evidence_quote": "마케팅팀 요청으로 CRM 푸시 A/B 테스트 결과 정리 (클릭률 +2.3%p, 전환율 +1.4%p)",
+      "source": "round_02_candidate.txt - 경력",
+      "gap_type": "expression_gap",
+      "action_hint": "Round 1 대비 추가된 정량 근거가 없습니다. A/B 테스트의 실험 전/후 기준 수치, 발송 모수, 대시보드·리포트 운영의 정량적 개선 효과를 실제 확인 가능한 범위에서 보강하세요."
+    },
+    {
+      "id": "PI-3",
+      "grade": "WEAK",
+      "evidence_quote": "마케팅팀 요청으로 CRM 푸시 A/B 테스트 결과 정리",
+      "source": "round_02_candidate.txt - 경력",
+      "gap_type": "expression_gap",
+      "action_hint": "'요청으로 정리' 같은 수동적 서술이 그대로입니다. 실제 본인이 주도적으로 제안·검증한 가설과 의사결정 기여 범위를 구체화하세요."
+    },
+    {
+      "id": "PI-4",
+      "grade": "WEAK",
+      "evidence_quote": "Tableau 대시보드 운영",
+      "source": "round_02_candidate.txt - 경력",
+      "gap_type": "expression_gap",
+      "action_hint": "대시보드 설계 구조·분석 파이프라인·포트폴리오 문서 등 검증 가능한 실제 산출물 증빙이 아직 추가되지 않았습니다."
+    },
+    {
+      "id": "PR-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "실서비스 예측·추천·타겟팅 모형 적용 경험은 미보유 역량입니다. PyTorch 타겟팅 모델 배포를 허위로 창작할 수 없으므로 실제 보유 강점 보강에 집중하세요."
+    },
+    {
+      "id": "PR-2",
+      "grade": "PARTIAL",
+      "evidence_quote": "마케팅팀 요청으로 CRM 푸시 A/B 테스트 결과 정리 (클릭률 +2.3%p, 전환율 +1.4%p)",
+      "source": "round_02_candidate.txt - 경력",
+      "gap_type": "expression_gap",
+      "action_hint": "마케팅팀과 캠페인 타깃·메시지 가설을 함께 설계하고 실험 결과를 후속 캠페인에 반영한 실제 협업 과정을 보강하세요."
+    },
+    {
+      "id": "PR-3",
+      "grade": "WEAK",
+      "evidence_quote": "Tableau 대시보드 운영",
+      "source": "round_02_candidate.txt - 경력",
+      "gap_type": "transferable_gap",
+      "action_hint": "Tableau 대시보드가 현업 팀의 반복 데이터 요청을 줄이는 셀프서비스 용도로 활용된 실제 사례·지표가 있다면 연결하세요."
+    },
+    {
+      "id": "PR-4",
+      "grade": "WEAK",
+      "evidence_quote": "ChatGPT로 SQL 쿼리 초안 작성 보조 / 보유 스킬: Spark, PyTorch, TensorFlow, Scikit-learn, Databricks, Git, LLM",
+      "source": "round_02_candidate.txt - 경력 및 보유 스킬",
+      "gap_type": "expression_gap",
+      "action_hint": "스킬란에 LLM만 추가해서는 자율적 성과 창출 근거가 되지 않습니다. 실제 AI 도구를 활용해 업무 병목을 해결한 구체적 사례를 적으세요."
+    },
+    {
+      "id": "PR-5",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "금융·신용 데이터 경험이 없다면 창작하지 말고, 실제 수행한 회원·주문 데이터의 개인정보 보호·권한 관리 경험이 있을 때만 사실대로 간략히 기재하세요."
+    },
+    {
+      "id": "AF-1",
+      "grade": "WEAK",
+      "evidence_quote": "김태우 이력서 — 데이터 분석가",
+      "source": "round_02_candidate.txt - 헤더",
+      "gap_type": "expression_gap",
+      "action_hint": "상단 2~3줄 핵심 요약이 여전히 비어 있습니다. 실제 5년 7개월 커머스 데이터 분석·CRM A/B 테스트·KPI 대시보드 강점을 상단에 명확히 배치하세요."
+    },
+    {
+      "id": "AF-2",
+      "grade": "WEAK",
+      "evidence_quote": "보유 스킬: Spark, PyTorch, TensorFlow, Scikit-learn, Databricks, Git, LLM / 아직 해 보지 않은 것: / - Spark 분산 처리, PyTorch 및 Scikit-learn 머신러닝 모델 배포",
+      "source": "round_02_candidate.txt - 보유 스킬 및 하단",
+      "gap_type": "expression_gap",
+      "action_hint": "보유 스킬란에 미경험 기술(Spark, PyTorch, Scikit-learn 등)을 근거 없이 나열하면서 바로 아래 '아직 해 보지 않은 것' 항목과 정면 모순이 발생해 채용담당자 신뢰도와 기술 맥락 가독성이 Round 1 대비 오히려 하락했습니다. 미경험 키워드를 즉시 제거하고 실제 프로젝트 맥락과 일치하는 기술만 구조화하세요."
+    }
+  ]
+}

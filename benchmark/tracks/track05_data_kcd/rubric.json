@@ -1,0 +1,188 @@
+{
+  "company": "한국신용데이터 (KCD)",
+  "role_title": "[데이터분석팀] Data Analyst",
+  "language": "ko",
+  "domain_mode": "portfolio",
+  "pass_threshold": 80.0,
+  "ats_lexical_share": 0.5,
+  "category_weights": {
+    "must_have": 45,
+    "portfolio_impact": 25,
+    "preferred": 15,
+    "ats_framing": 15
+  },
+  "categories": {
+    "must_have": [
+      {
+        "id": "MH-1",
+        "title": "데이터 분석·모델링 실무 경력 5년 이상 및 현업 KPI 과제 정의·개선 주도",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-2",
+        "title": "SQL, Python, Spark 기반 분석용 데이터 마트 직접 설계·구축 경험",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-3",
+        "title": "머신러닝 모델 설계~배포(Scikit-learn, PyTorch, TensorFlow 등) 실무 경험",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-4",
+        "title": "통계적 가설 검정·A/B 테스트 설계·해석 및 마케팅/CRM 지표(CTR·전환율·리텐션) 이해",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "MH-5",
+        "title": "생성형 AI/LLM 활용 실무 자동화 및 Git·코드 리뷰 기반 재사용 코드 습관",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "portfolio_impact": [
+      {
+        "id": "PI-1",
+        "title": "현업 요청을 KPI 과제로 재정의해 실제 숫자를 움직인 분석·모형 케이스 스터디",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-2",
+        "title": "대시보드(Tableau/Databricks)·셀프서비스 자동화 및 전/후 정량 지표 개선 증빙",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-3",
+        "title": "재사용 가능한 분석 코드·데이터 마트 설계 오너십 명확성",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "preferred": [
+      {
+        "id": "PR-1",
+        "title": "예측·추천·타겟팅 모형 실서비스 적용 및 마케팅/CRM 캠페인 성과 개선 경험",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "PR-2",
+        "title": "타 팀이 직접 사용하는 셀프서비스 분석 도구 배포 경험",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "PR-3",
+        "title": "금융·신용·개인정보 등 보안 기준이 엄격한 데이터 처리 경험",
+        "weight": 1,
+        "is_knockout": false
+      }
+    ],
+    "ats_framing": [
+      {
+        "id": "AF-1",
+        "title": "타깃 포지션(모델링·데이터마트·AI 자동화 Data Analyst) 요약 정합성",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "AF-2",
+        "title": "핵심 KPI 임팩트 및 기술 스택 스캔 가독성",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ]
+  },
+  "keywords": [
+    {
+      "term": "SQL",
+      "aliases": [
+        "BigQuery",
+        "Snowflake"
+      ],
+      "tier": "must"
+    },
+    {
+      "term": "Python",
+      "aliases": [],
+      "tier": "must"
+    },
+    {
+      "term": "Spark",
+      "aliases": [
+        "PySpark"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "데이터 마트",
+      "aliases": [
+        "Data Mart",
+        "데이터마트"
+      ],
+      "tier": "must"
+    },
+    {
+      "term": "머신러닝",
+      "aliases": [
+        "Scikit-learn",
+        "PyTorch",
+        "TensorFlow"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-3"
+    },
+    {
+      "term": "A/B 테스트",
+      "aliases": [
+        "AB 테스트",
+        "가설 검정",
+        "통계"
+      ],
+      "tier": "must"
+    },
+    {
+      "term": "LLM",
+      "aliases": [
+        "생성형 AI",
+        "AI 에이전트",
+        "ChatGPT",
+        "Claude"
+      ],
+      "tier": "must"
+    },
+    {
+      "term": "Tableau",
+      "aliases": [
+        "Databricks",
+        "대시보드"
+      ],
+      "tier": "preferred"
+    },
+    {
+      "term": "CRM",
+      "aliases": [
+        "리텐션",
+        "전환율",
+        "클릭률"
+      ],
+      "tier": "preferred"
+    },
+    {
+      "term": "Git",
+      "aliases": [
+        "코드 리뷰"
+      ],
+      "tier": "preferred"
+    }
+  ],
+  "rubric_hash": "7c34eed0d0ab7794",
+  "locked_at": "2026-11-22T02:30:33+00:00"
+}

@@ -1,0 +1,45 @@
+Non-Commercial Source-Available License
+Copyright (c) 2026 devshin-91 (https://github.com/devshin-91)
+
+All rights reserved, subject to the limited non-commercial grant below.
+
+1. Permitted Non-Commercial Use
+   Permission is hereby granted, free of charge, to any person obtaining a copy
+   of this software, agent skill definitions, scoring scripts, documentation,
+   and synthetic benchmark files (collectively, the "Work"), to use, copy,
+   study, modify, and share the Work strictly for Non-Commercial Purposes —
+   including personal job-search preparation, private evaluation, academic
+   research, and non-profit educational use — provided that:
+   (a) This copyright notice, license text, and THIRD_PARTY_NOTICES.md are
+       retained in all copies or substantial portions of the Work; and
+   (b) Modified versions are clearly marked as changed from the original Work.
+
+2. Prohibited Commercial Use
+   You may NOT use, reproduce, distribute, host, sell, sublicense, or offer the
+   Work (or any derivative work thereof) for any Commercial Purpose without
+   prior express written permission from the copyright holder.
+   "Commercial Purpose" includes, without limitation:
+   - Offering the Work or its outputs as a paid product, SaaS, API, or
+     recruiting/career-coaching service;
+   - Integrating the Work into commercial HR, ATS, staffing, or enterprise
+     internal tooling;
+   - Monetizing the Work through subscriptions, consulting fees, advertising,
+     or paid training/courseware.
+
+3. Third-Party Materials
+   Third-party software specifications, optional external library interfaces,
+   and benchmark reference excerpts are governed by their respective owners'
+   terms as listed in THIRD_PARTY_NOTICES.md and are not sublicensed under this
+   agreement.
+
+4. No Warranty & Limitation of Liability
+   THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR HIRING OUTCOMES.
+   IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES, OR
+   OTHER LIABILITY ARISING FROM, OUT OF, OR IN CONNECTION WITH THE WORK OR ITS
+   USE.
+
+5. Commercial Licensing Inquiries
+   For commercial licensing requests, contact the repository owner via GitHub:
+   https://github.com/devshin-91

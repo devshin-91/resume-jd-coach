@@ -1,0 +1,122 @@
+{
+  "company": "Example Corp",
+  "role_title": "프로덕트 매니저 (Growth & Data)",
+  "language": "ko",
+  "domain_mode": "portfolio",
+  "pass_threshold": 80.0,
+  "ats_lexical_share": 0.5,
+  "category_weights": {
+    "must_have": 45,
+    "portfolio_impact": 25,
+    "preferred": 15,
+    "ats_framing": 15
+  },
+  "categories": {
+    "must_have": [
+      {
+        "id": "MH-1",
+        "title": "B2C 서비스 기획 및 제품 출시 E2E 주도 경험 (3년 이상)",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-2",
+        "title": "SQL 및 데이터 분석 기반 퍼널·리텐션 개선 역량",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-3",
+        "title": "A/B 테스트 가설 설계 및 실험 결과 의사결정 경험",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "MH-4",
+        "title": "개발·디자인 등 유관 부서 협업 및 우선순위 조율",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "portfolio_impact": [
+      {
+        "id": "PI-1",
+        "title": "핵심 프로젝트의 문제 정의→가설→실행→성과 케이스 스터디 증빙",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-2",
+        "title": "전/후 비교 가능한 정량 성과 지표(전환율·리텐션·매출 등) 제시",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-3",
+        "title": "팀 성과와 구분되는 본인 기여 범위 및 트레이드오프 의사결정 명시",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "preferred": [
+      {
+        "id": "PR-1",
+        "title": "구독/결제(Subscription/Monetization) 모델 최적화 경험",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "PR-2",
+        "title": "글로벌 시장 또는 영어 커뮤니케이션 실무 경험",
+        "weight": 1,
+        "is_knockout": false
+      }
+    ],
+    "ats_framing": [
+      {
+        "id": "AF-1",
+        "title": "상단 요약/헤드라인의 타깃 직무(Growth PM) 정합성",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "AF-2",
+        "title": "채용담당자 10초 스캔 가독성 및 핵심 성과 상단 배치",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ]
+  },
+  "keywords": [
+    {
+      "term": "SQL",
+      "aliases": ["BigQuery", "PostgreSQL", "MySQL"],
+      "tier": "must"
+    },
+    {
+      "term": "A/B 테스트",
+      "aliases": ["AB 테스트", "A/B Testing", "AB Testing"],
+      "tier": "must"
+    },
+    {
+      "term": "퍼널",
+      "aliases": ["Funnel", "전환율", "Conversion"],
+      "tier": "must"
+    },
+    {
+      "term": "리텐션",
+      "aliases": ["Retention", "재방문율"],
+      "tier": "must"
+    },
+    {
+      "term": "구독",
+      "aliases": ["Subscription", "결제", "Monetization"],
+      "tier": "preferred"
+    },
+    {
+      "term": "GA4",
+      "aliases": ["Google Analytics", "Amplitude", "Mixpanel"],
+      "tier": "preferred"
+    }
+  ]
+}

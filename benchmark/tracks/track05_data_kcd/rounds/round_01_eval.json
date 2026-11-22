@@ -1,0 +1,109 @@
+{
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "STRONG_PARTIAL",
+      "evidence_quote": "리테일인사이트 (2021.05 ~ 현재, 데이터 분석가 / 5년 5개월) ... KPI 리포팅",
+      "source": "r1_resume.md",
+      "gap_type": "expression_gap",
+      "action_hint": "단순 리포팅이 아니라 현업 요청을 KPI 과제로 재정의해 숫자를 움직인 주도 사례를 제시하세요."
+    },
+    {
+      "id": "MH-2",
+      "grade": "WEAK",
+      "evidence_quote": "SQL(BigQuery), Python(pandas)을 활용한 커머스 KPI 리포팅",
+      "source": "r1_resume.md",
+      "gap_type": "transferable_gap",
+      "action_hint": "BigQuery SQL 데이터 마트 직접 설계 경험이 있다면 구체화하되, Spark 미경험은 정직하게 구분하세요."
+    },
+    {
+      "id": "MH-3",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "[KNOCKOUT · TRUE GAP] 머신러닝 모델 설계~배포(Scikit-learn/PyTorch/TensorFlow) 실무 경험이 없습니다. 절대 허위 기입하지 마세요."
+    },
+    {
+      "id": "MH-4",
+      "grade": "STRONG_PARTIAL",
+      "evidence_quote": "마케팅 CRM 캠페인 A/B 테스트 효과 검증(전환율 +1.8%p, 리텐션 +3.1%p)",
+      "source": "r1_resume.md",
+      "gap_type": "expression_gap",
+      "action_hint": "통계적 가설 검정 방법론과 표본 규모를 보강하세요."
+    },
+    {
+      "id": "MH-5",
+      "grade": "PARTIAL",
+      "evidence_quote": "ChatGPT·Python 스크립트로 주간 리포트 자동화 / Git을 통한 쿼리 버전 관리",
+      "source": "r1_resume.md",
+      "gap_type": "expression_gap",
+      "action_hint": "LLM 업무 자동화 효과 수치와 코드 리뷰·재사용 구조 습관을 구체화하세요."
+    },
+    {
+      "id": "PI-1",
+      "grade": "PARTIAL",
+      "evidence_quote": "마케팅 CRM 캠페인 A/B 테스트 효과 검증(전환율 +1.8%p)",
+      "source": "r1_resume.md",
+      "gap_type": "expression_gap",
+      "action_hint": "문제 정의→분석→액션→성과 흐름의 케이스 스터디가 부족합니다."
+    },
+    {
+      "id": "PI-2",
+      "grade": "PARTIAL",
+      "evidence_quote": "Tableau 대시보드 구축 ... 주간 리포트 자동화",
+      "source": "r1_resume.md",
+      "gap_type": "expression_gap",
+      "action_hint": "자동화·대시보드 도입 전/후 현업 업무 효율 변화 수치를 추가하세요."
+    },
+    {
+      "id": "PI-3",
+      "grade": "WEAK",
+      "evidence_quote": "Git을 통한 쿼리 버전 관리",
+      "source": "r1_resume.md",
+      "gap_type": "expression_gap",
+      "action_hint": "데이터 마트 설계 범위와 코드 재사용 오너십을 구체화하세요."
+    },
+    {
+      "id": "PR-1",
+      "grade": "PARTIAL",
+      "evidence_quote": "마케팅 CRM 캠페인 A/B 테스트 효과 검증",
+      "source": "r1_resume.md",
+      "gap_type": "transferable_gap",
+      "action_hint": "CRM 성과 개선은 해당하나 예측/추천 모형 적용은 미보유(true_gap)임을 인지하세요."
+    },
+    {
+      "id": "PR-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "expression_gap",
+      "action_hint": "타 팀이 직접 쓰는 셀프서비스 분석 도구 배포 경험이 있다면 추가하세요."
+    },
+    {
+      "id": "PR-3",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "expression_gap",
+      "action_hint": "결제·개인정보 등 민감 데이터 가명처리·보안 준수 경험이 있다면 명시하세요."
+    },
+    {
+      "id": "AF-1",
+      "grade": "PARTIAL",
+      "evidence_quote": "정민호 이력서 — 데이터 분석가 (5년차)",
+      "source": "r1_resume.md",
+      "gap_type": "expression_gap",
+      "action_hint": "KCD 분석팀 핵심 가치(KPI 재정의·데이터 마트·AI 셀프서비스)에 맞춰 요약을 보강하세요."
+    },
+    {
+      "id": "AF-2",
+      "grade": "PARTIAL",
+      "evidence_quote": "리테일인사이트 (2021.05 ~ 현재, 데이터 분석가 / 5년 5개월)",
+      "source": "r1_resume.md",
+      "gap_type": "expression_gap",
+      "action_hint": "핵심 성과와 기술 스택 구조를 눈에 띄게 정리하세요."
+    }
+  ],
+  "round": 1
+}

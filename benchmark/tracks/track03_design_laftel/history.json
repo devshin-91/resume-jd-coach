@@ -1,0 +1,460 @@
+{
+  "session": {
+    "company": "라프텔 (Laftel)",
+    "role_title": "프로덕트 디자이너 (3년 이상)",
+    "language": "ko",
+    "domain_mode": "portfolio",
+    "rubric_hash": "7e66b0675f4bafc3"
+  },
+  "rubric_hash": "7e66b0675f4bafc3",
+  "pass_threshold": 80.0,
+  "rounds": [
+    {
+      "round": 1,
+      "evaluated_at": "2026-11-22T02:30:13+00:00",
+      "total_score": 19.2,
+      "total_score_2dp": 19.21,
+      "total_score_exact": "19.2098",
+      "pass_status": "REVISE",
+      "grace_tier_used": null,
+      "categories": {
+        "must_have": {
+          "label": "필수 자격 & 핵심 직무",
+          "label_ko": "필수 자격 & 핵심 직무",
+          "active": true,
+          "effective_weight": 40.0,
+          "attainment_pct": 18.8,
+          "earned_points": 7.5,
+          "max_points": 40.0,
+          "item_count": 5,
+          "delta_points_pp": null
+        },
+        "portfolio_impact": {
+          "label": "포트폴리오 증빙 & 성과",
+          "label_ko": "포트폴리오 증빙 & 성과",
+          "active": true,
+          "effective_weight": 35.0,
+          "attainment_pct": 9.4,
+          "earned_points": 3.28,
+          "max_points": 35.0,
+          "item_count": 3,
+          "delta_points_pp": null
+        },
+        "preferred": {
+          "label": "우대 사항",
+          "label_ko": "우대 사항",
+          "active": true,
+          "effective_weight": 10.0,
+          "attainment_pct": 20.0,
+          "earned_points": 2.0,
+          "max_points": 10.0,
+          "item_count": 3,
+          "delta_points_pp": null
+        },
+        "ats_framing": {
+          "label": "JD 키워드 & 포지셔닝",
+          "label_ko": "JD 키워드 & 포지셔닝",
+          "active": true,
+          "effective_weight": 15.0,
+          "attainment_pct": 42.9,
+          "earned_points": 6.43,
+          "max_points": 15.0,
+          "item_count": 2,
+          "delta_points_pp": null
+        }
+      },
+      "items": [
+        {
+          "id": "MH-1",
+          "grade": "PARTIAL",
+          "earned_points_pp": 5.0,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "MH-2",
+          "grade": "WEAK",
+          "earned_points_pp": 2.5,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "MH-3",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "MH-4",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "MH-5",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PI-1",
+          "grade": "WEAK",
+          "earned_points_pp": 3.28,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PI-2",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PI-3",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PR-1",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PR-2",
+          "grade": "PARTIAL",
+          "earned_points_pp": 2.0,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PR-3",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "AF-1",
+          "grade": "PARTIAL",
+          "earned_points_pp": 1.88,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "AF-2",
+          "grade": "PARTIAL",
+          "earned_points_pp": 1.88,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        }
+      ],
+      "grace_recommended": false
+    },
+    {
+      "round": 2,
+      "evaluated_at": "2026-11-22T02:30:15+00:00",
+      "total_score": 29.1,
+      "total_score_2dp": 29.09,
+      "total_score_exact": "29.0938",
+      "pass_status": "REVISE",
+      "grace_tier_used": null,
+      "categories": {
+        "must_have": {
+          "label": "필수 자격 & 핵심 직무",
+          "label_ko": "필수 자격 & 핵심 직무",
+          "active": true,
+          "effective_weight": 40.0,
+          "attainment_pct": 31.3,
+          "earned_points": 12.5,
+          "max_points": 40.0,
+          "item_count": 5,
+          "delta_points_pp": 5.0
+        },
+        "portfolio_impact": {
+          "label": "포트폴리오 증빙 & 성과",
+          "label_ko": "포트폴리오 증빙 & 성과",
+          "active": true,
+          "effective_weight": 35.0,
+          "attainment_pct": 9.4,
+          "earned_points": 3.28,
+          "max_points": 35.0,
+          "item_count": 3,
+          "delta_points_pp": 0.0
+        },
+        "preferred": {
+          "label": "우대 사항",
+          "label_ko": "우대 사항",
+          "active": true,
+          "effective_weight": 10.0,
+          "attainment_pct": 30.0,
+          "earned_points": 3.0,
+          "max_points": 10.0,
+          "item_count": 3,
+          "delta_points_pp": 1.0
+        },
+        "ats_framing": {
+          "label": "JD 키워드 & 포지셔닝",
+          "label_ko": "JD 키워드 & 포지셔닝",
+          "active": true,
+          "effective_weight": 15.0,
+          "attainment_pct": 68.8,
+          "earned_points": 10.31,
+          "max_points": 15.0,
+          "item_count": 2,
+          "delta_points_pp": 3.9
+        }
+      },
+      "items": [
+        {
+          "id": "MH-1",
+          "grade": "PARTIAL",
+          "earned_points_pp": 5.0,
+          "gap_type": "expression_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "MH-2",
+          "grade": "WEAK",
+          "earned_points_pp": 2.5,
+          "gap_type": "expression_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "MH-3",
+          "grade": "WEAK",
+          "earned_points_pp": 1.67,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "MH-4",
+          "grade": "WEAK",
+          "earned_points_pp": 1.67,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "MH-5",
+          "grade": "WEAK",
+          "earned_points_pp": 1.67,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PI-1",
+          "grade": "WEAK",
+          "earned_points_pp": 3.28,
+          "gap_type": "expression_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "PI-2",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "expression_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "PI-3",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "expression_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "PR-1",
+          "grade": "WEAK",
+          "earned_points_pp": 1.0,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PR-2",
+          "grade": "PARTIAL",
+          "earned_points_pp": 2.0,
+          "gap_type": "expression_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "PR-3",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "AF-1",
+          "grade": "PARTIAL",
+          "earned_points_pp": 1.88,
+          "gap_type": "expression_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "AF-2",
+          "grade": "WEAK",
+          "earned_points_pp": 0.94,
+          "gap_type": "expression_gap",
+          "stalled_streak": 2
+        }
+      ],
+      "grace_recommended": true
+    },
+    {
+      "round": 3,
+      "evaluated_at": "2026-11-22T02:30:16+00:00",
+      "total_score": 99.0,
+      "total_score_2dp": 99.0,
+      "total_score_exact": "99.0000",
+      "pass_status": "PASS",
+      "grace_tier_used": null,
+      "categories": {
+        "must_have": {
+          "label": "필수 자격 & 핵심 직무",
+          "label_ko": "필수 자격 & 핵심 직무",
+          "active": true,
+          "effective_weight": 40.0,
+          "attainment_pct": 100.0,
+          "earned_points": 40.0,
+          "max_points": 40.0,
+          "item_count": 5,
+          "delta_points_pp": 27.5
+        },
+        "portfolio_impact": {
+          "label": "포트폴리오 증빙 & 성과",
+          "label_ko": "포트폴리오 증빙 & 성과",
+          "active": true,
+          "effective_weight": 35.0,
+          "attainment_pct": 100.0,
+          "earned_points": 35.0,
+          "max_points": 35.0,
+          "item_count": 3,
+          "delta_points_pp": 31.7
+        },
+        "preferred": {
+          "label": "우대 사항",
+          "label_ko": "우대 사항",
+          "active": true,
+          "effective_weight": 10.0,
+          "attainment_pct": 90.0,
+          "earned_points": 9.0,
+          "max_points": 10.0,
+          "item_count": 3,
+          "delta_points_pp": 6.0
+        },
+        "ats_framing": {
+          "label": "JD 키워드 & 포지셔닝",
+          "label_ko": "JD 키워드 & 포지셔닝",
+          "active": true,
+          "effective_weight": 15.0,
+          "attainment_pct": 100.0,
+          "earned_points": 15.0,
+          "max_points": 15.0,
+          "item_count": 2,
+          "delta_points_pp": 4.7
+        }
+      },
+      "items": [
+        {
+          "id": "MH-1",
+          "grade": "FULL",
+          "earned_points_pp": 10.0,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "MH-2",
+          "grade": "FULL",
+          "earned_points_pp": 10.0,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "MH-3",
+          "grade": "FULL",
+          "earned_points_pp": 6.67,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "MH-4",
+          "grade": "FULL",
+          "earned_points_pp": 6.67,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "MH-5",
+          "grade": "FULL",
+          "earned_points_pp": 6.67,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "PI-1",
+          "grade": "FULL",
+          "earned_points_pp": 13.13,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "PI-2",
+          "grade": "FULL",
+          "earned_points_pp": 13.13,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "PI-3",
+          "grade": "FULL",
+          "earned_points_pp": 8.75,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "PR-1",
+          "grade": "FULL",
+          "earned_points_pp": 4.0,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "PR-2",
+          "grade": "FULL",
+          "earned_points_pp": 4.0,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "PR-3",
+          "grade": "PARTIAL",
+          "earned_points_pp": 1.0,
+          "gap_type": "transferable_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "AF-1",
+          "grade": "FULL",
+          "earned_points_pp": 3.75,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "AF-2",
+          "grade": "FULL",
+          "earned_points_pp": 3.75,
+          "gap_type": null,
+          "stalled_streak": 0
+        }
+      ],
+      "grace_recommended": false
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "company": "크림 (KREAM)",
+  "role_title": "플랫폼 브랜드 마케터",
+  "language": "ko",
+  "domain_mode": "portfolio",
+  "pass_threshold": 80.0,
+  "ats_lexical_share": 0.5,
+  "category_weights": {
+    "must_have": 45,
+    "portfolio_impact": 25,
+    "preferred": 15,
+    "ats_framing": 15
+  },
+  "categories": {
+    "must_have": [
+      {
+        "id": "MH-1",
+        "title": "브랜딩·온오프라인 프로모션·제휴 마케팅 실무 경력 (5년 내외) 및 독립 리딩",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-2",
+        "title": "캠페인 외부 홍보 및 오프라인 행사(팝업 등) 운영을 위한 에이전시 커뮤니케이션 경험",
+        "weight": 2,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-3",
+        "title": "매출·트래픽 유입·회원가입 등 핵심 서비스 지표 기반 캠페인 기획 및 성과 분석",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "MH-4",
+        "title": "MD·PR·디지털마케팅 등 유관부서 및 외부 파트너/제휴사 이해관계자 조율 역량",
+        "weight": 3,
+        "is_knockout": false
+      }
+    ],
+    "portfolio_impact": [
+      {
+        "id": "PI-1",
+        "title": "캠페인·콜라보레이션 기획→실행→성과분석→차기 개선 포트폴리오 케이스 스터디",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-2",
+        "title": "매출·유입·신규가입·전환율·ROAS 등 전/후 비교 정량 성과 지표",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-3",
+        "title": "본인 주도 범위(파트너 발굴·구조 설계·총괄 리딩) 명확성",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "preferred": [
+      {
+        "id": "PR-1",
+        "title": "패션·리테일·이커머스 플랫폼 마케팅 및 브랜드/IP 제휴·라이선싱 경험",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "PR-2",
+        "title": "O4O 마케팅, 콘텐츠·바이럴 캠페인 기획 또는 PR 대응 실무 경험",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "PR-3",
+        "title": "데이터 분석 툴(Redash, SQL 등) 활용 역량 또는 영어 커뮤니케이션",
+        "weight": 1,
+        "is_knockout": false
+      }
+    ],
+    "ats_framing": [
+      {
+        "id": "AF-1",
+        "title": "타깃 포지션(플랫폼 브랜드·제휴 마케터) 헤더·요약 정합성",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "AF-2",
+        "title": "10초 스캔 가독성 및 대표 캠페인 성과 상단 배치",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ]
+  },
+  "keywords": [
+    {
+      "term": "브랜드 마케팅",
+      "aliases": [
+        "브랜딩",
+        "브랜드 마케터"
+      ],
+      "tier": "must"
+    },
+    {
+      "term": "프로모션",
+      "aliases": [
+        "캠페인",
+        "기획전"
+      ],
+      "tier": "must"
+    },
+    {
+      "term": "제휴",
+      "aliases": [
+        "콜라보레이션",
+        "파트너십"
+      ],
+      "tier": "must"
+    },
+    {
+      "term": "에이전시",
+      "aliases": [
+        "대행사"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "매출",
+      "aliases": [
+        "트래픽",
+        "회원가입",
+        "전환율"
+      ],
+      "tier": "must"
+    },
+    {
+      "term": "O4O",
+      "aliases": [
+        "온오프라인",
+        "팝업"
+      ],
+      "tier": "preferred"
+    },
+    {
+      "term": "패션",
+      "aliases": [
+        "리테일",
+        "이커머스",
+        "커머스"
+      ],
+      "tier": "preferred"
+    },
+    {
+      "term": "IP",
+      "aliases": [
+        "라이선싱",
+        "바이럴",
+        "PR"
+      ],
+      "tier": "preferred"
+    },
+    {
+      "term": "SQL",
+      "aliases": [
+        "Redash",
+        "GA4"
+      ],
+      "tier": "preferred"
+    }
+  ],
+  "rubric_hash": "002d16b5304d8a00",
+  "locked_at": "2026-11-22T02:30:16+00:00"
+}

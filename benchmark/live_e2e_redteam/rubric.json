@@ -1,0 +1,292 @@
+{
+  "company": "한국신용데이터(KCD)",
+  "role_title": "[데이터분석팀] Data Analyst (경력 5-10년)",
+  "language": "ko",
+  "domain_mode": "portfolio",
+  "pass_threshold": 80.0,
+  "ats_lexical_share": 0.5,
+  "category_weights": {
+    "must_have": 45,
+    "portfolio_impact": 25,
+    "preferred": 15,
+    "ats_framing": 15
+  },
+  "categories": {
+    "must_have": [
+      {
+        "id": "MH-1",
+        "title": "데이터 분석·모델링 실무 경력 5년 이상",
+        "weight": 2,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-2",
+        "title": "SQL·Python·Spark 기반 분석용 데이터 마트 설계·구축 경험",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-3",
+        "title": "머신러닝 모델 설계부터 실서비스 배포 경험 (Scikit-learn, PyTorch, TensorFlow 등)",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-4",
+        "title": "생성형 AI·LLM 실무 활용 및 반복 분석·추출 업무 자동화 역량",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "MH-5",
+        "title": "통계적 가설 검정·A/B 테스트 설계/해석 및 KPI 대시보드 모니터링 (Databricks, Tableau)",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "MH-6",
+        "title": "마케팅·CRM 성과 지표(클릭률, 전환율, 리텐션 등) 이해 및 현업 KPI 개선",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "MH-7",
+        "title": "Git·코드 리뷰 기반 재사용 가능한 코드 작성 및 현업 협업·KPI 책임",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "portfolio_impact": [
+      {
+        "id": "PI-1",
+        "title": "핵심 데이터 프로젝트의 문제 정의→분석·모델링 접근→결과 케이스 스터디 증빙",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-2",
+        "title": "전/후 비교 가능한 비즈니스·모델 정량 성과 지표 및 데이터 규모 제시",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-3",
+        "title": "현업 과제 정의부터 지표 개선까지 본인 주도 기여 범위 및 의사결정 근거 명시",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-4",
+        "title": "재사용 가능한 코드·대시보드·파이프라인 등 구체적 포트폴리오 산출물 증빙",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "preferred": [
+      {
+        "id": "PR-1",
+        "title": "예측·추천·타겟팅 모형을 실서비스에 적용해 비즈니스 성과를 낸 경험",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "PR-2",
+        "title": "마케팅·CRM 캠페인 성과를 현업과 함께 개선한 경험",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "PR-3",
+        "title": "자동화 스크립트를 넘어 타 팀이 직접 쓰는 셀프서비스 도구로 배포한 경험",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "PR-4",
+        "title": "AI 리터러시 기반 자율적 문제 해결 및 성과 창출 경험",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "PR-5",
+        "title": "금융·신용 데이터 등 보안·개인정보 기준이 엄격한 데이터 처리 경험",
+        "weight": 1,
+        "is_knockout": false
+      }
+    ],
+    "ats_framing": [
+      {
+        "id": "AF-1",
+        "title": "상단 요약·헤드라인의 타깃 직무(5년+ 데이터 분석·모델링·AI 활용) 포지셔닝 정합성",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "AF-2",
+        "title": "채용담당자 10초 스캔 가독성 및 핵심 성과·기술 맥락 구조화",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ]
+  },
+  "keywords": [
+    {
+      "term": "SQL",
+      "aliases": [
+        "BigQuery",
+        "PostgreSQL",
+        "MySQL"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "Python",
+      "aliases": [
+        "pandas",
+        "파이썬"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "Spark",
+      "aliases": [
+        "PySpark",
+        "Apache Spark"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "데이터 마트",
+      "aliases": [
+        "Data Mart",
+        "데이터마트"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "머신러닝",
+      "aliases": [
+        "Machine Learning",
+        "ML"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-3"
+    },
+    {
+      "term": "PyTorch",
+      "aliases": [
+        "TensorFlow"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-3"
+    },
+    {
+      "term": "Scikit-learn",
+      "aliases": [
+        "sklearn",
+        "사이킷런"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-3"
+    },
+    {
+      "term": "LLM",
+      "aliases": [
+        "생성형 AI",
+        "Generative AI"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-4"
+    },
+    {
+      "term": "A/B 테스트",
+      "aliases": [
+        "AB 테스트",
+        "A/B Testing",
+        "가설 검정"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-5"
+    },
+    {
+      "term": "Tableau",
+      "aliases": [
+        "태블로"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-5"
+    },
+    {
+      "term": "Databricks",
+      "aliases": [
+        "데이터브릭스"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-5"
+    },
+    {
+      "term": "CRM",
+      "aliases": [
+        "클릭률",
+        "전환율",
+        "리텐션"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-6"
+    },
+    {
+      "term": "KPI",
+      "aliases": [
+        "핵심성과지표"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-6"
+    },
+    {
+      "term": "Git",
+      "aliases": [
+        "GitHub",
+        "GitLab",
+        "코드 리뷰"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-7"
+    },
+    {
+      "term": "타겟팅",
+      "aliases": [
+        "Targeting",
+        "추천 모형",
+        "예측 모형",
+        "이상탐지"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-1"
+    },
+    {
+      "term": "셀프서비스",
+      "aliases": [
+        "Self-service",
+        "Self Service"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-3"
+    },
+    {
+      "term": "금융 데이터",
+      "aliases": [
+        "신용 데이터",
+        "개인정보 보호",
+        "데이터 보안"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-5"
+    }
+  ],
+  "rubric_hash": "1864ea17d4d4a7c2",
+  "locked_at": "2026-11-22T02:11:48+00:00"
+}

@@ -1,0 +1,109 @@
+{
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "STRONG_PARTIAL",
+      "evidence_quote": "커머스플로우 (2024.06 ~ 현재, 주니어 PM / 2년 5개월) ... 기능 기획 및 운영",
+      "source": "r1_resume_portfolio.md",
+      "gap_type": "expression_gap",
+      "action_hint": "배포 전 검수~배포 후 지표 모니터링까지의 E2E 사이클을 구체화하세요."
+    },
+    {
+      "id": "MH-2",
+      "grade": "WEAK",
+      "evidence_quote": "기획서 작성 후 출시",
+      "source": "r1_resume_portfolio.md",
+      "gap_type": "expression_gap",
+      "action_hint": "기능 정책, 화면 흐름, 예외 케이스를 어떻게 구조화하고 문서화했는지 실제 사례가 없습니다."
+    },
+    {
+      "id": "MH-3",
+      "grade": "PARTIAL",
+      "evidence_quote": "고객 문의(VOC) 확인 및 화면 개선 업무 수행",
+      "source": "r1_resume_portfolio.md",
+      "gap_type": "expression_gap",
+      "action_hint": "VOC를 데이터와 연결해 문제를 정의하고 소규모 실험으로 검증한 과정을 명시하세요."
+    },
+    {
+      "id": "MH-4",
+      "grade": "PARTIAL",
+      "evidence_quote": "ChatGPT로 기획 초안 작성 보조",
+      "source": "r1_resume_portfolio.md",
+      "gap_type": "expression_gap",
+      "action_hint": "단순 초안 보조를 넘어 AI 결과물의 정확성·적합성을 스스로 검증해 업무 효율을 높인 사례를 제시하세요."
+    },
+    {
+      "id": "MH-5",
+      "grade": "PARTIAL",
+      "evidence_quote": "개발팀·디자인팀과 협업하여 정기 배포 진행",
+      "source": "r1_resume_portfolio.md",
+      "gap_type": "expression_gap",
+      "action_hint": "의견 충돌 시 데이터·근거로 조율해 합의를 이끌어낸 구체 사례를 보강하세요."
+    },
+    {
+      "id": "PI-1",
+      "grade": "WEAK",
+      "evidence_quote": "장바구니 리마인드 메시지 기능 리뉴얼: 기획서 작성 후 출시하여 고객 만족도가 높아짐.",
+      "source": "r1_resume_portfolio.md",
+      "gap_type": "expression_gap",
+      "action_hint": "요구사항→정책/예외케이스→출시→개선 흐름의 케이스 스터디가 누락되어 있습니다."
+    },
+    {
+      "id": "PI-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "expression_gap",
+      "action_hint": "'고객 만족도가 높아짐'을 전/후 비교 가능한 정량 지표(CS 건수, 클릭률 등)로 바꾸세요."
+    },
+    {
+      "id": "PI-3",
+      "grade": "WEAK",
+      "evidence_quote": "기획서 작성 후 출시",
+      "source": "r1_resume_portfolio.md",
+      "gap_type": "expression_gap",
+      "action_hint": "본인 주도 범위와 실행 과정에서의 실패·학습 회고를 추가하세요."
+    },
+    {
+      "id": "PR-1",
+      "grade": "STRONG_PARTIAL",
+      "evidence_quote": "이커머스 셀러용 쿠폰·메시지 발송 기능 기획",
+      "source": "r1_resume_portfolio.md",
+      "gap_type": "expression_gap",
+      "action_hint": "SaaS/CRM 마케팅 자동화 도메인 맥락을 명확히 드러내세요."
+    },
+    {
+      "id": "PR-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "expression_gap",
+      "action_hint": "SQL, GA4 등 직접 데이터 분석이나 API/데이터 흐름 이해 경험이 있다면 제시하세요."
+    },
+    {
+      "id": "PR-3",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "코딩 에이전트 프로토타이핑이나 영어/일본어 리서치 경험이 없다면 창작하지 말고 핵심 역량으로 점수를 확보하세요."
+    },
+    {
+      "id": "AF-1",
+      "grade": "PARTIAL",
+      "evidence_quote": "박서연 이력서 — 서비스 기획자",
+      "source": "r1_resume_portfolio.md",
+      "gap_type": "expression_gap",
+      "action_hint": "상단 헤드라인과 요약을 데이터라이즈 CRM/SaaS Junior PM에 맞춰 정렬하세요."
+    },
+    {
+      "id": "AF-2",
+      "grade": "PARTIAL",
+      "evidence_quote": "포트폴리오 요약 / 장바구니 리마인드 메시지 기능 리뉴얼",
+      "source": "r1_resume_portfolio.md",
+      "gap_type": "expression_gap",
+      "action_hint": "핵심 성과와 대표 케이스 스터디가 10초 안에 보이도록 구조화하세요."
+    }
+  ],
+  "round": 1
+}

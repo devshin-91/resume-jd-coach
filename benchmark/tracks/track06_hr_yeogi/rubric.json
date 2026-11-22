@@ -1,0 +1,154 @@
+{
+  "company": "여기어때컴퍼니",
+  "role_title": "HR Manager (신입)",
+  "language": "ko",
+  "domain_mode": "resume_only",
+  "pass_threshold": 80.0,
+  "ats_lexical_share": 0.5,
+  "category_weights": {
+    "must_have": 40,
+    "portfolio_impact": 30,
+    "preferred": 10,
+    "ats_framing": 20
+  },
+  "categories": {
+    "must_have": [
+      {
+        "id": "MH-1",
+        "title": "4년제 대학 졸업(2027.02 예정 포함) 기본 학력 요건",
+        "weight": 2,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-2",
+        "title": "숫자·데이터 정합성 검증 및 작은 오류를 놓치지 않는 꼼꼼함 증빙",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "MH-3",
+        "title": "Excel 주요 함수(VLOOKUP·XLOOKUP·SUMIFS·피벗 등) 활용 데이터 정리·관리 역량",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-4",
+        "title": "개인정보 및 민감정보(인사·급여 서류 등) 보안·책임 관리 경험 또는 준수 태도",
+        "weight": 2,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-5",
+        "title": "임직원 및 유관부서와의 원활한 커뮤니케이션·민원/문의 응대 역량",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "portfolio_impact": [
+      {
+        "id": "PI-1",
+        "title": "인턴·아르바이트·학회 등에서의 실무 정산·데이터 관리·오류 검증 구체 사례",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-2",
+        "title": "오류율 감소·처리 시간 단축·정확도 달성 등 측정 가능한 업무 성과 지표",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-3",
+        "title": "급여·4대보험·인사운영 직무에 대한 본인 주도 학습·실습 증빙",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "preferred": [
+      {
+        "id": "PR-1",
+        "title": "근로기준법·소득세법 등 급여·4대보험 관련 법령 기본 이해 (자격/수강/실습)",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "PR-2",
+        "title": "급여·인사 시스템(더존·플렉스·SAP 등) 사용 경험 또는 HR 인턴 경험",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "ats_framing": [
+      {
+        "id": "AF-1",
+        "title": "타깃 포지션(급여·인사운영 신입 HR Manager) 지원 동기 및 상단 요약 일치",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "AF-2",
+        "title": "신입 이력서 10초 스캔 가독성 및 직무 유관 경험 상단 배치",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ]
+  },
+  "keywords": [
+    {
+      "term": "급여",
+      "aliases": [
+        "Payroll",
+        "연말정산",
+        "원천세"
+      ],
+      "tier": "must"
+    },
+    {
+      "term": "4대보험",
+      "aliases": [
+        "퇴직연금",
+        "취득·상실"
+      ],
+      "tier": "must"
+    },
+    {
+      "term": "Excel",
+      "aliases": [
+        "엑셀",
+        "VLOOKUP",
+        "XLOOKUP",
+        "피벗테이블"
+      ],
+      "tier": "must"
+    },
+    {
+      "term": "개인정보",
+      "aliases": [
+        "민감정보",
+        "인사정보"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-4"
+    },
+    {
+      "term": "근로기준법",
+      "aliases": [
+        "소득세법",
+        "노동법"
+      ],
+      "tier": "preferred"
+    },
+    {
+      "term": "HR",
+      "aliases": [
+        "인사운영",
+        "인사시스템",
+        "더존",
+        "flex"
+      ],
+      "tier": "preferred"
+    }
+  ],
+  "rubric_hash": "66d89ab6788fc0d8",
+  "locked_at": "2026-11-22T02:30:38+00:00"
+}

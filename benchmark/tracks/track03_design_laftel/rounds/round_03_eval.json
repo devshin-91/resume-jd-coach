@@ -1,0 +1,85 @@
+{
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "FULL",
+      "evidence_quote": "4년간 문제 정의→IA/유저플로우→Figma 디자인시스템 구축→출시 후 A/B 테스트 검증까지 End-to-End로 완주",
+      "source": "r3_resume.md"
+    },
+    {
+      "id": "MH-2",
+      "grade": "FULL",
+      "evidence_quote": "Figma 컴포넌트 68종 토큰화·개발팀 Storybook 공동 운영, 디자인 검수 체크리스트 / 결제·품절·예약구매 엣지케이스 포함 핸드오프 스토리보드",
+      "source": "r3_resume.md / r3_portfolio.pptx"
+    },
+    {
+      "id": "MH-3",
+      "grade": "FULL",
+      "evidence_quote": "Claude로 유저 인터뷰 녹취 구조화·UX 라이팅 초안 생성, Cursor+React로 인터랙티브 프로토타입을 직접 제작해 스쿼드 의사결정 기간 5일→1.5일 단축",
+      "source": "r3_resume.md"
+    },
+    {
+      "id": "MH-4",
+      "grade": "FULL",
+      "evidence_quote": "PM·프론트/백엔드 개발자·QA와 스쿼드 협업 / 데이터 분석가와 A/B 테스트 수행",
+      "source": "r3_resume.md"
+    },
+    {
+      "id": "MH-5",
+      "grade": "FULL",
+      "evidence_quote": "사용자 인터뷰 12명·사용성 테스트로 탐색 이탈 원인을 규명하고 IA/유저플로우 재설계, 데이터 분석가와 A/B 테스트 수행",
+      "source": "r3_resume.md"
+    },
+    {
+      "id": "PI-1",
+      "grade": "FULL",
+      "evidence_quote": "문제 정의: 신규 구독자 41%가 홈 진입 후 60초 내 이탈 / 해결: IA 재구조화, 엣지케이스(무료/유료/오프라인) 스토리보드, A/B 테스트",
+      "source": "r3_portfolio.pptx"
+    },
+    {
+      "id": "PI-2",
+      "grade": "FULL",
+      "evidence_quote": "성과: 첫 재생 전환율 28.4%→36.1%(+7.7%p), D7 리텐션 +4.2%p / 성과: 런칭 첫 분기 월 거래액 4.2억, 핸드오프 QA 리드타임 -42%",
+      "source": "r3_portfolio.pptx"
+    },
+    {
+      "id": "PI-3",
+      "grade": "FULL",
+      "evidence_quote": "스쿼드 기여도 100% / Figma 컴포넌트 68종 토큰화·개발팀 Storybook 공동 운영, 디자인 검수 체크리스트",
+      "source": "r3_resume.md / r3_portfolio.pptx"
+    },
+    {
+      "id": "PR-1",
+      "grade": "FULL",
+      "evidence_quote": "Figma 디자인시스템 구축 및 개발팀 공동 운영 / AI 네이티브 워크플로 도입",
+      "source": "r3_resume.md"
+    },
+    {
+      "id": "PR-2",
+      "grade": "FULL",
+      "evidence_quote": "팬덤 굿즈 커머스 0→1 런칭 / UX 라이팅 초안 생성",
+      "source": "r3_resume.md"
+    },
+    {
+      "id": "PR-3",
+      "grade": "PARTIAL",
+      "evidence_quote": "팬덤·서브컬처 커머스 이해",
+      "source": "r3_portfolio.pptx",
+      "gap_type": "transferable_gap",
+      "action_hint": "애니메이션 서브컬처 직접 경험은 없으나 팬덤 커머스 이해로 정직하게 연결됨."
+    },
+    {
+      "id": "AF-1",
+      "grade": "FULL",
+      "evidence_quote": "이지우 프로덕트 디자인 포트폴리오 (라프텔 지원) / 데이터·AI 워크플로로 팬덤 경험을 비즈니스 임팩트로 연결",
+      "source": "r3_portfolio.pptx"
+    },
+    {
+      "id": "AF-2",
+      "grade": "FULL",
+      "evidence_quote": "Case 1: 구독 홈 탐색 UX 개편 (기여도 100%, App/Web) / Case 2: 팬덤 굿즈 커머스 0→1 & 디자인시스템",
+      "source": "r3_portfolio.pptx"
+    }
+  ],
+  "round": 3
+}

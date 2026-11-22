@@ -1,0 +1,171 @@
+{
+  "version": "v1.2",
+  "tracks": [
+    {
+      "track": "Track 1 (개발 · 패스트파이브)",
+      "scenario": "Coach-First Self-Revision (R1 REVISE -> R2 PASS) + .docx extraction",
+      "jd_url": "https://www.wanted.co.kr/wd/392517",
+      "rubric_hash": "968dc6142282faec",
+      "rounds": [
+        {
+          "round": 1,
+          "score": 37.8,
+          "status": "REVISE",
+          "ats_pct": 70.6
+        },
+        {
+          "round": 2,
+          "score": 99.3,
+          "status": "PASS",
+          "delta": 61.5,
+          "ats_pct": 100.0
+        }
+      ]
+    },
+    {
+      "track": "Track 2 (기획·PM · 데이터라이즈)",
+      "scenario": "Stall Detection -> Auto Grace Offer -> Tier 1->2 Co-Drafting -> R3 PASS",
+      "jd_url": "https://www.wanted.co.kr/wd/395258",
+      "rubric_hash": "9badeadfd824cda4",
+      "rounds": [
+        {
+          "round": 1,
+          "score": 38.2,
+          "status": "REVISE",
+          "grace_offered": false
+        },
+        {
+          "round": 2,
+          "score": 40.6,
+          "status": "REVISE",
+          "delta": 2.4,
+          "grace_offered": true,
+          "grace_tier": 1,
+          "stalled_count": 9
+        },
+        {
+          "round": 3,
+          "score": 96.0,
+          "status": "PASS",
+          "delta": 55.4,
+          "grace_offered": false
+        }
+      ]
+    },
+    {
+      "track": "Track 3 (디자인 · 라프텔)",
+      "scenario": "40/35/10/15 Preset + .pptx + Anti-Keyword-Stuffing Blocked (R2) -> R3 PASS",
+      "jd_url": "https://www.wanted.co.kr/wd/394377",
+      "rubric_hash": "7e66b0675f4bafc3",
+      "rounds": [
+        {
+          "round": 1,
+          "score": 19.2,
+          "status": "REVISE",
+          "ats_pct": 35.7
+        },
+        {
+          "round": 2,
+          "score": 29.1,
+          "status": "REVISE",
+          "delta": 9.9,
+          "ats_pct": 100.0
+        },
+        {
+          "round": 3,
+          "score": 99.0,
+          "status": "PASS",
+          "delta": 69.9,
+          "ats_pct": 100.0
+        }
+      ]
+    },
+    {
+      "track": "Track 4 (마케팅 · 크림 KREAM)",
+      "scenario": "PASS_WITH_RISK (>=80% + Missing Knockout MH-2) -> R2 Agency Proof -> PASS",
+      "jd_url": "https://www.wanted.co.kr/wd/393109",
+      "rubric_hash": "002d16b5304d8a00",
+      "rounds": [
+        {
+          "round": 1,
+          "score": 90.7,
+          "status": "PASS_WITH_RISK",
+          "knockout_risks": [
+            "MH-2"
+          ]
+        },
+        {
+          "round": 2,
+          "score": 100.0,
+          "status": "PASS",
+          "knockout_risks": [],
+          "delta": 9.3
+        }
+      ]
+    },
+    {
+      "track": "Track 5 (데이터 분석 · KCD)",
+      "scenario": "True Capability Gap + Zero-Fabrication Refusal (Spark/ML NOT faked!)",
+      "jd_url": "https://www.wanted.co.kr/wd/394519",
+      "rubric_hash": "7c34eed0d0ab7794",
+      "rounds": [
+        {
+          "round": 1,
+          "score": 41.6,
+          "status": "REVISE",
+          "knockout_risks": [
+            "MH-2",
+            "MH-3"
+          ],
+          "projected_expression_only": 76.2,
+          "projected_with_transferable_cap": 83.8
+        },
+        {
+          "round": 2,
+          "score": 76.4,
+          "status": "REVISE",
+          "delta": 34.8,
+          "knockout_risks": [
+            "MH-3"
+          ],
+          "projected_expression_only": 76.4,
+          "projected_with_transferable_cap": 79.0,
+          "negated_keywords_excluded": [
+            "Spark",
+            "머신러닝"
+          ]
+        }
+      ]
+    },
+    {
+      "track": "Track 6 (비IT HR 신입 · 여기어때)",
+      "scenario": "40/30/10/20 Junior Preset + .hwpx + R2 Accidental Regression Caught -> R3 PASS",
+      "jd_url": "https://www.wanted.co.kr/wd/396190",
+      "rubric_hash": "66d89ab6788fc0d8",
+      "rounds": [
+        {
+          "round": 1,
+          "score": 36.8,
+          "status": "REVISE",
+          "ats_pct": 40.0
+        },
+        {
+          "round": 2,
+          "score": 79.0,
+          "status": "REVISE",
+          "delta": 42.2,
+          "regressed": [
+            "MH-4"
+          ]
+        },
+        {
+          "round": 3,
+          "score": 100.0,
+          "status": "PASS",
+          "delta": 21.0,
+          "regressed": []
+        }
+      ]
+    }
+  ]
+}

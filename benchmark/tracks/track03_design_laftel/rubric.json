@@ -1,0 +1,182 @@
+{
+  "company": "라프텔 (Laftel)",
+  "role_title": "프로덕트 디자이너 (3년 이상)",
+  "pass_threshold": 80.0,
+  "ats_lexical_share": 0.5,
+  "category_weights": {
+    "must_have": 40,
+    "portfolio_impact": 35,
+    "preferred": 10,
+    "ats_framing": 15
+  },
+  "categories": {
+    "must_have": [
+      {
+        "id": "MH-1",
+        "title": "3년 이상 프로덕트 디자인 경력 및 문제 정의→UX/UI 설계→출시 후 검증 E2E 성과",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-2",
+        "title": "Figma 기반 체계적 파일 구조화·디자인시스템·핸드오프 스토리보드 및 디자인 검수 역량",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-3",
+        "title": "AI 도구(Claude·Cursor 등)를 리서치·아이데이션·프로토타이핑 실무에 꾸준히 활용",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "MH-4",
+        "title": "개발 구조 이해 및 PM·개발자·QA·데이터 분석가 등 다직군 스쿼드 협업 역량",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "MH-5",
+        "title": "사용자 인터뷰·사용성 테스트·A/B 테스트 등 데이터/리서치 기반 개선 경험",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "portfolio_impact": [
+      {
+        "id": "PI-1",
+        "title": "시안 나열이 아닌 사용자 문제·IA/유저플로우·엣지케이스 포함 심층 케이스 스터디",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-2",
+        "title": "출시 후 OKR/KPI·전환율·과업 완료율 등 전/후 정량 검증 지표",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-3",
+        "title": "디자인시스템/개발 핸드오프 품질 및 본인 기여도(%) 명확성",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "preferred": [
+      {
+        "id": "PR-1",
+        "title": "디자인시스템 구축·개발팀 공동 운영 또는 AI 네이티브 워크플로우 자동화 경험",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "PR-2",
+        "title": "커머스·커뮤니티·구독/콘텐츠 0->1 프로덕트 디자인 또는 나만의 무기(리서치·모션·라이팅)",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "PR-3",
+        "title": "애니메이션·서브컬처/팬덤 문화 이해도",
+        "weight": 1,
+        "is_knockout": false
+      }
+    ],
+    "ats_framing": [
+      {
+        "id": "AF-1",
+        "title": "타깃 포지션(E2E 데이터·AI 활용 프로덕트 디자이너) 요약·포지셔닝 일치",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "AF-2",
+        "title": "포트폴리오 스캔 가독성 및 핵심 프로젝트 상단 배치",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ]
+  },
+  "keywords": [
+    {
+      "term": "Figma",
+      "aliases": [
+        "피그마"
+      ],
+      "tier": "must"
+    },
+    {
+      "term": "UX/UI",
+      "aliases": [
+        "UX",
+        "UI",
+        "프로덕트 디자인"
+      ],
+      "tier": "must"
+    },
+    {
+      "term": "디자인시스템",
+      "aliases": [
+        "디자인 시스템",
+        "Design System",
+        "컴포넌트"
+      ],
+      "tier": "must"
+    },
+    {
+      "term": "프로토타이핑",
+      "aliases": [
+        "프로토타입",
+        "Prototype"
+      ],
+      "tier": "must"
+    },
+    {
+      "term": "Claude",
+      "aliases": [
+        "Cursor",
+        "Claude Code",
+        "AI 도구",
+        "생성형 AI"
+      ],
+      "tier": "must"
+    },
+    {
+      "term": "A/B 테스트",
+      "aliases": [
+        "AB 테스트",
+        "사용성 테스트",
+        "유저 인터뷰"
+      ],
+      "tier": "preferred"
+    },
+    {
+      "term": "핸드오프",
+      "aliases": [
+        "스토리보드",
+        "QA",
+        "디자인 검수"
+      ],
+      "tier": "preferred"
+    },
+    {
+      "term": "Jira",
+      "aliases": [
+        "Notion",
+        "Slack"
+      ],
+      "tier": "preferred"
+    },
+    {
+      "term": "커머스",
+      "aliases": [
+        "커뮤니티",
+        "구독",
+        "OTT"
+      ],
+      "tier": "preferred"
+    }
+  ],
+  "rubric_hash": "7e66b0675f4bafc3",
+  "locked_at": "2026-11-22T02:30:12+00:00"
+}
