@@ -1,0 +1,59 @@
+{
+  "round": 1,
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "FULL",
+      "evidence_quote": "WebサービスPM・4年",
+      "source": "md"
+    },
+    {
+      "id": "MH-2",
+      "grade": "WEAK",
+      "evidence_quote": "新機能リリースを年間20本以上スケジュール通りに進行管理いたしました",
+      "source": "md",
+      "gap_type": "expression_gap",
+      "action_hint": "「機能数・納期管理」ではなく、KPIなどの事業成果に責任を持った発見→GTM→学習事例へ書き換えてください。"
+    },
+    {
+      "id": "MH-3",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "md",
+      "gap_type": "expression_gap",
+      "action_hint": "生成AIを用いた顧客リサーチ・仮説検証・プロトタイピング事例があれば具体化してください。"
+    },
+    {
+      "id": "MH-4",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "md",
+      "gap_type": "expression_gap",
+      "action_hint": "KNOCKOUT必須要件：ご自身でSQLを書いてインサイト抽出した実績がある場合は必ず明記してください。"
+    },
+    {
+      "id": "PI-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "md",
+      "gap_type": "expression_gap",
+      "action_hint": "GMVや購入転換率などリリース後の定量KPI変化を追記してください。"
+    },
+    {
+      "id": "PR-1",
+      "grade": "PARTIAL",
+      "evidence_quote": "ECアプリの新機能リリース",
+      "source": "md",
+      "gap_type": "expression_gap",
+      "action_hint": "EC/マーケットプレイスでの0→1または1→N改善とA/Bテスト意思決定事例があれば追記してください。"
+    },
+    {
+      "id": "AF-1",
+      "grade": "WEAK",
+      "evidence_quote": "プロジェクト進行担当",
+      "source": "md",
+      "gap_type": "expression_gap",
+      "action_hint": "進行管理型ではなく事業成果オーナー型プロダクトマネージャーとして再配置してください。"
+    }
+  ]
+}

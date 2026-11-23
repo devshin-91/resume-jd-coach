@@ -1,0 +1,77 @@
+{
+  "round": 2,
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "PARTIAL",
+      "evidence_quote": "9 Years Experience in Marketing Websites & SaaS Dashboards",
+      "source": "pptx Slide 1",
+      "gap_type": "expression_gap",
+      "action_hint": "Still lacks end-to-end complex software case study proof."
+    },
+    {
+      "id": "MH-2",
+      "grade": "WEAK",
+      "evidence_quote": "Keywords & Skills: Interaction Design, Direct Manipulation, Prototyping",
+      "source": "pptx Slide 4",
+      "gap_type": "expression_gap",
+      "action_hint": "Bare keyword stuffing in a skills slide is capped at WEAK (0.25); embed real interaction case studies."
+    },
+    {
+      "id": "MH-3",
+      "grade": "WEAK",
+      "evidence_quote": "Keywords & Skills: Interaction Design, Direct Manipulation, Prototyping, User Research",
+      "source": "pptx Slide 4",
+      "gap_type": "expression_gap",
+      "action_hint": "Mentioning 'User Research' in a keyword list does not prove research-driven decisions."
+    },
+    {
+      "id": "MH-4",
+      "grade": "WEAK",
+      "evidence_quote": "Prototyping, User Research, AI, Canvas",
+      "source": "pptx Slide 4",
+      "gap_type": "expression_gap",
+      "action_hint": "Capped at WEAK (0.25): show an actual AI + direct-manipulation prototype you designed."
+    },
+    {
+      "id": "PI-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "pptx",
+      "gap_type": "expression_gap",
+      "action_hint": "Still missing design trade-offs and iteration rationale."
+    },
+    {
+      "id": "PI-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "pptx",
+      "gap_type": "expression_gap",
+      "action_hint": "Still missing measurable user or business outcomes."
+    },
+    {
+      "id": "PR-1",
+      "grade": "WEAK",
+      "evidence_quote": "AI, Canvas, Auto Layout, Editor",
+      "source": "pptx Slide 4",
+      "gap_type": "transferable_gap",
+      "action_hint": "Bare keyword list capped at WEAK (0.25)."
+    },
+    {
+      "id": "PR-2",
+      "grade": "WEAK",
+      "evidence_quote": "Code-Based Prototyping, React",
+      "source": "pptx Slide 4",
+      "gap_type": "expression_gap",
+      "action_hint": "Show an actual code prototype shipped with engineers."
+    },
+    {
+      "id": "AF-1",
+      "grade": "WEAK",
+      "evidence_quote": "Keywords & Skills: Interaction Design, Direct Manipulation, Prototyping",
+      "source": "pptx Slide 4",
+      "gap_type": "expression_gap",
+      "action_hint": "Remove keyword-dump slide and lead with real interaction case studies."
+    }
+  ]
+}

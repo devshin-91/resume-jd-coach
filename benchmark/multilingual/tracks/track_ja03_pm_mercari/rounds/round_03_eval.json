@@ -1,0 +1,47 @@
+{
+  "round": 3,
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "FULL",
+      "evidence_quote": "プロダクトマネージャー・4年",
+      "source": "md"
+    },
+    {
+      "id": "MH-2",
+      "grade": "FULL",
+      "evidence_quote": "法務・CSと連携したGTMとリリース後のA/Bテスト改善により、出品完了率を+18.4%・月間GMVを+1.4億円向上",
+      "source": "md"
+    },
+    {
+      "id": "MH-3",
+      "grade": "FULL",
+      "evidence_quote": "Gemini・NotebookLMによるユーザーインタビュー要約と、Cursorを用いたインタラクティブプロトタイプ検証を導入",
+      "source": "md"
+    },
+    {
+      "id": "MH-4",
+      "grade": "FULL",
+      "evidence_quote": "自らBigQuery SQLで出品者コホート・検索ファネルクエリを作成し、初出品後72時間以内の価格改定行動が売却率を2.3倍高めるインサイトを抽出",
+      "source": "md"
+    },
+    {
+      "id": "PI-1",
+      "grade": "FULL",
+      "evidence_quote": "出品完了率を+18.4%・月間GMVを+1.4億円向上",
+      "source": "md"
+    },
+    {
+      "id": "PR-1",
+      "grade": "FULL",
+      "evidence_quote": "CtoCマーケットプレイス出品フロー",
+      "source": "md"
+    },
+    {
+      "id": "AF-1",
+      "grade": "FULL",
+      "evidence_quote": "プロダクトマネージャー（EC・マーケットプレイス領域 / 日本語ネイティブ C1）",
+      "source": "md"
+    }
+  ]
+}

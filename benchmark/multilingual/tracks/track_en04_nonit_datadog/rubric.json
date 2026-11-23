@@ -1,0 +1,111 @@
+{
+  "company": "Datadog",
+  "role_title": "Director, People Business Partner",
+  "language": "en",
+  "domain_mode": "resume_only",
+  "pass_threshold": 80.0,
+  "ats_lexical_share": 0.5,
+  "category_weights": {
+    "must_have": 45,
+    "portfolio_impact": 25,
+    "preferred": 15,
+    "ats_framing": 15
+  },
+  "categories": {
+    "must_have": [
+      {
+        "id": "MH-1",
+        "title": "10+ yrs HR/PBP experience INCLUDING 5+ yrs leading a PBP team",
+        "weight": 2,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-2",
+        "title": "Org design, workforce planning, compensation & talent management",
+        "weight": 4,
+        "is_knockout": false
+      },
+      {
+        "id": "MH-3",
+        "title": "Executive G&A advisory, complex employee relations & AI org change",
+        "weight": 4,
+        "is_knockout": false
+      }
+    ],
+    "portfolio_impact": [
+      {
+        "id": "PI-1",
+        "title": "Data-driven people outcomes (retention, engagement, headcount efficiency)",
+        "weight": 3,
+        "is_knockout": false
+      }
+    ],
+    "preferred": [
+      {
+        "id": "PR-1",
+        "title": "Global G&A functions at a high-growth tech or public company",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "ats_framing": [
+      {
+        "id": "AF-1",
+        "title": "Director-level People Business Partner executive positioning",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ]
+  },
+  "keywords": [
+    {
+      "term": "People Business Partner",
+      "aliases": [
+        "HRBP",
+        "PBP"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-1"
+    },
+    {
+      "term": "Organizational Design",
+      "aliases": [
+        "Org Design"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "Workforce Planning",
+      "aliases": [
+        "Headcount Planning"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "Employee Relations",
+      "aliases": [],
+      "tier": "must",
+      "linked_item_id": "MH-3"
+    },
+    {
+      "term": "Compensation",
+      "aliases": [
+        "Performance Management"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "AI Transformation",
+      "aliases": [
+        "Change Management"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "MH-3"
+    }
+  ],
+  "rubric_hash": "cc227d543c5664ba",
+  "locked_at": "2026-11-23T01:35:15+00:00"
+}

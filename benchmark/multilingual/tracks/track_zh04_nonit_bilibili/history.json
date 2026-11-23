@@ -1,0 +1,313 @@
+{
+  "session": {
+    "company": "哔哩哔哩（Bilibili）",
+    "role_title": "内容安全业务HRBP",
+    "language": "zh",
+    "domain_mode": "resume_only",
+    "rubric_hash": "c035f1842b72354c"
+  },
+  "rubric_hash": "c035f1842b72354c",
+  "pass_threshold": 80.0,
+  "rounds": [
+    {
+      "round": 1,
+      "evaluated_at": "2026-11-23T01:35:21+00:00",
+      "total_score": 35.6,
+      "total_score_2dp": 35.63,
+      "total_score_exact": "35.6250",
+      "pass_status": "REVISE",
+      "grace_tier_used": null,
+      "categories": {
+        "must_have": {
+          "label": "核心任职要求与主要职责",
+          "label_ko": "필수 자격 & 핵심 직무",
+          "active": true,
+          "effective_weight": 45.0,
+          "attainment_pct": 50.0,
+          "earned_points": 22.5,
+          "max_points": 45.0,
+          "item_count": 3,
+          "delta_points_pp": null
+        },
+        "portfolio_impact": {
+          "label": "项目/工作佐证与量化成果",
+          "label_ko": "직무 증빙 & 정량 성과",
+          "active": true,
+          "effective_weight": 25.0,
+          "attainment_pct": 0.0,
+          "earned_points": 0.0,
+          "max_points": 25.0,
+          "item_count": 1,
+          "delta_points_pp": null
+        },
+        "preferred": {
+          "label": "加分项与优先条件",
+          "label_ko": "우대 사항",
+          "active": true,
+          "effective_weight": 15.0,
+          "attainment_pct": 50.0,
+          "earned_points": 7.5,
+          "max_points": 15.0,
+          "item_count": 1,
+          "delta_points_pp": null
+        },
+        "ats_framing": {
+          "label": "JD 关键词与岗位定位",
+          "label_ko": "JD 키워드 & 포지셔닝",
+          "active": true,
+          "effective_weight": 15.0,
+          "attainment_pct": 37.5,
+          "earned_points": 5.63,
+          "max_points": 15.0,
+          "item_count": 1,
+          "delta_points_pp": null
+        }
+      },
+      "items": [
+        {
+          "id": "MH-1",
+          "grade": "FULL",
+          "earned_points_pp": 16.88,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "MH-2",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "MH-3",
+          "grade": "PARTIAL",
+          "earned_points_pp": 5.63,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PI-1",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PR-1",
+          "grade": "PARTIAL",
+          "earned_points_pp": 7.5,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "AF-1",
+          "grade": "WEAK",
+          "earned_points_pp": 1.88,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        }
+      ],
+      "grace_recommended": false
+    },
+    {
+      "round": 2,
+      "evaluated_at": "2026-11-23T01:35:22+00:00",
+      "total_score": 84.1,
+      "total_score_2dp": 84.06,
+      "total_score_exact": "84.0625",
+      "pass_status": "PASS",
+      "grace_tier_used": null,
+      "categories": {
+        "must_have": {
+          "label": "核心任职要求与主要职责",
+          "label_ko": "필수 자격 & 핵심 직무",
+          "active": true,
+          "effective_weight": 45.0,
+          "attainment_pct": 75.0,
+          "earned_points": 33.75,
+          "max_points": 45.0,
+          "item_count": 3,
+          "delta_points_pp": 11.3
+        },
+        "portfolio_impact": {
+          "label": "项目/工作佐证与量化成果",
+          "label_ko": "직무 증빙 & 정량 성과",
+          "active": true,
+          "effective_weight": 25.0,
+          "attainment_pct": 100.0,
+          "earned_points": 25.0,
+          "max_points": 25.0,
+          "item_count": 1,
+          "delta_points_pp": 25.0
+        },
+        "preferred": {
+          "label": "加分项与优先条件",
+          "label_ko": "우대 사항",
+          "active": true,
+          "effective_weight": 15.0,
+          "attainment_pct": 75.0,
+          "earned_points": 11.25,
+          "max_points": 15.0,
+          "item_count": 1,
+          "delta_points_pp": 3.8
+        },
+        "ats_framing": {
+          "label": "JD 关键词与岗位定位",
+          "label_ko": "JD 키워드 & 포지셔닝",
+          "active": true,
+          "effective_weight": 15.0,
+          "attainment_pct": 93.8,
+          "earned_points": 14.06,
+          "max_points": 15.0,
+          "item_count": 1,
+          "delta_points_pp": 8.5
+        }
+      },
+      "items": [
+        {
+          "id": "MH-1",
+          "grade": "FULL",
+          "earned_points_pp": 16.88,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "MH-2",
+          "grade": "FULL",
+          "earned_points_pp": 16.88,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "MH-3",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "expression_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "PI-1",
+          "grade": "FULL",
+          "earned_points_pp": 25.0,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "PR-1",
+          "grade": "STRONG_PARTIAL",
+          "earned_points_pp": 11.25,
+          "gap_type": "expression_gap",
+          "stalled_streak": 0
+        },
+        {
+          "id": "AF-1",
+          "grade": "FULL",
+          "earned_points_pp": 7.5,
+          "gap_type": null,
+          "stalled_streak": 0
+        }
+      ],
+      "grace_recommended": false
+    },
+    {
+      "round": 3,
+      "evaluated_at": "2026-11-23T01:35:22+00:00",
+      "total_score": 100.0,
+      "total_score_2dp": 100.0,
+      "total_score_exact": "100.0000",
+      "pass_status": "PASS",
+      "grace_tier_used": null,
+      "categories": {
+        "must_have": {
+          "label": "核心任职要求与主要职责",
+          "label_ko": "필수 자격 & 핵심 직무",
+          "active": true,
+          "effective_weight": 45.0,
+          "attainment_pct": 100.0,
+          "earned_points": 45.0,
+          "max_points": 45.0,
+          "item_count": 3,
+          "delta_points_pp": 11.2
+        },
+        "portfolio_impact": {
+          "label": "项目/工作佐证与量化成果",
+          "label_ko": "직무 증빙 & 정량 성과",
+          "active": true,
+          "effective_weight": 25.0,
+          "attainment_pct": 100.0,
+          "earned_points": 25.0,
+          "max_points": 25.0,
+          "item_count": 1,
+          "delta_points_pp": 0.0
+        },
+        "preferred": {
+          "label": "加分项与优先条件",
+          "label_ko": "우대 사항",
+          "active": true,
+          "effective_weight": 15.0,
+          "attainment_pct": 100.0,
+          "earned_points": 15.0,
+          "max_points": 15.0,
+          "item_count": 1,
+          "delta_points_pp": 3.7
+        },
+        "ats_framing": {
+          "label": "JD 关键词与岗位定位",
+          "label_ko": "JD 키워드 & 포지셔닝",
+          "active": true,
+          "effective_weight": 15.0,
+          "attainment_pct": 100.0,
+          "earned_points": 15.0,
+          "max_points": 15.0,
+          "item_count": 1,
+          "delta_points_pp": 0.9
+        }
+      },
+      "items": [
+        {
+          "id": "MH-1",
+          "grade": "FULL",
+          "earned_points_pp": 16.88,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "MH-2",
+          "grade": "FULL",
+          "earned_points_pp": 16.88,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "MH-3",
+          "grade": "FULL",
+          "earned_points_pp": 11.25,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "PI-1",
+          "grade": "FULL",
+          "earned_points_pp": 25.0,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "PR-1",
+          "grade": "FULL",
+          "earned_points_pp": 15.0,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "AF-1",
+          "grade": "FULL",
+          "earned_points_pp": 7.5,
+          "gap_type": null,
+          "stalled_streak": 0
+        }
+      ],
+      "grace_recommended": false
+    }
+  ]
+}

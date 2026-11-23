@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
-"""Zero-dependency document text extractor for resume-jd-coach (v1.1).
+"""Zero-dependency multilingual document text extractor for resume-jd-coach (v2.1).
 
 Supports:
-  - Plain text / Markdown / structured text: .md, .markdown, .txt, .csv, .json, .yaml, .yml
+  - Plain text / Markdown / structured text: .md, .markdown, .txt, .csv, .json, .yaml, .yml, .rst
+    (UTF-8/UTF-16 + CJK-safe heuristic decoding for Korean cp949, Chinese gb18030, Japanese cp932/euc-jp)
   - Microsoft Word: .docx (nested textbox/table safe, skips mc:Fallback duplicates)
+  - Microsoft Excel: .xlsx (sharedStrings + inlineStr + workbook sheet order; widely used for Japanese 履歴書/職務経歴書)
   - PowerPoint portfolio decks: .pptx (exact ppt/presentation.xml slide order + _rels speaker notes)
   - Korean Hancom Hangul XML: .hwpx (nested table/paragraph safe — zero duplication/mashing)
   - HTML pages: .html, .htm
   - PDF: uses pypdf or PyMuPDF (fitz) if installed; otherwise emits PDF_NATIVE_READ_REQUIRED
     warning guiding Antigravity native read_file inspection.
-  - Rejects legacy binary formats (.hwp, .doc, .xls, .ppt, or null-byte binaries) loudly instead
+  - Rejects legacy binary formats (.hwp, .doc, .xls, .ppt, .rtf, or null-byte binaries) loudly instead
     of dumping corrupted latin-1 text.
 """
 
@@ -89,20 +91,126 @@ def _local_tag(elem: ET.Element) -> str:
     return elem.tag.split("}")[-1] if "}" in elem.tag else elem.tag
 
 
-def _read_text_with_fallback(path: Path) -> str:
+def _score_decoded_cjk_text(text: str, enc: str) -> float:
+    """Heuristic scorer to disambiguate non-UTF-8 legacy CJK encodings (cp949 vs gb18030 vs cp932/euc-jp).
+
+    Uses built-in stdlib codecs (gb2312 for common Simplified Chinese, euc-kr for common KS X 1001 Korean,
+    and Hiragana/Katakana + Japanese punctuation for cp932/euc-jp) to separate authentic prose from
+    cross-codepage mojibake (which overwhelmingly lands in rare GBK/UHC extension blocks).
+    """
+    if not text:
+        return -1e9
+    total = len(text)
+    hangul_common = 0
+    hangul_rare = 0
+    hiragana = 0
+    katakana = 0
+    hanzi_gb2312 = 0
+    hanzi_non_gb2312 = 0
+    cjk_punct = 0
+    fullwidth_alnum = 0
+    ascii_ok = 0
+    suspicious = 0
+
+    for ch in text:
+        cp = ord(ch)
+        if 0xAC00 <= cp <= 0xD7AF:
+            try:
+                ch.encode("iso2022_kr")
+                hangul_common += 1
+            except UnicodeEncodeError:
+                hangul_rare += 1
+        elif 0x3041 <= cp <= 0x3096:
+            hiragana += 1
+        elif (0x30A1 <= cp <= 0x30FA) or cp == 0x30FC:
+            katakana += 1
+        elif 0x4E00 <= cp <= 0x9FFF:
+            try:
+                ch.encode("gb2312")
+                hanzi_gb2312 += 1
+            except UnicodeEncodeError:
+                hanzi_non_gb2312 += 1
+        elif ch in "。、，；：！？（）「」『』【】・ー〜―■●":
+            cjk_punct += 1
+        elif (0xFF10 <= cp <= 0xFF19) or (0xFF21 <= cp <= 0xFF3A) or (0xFF41 <= cp <= 0xFF5A):
+            fullwidth_alnum += 1
+        elif ch in "\r\n\t" or (0x20 <= cp <= 0x7E):
+            ascii_ok += 1
+        elif (0xE000 <= cp <= 0xF8FF) or cp == 0xFFFD or (0x00 <= cp < 0x20) or (0xFF61 <= cp <= 0xFF9F):
+            suspicious += 1
+        elif (0x2500 <= cp <= 0x25FF) or (0x0400 <= cp <= 0x04FF) or (0x0370 <= cp <= 0x03FF):
+            suspicious += 1
+        else:
+            suspicious += 0.5
+
+    kana = hiragana + katakana
+    hanzi = hanzi_gb2312 + hanzi_non_gb2312
+    hangul = hangul_common + hangul_rare
+    non_ascii = max(1, total - ascii_ok)
+    score = (ascii_ok * 0.5) + (cjk_punct * 3.0) + (fullwidth_alnum * 2.5) - (suspicious * 12.0)
+
+    if enc in ("cp932", "euc-jp"):
+        # Authentic Japanese prose nearly always contains Hiragana/Katakana + Kanji (never Hangul)
+        score += (hiragana * 5.5) + (katakana * 4.5) + (hanzi * 2.5) - (hangul * 15.0)
+        if hiragana >= 3 and hanzi >= 2:
+            score += non_ascii * 2.5
+    elif enc == "gb18030":
+        # Authentic Simplified Chinese uses overwhelmingly GB2312 common Hanzi; Shift-JIS mojibake lands in rare GBK Hanzi!
+        score += (hanzi_gb2312 * 3.8) - (hanzi_non_gb2312 * 8.0) - (hangul * 15.0) - (kana * 8.0)
+        if hanzi > 0 and (hanzi_gb2312 / hanzi) >= 0.85 and kana == 0 and hangul == 0:
+            score += non_ascii * 2.0
+    elif enc in ("cp949", "euc-kr"):
+        # Authentic Korean uses common KS X 1001 Hangul syllables; mojibake produces rare UHC syllables
+        score += (hangul_common * 4.0) - (hangul_rare * 8.0) + (hanzi_gb2312 * 0.5) - (hanzi_non_gb2312 * 4.0) - (kana * 8.0)
+        if hangul_common / non_ascii >= 0.55 and hangul_rare <= max(2, hangul_common * 0.08):
+            score += non_ascii * 2.0
+    elif enc == "cp1252":
+        # Authentic Western/US Windows ANSI text: keep exact same ascii_ok * 0.5 weight as CJK codecs
+        # and require 100% of non-ASCII chars to be clean Latin-1 / smart punctuation (zero byte mojibake).
+        latin_ext = sum(1 for ch in text if (0x00C0 <= ord(ch) <= 0x00FF) or ch in "–—‘’“”•…€™®©")
+        invalid_c1 = sum(1 for ch in text if 0x0080 <= ord(ch) <= 0x009F)
+        other_non_ascii = max(0, (total - ascii_ok) - latin_ext - invalid_c1)
+        if invalid_c1 == 0 and other_non_ascii == 0 and latin_ext > 0:
+            score = (ascii_ok * 0.5) + (latin_ext * 5.0)
+        else:
+            score = (ascii_ok * 0.5) + (latin_ext * 1.0) - (invalid_c1 * 30.0) - (other_non_ascii * 12.0) - (suspicious * 15.0)
+    return score
+
+
+def _read_text_with_fallback(path: Path, encoding_hint: str | None = None) -> str:
     data = path.read_bytes()
-    # Detect binary files early (allow UTF-16 BOM, reject arbitrary NUL-bearing binaries)
     has_utf16_bom = data.startswith((b"\xff\xfe", b"\xfe\xff"))
     if not has_utf16_bom and b"\x00" in data[:4096]:
         raise UnsupportedBinaryFormatError(
             f"UNSUPPORTED_BINARY_FORMAT: '{path.name}' appears to be a binary file and cannot be extracted as plain text. "
-            "Please convert it to .docx, .hwpx, .pdf, or .md and resubmit."
+            "Please convert it to .docx, .xlsx, .hwpx, .pdf, or .md and resubmit."
         )
-    for enc in ("utf-8-sig", "utf-8", "cp949", "euc-kr", "utf-16"):
+
+    if encoding_hint and encoding_hint.lower() != "auto":
+        return data.decode(encoding_hint)
+
+    if has_utf16_bom:
+        return data.decode("utf-16")
+
+    for enc in ("utf-8-sig", "utf-8"):
         try:
             return data.decode(enc)
         except UnicodeDecodeError:
             continue
+
+    # Disambiguate legacy CJK and Windows ANSI (cp1252) codepages cleanly
+    candidates: list[tuple[float, str]] = []
+    for enc in ("cp932", "euc-jp", "gb18030", "cp949", "euc-kr", "cp1252"):
+        try:
+            decoded = data.decode(enc)
+            candidates.append((_score_decoded_cjk_text(decoded, enc), decoded))
+        except UnicodeDecodeError:
+            continue
+
+    if candidates:
+        candidates.sort(key=lambda pair: pair[0], reverse=True)
+        return candidates[0][1]
+
     return data.decode("utf-8", errors="replace")
 
 
@@ -144,7 +252,6 @@ def _walk_docx_paragraphs(node: ET.Element, lines: list[str]) -> None:
         text = "".join(parts).strip()
         if text:
             lines.append(text)
-        # Still visit nested containers (e.g. drawing/txbxContent/tbl inside a paragraph) separately
         for child in node:
             _walk_docx_nested_containers(child, lines)
         return
@@ -187,21 +294,151 @@ def extract_docx(path: Path) -> str:
     return "\n\n".join(sections).strip()
 
 
+def _collect_xlsx_text_without_furigana(node: ET.Element, parts: list[str]) -> None:
+    """Collect visible <t> text inside Excel <si> or <is> while skipping Japanese <rPh>/<phoneticPr> furigana runs."""
+    for child in node:
+        tag = _local_tag(child)
+        if tag in ("rPh", "phoneticPr"):
+            continue
+        if tag == "t" and child.text:
+            parts.append(child.text)
+        else:
+            _collect_xlsx_text_without_furigana(child, parts)
+
+
+def _parse_xlsx_shared_strings(zf: zipfile.ZipFile, names_set: set[str]) -> list[str]:
+    if "xl/sharedStrings.xml" not in names_set:
+        return []
+    root = ET.fromstring(zf.read("xl/sharedStrings.xml"))
+    shared: list[str] = []
+    for elem in root:
+        if _local_tag(elem) == "si":
+            parts: list[str] = []
+            _collect_xlsx_text_without_furigana(elem, parts)
+            shared.append("".join(parts))
+    return shared
+
+
+def _resolve_xlsx_sheets(zf: zipfile.ZipFile, names: list[str], names_set: set[str]) -> list[tuple[str, str]]:
+    """Resolve visible (sheet_display_name, zip_member_path) in workbook visual order, skipping hidden/veryHidden tabs."""
+    wb_path = "xl/workbook.xml"
+    rels_path = "xl/_rels/workbook.xml.rels"
+    if wb_path in names_set and rels_path in names_set:
+        try:
+            rels_root = ET.fromstring(zf.read(rels_path))
+            rid_to_target: dict[str, str] = {}
+            for rel in rels_root.iter():
+                if _local_tag(rel) == "Relationship":
+                    rid = rel.attrib.get("Id", "")
+                    target = rel.attrib.get("Target", "").replace("\\", "/").lstrip("/")
+                    while target.startswith("../"):
+                        target = target[3:]
+                    if rid and target:
+                        if not target.startswith("xl/"):
+                            target = f"xl/{target}"
+                        rid_to_target[rid] = target
+
+            wb_root = ET.fromstring(zf.read(wb_path))
+            ordered: list[tuple[str, str]] = []
+            for elem in wb_root.iter():
+                if _local_tag(elem) == "sheet":
+                    state = elem.attrib.get("state", "visible").lower()
+                    if state in ("hidden", "veryhidden"):
+                        continue
+                    sname = elem.attrib.get("name", "") or f"Sheet{len(ordered) + 1}"
+                    rid = next(
+                        (
+                            v
+                            for k, v in elem.attrib.items()
+                            if k == "r:id" or ("relationships" in k and k.endswith("}id"))
+                        ),
+                        "",
+                    )
+                    target = rid_to_target.get(rid, "")
+                    if target in names_set:
+                        ordered.append((sname, target))
+            if ordered:
+                return ordered
+        except ET.ParseError:
+            pass
+
+    fallback_sheets = sorted(
+        [n for n in names if re.fullmatch(r"xl/worksheets/sheet\d+\.xml", n)],
+        key=_natural_key,
+    )
+    return [(Path(s).stem, s) for s in fallback_sheets]
+
+
+def extract_xlsx(path: Path) -> str:
+    """Zero-dependency Excel (.xlsx) extractor supporting sharedStrings, inlineStr, furigana filtering & visible sheet order."""
+    blocks: list[str] = []
+    with zipfile.ZipFile(path, "r") as zf:
+        names = zf.namelist()
+        names_set = set(names)
+        shared = _parse_xlsx_shared_strings(zf, names_set)
+        sheets = _resolve_xlsx_sheets(zf, names, names_set)
+
+        for sheet_name, sheet_path in sheets:
+            root = ET.fromstring(zf.read(sheet_path))
+            sheet_lines: list[str] = []
+            for elem in root.iter():
+                if _local_tag(elem) != "row":
+                    continue
+                row_vals: list[str] = []
+                for cell in elem:
+                    if _local_tag(cell) != "c":
+                        continue
+                    ctype = cell.attrib.get("t", "")
+                    val = ""
+                    if ctype == "s":
+                        v_elem = next((c for c in cell if _local_tag(c) == "v"), None)
+                        if v_elem is not None and v_elem.text and v_elem.text.strip().isdigit():
+                            idx = int(v_elem.text.strip())
+                            if 0 <= idx < len(shared):
+                                val = shared[idx]
+                    elif ctype == "inlineStr":
+                        parts: list[str] = []
+                        _collect_xlsx_text_without_furigana(cell, parts)
+                        val = "".join(parts)
+                    else:
+                        v_elem = next((c for c in cell if _local_tag(c) == "v"), None)
+                        if v_elem is not None and v_elem.text:
+                            val = v_elem.text
+                    cleaned = re.sub(r"\s+", " ", val).strip()
+                    if cleaned:
+                        row_vals.append(cleaned)
+                if row_vals:
+                    sheet_lines.append(" | ".join(row_vals))
+            if sheet_lines:
+                blocks.append(f"--- Sheet: {sheet_name} ---\n" + "\n".join(sheet_lines))
+    return "\n\n".join(blocks).strip()
+
+
+def _walk_pptx_paragraphs(node: ET.Element, paragraphs: list[str]) -> None:
+    """Walk PPTX XML in document order while skipping <mc:Fallback> duplicate branches."""
+    tag = _local_tag(node)
+    if tag == "Fallback":
+        return
+    if tag == "p":
+        parts: list[str] = []
+        for sub in node.iter():
+            sub_local = _local_tag(sub)
+            if sub_local == "t" and sub.text:
+                parts.append(sub.text)
+            elif sub_local == "br":
+                parts.append("\n")
+        line = "".join(parts).strip()
+        if line:
+            paragraphs.append(line)
+        return
+    for child in node:
+        _walk_pptx_paragraphs(child, paragraphs)
+
+
 def _extract_pptx_xml_text(xml_bytes: bytes) -> str:
     root = ET.fromstring(xml_bytes)
     paragraphs: list[str] = []
-    for elem in root.iter():
-        if _local_tag(elem) == "p":
-            parts: list[str] = []
-            for sub in elem.iter():
-                sub_local = _local_tag(sub)
-                if sub_local == "t" and sub.text:
-                    parts.append(sub.text)
-                elif sub_local == "br":
-                    parts.append("\n")
-            line = "".join(parts).strip()
-            if line:
-                paragraphs.append(line)
+    _walk_pptx_paragraphs(root, paragraphs)
     return "\n".join(paragraphs).strip()
 
 
@@ -337,7 +574,6 @@ def _walk_hwpx_node(node: ET.Element, lines: list[str]) -> None:
         text = "".join(parts).strip()
         if text:
             lines.append(text)
-        # Visit nested structural containers (tables/textboxes inside runs of this paragraph) separately
         for child in node:
             _walk_hwpx_nested_containers(child, lines)
         return
@@ -371,8 +607,8 @@ def extract_hwpx(path: Path) -> str:
     return "\n\n".join(sections).strip()
 
 
-def extract_html(path: Path) -> str:
-    raw = _read_text_with_fallback(path)
+def extract_html(path: Path, encoding_hint: str | None = None) -> str:
+    raw = _read_text_with_fallback(path, encoding_hint=encoding_hint)
     parser = _HTMLTextExtractor()
     parser.feed(raw)
     parser.close()
@@ -421,28 +657,30 @@ def extract_pdf(path: Path) -> tuple[str, str | None]:
         )
 
 
-def extract_file(path: Path) -> tuple[str, str | None]:
+def extract_file(path: Path, encoding_hint: str | None = None) -> tuple[str, str | None]:
     if not path.exists():
         raise FileNotFoundError(f"Input file not found: {path}")
     ext = path.suffix.lower()
     if ext in UNSUPPORTED_BINARY_EXTENSIONS:
         raise UnsupportedBinaryFormatError(
             f"UNSUPPORTED_BINARY_FORMAT: Legacy binary format '{ext}' ('{path.name}') is not directly supported. "
-            "Please save/export as .hwpx, .docx, .pdf, or .md and resubmit."
+            "Please save/export as .xlsx, .docx, .hwpx, .pdf, or .md and resubmit."
         )
     if ext in TEXT_EXTENSIONS:
-        return _read_text_with_fallback(path).strip(), None
+        return _read_text_with_fallback(path, encoding_hint=encoding_hint).strip(), None
     if ext == ".docx":
         return extract_docx(path), None
+    if ext == ".xlsx":
+        return extract_xlsx(path), None
     if ext == ".pptx":
         return extract_pptx(path), None
     if ext == ".hwpx":
         return extract_hwpx(path), None
     if ext in HTML_EXTENSIONS:
-        return extract_html(path), None
+        return extract_html(path, encoding_hint=encoding_hint), None
     if ext == ".pdf":
         return extract_pdf(path)
-    return _read_text_with_fallback(path).strip(), f"Unknown extension '{ext}' treated as plain text."
+    return _read_text_with_fallback(path, encoding_hint=encoding_hint).strip(), f"Unknown extension '{ext}' treated as plain text."
 
 
 def main() -> int:
@@ -451,9 +689,14 @@ def main() -> int:
     if hasattr(sys.stderr, "reconfigure"):
         sys.stderr.reconfigure(encoding="utf-8")
 
-    parser = argparse.ArgumentParser(description="Extract and consolidate text from resume/portfolio/JD files.")
+    parser = argparse.ArgumentParser(description="Extract and consolidate multilingual text from resume/portfolio/JD files (v2.1).")
     parser.add_argument("--inputs", nargs="*", default=[], help="One or more input file paths.")
     parser.add_argument("--out", required=True, help="Output consolidated UTF-8 text file path.")
+    parser.add_argument(
+        "--encoding",
+        default="auto",
+        help="Optional explicit text encoding hint (e.g., utf-8, cp949, gb18030, cp932). Default: auto.",
+    )
     parser.add_argument(
         "--append-stdin",
         action="store_true",
@@ -468,7 +711,7 @@ def main() -> int:
 
     for raw_path in args.inputs:
         p = Path(raw_path).resolve()
-        text, warn = extract_file(p)
+        text, warn = extract_file(p, encoding_hint=args.encoding)
         if warn:
             warnings.append(warn)
         files_manifest.append({"path": str(p), "chars": len(text), "warning": warn})

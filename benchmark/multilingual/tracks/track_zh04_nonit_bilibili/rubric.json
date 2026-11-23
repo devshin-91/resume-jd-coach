@@ -1,0 +1,107 @@
+{
+  "company": "哔哩哔哩（Bilibili）",
+  "role_title": "内容安全业务HRBP",
+  "language": "zh",
+  "domain_mode": "resume_only",
+  "pass_threshold": 80.0,
+  "ats_lexical_share": 0.5,
+  "category_weights": {
+    "must_have": 45,
+    "portfolio_impact": 25,
+    "preferred": 15,
+    "ats_framing": 15
+  },
+  "categories": {
+    "must_have": [
+      {
+        "id": "MH-1",
+        "title": "本科及以上 + 4年以上人力资源工作经验",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-2",
+        "title": "组织诊断、组织盘点与全模块 HR 解决方案落地",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-3",
+        "title": "业务独立判断与跨城市业务协作界面管理",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "portfolio_impact": [
+      {
+        "id": "PI-1",
+        "title": "组织效率、关键岗位保留或绩效变革量化成效",
+        "weight": 3,
+        "is_knockout": false
+      }
+    ],
+    "preferred": [
+      {
+        "id": "PR-1",
+        "title": "互联网公司或跨城市 HRBP 经验",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "ats_framing": [
+      {
+        "id": "AF-1",
+        "title": "业务导向 HRBP 定位与结构化表达",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ]
+  },
+  "keywords": [
+    {
+      "term": "HRBP",
+      "aliases": [
+        "人力资源业务合作伙伴"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-1"
+    },
+    {
+      "term": "组织诊断",
+      "aliases": [
+        "组织盘点"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "员工关系",
+      "aliases": [
+        "绩效考核",
+        "薪酬"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "跨城市",
+      "aliases": [
+        "多城市",
+        "出差"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "MH-3"
+    },
+    {
+      "term": "互联网",
+      "aliases": [
+        "内容安全",
+        "审核团队"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-1"
+    }
+  ],
+  "rubric_hash": "c035f1842b72354c",
+  "locked_at": "2026-11-23T01:35:20+00:00"
+}

@@ -1,0 +1,65 @@
+{
+  "round": 2,
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "FULL",
+      "evidence_quote": "Owned end-to-end design, RFC review, launch, and iteration of CloudLedger's multi-channel notification platform (Python, PostgreSQL, Kafka event-driven queues) serving 4.2M transactional alerts/day",
+      "source": "docx"
+    },
+    {
+      "id": "MH-2",
+      "grade": "FULL",
+      "evidence_quote": "Architected idempotent delivery workflows using composite idempotency keys, exponential backoff retries, and dead-letter queues (DLQ), cutting duplicate payment alerts by 99.4%",
+      "source": "docx"
+    },
+    {
+      "id": "MH-3",
+      "grade": "FULL",
+      "evidence_quote": "Owned end-to-end design, RFC review, launch, and iteration of CloudLedger's multi-channel notification platform",
+      "source": "docx"
+    },
+    {
+      "id": "MH-4",
+      "grade": "FULL",
+      "evidence_quote": "Instrumented full observability (OpenTelemetry traces, Datadog SLO dashboards, provider failover alerts), shrinking p99 notification latency from 4.8s to 620ms",
+      "source": "docx"
+    },
+    {
+      "id": "MH-5",
+      "grade": "FULL",
+      "evidence_quote": "Partnered directly with Product and Design to launch batched approval digests, reducing noisy customer notifications by 41%",
+      "source": "docx"
+    },
+    {
+      "id": "PI-1",
+      "grade": "FULL",
+      "evidence_quote": "raising verified delivery SLA from 97.1% to 99.96%",
+      "source": "docx"
+    },
+    {
+      "id": "PI-2",
+      "grade": "FULL",
+      "evidence_quote": "adopted by 6 product engineering teams via a typed internal SDK",
+      "source": "docx"
+    },
+    {
+      "id": "PR-1",
+      "grade": "FULL",
+      "evidence_quote": "Built channel integrations with SendGrid (email), Twilio (SMS), and Slack webhooks alongside granular admin/user communication preference controls",
+      "source": "docx"
+    },
+    {
+      "id": "PR-2",
+      "grade": "FULL",
+      "evidence_quote": "adopted by 6 product engineering teams via a typed internal SDK",
+      "source": "docx"
+    },
+    {
+      "id": "AF-1",
+      "grade": "FULL",
+      "evidence_quote": "Senior Backend Engineer, Distributed Messaging & Platform Systems (US Remote)",
+      "source": "docx"
+    }
+  ]
+}

@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Automated self-test suite for resume-jd-coach v1.1 scripts."""
+"""Automated self-test suite for resume-jd-coach v2.1 multilingual scripts."""
 
 from __future__ import annotations
 
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -152,8 +153,10 @@ class TestATSKeywordBoundaryAndNegation(unittest.TestCase):
         )
         audit = score_match.audit_ats_keywords(keywords, text)
         detail = audit["details"][0]
-        self.assertTrue(detail["matched"])
+        # P0-1 policy: self-contradictory keyword receives 0.0 ATS credit (matched=False) while flagging contradiction
+        self.assertFalse(detail["matched"])
         self.assertTrue(detail["contradictory_mention"])
+        self.assertEqual(audit["matched_weight"], Decimal("0"))
 
 
 class TestScoringMathAndGuardrailsV11(unittest.TestCase):
@@ -657,6 +660,743 @@ class TestSampleCLISmoke(unittest.TestCase):
             self.assertEqual(out2["pass_status"], "PASS")
             r2_md = rep2.read_text(encoding="utf-8")
             self.assertIsNone(score_match.HANGUL_OR_CJK_RE.search(r2_md))
+
+
+class TestMultilingualV20Support(unittest.TestCase):
+    def test_multilingual_chinese_japanese_english_negation_and_nfkc(self) -> None:
+        # 1. Chinese (zh): clause comma vs dunhao list, negated section + reset, self-contradiction
+        zh_kws = [
+            {"term": "Java", "aliases": [], "tier": "must"},
+            {"term": "MySQL", "aliases": [], "tier": "must"},
+            {"term": "Kubernetes", "aliases": ["K8s"], "tier": "must"},
+            {"term": "Redis", "aliases": [], "tier": "must"},
+            {"term": "Spark", "aliases": [], "tier": "preferred"},
+        ]
+        zh_text = (
+            "专业技能：熟练掌握 Java 和 MySQL，暂未接触 Kubernetes、Spark。\n"
+            "项目经历：主导交易系统 MySQL 分库分表，同时也写了 Redis 缓存。\n"
+            "尚未接触领域\n"
+            "Redis 跨机房容灾方案\n"
+            "工作经历\n"
+            "负责电商 Java 后端核心接口开发。\n"
+        )
+        zh_audit = score_match.audit_ats_keywords(zh_kws, zh_text)
+        zh_map = {d["term"]: d for d in zh_audit["details"]}
+        self.assertTrue(zh_map["Java"]["matched"])
+        self.assertFalse(zh_map["Java"]["contradictory_mention"])
+        self.assertTrue(zh_map["MySQL"]["matched"])
+        self.assertFalse(zh_map["Kubernetes"]["matched"])
+        self.assertTrue(zh_map["Kubernetes"]["negated_mention"])
+        self.assertFalse(zh_map["Spark"]["matched"])
+        self.assertTrue(zh_map["Spark"]["negated_mention"])
+        # Redis appeared positively in 项目经历 AND inside 尚未接触领域 -> contradictory & disqualified (0 ATS credit)!
+        self.assertFalse(zh_map["Redis"]["matched"])
+        self.assertTrue(zh_map["Redis"]["contradictory_mention"])
+
+        # 2. Japanese (ja): full-width NFKC ("ＡＷＳ", "ＳＱＬ"), comma positive/negative split, list negation, section reset
+        ja_kws = [
+            {"term": "Python", "aliases": [], "tier": "must"},
+            {"term": "SQL", "aliases": [], "tier": "must"},
+            {"term": "AWS", "aliases": [], "tier": "must"},
+            {"term": "Spark", "aliases": [], "tier": "must"},
+            {"term": "PyTorch", "aliases": [], "tier": "preferred"},
+            {"term": "Kubernetes", "aliases": ["K8s"], "tier": "preferred"},
+        ]
+        ja_text = (
+            "保有スキル\n"
+            "・Ｐｙｔｈｏｎ・ＳＱＬ実務3年、Sparkは未経験です。\n"
+            "・PyTorch、Kubernetesは未経験ですが、ＡＷＳ環境での構築運用を担当いたしました。\n"
+            "今後の課題\n"
+            "本番環境でのSpark運用\n"
+            "職務経歴\n"
+            "2022年〜現在：ＡＷＳ上のWebアプリ保守およびＳＱＬ集計を担当。\n"
+        )
+        ja_audit = score_match.audit_ats_keywords(ja_kws, ja_text)
+        ja_map = {d["term"]: d for d in ja_audit["details"]}
+        self.assertTrue(ja_map["Python"]["matched"])
+        self.assertTrue(ja_map["SQL"]["matched"])
+        self.assertTrue(ja_map["AWS"]["matched"])
+        self.assertFalse(ja_map["Spark"]["matched"])
+        self.assertTrue(ja_map["Spark"]["negated_mention"])
+        self.assertFalse(ja_map["PyTorch"]["matched"])
+        self.assertTrue(ja_map["PyTorch"]["negated_mention"])
+        self.assertFalse(ja_map["Kubernetes"]["matched"])
+        self.assertTrue(ja_map["Kubernetes"]["negated_mention"])
+
+        # 3. English (en): long-window list negation & comma-separated positive/negative clause
+        en_kws = [
+            {"term": "Python", "aliases": [], "tier": "must"},
+            {"term": "SQL", "aliases": [], "tier": "must"},
+            {"term": "Airflow", "aliases": [], "tier": "must"},
+            {"term": "Spark", "aliases": [], "tier": "must"},
+            {"term": "Kubernetes", "aliases": [], "tier": "must"},
+        ]
+        en_text = (
+            "5 years of Python and SQL in production, no production experience with Airflow, Spark, or Kubernetes.\n"
+        )
+        en_audit = score_match.audit_ats_keywords(en_kws, en_text)
+        en_map = {d["term"]: d for d in en_audit["details"]}
+        self.assertTrue(en_map["Python"]["matched"])
+        self.assertTrue(en_map["SQL"]["matched"])
+        self.assertFalse(en_map["Airflow"]["matched"])
+        self.assertTrue(en_map["Airflow"]["negated_mention"])
+        self.assertFalse(en_map["Spark"]["matched"])
+        self.assertTrue(en_map["Spark"]["negated_mention"])
+        self.assertFalse(en_map["Kubernetes"]["matched"])
+        self.assertTrue(en_map["Kubernetes"]["negated_mention"])
+
+    def test_cjk_quote_grounding_verbatim_and_bag_of_chars_rejection(self) -> None:
+        zh_cand = "负责电商交易核心接口开发，使用Java与MySQL支撑日均50万订单；团队协作完成常规版本上线。"
+        self.assertTrue(score_match.verify_quote_grounding("负责电商交易核心接口开发，使用 Java 与 MySQL 支撑日均50万订单", zh_cand))
+        # Single-char particle quote must be rejected
+        self.assertFalse(score_match.verify_quote_grounding("的", zh_cand))
+        # Scattered bag-of-characters stitched out of order must be rejected by bigram gate
+        self.assertFalse(score_match.verify_quote_grounding("交易完成核心团队版本支撑订单上常规", zh_cand))
+
+        ja_cand = "ＲｅａｃｔとTypeScriptを用いてＢ２Ｂ向け管理画面の設計および開発を担当いたしました。"
+        self.assertTrue(score_match.verify_quote_grounding("ReactとTypeScriptを用いてB2B向け管理画面の設計および開発を担当", ja_cand))
+        self.assertFalse(score_match.verify_quote_grounding("の", ja_cand))
+        self.assertFalse(score_match.verify_quote_grounding("画面設計管理担当開発向け用", ja_cand))
+
+    def test_xlsx_multilingual_japanese_rirekisho_extractor(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            xlsx_file = Path(tmp) / "shokumu_keirekisho.xlsx"
+            with zipfile.ZipFile(xlsx_file, "w") as zf:
+                zf.writestr(
+                    "xl/workbook.xml",
+                    '<?xml version="1.0" encoding="UTF-8"?>'
+                    '<workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" '
+                    'xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">'
+                    '<sheets><sheet name="職務経歴書" sheetId="2" r:id="rId2"/>'
+                    '<sheet name="履歴書" sheetId="1" r:id="rId1"/></sheets></workbook>',
+                )
+                zf.writestr(
+                    "xl/_rels/workbook.xml.rels",
+                    '<?xml version="1.0" encoding="UTF-8"?>'
+                    '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
+                    '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/>'
+                    '<Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet2.xml"/>'
+                    "</Relationships>",
+                )
+                zf.writestr(
+                    "xl/sharedStrings.xml",
+                    '<?xml version="1.0" encoding="UTF-8"?>'
+                    '<sst xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">'
+                    "<si><t>氏名</t></si>"
+                    "<si><t>佐藤 健太</t></si>"
+                    "<si><t>連結決算・税務担当</t></si>"
+                    "<si><r><t>監査法人対応を</t></r><r><t>3年間主導</t></r></si>"
+                    "</sst>",
+                )
+                zf.writestr(
+                    "xl/worksheets/sheet1.xml",
+                    '<?xml version="1.0" encoding="UTF-8"?>'
+                    '<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">'
+                    '<sheetData><row r="1"><c r="A1" t="s"><v>0</v></c><c r="B1" t="s"><v>1</v></c></row></sheetData></worksheet>',
+                )
+                zf.writestr(
+                    "xl/worksheets/sheet2.xml",
+                    '<?xml version="1.0" encoding="UTF-8"?>'
+                    '<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">'
+                    '<sheetData><row r="1"><c r="A1" t="s"><v>2</v></c><c r="B1" t="s"><v>3</v></c></row>'
+                    '<row r="2"><c r="A2" t="inlineStr"><is><t>子会社数</t></is></c><c r="B2"><v>6</v></c></row>'
+                    "</sheetData></worksheet>",
+                )
+            extracted, warn = extract_doc.extract_file(xlsx_file)
+            self.assertIsNone(warn)
+            self.assertIn("--- Sheet: 職務経歴書 ---", extracted)
+            self.assertIn("連結決算・税務担当 | 監査法人対応を3年間主導", extracted)
+            self.assertIn("子会社数 | 6", extracted)
+            # Visual sheet order: 職務経歴書 appears BEFORE 履歴書
+            self.assertLess(extracted.index("職務経歴書"), extracted.index("履歴書"))
+
+    def test_legacy_cjk_encodings_gb18030_cp932_cp949_zero_mojibake(self) -> None:
+        samples = [
+            ("ja_sjis.txt", "cp932", "職務要約：株式会社サンプルにてバックエンド開発およびデータベース設計を5年間担当いたしました。"),
+            ("ja_sjis_fullwidth.txt", "cp932", "職務経歴書：高橋 誠（エンジニア）\n■ 保有スキル\nＲｕｂｙ ｏｎ Ｒａｉｌｓ、ＰｏｓｔｇｒｅＳＱＬ、ＧｉｔＨｕｂ、ＡＷＳ（運用補助）\n■ 今後の課題\nSLO/SLIの運用は未経験です。"),
+            ("zh_gb.txt", "gb18030", "个人简介：具备五年后端研发经验，熟悉高并发交易系统架构设计与数据库性能优化，主导过核心重构项目。"),
+            ("ko_cp949.txt", "cp949", "경력 요약: 백엔드 API 설계 및 데이터베이스 성능 최적화를 5년간 주도하였으며 장애 복구 체계를 구축했습니다."),
+        ]
+        with tempfile.TemporaryDirectory() as tmp:
+            for fname, enc, original in samples:
+                fpath = Path(tmp) / fname
+                fpath.write_bytes(original.encode(enc))
+                decoded, warn = extract_doc.extract_file(fpath)
+                self.assertIsNone(warn)
+                self.assertEqual(decoded, original, f"Failed zero-mojibake auto-decode for {enc}")
+
+    def test_chinese_two_round_cli_zero_foreign_leakage(self) -> None:
+        hangul_or_kana_re = re.compile(r"[\uac00-\ud7af\u3040-\u30ff]")
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_dir = Path(tmp)
+            rubric_path = tmp_dir / "rubric_zh.json"
+            rubric = {
+                "company": "示例科技",
+                "role_title": "高级Java后端开发工程师",
+                "language": "zh",
+                "domain_mode": "resume_only",
+                "pass_threshold": 80.0,
+                "ats_lexical_share": 0.5,
+                "category_weights": {"must_have": 45, "portfolio_impact": 25, "preferred": 15, "ats_framing": 15},
+                "categories": {
+                    "must_have": [
+                        {"id": "MH-1", "title": "Java与Spring Boot高并发后端开发", "weight": 3, "is_knockout": True},
+                        {"id": "MH-2", "title": "MySQL性能优化与线上排障", "weight": 2, "is_knockout": False},
+                    ],
+                    "portfolio_impact": [
+                        {"id": "PI-1", "title": "核心交易项目量化成果", "weight": 2, "is_knockout": False},
+                    ],
+                    "preferred": [
+                        {"id": "PR-1", "title": "AI Agent研发工作流建设", "weight": 1, "is_knockout": False},
+                    ],
+                    "ats_framing": [
+                        {"id": "AF-1", "title": "岗位定位与项目结构清晰度", "weight": 1, "is_knockout": False},
+                    ],
+                },
+                "keywords": [
+                    {"term": "Java", "aliases": [], "tier": "must"},
+                    {"term": "Spring Boot", "aliases": [], "tier": "must"},
+                    {"term": "MySQL", "aliases": [], "tier": "must"},
+                    {"term": "AI Agent", "aliases": [], "tier": "preferred", "linked_item_id": "PR-1"},
+                ],
+            }
+            rubric_path.write_text(json.dumps(rubric, ensure_ascii=False, indent=2), encoding="utf-8")
+            subprocess.run(
+                [sys.executable, "-B", str(SCRIPT_DIR / "score_match.py"), "--init-rubric", str(rubric_path)],
+                capture_output=True, text=True, encoding="utf-8", check=True,
+            )
+
+            c1 = tmp_dir / "r1.txt"
+            c1.write_text(
+                "个人简介：后端开发工程师。\n"
+                "专业技能：熟悉 Java、Spring Boot、AI Agent。\n"
+                "工作经历：负责日常后端接口维护和bug修复。\n"
+                "尚未接触领域\n"
+                "暂无AI Agent研发工作流落地经验。\n",
+                encoding="utf-8",
+            )
+            e1 = tmp_dir / "e1.json"
+            e1.write_text(
+                json.dumps(
+                    {
+                        "round": 1,
+                        "items": [
+                            {"id": "MH-1", "grade": "WEAK", "evidence_quote": "熟悉 Java、Spring Boot", "gap_type": "expression_gap", "action_hint": "请将Java与Spring Boot能力放回具体高并发交易项目中佐证。"},
+                            {"id": "MH-2", "grade": "MISSING", "evidence_quote": "", "gap_type": "expression_gap", "action_hint": "补充MySQL分库分表或慢查询优化实战。"},
+                            {"id": "PI-1", "grade": "MISSING", "evidence_quote": "", "gap_type": "expression_gap", "action_hint": "补充QPS、延迟或稳定性等量化指标。"},
+                            {"id": "PR-1", "grade": "MISSING", "evidence_quote": "", "gap_type": "true_gap", "action_hint": "如实说明未接触AI Agent，请从技能栏移除。"},
+                            {"id": "AF-1", "grade": "WEAK", "evidence_quote": "负责日常后端接口维护和bug修复", "gap_type": "expression_gap", "action_hint": "按项目背景-职责-成果重构。"},
+                        ],
+                    },
+                    ensure_ascii=False,
+                ),
+                encoding="utf-8",
+            )
+            hist = tmp_dir / "history.json"
+            rep1 = tmp_dir / "r1_report.md"
+            p1 = subprocess.run(
+                [
+                    sys.executable, "-B", str(SCRIPT_DIR / "score_match.py"),
+                    "--rubric", str(rubric_path), "--eval", str(e1),
+                    "--candidate-text", str(c1), "--history", str(hist),
+                    "--report-out", str(rep1), "--strict-quotes",
+                ],
+                capture_output=True, text=True, encoding="utf-8", check=True,
+            )
+            out1 = json.loads(p1.stdout)
+            self.assertEqual(out1["pass_status"], "REVISE")
+            self.assertEqual([k["term"] for k in out1["ats_keywords"]["contradictory_mentions"]], ["AI Agent"])
+            md1 = rep1.read_text(encoding="utf-8")
+            self.assertIn("岗位匹配度诊断报告 — 第 1 轮", md1)
+            self.assertIn("项目/工作佐证与量化成果", md1)
+            self.assertIn("材料内部自相矛盾警告", md1)
+            self.assertNotIn("%p", md1)
+            self.assertNotIn("简历/作品集", md1)  # resume_only must not mention 作品集 in CTA
+            self.assertIsNone(hangul_or_kana_re.search(md1))
+
+            # Round 2 -> PASS with zero Korean/Japanese leakage
+            c2 = tmp_dir / "r2.txt"
+            c2.write_text(
+                "个人简介：高级 Java 后端开发工程师。\n"
+                "项目经历：主导交易系统 Java 与 Spring Boot 高并发重构，MySQL 慢查询优化使 P99 耗时由 600ms 降至 85ms，峰值支撑 9000 QPS。\n"
+                "尚未接触领域\n"
+                "暂无AI Agent研发工作流落地经验。\n",
+                encoding="utf-8",
+            )
+            e2 = tmp_dir / "e2.json"
+            e2.write_text(
+                json.dumps(
+                    {
+                        "round": 2,
+                        "items": [
+                            {"id": "MH-1", "grade": "FULL", "evidence_quote": "主导交易系统 Java 与 Spring Boot 高并发重构"},
+                            {"id": "MH-2", "grade": "FULL", "evidence_quote": "MySQL 慢查询优化使 P99 耗时由 600ms 降至 85ms"},
+                            {"id": "PI-1", "grade": "FULL", "evidence_quote": "P99 耗时由 600ms 降至 85ms，峰值支撑 9000 QPS"},
+                            {"id": "PR-1", "grade": "MISSING", "evidence_quote": "", "gap_type": "true_gap", "action_hint": "保持诚实即可。"},
+                            {"id": "AF-1", "grade": "FULL", "evidence_quote": "高级 Java 后端开发工程师"},
+                        ],
+                    },
+                    ensure_ascii=False,
+                ),
+                encoding="utf-8",
+            )
+            rep2 = tmp_dir / "r2_report.md"
+            p2 = subprocess.run(
+                [
+                    sys.executable, "-B", str(SCRIPT_DIR / "score_match.py"),
+                    "--rubric", str(rubric_path), "--eval", str(e2),
+                    "--candidate-text", str(c2), "--history", str(hist),
+                    "--report-out", str(rep2), "--strict-quotes",
+                ],
+                capture_output=True, text=True, encoding="utf-8", check=True,
+            )
+            out2 = json.loads(p2.stdout)
+            self.assertEqual(out2["pass_status"], "PASS")
+            self.assertEqual(out2["ats_keywords"]["contradictory_mentions"], [])
+            md2 = rep2.read_text(encoding="utf-8")
+            self.assertIn("第 1 轮 → 第 2 轮 改进追踪", md2)
+            self.assertNotIn("%p", md2)
+            self.assertIsNone(hangul_or_kana_re.search(md2))
+
+    def test_japanese_two_round_cli_zero_foreign_leakage(self) -> None:
+        hangul_re = re.compile(r"[\uac00-\ud7af]")
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_dir = Path(tmp)
+            rubric_path = tmp_dir / "rubric_ja.json"
+            rubric = {
+                "company": "サンプル株式会社",
+                "role_title": "グループ経理（連結・税務）",
+                "language": "ja",
+                "domain_mode": "resume_only",
+                "pass_threshold": 80.0,
+                "ats_lexical_share": 0.5,
+                "category_weights": {"must_have": 45, "portfolio_impact": 25, "preferred": 15, "ats_framing": 15},
+                "categories": {
+                    "must_have": [
+                        {"id": "MH-1", "title": "事業会社での経理3年以上＋連結決算実務1年以上", "weight": 3, "is_knockout": True},
+                        {"id": "MH-2", "title": "監査法人対応および論点整理", "weight": 2, "is_knockout": False},
+                    ],
+                    "portfolio_impact": [
+                        {"id": "PI-1", "title": "決算早期化・統制整備の定量実績", "weight": 2, "is_knockout": False},
+                    ],
+                    "preferred": [
+                        {"id": "PR-1", "title": "M&A・PMI会計対応経験", "weight": 1, "is_knockout": False},
+                    ],
+                    "ats_framing": [
+                        {"id": "AF-1", "title": "職務要約のポジション訴求力", "weight": 1, "is_knockout": False},
+                    ],
+                },
+                "keywords": [
+                    {"term": "連結決算", "aliases": [], "tier": "must"},
+                    {"term": "税効果会計", "aliases": [], "tier": "must"},
+                    {"term": "PMI", "aliases": ["M&A"], "tier": "preferred", "linked_item_id": "PR-1"},
+                ],
+            }
+            rubric_path.write_text(json.dumps(rubric, ensure_ascii=False, indent=2), encoding="utf-8")
+            subprocess.run(
+                [sys.executable, "-B", str(SCRIPT_DIR / "score_match.py"), "--init-rubric", str(rubric_path)],
+                capture_output=True, text=True, encoding="utf-8", check=True,
+            )
+
+            c1 = tmp_dir / "r1.txt"
+            c1.write_text(
+                "職務要約：事業会社にて経理業務を４年間担当いたしました。連結決算と税効果会計の補助を行いました。\n"
+                "■ 今後の課題\n"
+                "Ｍ＆ＡおよびＰＭＩ会計は未経験です。\n",
+                encoding="utf-8",
+            )
+            e1 = tmp_dir / "e1.json"
+            e1.write_text(
+                json.dumps(
+                    {
+                        "round": 1,
+                        "items": [
+                            {"id": "MH-1", "grade": "PARTIAL", "evidence_quote": "事業会社にて経理業務を4年間担当いたしました。連結決算と税効果会計の補助を行いました", "gap_type": "expression_gap", "action_hint": "連結決算の担当範囲（子会社数・連結消去など）を具体化してください。"},
+                            {"id": "MH-2", "grade": "MISSING", "evidence_quote": "", "gap_type": "expression_gap", "action_hint": "監査法人との折衝や論点整理の経験があれば明記してください。"},
+                            {"id": "PI-1", "grade": "MISSING", "evidence_quote": "", "gap_type": "expression_gap", "action_hint": "決算日数短縮などの定量成果を追記してください。"},
+                            {"id": "PR-1", "grade": "MISSING", "evidence_quote": "", "gap_type": "true_gap", "action_hint": "未経験のPMIは虚偽記載せず、連結標準化の強みで訴求してください。"},
+                            {"id": "AF-1", "grade": "WEAK", "evidence_quote": "経理業務を4年間担当いたしました", "gap_type": "expression_gap", "action_hint": "主体的オーナーシップが伝わる要約に改善してください。"},
+                        ],
+                    },
+                    ensure_ascii=False,
+                ),
+                encoding="utf-8",
+            )
+            hist = tmp_dir / "history.json"
+            rep1 = tmp_dir / "r1_report.md"
+            p1 = subprocess.run(
+                [
+                    sys.executable, "-B", str(SCRIPT_DIR / "score_match.py"),
+                    "--rubric", str(rubric_path), "--eval", str(e1),
+                    "--candidate-text", str(c1), "--history", str(hist),
+                    "--report-out", str(rep1), "--strict-quotes",
+                ],
+                capture_output=True, text=True, encoding="utf-8", check=True,
+            )
+            out1 = json.loads(p1.stdout)
+            self.assertEqual(out1["pass_status"], "REVISE")
+            self.assertEqual([k["term"] for k in out1["ats_keywords"]["negated_mentions"]], ["PMI"])
+            md1 = rep1.read_text(encoding="utf-8")
+            self.assertIn("求人マッチ度診断レポート — Round 1", md1)
+            self.assertIn("職務実績・定量成果", md1)
+            self.assertIn("pt`", md1)
+            self.assertNotIn("%p", md1)
+            self.assertNotIn("ポートフォリオをご自身で", md1)  # resume_only mode!
+            self.assertIsNone(hangul_re.search(md1))
+
+            # Round 2 -> PASS with zero Hangul leakage
+            c2 = tmp_dir / "r2.txt"
+            c2.write_text(
+                "職務要約：上場事業会社にて経理4年・子会社6社の連結決算および税効果会計を2年間主導。\n"
+                "監査法人との収益認識・税効果論点協議を完結し、連結決算締め日数を12営業日から7営業日へ42%短縮。\n"
+                "■ 今後の課題\n"
+                "Ｍ＆ＡおよびＰＭＩ会計は未経験です。\n",
+                encoding="utf-8",
+            )
+            e2 = tmp_dir / "e2.json"
+            e2.write_text(
+                json.dumps(
+                    {
+                        "round": 2,
+                        "items": [
+                            {"id": "MH-1", "grade": "FULL", "evidence_quote": "上場事業会社にて経理4年・子会社6社の連結決算および税効果会計を2年間主導"},
+                            {"id": "MH-2", "grade": "FULL", "evidence_quote": "監査法人との収益認識・税効果論点協議を完結"},
+                            {"id": "PI-1", "grade": "FULL", "evidence_quote": "連結決算締め日数を12営業日から7営業日へ42%短縮"},
+                            {"id": "PR-1", "grade": "MISSING", "evidence_quote": "", "gap_type": "true_gap", "action_hint": "未経験のPMIは正直に維持。"},
+                            {"id": "AF-1", "grade": "FULL", "evidence_quote": "上場事業会社にて経理4年・子会社6社の連結決算および税効果会計を2年間主導"},
+                        ],
+                    },
+                    ensure_ascii=False,
+                ),
+                encoding="utf-8",
+            )
+            rep2 = tmp_dir / "r2_report.md"
+            p2 = subprocess.run(
+                [
+                    sys.executable, "-B", str(SCRIPT_DIR / "score_match.py"),
+                    "--rubric", str(rubric_path), "--eval", str(e2),
+                    "--candidate-text", str(c2), "--history", str(hist),
+                    "--report-out", str(rep2), "--strict-quotes",
+                ],
+                capture_output=True, text=True, encoding="utf-8", check=True,
+            )
+            out2 = json.loads(p2.stdout)
+            self.assertEqual(out2["pass_status"], "PASS")
+            md2 = rep2.read_text(encoding="utf-8")
+            self.assertIn("Round 1 → Round 2 変化サマリー", md2)
+            self.assertNotIn("%p", md2)
+            self.assertIsNone(hangul_re.search(md2))
+
+    def test_multilingual_broad_alias_warnings_zh_ja_en(self) -> None:
+        rubric = _make_minimal_rubric(language="zh")
+        rubric["keywords"] = [
+            {"term": "AI Agent", "aliases": ["自动化"], "tier": "must"},
+            {"term": "SLO/SLI", "aliases": ["運用"], "tier": "must"},
+            {"term": "Workforce Planning", "aliases": ["management"], "tier": "must"},
+        ]
+        _, warnings = score_match.validate_rubric(rubric)
+        self.assertEqual(len(warnings), 3)
+
+
+class TestRLAIFV21HardeningRegressions(unittest.TestCase):
+    def test_p0_1_contradictory_keywords_earn_zero_ats_credit(self) -> None:
+        rubric = _make_minimal_rubric(language="ja", domain_mode="resume_only")
+        rubric["keywords"] = [
+            {"term": "連結決算", "aliases": [], "tier": "must"},
+            {"term": "PMI", "aliases": [], "tier": "preferred"},
+        ]
+        rubric["rubric_hash"] = score_match.compute_rubric_hash(rubric)
+        cand = (
+            "職務要約：単体経理2年。\n"
+            "保有スキル：連結決算、PMI\n"
+            "■ 今後の課題（未経験領域）\n"
+            "連結決算およびPMIはいずれも未経験です。\n"
+        )
+        ev = {
+            "round": 1,
+            "items": [
+                {"id": "MH-1", "grade": "MISSING", "evidence_quote": "", "gap_type": "true_gap"},
+                {"id": "MH-2", "grade": "MISSING", "evidence_quote": "", "gap_type": "true_gap"},
+                {"id": "PI-1", "grade": "MISSING", "evidence_quote": "", "gap_type": "true_gap"},
+                {"id": "PR-1", "grade": "MISSING", "evidence_quote": "", "gap_type": "true_gap"},
+                {"id": "AF-1", "grade": "WEAK", "evidence_quote": "単体経理2年", "gap_type": "expression_gap"},
+            ],
+        }
+        res = score_match.evaluate_round(rubric, ev, candidate_text=cand, strict_quotes=True)
+        self.assertEqual(res["ats_keywords"]["matched_count"], 0)
+        self.assertEqual(res["ats_keywords"]["coverage_pct"], 0.0)
+        self.assertEqual(
+            sorted(k["term"] for k in res["ats_keywords"]["contradictory_mentions"]),
+            ["PMI", "連結決算"],
+        )
+
+    def test_p0_2_adversarial_negation_bypasses_keigo_nouns_squares_commas_long_lists(self) -> None:
+        kws = [
+            {"term": "Kubernetes", "aliases": [], "tier": "must"},
+            {"term": "Spark", "aliases": [], "tier": "must"},
+            {"term": "Airflow", "aliases": [], "tier": "must"},
+            {"term": "Redis", "aliases": [], "tier": "must"},
+            {"term": "Hadoop", "aliases": [], "tier": "must"},
+            {"term": "MultiTenant", "aliases": ["多租户"], "tier": "must"},
+            {"term": "GraphQL", "aliases": [], "tier": "must"},
+            {"term": "Python", "aliases": [], "tier": "must"},
+        ]
+        adversarial_text = (
+            "1) Kubernetes構築、Spark運用は未経験です。\n"
+            "2) Kubernetes案件に参画させていただいた経験はありません。\n"
+            "3) Sparkの実務経験はございません。GraphQLは現在学習中です。\n"
+            "4) 暂无 Kubernetes、分布式系统开发与 Redis 架构设计经验。\n"
+            "5) 暂未接触 Airflow，Spark 和 Hadoop；无多租户经验且不具备 GraphQL 能力。\n"
+            "6) Spark이나 Hadoop은 미경험입니다.\n"
+            "7) Built Python APIs, but I don't have direct hands-on production experience with distributed batch engines like Airflow, Spark, Hadoop, Redis, or production Kubernetes.\n"
+            "■ 今後の課題（未経験領域）\n"
+            "Experience with Kubernetes and Redis in multi-region clusters.\n"
+            "プロジェクトでのGraphQL導入。\n"
+            "■ 職務経歴\n"
+            "Python実務5年、バックエンド基盤を主導いたしました。\n"
+        )
+        audit = score_match.audit_ats_keywords(kws, adversarial_text)
+        by_term = {d["term"]: d for d in audit["details"]}
+        self.assertTrue(by_term["Python"]["matched"])
+        for neg_term in ("Kubernetes", "Spark", "Airflow", "Redis", "Hadoop", "MultiTenant", "GraphQL"):
+            self.assertFalse(by_term[neg_term]["matched"], f"False positive bypass on {neg_term}")
+            self.assertTrue(by_term[neg_term]["negated_mention"], f"Expected negated_mention on {neg_term}")
+
+    def test_p0_3_scoreboard_display_rounding_sum_consistency(self) -> None:
+        rubric = _make_minimal_rubric(language="ja")
+        rubric["categories"]["must_have"] = [
+            {"id": "MH-1", "title": "A", "weight": 3, "is_knockout": True},
+            {"id": "MH-2", "title": "B", "weight": 3, "is_knockout": False},
+            {"id": "MH-3", "title": "C", "weight": 2, "is_knockout": False},
+            {"id": "MH-4", "title": "D", "weight": 2, "is_knockout": False},
+        ]
+        rubric["rubric_hash"] = score_match.compute_rubric_hash(rubric)
+        cand = "Go データ 분석 Built A Brief B Summary"
+        # Construct exact 22.25 score: 45*(3*0.75 + 3*0.25)/10 = 13.5? Let's just verify display_score + gap == threshold across odd fractions!
+        ev = {
+            "round": 1,
+            "items": [
+                {"id": "MH-1", "grade": "STRONG_PARTIAL", "evidence_quote": "Built A", "gap_type": "expression_gap"},
+                {"id": "MH-2", "grade": "WEAK", "evidence_quote": "Brief B", "gap_type": "expression_gap"},
+                {"id": "MH-3", "grade": "MISSING", "evidence_quote": "", "gap_type": "expression_gap"},
+                {"id": "MH-4", "grade": "MISSING", "evidence_quote": "", "gap_type": "expression_gap"},
+                {"id": "PI-1", "grade": "MISSING", "evidence_quote": "", "gap_type": "expression_gap"},
+                {"id": "PR-1", "grade": "MISSING", "evidence_quote": "", "gap_type": "true_gap"},
+                {"id": "AF-1", "grade": "WEAK", "evidence_quote": "Summary", "gap_type": "expression_gap"},
+            ],
+        }
+        res = score_match.evaluate_round(rubric, ev, candidate_text=cand, strict_quotes=True)
+        # Strict 1-decimal arithmetic invariant: score + gap == threshold, score + uplift == projected
+        self.assertEqual(
+            Decimal(str(res["total_score"])) + Decimal(str(res["gap_to_pass_pp"])),
+            Decimal(str(res["pass_threshold"])),
+        )
+        self.assertEqual(
+            Decimal(str(res["total_score"])) + Decimal(str(res["actionable_expression_uplift_pp"])),
+            Decimal(str(res["projected_expression_only_score"])),
+        )
+
+    def test_p1_1_xlsx_skips_furigana_rph_and_hidden_sheets(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            xlsx_file = Path(tmp) / "furigana_hidden.xlsx"
+            with zipfile.ZipFile(xlsx_file, "w") as zf:
+                zf.writestr(
+                    "xl/workbook.xml",
+                    '<?xml version="1.0" encoding="UTF-8"?>'
+                    '<workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" '
+                    'xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">'
+                    '<sheets>'
+                    '<sheet name="職務経歴書" sheetId="1" r:id="rId1"/>'
+                    '<sheet name="記入例" sheetId="2" state="hidden" r:id="rId2"/>'
+                    '<sheet name="内部メモ" sheetId="3" state="veryHidden" r:id="rId3"/>'
+                    '</sheets></workbook>',
+                )
+                zf.writestr(
+                    "xl/_rels/workbook.xml.rels",
+                    '<?xml version="1.0" encoding="UTF-8"?>'
+                    '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
+                    '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/>'
+                    '<Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet2.xml"/>'
+                    '<Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet3.xml"/>'
+                    "</Relationships>",
+                )
+                zf.writestr(
+                    "xl/sharedStrings.xml",
+                    '<?xml version="1.0" encoding="UTF-8"?>'
+                    '<sst xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">'
+                    "<si><t>連結決算</t><rPh sb='0' eb='4'><t>レンケツケッサン</t></rPh></si>"
+                    "<si><t>ダミー記入例データ</t></si>"
+                    "</sst>",
+                )
+                zf.writestr(
+                    "xl/worksheets/sheet1.xml",
+                    '<?xml version="1.0" encoding="UTF-8"?>'
+                    '<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">'
+                    '<sheetData><row r="1"><c r="A1" t="s"><v>0</v></c></row></sheetData></worksheet>',
+                )
+                zf.writestr(
+                    "xl/worksheets/sheet2.xml",
+                    '<?xml version="1.0" encoding="UTF-8"?>'
+                    '<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">'
+                    '<sheetData><row r="1"><c r="A1" t="s"><v>1</v></c></row></sheetData></worksheet>',
+                )
+                zf.writestr(
+                    "xl/worksheets/sheet3.xml",
+                    '<?xml version="1.0" encoding="UTF-8"?>'
+                    '<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">'
+                    '<sheetData><row r="1"><c r="A1" t="s"><v>1</v></c></row></sheetData></worksheet>',
+                )
+            extracted, _ = extract_doc.extract_file(xlsx_file)
+            self.assertIn("連結決算", extracted)
+            self.assertNotIn("レンケツケッサン", extracted)
+            self.assertNotIn("ダミー記入例データ", extracted)
+            self.assertNotIn("記入例", extracted)
+
+    def test_p1_2_quote_numeric_lock_1char_guard_and_katakana_boundaries(self) -> None:
+        zh_cand = "负责核心交易系统开发，日均支撑5千订单，团队共2人。"
+        self.assertTrue(score_match.verify_quote_grounding("日均支撑5千订单，团队共2人", zh_cand))
+        # Numeric fabrication MUST be rejected!
+        self.assertFalse(score_match.verify_quote_grounding("日均支撑500万订单，团队共2人", zh_cand))
+
+        en_cand = "Built distributed backend APIs serving 2 product teams with 99.5% uptime."
+        self.assertTrue(score_match.verify_quote_grounding("Built distributed backend APIs serving 2 product teams", en_cand))
+        self.assertFalse(score_match.verify_quote_grounding("Built distributed backend APIs serving 50 product teams", en_cand))
+
+        # 1-char quotes blocked across all scripts
+        self.assertFalse(score_match.verify_quote_grounding("a", en_cand))
+        self.assertFalse(score_match.verify_quote_grounding("의", "한국어의 문장"))
+        self.assertFalse(score_match.verify_quote_grounding("的", "中文的句子"))
+        self.assertFalse(score_match.verify_quote_grounding("の", "日本語の文章"))
+
+        # Short Katakana boundary: "リース" must NOT match inside "リリース"
+        audit = score_match.audit_ats_keywords([{"term": "リース", "aliases": [], "tier": "must"}], "新機能をリリースしました。")
+        self.assertFalse(audit["details"][0]["matched"])
+        audit_ok = score_match.audit_ats_keywords([{"term": "リース", "aliases": [], "tier": "must"}], "リース会計基準の適用を担当。")
+        self.assertTrue(audit_ok["details"][0]["matched"])
+
+    def test_p1_3_cp1252_text_fallback_and_pptx_mc_fallback_skip(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            # Windows ANSI cp1252 US resume with smart quotes, en-dash, bullet
+            cp1252_txt = Path(tmp) / "us_ansi_resume.txt"
+            original = "Jordan Lee \x96 Senior Backend Engineer\n\x95 Built APIs serving 4M alerts/day at \x93CloudLedger\x94."
+            cp1252_txt.write_bytes(original.encode("latin-1"))  # exact cp1252 bytes 0x96, 0x95, 0x93, 0x94
+            decoded, warn = extract_doc.extract_file(cp1252_txt)
+            self.assertIsNone(warn)
+            self.assertIn("Jordan Lee – Senior Backend Engineer", decoded)
+            self.assertIn("• Built APIs serving 4M alerts/day at “CloudLedger”.", decoded)
+
+            # PPTX with mc:AlternateContent / mc:Fallback must NOT duplicate text
+            pptx_file = Path(tmp) / "mc_fallback.pptx"
+            with zipfile.ZipFile(pptx_file, "w") as zf:
+                zf.writestr(
+                    "ppt/slides/slide1.xml",
+                    '<?xml version="1.0" encoding="UTF-8"?>'
+                    '<p:sld xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main" '
+                    'xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" '
+                    'xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">'
+                    "<p:cSld><p:spTree><mc:AlternateContent>"
+                    "<mc:Choice><p:sp><p:txBody><a:p><a:r><a:t>Unique Slide Metric 44%</a:t></a:r></a:p></p:txBody></p:sp></mc:Choice>"
+                    "<mc:Fallback><p:sp><p:txBody><a:p><a:r><a:t>Unique Slide Metric 44%</a:t></a:r></a:p></p:txBody></p:sp></mc:Fallback>"
+                    "</mc:AlternateContent></p:spTree></p:cSld></p:sld>",
+                )
+            pptx_out, _ = extract_doc.extract_file(pptx_file)
+            self.assertEqual(pptx_out.count("Unique Slide Metric 44%"), 1)
+
+    def test_p1_4_honest_fit_advisory_fires_on_doomed_candidate_with_expression_gap(self) -> None:
+        rubric = _make_minimal_rubric(language="en", domain_mode="resume_only")
+        cand = "Go Brief summary"
+        ev = {
+            "round": 1,
+            "items": [
+                {"id": "MH-1", "grade": "MISSING", "evidence_quote": "", "gap_type": "true_gap"},
+                {"id": "MH-2", "grade": "MISSING", "evidence_quote": "", "gap_type": "true_gap"},
+                {"id": "PI-1", "grade": "MISSING", "evidence_quote": "", "gap_type": "true_gap"},
+                {"id": "PR-1", "grade": "MISSING", "evidence_quote": "", "gap_type": "true_gap"},
+                {"id": "AF-1", "grade": "WEAK", "evidence_quote": "Brief summary", "gap_type": "expression_gap"},
+            ],
+        }
+        res = score_match.evaluate_round(rubric, ev, candidate_text=cand, strict_quotes=True)
+        # Even though AF-1 is an expression_gap, projected max is way below 80% & knockout MH-1 is true_gap!
+        self.assertTrue(res["grace_recommendation"]["honest_fit_advisory"])
+        md = score_match.render_markdown_report(res)
+        self.assertIn("Honest Role-Fit Advisory", md)
+
+    def test_p1_5_locale_units_mode_aware_nouns_dedup_alias_and_pass_regression_cta(self) -> None:
+        rubric = _make_minimal_rubric(language="en", domain_mode="resume_only")
+        rubric["keywords"] = [
+            {"term": "SLO/SLI", "aliases": ["SLO", "SLI"], "tier": "must"},
+            {"term": "Go", "aliases": [], "tier": "must"},
+        ]
+        rubric["rubric_hash"] = score_match.compute_rubric_hash(rubric)
+        # Round 1: all FULL except MH-2 PARTIAL, missing SLO/SLI
+        c1 = "Go Built X Partial Y Case Study Bonus Summary"
+        e1 = {
+            "round": 1,
+            "items": [
+                {"id": "MH-1", "grade": "FULL", "evidence_quote": "Built X"},
+                {"id": "MH-2", "grade": "FULL", "evidence_quote": "Partial Y"},
+                {"id": "PI-1", "grade": "FULL", "evidence_quote": "Case Study"},
+                {"id": "PR-1", "grade": "FULL", "evidence_quote": "Bonus"},
+                {"id": "AF-1", "grade": "FULL", "evidence_quote": "Summary"},
+            ],
+        }
+        r1 = score_match.evaluate_round(rubric, e1, candidate_text=c1, strict_quotes=True)
+        md1 = score_match.render_markdown_report(r1)
+        # Deduplicated alias check: must NOT render "`SLO/SLI` (SLO/SLI)"
+        self.assertNotIn("`SLO/SLI` (SLO/SLI)", md1)
+        self.assertIn("`SLO/SLI`", md1)
+        self.assertNotIn("%p", md1)
+
+        # Round 2: PASS overall (>=80%) BUT PR-1 regressed FULL -> PARTIAL -> PASS CTA includes regression caveat!
+        with tempfile.TemporaryDirectory() as tmp:
+            hp = Path(tmp) / "h.json"
+            score_match.update_history(hp, r1)
+            e2 = json.loads(json.dumps(e1))
+            e2["round"] = 2
+            e2["items"][3]["grade"] = "PARTIAL"
+            r2 = score_match.evaluate_round(rubric, e2, candidate_text=c1, history=json.loads(hp.read_text(encoding="utf-8")), strict_quotes=True)
+            self.assertEqual(r2["pass_status"], "PASS")
+            md2 = score_match.render_markdown_report(r2)
+            self.assertIn("double-check the regressed item(s) (`PR-1`)", md2)
+
+    def test_p1_r1_ascii_heavy_sjis_not_corrupted_by_cp1252_and_unit_suffix_quote_lock(self) -> None:
+        # 1. 90%-ASCII Shift-JIS developer resume MUST decode as cp932, NOT cp1252 mojibake!
+        with tempfile.TemporaryDirectory() as tmp:
+            sjis_ascii = Path(tmp) / "dev_90pct_ascii_sjis.txt"
+            original = "Python, SQL, AWS, Docker, React, TypeScript, Go, Rust, Kubernetes, PostgreSQL, Redis - 経験3年"
+            sjis_ascii.write_bytes(original.encode("cp932"))
+            decoded, warn = extract_doc.extract_file(sjis_ascii)
+            self.assertIsNone(warn)
+            self.assertEqual(decoded, original)
+
+        # 2. Same-digit magnitude-unit swap ("5千 -> 5万", "5K -> 5M") MUST fail strict quotes!
+        self.assertFalse(score_match.verify_quote_grounding("日均支撑5万订单", "日均支撑5千订单"))
+        self.assertFalse(score_match.verify_quote_grounding("served 5M active users", "served 5K active users"))
+        self.assertTrue(score_match.verify_quote_grounding("served 5k active users", "served 5K active users"))
+
+        # 3. Knockout true_gap while projected >= threshold renders honest_fit_knockout (never "below threshold" contradiction)
+        rubric = _make_minimal_rubric(language="en", domain_mode="resume_only")
+        rubric["categories"]["must_have"] = [
+            {"id": "MH-1", "title": "Core Pillar", "weight": 8, "is_knockout": False},
+            {"id": "MH-2", "title": "Hard License", "weight": 2, "is_knockout": True},
+        ]
+        rubric["rubric_hash"] = score_match.compute_rubric_hash(rubric)
+        ev = {
+            "round": 1,
+            "items": [
+                {"id": "MH-1", "grade": "PARTIAL", "evidence_quote": "Core work", "gap_type": "expression_gap"},
+                {"id": "MH-2", "grade": "MISSING", "evidence_quote": "", "gap_type": "true_gap"},
+                {"id": "PI-1", "grade": "PARTIAL", "evidence_quote": "Work proof", "gap_type": "expression_gap"},
+                {"id": "PR-1", "grade": "FULL", "evidence_quote": "Bonus"},
+                {"id": "AF-1", "grade": "FULL", "evidence_quote": "Summary"},
+            ],
+        }
+        res = score_match.evaluate_round(rubric, ev, candidate_text="Go 데이터 분석 Core work Work proof Bonus Summary", strict_quotes=True)
+        self.assertGreaterEqual(res["projected_with_transferable_cap"], 80.0)
+        self.assertTrue(res["grace_recommendation"]["honest_fit_advisory"])
+        md = score_match.render_markdown_report(res)
+        self.assertIn("hard Knockout requirement is a genuine `true_gap`", md)
+        self.assertNotIn("below the `80.0%` threshold", md)
 
 
 if __name__ == "__main__":

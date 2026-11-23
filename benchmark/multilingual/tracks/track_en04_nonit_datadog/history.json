@@ -1,0 +1,213 @@
+{
+  "session": {
+    "company": "Datadog",
+    "role_title": "Director, People Business Partner",
+    "language": "en",
+    "domain_mode": "resume_only",
+    "rubric_hash": "cc227d543c5664ba"
+  },
+  "rubric_hash": "cc227d543c5664ba",
+  "pass_threshold": 80.0,
+  "rounds": [
+    {
+      "round": 1,
+      "evaluated_at": "2026-11-23T01:35:15+00:00",
+      "total_score": 93.3,
+      "total_score_2dp": 93.25,
+      "total_score_exact": "93.2500",
+      "pass_status": "PASS_WITH_RISK",
+      "grace_tier_used": null,
+      "categories": {
+        "must_have": {
+          "label": "Must-Have & Core Duties",
+          "label_ko": "필수 자격 & 핵심 직무",
+          "active": true,
+          "effective_weight": 45.0,
+          "attainment_pct": 85.0,
+          "earned_points": 38.25,
+          "max_points": 45.0,
+          "item_count": 3,
+          "delta_points_pp": null
+        },
+        "portfolio_impact": {
+          "label": "Work Proof & Measurable Impact",
+          "label_ko": "직무 증빙 & 정량 성과",
+          "active": true,
+          "effective_weight": 25.0,
+          "attainment_pct": 100.0,
+          "earned_points": 25.0,
+          "max_points": 25.0,
+          "item_count": 1,
+          "delta_points_pp": null
+        },
+        "preferred": {
+          "label": "Preferred & Bonus",
+          "label_ko": "우대 사항",
+          "active": true,
+          "effective_weight": 15.0,
+          "attainment_pct": 100.0,
+          "earned_points": 15.0,
+          "max_points": 15.0,
+          "item_count": 1,
+          "delta_points_pp": null
+        },
+        "ats_framing": {
+          "label": "ATS Keywords & Role Framing",
+          "label_ko": "JD 키워드 & 포지셔닝",
+          "active": true,
+          "effective_weight": 15.0,
+          "attainment_pct": 100.0,
+          "earned_points": 15.0,
+          "max_points": 15.0,
+          "item_count": 1,
+          "delta_points_pp": null
+        }
+      },
+      "items": [
+        {
+          "id": "MH-1",
+          "grade": "WEAK",
+          "earned_points_pp": 2.25,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "MH-2",
+          "grade": "FULL",
+          "earned_points_pp": 18.0,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "MH-3",
+          "grade": "FULL",
+          "earned_points_pp": 18.0,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "PI-1",
+          "grade": "FULL",
+          "earned_points_pp": 25.0,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "PR-1",
+          "grade": "FULL",
+          "earned_points_pp": 15.0,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "AF-1",
+          "grade": "FULL",
+          "earned_points_pp": 7.5,
+          "gap_type": null,
+          "stalled_streak": 0
+        }
+      ],
+      "grace_recommended": false
+    },
+    {
+      "round": 2,
+      "evaluated_at": "2026-11-23T01:35:16+00:00",
+      "total_score": 100.0,
+      "total_score_2dp": 100.0,
+      "total_score_exact": "100.0000",
+      "pass_status": "PASS",
+      "grace_tier_used": null,
+      "categories": {
+        "must_have": {
+          "label": "Must-Have & Core Duties",
+          "label_ko": "필수 자격 & 핵심 직무",
+          "active": true,
+          "effective_weight": 45.0,
+          "attainment_pct": 100.0,
+          "earned_points": 45.0,
+          "max_points": 45.0,
+          "item_count": 3,
+          "delta_points_pp": 6.7
+        },
+        "portfolio_impact": {
+          "label": "Work Proof & Measurable Impact",
+          "label_ko": "직무 증빙 & 정량 성과",
+          "active": true,
+          "effective_weight": 25.0,
+          "attainment_pct": 100.0,
+          "earned_points": 25.0,
+          "max_points": 25.0,
+          "item_count": 1,
+          "delta_points_pp": 0.0
+        },
+        "preferred": {
+          "label": "Preferred & Bonus",
+          "label_ko": "우대 사항",
+          "active": true,
+          "effective_weight": 15.0,
+          "attainment_pct": 100.0,
+          "earned_points": 15.0,
+          "max_points": 15.0,
+          "item_count": 1,
+          "delta_points_pp": 0.0
+        },
+        "ats_framing": {
+          "label": "ATS Keywords & Role Framing",
+          "label_ko": "JD 키워드 & 포지셔닝",
+          "active": true,
+          "effective_weight": 15.0,
+          "attainment_pct": 100.0,
+          "earned_points": 15.0,
+          "max_points": 15.0,
+          "item_count": 1,
+          "delta_points_pp": 0.0
+        }
+      },
+      "items": [
+        {
+          "id": "MH-1",
+          "grade": "FULL",
+          "earned_points_pp": 9.0,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "MH-2",
+          "grade": "FULL",
+          "earned_points_pp": 18.0,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "MH-3",
+          "grade": "FULL",
+          "earned_points_pp": 18.0,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "PI-1",
+          "grade": "FULL",
+          "earned_points_pp": 25.0,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "PR-1",
+          "grade": "FULL",
+          "earned_points_pp": 15.0,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "AF-1",
+          "grade": "FULL",
+          "earned_points_pp": 7.5,
+          "gap_type": null,
+          "stalled_streak": 0
+        }
+      ],
+      "grace_recommended": false
+    }
+  ]
+}

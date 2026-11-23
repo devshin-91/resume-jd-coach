@@ -1,0 +1,180 @@
+{
+  "company": "Discord",
+  "role_title": "Staff Data Scientist, Causal Inference & Experimentation",
+  "language": "en",
+  "domain_mode": "resume_only",
+  "pass_threshold": 80.0,
+  "ats_lexical_share": 0.5,
+  "category_weights": {
+    "must_have": 45,
+    "portfolio_impact": 30,
+    "preferred": 15,
+    "ats_framing": 10
+  },
+  "categories": {
+    "must_have": [
+      {
+        "id": "MH-1",
+        "title": "Experimentation Platform Vision, Roadmap & Leadership",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-2",
+        "title": "Statistical Methodology Validation & Causal Inference Mastery",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-3",
+        "title": "Quantitative PhD (or Equivalent) & 4+ Years Experimentation/Causal Inference Experience",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-4",
+        "title": "Experimentation & Statistical Methodology Workshops / Training Delivery",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "MH-5",
+        "title": "Statistical & Data Programming Proficiency (Python, SQL, R)",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "portfolio_impact": [
+      {
+        "id": "PI-1",
+        "title": "End-to-End Experimentation or Causal Inference Case Studies & Original Research",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-2",
+        "title": "Quantified Business & Product Impact Outcomes",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-3",
+        "title": "Staff-Level Ownership Scope & Cross-Functional Org Influence",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "preferred": [
+      {
+        "id": "PR-1",
+        "title": "Causal Inference Translated into Business Decisions & Publications",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "PR-2",
+        "title": "AI/LLM Tools for Causal Inference or Experimentation Education Workflows",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "ats_framing": [
+      {
+        "id": "AF-1",
+        "title": "Top-Level Summary & Role Positioning Alignment (Staff DS — Causal Inference & Experimentation)",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "AF-2",
+        "title": "US Resume Action-Verb, Quantified XYZ/STAR Impact & Credibility / Scannability",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ]
+  },
+  "keywords": [
+    {
+      "term": "Experimentation Platform",
+      "aliases": [],
+      "tier": "must",
+      "linked_item_id": "MH-1"
+    },
+    {
+      "term": "Causal Inference",
+      "aliases": [
+        "Quasi-Experiments",
+        "Quasi-Experimental"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "Experimental Design",
+      "aliases": [
+        "Experimentation Design",
+        "Experiment Design"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "Statistical Methodology",
+      "aliases": [
+        "Statistical Methodologies",
+        "Statistical Methods"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "Training Programs",
+      "aliases": [
+        "Statistical Workshops",
+        "Workshops",
+        "Educational Content"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-4"
+    },
+    {
+      "term": "Python",
+      "aliases": [],
+      "tier": "must",
+      "linked_item_id": "MH-5"
+    },
+    {
+      "term": "SQL",
+      "aliases": [],
+      "tier": "must",
+      "linked_item_id": "MH-5"
+    },
+    {
+      "term": "R",
+      "aliases": [],
+      "tier": "must",
+      "linked_item_id": "MH-5"
+    },
+    {
+      "term": "Publications",
+      "aliases": [
+        "Published Research",
+        "Research Publications"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-1"
+    },
+    {
+      "term": "LLM",
+      "aliases": [
+        "LLMs",
+        "AI/LLM",
+        "Large Language Models"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-2"
+    }
+  ],
+  "rubric_hash": "327ba651aa16f90d",
+  "locked_at": "2026-11-23T01:01:46+00:00"
+}

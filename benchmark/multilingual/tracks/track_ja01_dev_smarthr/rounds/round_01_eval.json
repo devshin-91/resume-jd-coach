@@ -1,0 +1,69 @@
+{
+  "round": 1,
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "STRONG_PARTIAL",
+      "evidence_quote": "これまで6年間、受託開発会社にてWebアプリケーションのバックエンド開発を担当いたしました",
+      "source": "cp932 txt",
+      "gap_type": "expression_gap",
+      "action_hint": "GitHubを用いたプルリクエストレビューなど複数人開発の具体規模を追記してください。"
+    },
+    {
+      "id": "MH-2",
+      "grade": "WEAK",
+      "evidence_quote": "ＰｏｓｔｇｒｅＳＱＬ",
+      "source": "cp932 txt",
+      "gap_type": "expression_gap",
+      "action_hint": "スキル名の記載のみのため WEAK(0.25) です。商用プロダクトでのRDB論理/物理設計やスロークエリ改善事例を記載してください。"
+    },
+    {
+      "id": "MH-3",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "cp932 txt",
+      "gap_type": "expression_gap",
+      "action_hint": "「指示に従い実装」ではシニア要件を満たしません。要件整理から設計・運用改善まで自ら主導した案件を具体化してください。"
+    },
+    {
+      "id": "MH-4",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "cp932 txt",
+      "gap_type": "expression_gap",
+      "action_hint": "セキュリティ・障害対策、CI/CD（GitHub Actions等）、AI活用開発の実務例を追記してください。"
+    },
+    {
+      "id": "PI-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "cp932 txt",
+      "gap_type": "expression_gap",
+      "action_hint": "応答速度改善や障害件数削減などの定量成果を入れてください。"
+    },
+    {
+      "id": "PI-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "cp932 txt",
+      "gap_type": "expression_gap",
+      "action_hint": "複数案のトレードオフ比較と技術的意思決定の根拠を明記してください。"
+    },
+    {
+      "id": "PR-1",
+      "grade": "WEAK",
+      "evidence_quote": "ＡＷＳ（運用補助）",
+      "source": "cp932 txt",
+      "gap_type": "expression_gap",
+      "action_hint": "AWSでの具体的な構築・運用内容を記載してください（SLO/SLI未経験は正直なままで問題ありません）。"
+    },
+    {
+      "id": "AF-1",
+      "grade": "WEAK",
+      "evidence_quote": "チームの指示に従いAPI実装とテストを行いました",
+      "source": "cp932 txt",
+      "gap_type": "expression_gap",
+      "action_hint": "丁寧な文体は保ちつつ、受動表現を「主導・設計・改善」の主体的表現へ見直してください。"
+    }
+  ]
+}

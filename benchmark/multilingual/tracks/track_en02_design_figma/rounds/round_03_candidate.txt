@@ -1,0 +1,12 @@
+=== SOURCE: maya_chen_portfolio_r3.pptx ===
+--- Slide 1 ---
+Maya Chen — Staff Product Designer, Core Canvas & Interactive Systems | 9+ Years Leading Complex Software E2E
+
+--- Slide 2 ---
+Case Study 1 — Visual Workflow Canvas & Auto Layout Engine (Shipped to 180K creators): Led exploration through launch of a constraint-based direct manipulation canvas editor. Ran 24 contextual inquiry user research sessions and rejected nested inspector panels in favor of on-canvas handles, cutting complex layout build time by 44%.
+
+--- Slide 3 ---
+Case Study 2 — Hybrid AI Generation + Direct Manipulation Editing: Built interactive React & HTML/CSS code-based prototypes letting users prompt layout variations and refine spacing live on canvas without losing manual control. Weekly active AI-assisted edits reached 62% with 4.7/5 craft score.
+
+--- Slide 4 ---
+Design Org Leadership: Facilitated weekly cross-team design critiques, mentored 4 product designers, and unified interaction tokens with frontend engineering.

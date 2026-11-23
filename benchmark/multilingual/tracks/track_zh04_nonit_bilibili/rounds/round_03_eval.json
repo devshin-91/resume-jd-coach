@@ -1,0 +1,41 @@
+{
+  "round": 3,
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "FULL",
+      "evidence_quote": "上海 · 本科 · 5年人力资源经验",
+      "source": "md"
+    },
+    {
+      "id": "MH-2",
+      "grade": "FULL",
+      "evidence_quote": "开展年度组织诊断与人才盘点，重构班次绩效考核与薪酬激励方案",
+      "source": "md"
+    },
+    {
+      "id": "MH-3",
+      "grade": "FULL",
+      "evidence_quote": "长期统筹跨城市业务协作界面并定期出差驻场，针对业务急于扩编的诉求给出独立专业判断",
+      "source": "md"
+    },
+    {
+      "id": "PI-1",
+      "grade": "FULL",
+      "evidence_quote": "主动离职率由 28% 降至 16%，节省年度人力成本 240 万元，人均产能提升 19%",
+      "source": "md"
+    },
+    {
+      "id": "PR-1",
+      "grade": "FULL",
+      "evidence_quote": "某互联网视频平台 | 跨城市内容审核业务 HRBP",
+      "source": "md"
+    },
+    {
+      "id": "AF-1",
+      "grade": "FULL",
+      "evidence_quote": "互联网内容安全业务 HRBP",
+      "source": "md"
+    }
+  ]
+}

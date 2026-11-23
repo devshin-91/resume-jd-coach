@@ -9,13 +9,13 @@ description: >-
   Use this skill whenever the user asks to check resume/portfolio fit or match
   rate against a job posting, diagnose gaps before applying, re-evaluate a
   revised resume/portfolio across rounds, or get guided coaching when stuck
-  revising application materials (Korean or English, all job families).
+  revising application materials (Korean, English, Chinese, or Japanese — ko/en/zh/ja, all job families).
 ---
 
 # Resume & Portfolio ↔ JD Match Coach (`80%` Pass Gate)
 
 A hybrid (LLM evidence audit + deterministic Python scoring) coaching workflow
-for Korean and English job applications across all job families.
+for **Korean (`ko`), English (`en`), Simplified Chinese (`zh`), and Japanese (`ja`)** job applications across all job families.
 
 ## Core Operating Principles
 
@@ -65,20 +65,20 @@ Store per-application session artifacts locally (never inside this skill folder)
 ### Step 1 — Intake & Text Extraction
 1. Collect both inputs:
    - **Target JD (채용공고)**: pasted text, local file, image/screenshot, or URL (if URL is live/interactive, inspect via `browser` subagent; if login/CAPTCHA gated, ask user to paste text).
-   - **Candidate Materials (이력서 / 포트폴리오)**: one or more files (`.md`, `.txt`, `.pdf`, `.docx`, `.pptx`, `.hwpx`, `.html`), pasted text, or portfolio links/screenshots.
+   - **Candidate Materials (이력서 / 포트폴리오 / 简历 / 履歴書・職務経歴書)**: one or more files (`.md`, `.txt`, `.pdf`, `.docx`, `.xlsx`, `.pptx`, `.hwpx`, `.html`), pasted text, or portfolio links/screenshots.
    - If either the JD or candidate material is missing, ask concisely for the missing input before scoring.
 2. Read all materials completely:
    - For `.pdf` and images/screenshots: inspect natively with `read_file` (do not skip portfolio slides or visual project pages). If `extract_doc.py` reports `PDF_NATIVE_READ_REQUIRED`, transcribe all relevant visible text/metrics from `read_file` into `round_NN_candidate.txt`.
-   - For `.md`, `.txt`, `.docx`, `.pptx`, `.hwpx`, `.html`: extract clean consolidated UTF-8 text via [extract_doc.py](./scripts/extract_doc.py) (note: legacy binary `.hwp`/`.doc` files are rejected cleanly — ask user to export as `.hwpx`, `.docx`, or `.pdf`):
+   - For `.md`, `.txt`, `.docx`, `.xlsx`, `.pptx`, `.hwpx`, `.html`: extract clean consolidated UTF-8 text via [extract_doc.py](./scripts/extract_doc.py) (supports UTF-8/UTF-16 + legacy CJK encodings `cp949`/`gb18030`/`cp932`; note: legacy binary `.hwp`/`.doc`/`.xls` files are rejected cleanly — ask user to export as `.hwpx`, `.docx`, `.xlsx`, or `.pdf`):
      ```powershell
      python "<skill_dir>\scripts\extract_doc.py" --inputs "<resume_path>" "<portfolio_path>" --out "<session_dir>\rounds\round_01_candidate.txt"
      ```
    - If the user pasted text or supplied PDFs/images, write the consolidated candidate text into `<session_dir>\rounds\round_NN_candidate.txt` (combining extracted text + PDF/visual notes) so deterministic ATS keyword scanning and quote verification see all text.
 
 ### Step 2 — Extract & Lock JD Rubric (Round 1 Only)
-1. Read [scoring-rubric.md](./references/scoring-rubric.md) for the exact 4-dimension weights, evidence scale, keyword alias hygiene, and role-adaptation guidelines.
+1. Read [scoring-rubric.md](./references/scoring-rubric.md) for the exact 4-dimension weights, evidence scale, keyword alias hygiene, country-specific resume conventions (`ko`/`en`/`zh`/`ja`), and role-adaptation guidelines.
 2. Decompose the JD into `<session_dir>\rubric.json` (see schema in [sample_rubric.json](./examples/sample_rubric.json)):
-   - Set `"language": "ko"` or `"en"` and `"domain_mode": "portfolio"` (default) or `"resume_only"` (for non-portfolio roles like HR/Finance/Admin).
+   - Set `"language": "ko" | "en" | "zh" | "ja"` matching the JD / user's preferred coaching language (all report labels, rubric titles, and coaching feedback MUST stay strictly in that language with zero cross-language leakage), and `"domain_mode": "portfolio"` (default) or `"resume_only"` (for non-portfolio roles like HR/Finance/Accounting/Operations/Admin).
    - `must_have` (default `45%`): core duties + mandatory qualifications. Mark strict screening blockers with `"is_knockout": true` (requires `weight >= 2`; never mark soft skills as knockout).
    - `portfolio_impact` (default `25%`): concrete proof-of-work, project artifacts, measurable business/technical outcomes, and individual ownership clarity.
    - `preferred` (default `15%`): nice-to-have / bonus qualifications (if the JD lists none, leave empty — `score_match.py` auto-normalizes active weights to `100%`).
@@ -129,7 +129,7 @@ When the user returns with revised files or edited sections:
 
 ### Step 6 — Tiered Grace Assistance (벽을 느낄 때 보조 모드)
 Load [grace-coaching-playbook.md](./references/grace-coaching-playbook.md) whenever either trigger fires:
-- **Trigger A (Explicit User Signal):** User expresses getting stuck or asks for help ("막혔어", "어떻게 써야 할지 모르겠어", "예시 좀 잡아줘", "같이 고쳐줘", "Grace 써줘").
+- **Trigger A (Explicit User Signal):** User expresses getting stuck or asks for help (`"막혔어"`, `"어떻게 써야 할지 모르겠어"`, `"I'm stuck"`, `"help me draft"`, `"写不下去了"`, `"卡壳了"`, `"帮我起草"`, `"書き方がわからない"`, `"手が止まった"`, `"表現案を出して"`).
 - **Trigger B (Stall Signal from `score_match.py`):** `grace_recommendation.should_offer == true` (same item stuck at `<= PARTIAL` for 2+ consecutive rounds, or `< +3.0%p` overall gain across 2+ rounds while `< 80%`). **Offer gently first** — never force Grace mode without consent.
 
 Escalate only as far as the user needs:
@@ -144,7 +144,7 @@ Escalate only as far as the user needs:
 - Rubric weights, 5-level evidence anchors & role presets: [references/scoring-rubric.md](./references/scoring-rubric.md)
 - 3-tier Grace coaching playbook & anti-fabrication rules: [references/grace-coaching-playbook.md](./references/grace-coaching-playbook.md)
 - Standardized coaching report & round-diff template: [references/report-template.md](./references/report-template.md)
-- Document text extractor (`.md`, `.txt`, `.docx`, `.pptx`, `.hwpx`, `.html`): [scripts/extract_doc.py](./scripts/extract_doc.py)
+- Document text extractor (`.md`, `.txt`, `.docx`, `.xlsx`, `.pptx`, `.hwpx`, `.html`): [scripts/extract_doc.py](./scripts/extract_doc.py)
 - Deterministic scoring, ATS matcher & round tracker: [scripts/score_match.py](./scripts/score_match.py)
 - Automated self-test suite: `python "<skill_dir>\scripts\test_resume_jd_coach.py"`
 - JSON schema examples: [examples/sample_rubric.json](./examples/sample_rubric.json), [examples/sample_eval_r1.json](./examples/sample_eval_r1.json)

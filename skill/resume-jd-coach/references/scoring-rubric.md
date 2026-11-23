@@ -8,12 +8,12 @@ This reference governs **Step 2 (Rubric Extraction & Lock)** and **Step 3 (Evide
 
 Default universal category weights (sum = `100`):
 
-| Category Key | Label (KO / EN) | Default Weight | What It Evaluates |
+| Category Key | Label (`ko` / `en` / `zh` / `ja`) | Default Weight | What It Evaluates |
 | :--- | :--- | :---: | :--- |
-| `must_have` | 필수 자격 및 핵심 직무 역량 / Must-Have & Core Duties | **45%** | Explicit mandatory requirements (`자격요건`, `필수`, `Required`, `Must have`) and primary day-to-day job responsibilities (`주요업무`, `Responsibilities`). |
-| `portfolio_impact` | 포트폴리오 증빙 및 성과 정량화 / Portfolio Proof & Impact | **25%** | Concrete work artifacts, case studies, problem→action→result depth, measurable outcomes (metrics/scale/quality), and clear personal ownership vs team effort. *(For non-portfolio roles, evaluates Resume Work Proof & Measurable Business Impact.)* |
-| `preferred` | 우대 사항 및 차별화 역량 / Preferred & Nice-to-Have | **15%** | Explicit bonus qualifications (`우대사항`, `Preferred`, `Bonus`, `Plus`). If the JD lists zero preferred items, leave `preferred` items empty — `score_match.py` automatically normalizes active category weights to `100%`. |
-| `ats_framing` | JD 용어·키워드 정합성 및 직무 포지셔닝 / ATS Keywords & Role Framing | **15%** | Split between **deterministic lexical JD keyword coverage** (`ats_lexical_share`, default `0.50`) and **human recruiter framing** (`0.50`: summary/headline positioning, role-level match, scannability, JD terminology alignment). |
+| `must_have` | 필수 자격 & 핵심 직무 / Must-Have & Core Duties / 核心任职要求与主要职责 / 必須要件・コア業務 | **45%** | Explicit mandatory requirements (`자격요건`, `필수`, `Required`, `任职要求`, `必須条件`) and primary day-to-day responsibilities (`주요업무`, `Responsibilities`, `岗位职责`, `業務内容`). |
+| `portfolio_impact` | 포트폴리오 증빙 & 성과 / Portfolio Proof & Impact / 作品集佐证与量化成果 / ポートフォリオ実績・定量成果 | **25%** | Concrete work artifacts, case studies, problem→action→result depth, measurable outcomes, and clear personal ownership vs team effort. *(For `resume_only` non-portfolio roles, switches to `직무 증빙 & 정량 성과` / `Work Proof & Measurable Impact` / `项目/工作佐证与量化成果` / `職務実績・定量成果`.)* |
+| `preferred` | 우대 사항 / Preferred & Bonus / 加分项与优先条件 / 歓迎要件 | **15%** | Explicit bonus qualifications (`우대사항`, `Preferred`, `加分项/优先`, `歓迎条件`). If the JD lists none, leave empty — `score_match.py` auto-normalizes active category weights to `100%`. |
+| `ats_framing` | JD 키워드 & 포지셔닝 / ATS Keywords & Role Framing / JD 关键词与岗位定位 / JDキーワード・ポジション訴求 | **15%** | Split between **deterministic NFKC & negation-aware lexical JD keyword coverage** (`ats_lexical_share`, default `0.50`) and **human recruiter framing** (`0.50`: summary/headline positioning, role-level match, scannability, JD terminology alignment). |
 
 ### Role-Adaptive Weight Presets (Optional — Choose *Before* Locking Round 1)
 Keep the default `45 / 25 / 15 / 15` unless the target role strongly warrants one of these presets:
@@ -45,12 +45,17 @@ Once `rubric.json` is initialized (`--init-rubric`), weights and items are **loc
    - **Mandatory Weight Floor:** Every `is_knockout: true` item MUST have `weight >= 2` (enforced by `score_match.py`).
    - **No Soft-Skill Knockouts:** Do NOT mark soft skills ("커뮤니케이션 능력", "꼼꼼함") as `is_knockout: true`.
 4. **Keyword Alias Hygiene (Precision Over Recall):**
-   - Include clean Korean/English equivalents (`Kubernetes` ↔ `K8s`, `쿠버네티스`; `A/B 테스트` ↔ `AB 테스트`, `A/B Testing`), plus optional `"linked_item_id"` when a keyword maps tightly to a specific rubric item.
-   - **Ban Overly Broad Umbrella Aliases:** NEVER add generic 2-character or umbrella words as aliases for specialized technical/domain terms (e.g., NEVER put `"자동화"` as an alias for `LLM` or `프로토타이핑`, NEVER put `"취득"` or `"상실"` as standalone aliases for `4대보험`, NEVER put `"Docker"` as an alias for `AWS`).
-   - `score_match.py` automatically ignores matches occurring inside negative/unexperienced phrasing (e.g., `"Spark 미경험"`, `"아직 해 보지 않은 것: Kubernetes"`).
+   - Include clean bilingual/local equivalents (`Kubernetes` ↔ `K8s`, `쿠버네티스`, `容器编排`; `A/B Testing` ↔ `A/B 테스트`, `AB实验`, `A/Bテスト`; `SQL` ↔ `MySQL`/`PostgreSQL` only when the JD treats them interchangeably), plus optional `"linked_item_id"` when a keyword maps tightly to a specific rubric item.
+   - **Ban Overly Broad Umbrella Aliases:** NEVER add generic umbrella words as aliases for specialized technical/domain terms across any language (e.g., `자동화`/`관리`, `management`/`design`, `自动化`/`管理`/`开发`, `自動化`/`開発`/`運用`).
+   - `score_match.py` applies NFKC normalization (e.g., full-width `ＡＷＳ`→`AWS`, `ＳＱＬ`→`SQL`) and automatically ignores matches occurring inside negative/unexperienced phrasing across `ko`, `en`, `zh`, and `ja` (e.g., `"Spark 미경험"`, `"no production experience with Spark"`, `"暂未接触 Kubernetes"`, `"Sparkは未経験"`), while flagging `contradictory_mentions` when positive and negative claims conflict.
 5. **Domain & Language Configuration (`rubric.json` top-level):**
-   - `"language": "ko"` (default) or `"en"`
-   - `"domain_mode": "portfolio"` (default) or `"resume_only"` (switches `portfolio_impact` label to `"직무 증빙 & 정량 성과"` / `"Work Proof & Measurable Impact"` for non-portfolio roles such as HR, Finance, Operations, Admin).
+   - `"language": "ko" | "en" | "zh" | "ja"` — keep all rubric titles, coaching feedback, and reports strictly in the selected language (zero cross-language leakage).
+   - `"domain_mode": "portfolio"` (default) or `"resume_only"` (switches `portfolio_impact` label to work/measurable-impact wording for non-portfolio roles such as HR/HRBP, Finance/Accounting, Operations, Legal).
+6. **Country-Specific Resume & Evaluation Calibration (`ko` / `en` / `zh` / `ja`):**
+   - **United States (`en`):** Expect action-verb + quantified XYZ/STAR impact bullets, clear top-level role alignment, and strict enforcement of years/degree/portfolio knockouts (`Required` vs `Bonus`). Penalize passive `"Responsible for..."` duty dumps without outcome/scale.
+   - **China (`zh`):** Chinese resumes frequently grade skills as `精通 / 熟练 / 熟悉 / 了解`. Treat bare `"了解/熟悉 X"` in a `专业技能` section without `项目经历` context strictly as **`WEAK (0.25)`** (anti-stuffing). Coach duty-only bullets (`负责日常开发与维护`) toward `项目背景 → 核心职责 → 量化成果`.
+   - **Japan (`ja`):** Japanese candidates commonly submit `履歴書` + `職務経歴書` (often `.xlsx`, `.docx`, or `.pdf`) written in humble polite prose (`〜を担当いたしました`, `チームに貢献しました`) and sometimes use full-width alphanumerics (`ＡＷＳ`, `ＳＱＬ`). Do NOT penalize polite register, **but** do require concrete ownership scope (`要件定義〜運用まで主導`), scale/team size, and quantified outcomes; distinguish `必須要件` knockouts vs `歓迎要件` and respect language-proficiency knockouts (e.g. `日本語 CEFR C1`).
+   - **Korea (`ko`):** Supports `.hwpx`, `.docx`, `.pptx`, `.pdf`, `.md`; enforce Korean project ownership & metric depth over bare spec listing.
 
 ---
 

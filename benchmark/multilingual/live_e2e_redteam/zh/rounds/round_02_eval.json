@@ -1,0 +1,118 @@
+{
+  "round": 2,
+  "rubric_hash": "5d43c77ea4001ca6",
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "PARTIAL",
+      "evidence_quote": "赵明 — 后端开发工程师（深圳，4年经验） / 2022.05 - 至今 | 某电商科技公司 | Java 开发工程师 / 参与数据库建表与团队日常代码评审。",
+      "source": "简历 - 标题与工作经历",
+      "gap_type": "expression_gap",
+      "action_hint": "本轮未新增工程实践佐证，保持 PARTIAL；请结合真实工作经历补充主导过的需求分析、技术方案设计、Java 并发或 JVM 调优、单元测试及代码规范落地细节。"
+    },
+    {
+      "id": "MH-2",
+      "grade": "WEAK",
+      "evidence_quote": "熟悉 Java、Spring Boot、Spring Cloud、MySQL、Redis、消息队列、分布式架构、多租户、AI Agent、智能化研发。 / 参与数据库建表与团队日常代码评审。",
+      "source": "简历 - 专业技能与工作经历",
+      "gap_type": "expression_gap",
+      "action_hint": "本轮仅在专业技能栏追加了“Spring Cloud”关键词，工作经历中无任何项目实战上下文，严格执行反关键词堆砌上限（最高计 WEAK）；请确认是否真实在生产项目中使用过 Spring Cloud，并在项目经历中补全 MySQL 数据库设计与性能优化、Redis 缓存及消息队列落地细节。"
+    },
+    {
+      "id": "MH-3",
+      "grade": "WEAK",
+      "evidence_quote": "熟悉 Java、Spring Boot、Spring Cloud、MySQL、Redis、消息队列、分布式架构、多租户、AI Agent、智能化研发。 / 负责商城后台日常接口开发、维护与线上 Bug 修复。",
+      "source": "简历 - 专业技能与工作经历",
+      "gap_type": "transferable_gap",
+      "action_hint": "本轮仅在专业技能栏增加了“分布式架构”裸词，缺少任何生产架构设计与稳定性治理实例，仍严格封顶于 WEAK；请提炼 1~2 个真实线上故障排查、并发问题定位或缓存一致性治理案例，如实衔接分布式实践能力。"
+    },
+    {
+      "id": "MH-4",
+      "grade": "WEAK",
+      "evidence_quote": "2022.05 - 至今 | 某电商科技公司 | Java 开发工程师 / 负责商城后台日常接口开发、维护与线上 Bug 修复。",
+      "source": "简历 - 工作经历",
+      "gap_type": "expression_gap",
+      "action_hint": "本轮未补充电商业务建模与核心交付细节；请拆解您在商城后台真实负责过的订单、商品、库存、营销或结算模块，写明业务规则抽象、表结构建模与从设计到上线的完整交付范围。"
+    },
+    {
+      "id": "MH-5",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "虽然本轮在专业技能栏写入了“AI Agent、智能化研发”，但“尚未接触领域”仍声明“尚未接触 AI Agent 研发工作流建设”，且通篇无 AI 开发工具使用、上下文构建、结果验证与数据安全佐证，不能计分；若日常确实合规使用过 AI 编程助手，请写明真实场景与校验方式，切勿虚构。"
+    },
+    {
+      "id": "MH-6",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "简历仍未体现跨团队协作及将业务与工程经验沉淀为 AI 可复用项目知识与工作流的真实案例，且与底部未接触声明相矛盾；如有真实跨团队联调或工程文档沉淀可先如实补充，未建设 AI 工作流请勿编造。"
+    },
+    {
+      "id": "PI-1",
+      "grade": "WEAK",
+      "evidence_quote": "负责商城后台日常接口开发、维护与线上 Bug 修复。",
+      "source": "简历 - 工作经历",
+      "gap_type": "expression_gap",
+      "action_hint": "本轮仍未新增“项目经历”模块；请从 4 年电商后端实战中挑选 2 个最具代表性的真实项目，按“项目背景与痛点→技术方案与个人职责→上线交付效果”完整呈现。"
+    },
+    {
+      "id": "PI-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "expression_gap",
+      "action_hint": "本轮仍无任何真实量化指标；切勿虚构“日均百万 QPS”等不实数字，请盘点真实可核验的数据（如慢查询耗时下降、接口响应时间改善、大促峰值支撑量、线上缺陷修复效率提升等）填入项目成果。"
+    },
+    {
+      "id": "PI-3",
+      "grade": "WEAK",
+      "evidence_quote": "负责商城后台日常接口开发、维护与线上 Bug 修复。 / 参与数据库建表与团队日常代码评审。",
+      "source": "简历 - 工作经历",
+      "gap_type": "expression_gap",
+      "action_hint": "本轮仍停留在“负责”“参与”等模糊表述；请明确个人独立承担的核心模块边界、关键技术选型权衡及至少 1 次独立主导的线上故障根因排查闭环。"
+    },
+    {
+      "id": "PR-1",
+      "grade": "PARTIAL",
+      "evidence_quote": "2022.05 - 至今 | 某电商科技公司 | Java 开发工程师 / 负责商城后台日常接口开发、维护与线上 Bug 修复。",
+      "source": "简历 - 工作经历",
+      "gap_type": "expression_gap",
+      "action_hint": "您具备 4 年电商公司实战背景，本轮未做进一步展开；请具体补充所服务商城的业务形态、复杂交易链路（如履约、优惠叠加、库存防超卖等），将已有真实优势充分放大。"
+    },
+    {
+      "id": "PR-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "本轮在专业技能栏添加了“多租户”，但底部仍明确写着“暂无多租户大型平台架构治理经验”，形成直接自相矛盾，不能计分；请立即从专业技能栏删去未掌握的“多租户”，严禁虚构多租户交易中台经历。"
+    },
+    {
+      "id": "PR-3",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "本轮在专业技能栏添加了“AI Agent、智能化研发”，但底部仍明确写着“尚未接触 AI Agent 研发工作流建设”，构成自相矛盾，不能计分；请从技能栏移除不实条目，严禁编造企业级 AI Agent 工作流经历。"
+    },
+    {
+      "id": "AF-1",
+      "grade": "PARTIAL",
+      "evidence_quote": "赵明 — 后端开发工程师（深圳，4年经验）",
+      "source": "简历 - 标题",
+      "gap_type": "expression_gap",
+      "action_hint": "本轮未优化顶部定位摘要；建议在标题下方新增 2~3 行基于真实经验的核心亮点概括，突出“4 年电商 Java 后端开发、核心商城接口与数据库/缓存实战”。"
+    },
+    {
+      "id": "AF-2",
+      "grade": "WEAK",
+      "evidence_quote": "熟悉 Java、Spring Boot、Spring Cloud、MySQL、Redis、消息队列、分布式架构、多租户、AI Agent、智能化研发。 / 暂无多租户大型平台架构治理经验，尚未接触 AI Agent 研发工作流建设。",
+      "source": "简历 - 专业技能与尚未接触领域",
+      "gap_type": "expression_gap",
+      "action_hint": "本轮出现了明显的自相矛盾（专业技能栏罗列“多租户、AI Agent、智能化研发”，底部却声明暂无/未接触），这会严重损害腾讯技术面试官对简历诚信度的信任；请清理所有未经项目佐证的裸词，补充结构化真实项目经历，并在坚守诚实的前提下移除“尚未接触领域”栏目。"
+    }
+  ]
+}

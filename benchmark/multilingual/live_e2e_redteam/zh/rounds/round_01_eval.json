@@ -1,0 +1,118 @@
+{
+  "round": 1,
+  "rubric_hash": "5d43c77ea4001ca6",
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "PARTIAL",
+      "evidence_quote": "赵明 — 后端开发工程师（深圳，4年经验） / 2022.05 - 至今 | 某电商科技公司 | Java 开发工程师 / 参与数据库建表与团队日常代码评审。",
+      "source": "简历 - 标题与工作经历",
+      "gap_type": "expression_gap",
+      "action_hint": "您已具备 4 年 Java 后端工作年限与代码评审基础，但缺少工程实践深度佐证；请补充实际主导过的需求分析、技术方案设计、并发与 JVM 调优、单元测试或研发规范落地实例。"
+    },
+    {
+      "id": "MH-2",
+      "grade": "WEAK",
+      "evidence_quote": "熟悉 Java、Spring Boot、MySQL、Redis、消息队列。 / 参与数据库建表与团队日常代码评审。",
+      "source": "简历 - 专业技能与工作经历",
+      "gap_type": "expression_gap",
+      "action_hint": "核心技术栈目前仅在专业技能栏以“熟悉”静态罗列，缺乏项目上下文（最高仅计 WEAK），且缺少 Spring Cloud 与性能优化证明；请结合真实电商项目展开 MySQL 索引与表结构设计、Redis 缓存策略、消息队列异步解耦及性能调优细节（如未实际使用 Spring Cloud 请勿虚构）。"
+    },
+    {
+      "id": "MH-3",
+      "grade": "WEAK",
+      "evidence_quote": "负责商城后台日常接口开发、维护与线上 Bug 修复。",
+      "source": "简历 - 工作经历",
+      "gap_type": "transferable_gap",
+      "action_hint": "当前仅有“线上 Bug 修复”的笼统表述，未体现分布式系统设计、高可用保障及独立排查复杂故障的能力；请提炼 1~2 个真实线上稳定性治理、缓存一致性或并发故障定位闭环案例，如实衔接分布式生产实践。"
+    },
+    {
+      "id": "MH-4",
+      "grade": "WEAK",
+      "evidence_quote": "2022.05 - 至今 | 某电商科技公司 | Java 开发工程师 / 负责商城后台日常接口开发、维护与线上 Bug 修复。",
+      "source": "简历 - 工作经历",
+      "gap_type": "expression_gap",
+      "action_hint": "虽具备电商公司与商城后台背景，但“日常接口开发、维护”无法体现复杂交易建模能力；请具体拆解您负责的订单、库存、营销或结算等业务领域模型设计及从需求到上线的端到端交付过程。"
+    },
+    {
+      "id": "MH-5",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "简历中未体现 AI 开发工具使用、上下文构建、生成代码验证及数据安全把控经验；若日常研发中曾合规使用 AI 编程助手提效，请补充真实使用场景与质量校验机制，切勿凭空编造。"
+    },
+    {
+      "id": "MH-6",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "岗位要求跨团队协作并将业务规则与工程经验沉淀为 AI 可复用项目知识及研发工作流，目前简历中尚无相关佐证；若具备跨团队协作与文档沉淀经验可先如实补充，未接触 AI 研发工作流则勿夸大。"
+    },
+    {
+      "id": "PI-1",
+      "grade": "WEAK",
+      "evidence_quote": "负责商城后台日常接口开发、维护与线上 Bug 修复。",
+      "source": "简历 - 工作经历",
+      "gap_type": "expression_gap",
+      "action_hint": "简历缺少独立的“项目经历”模块，仅用两句日常职责概括了 4 年经历；请挑选 2 个与电商核心交易最相关的真实项目，按“项目背景→核心技术方案→上线交付结果”结构完整展开。"
+    },
+    {
+      "id": "PI-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "expression_gap",
+      "action_hint": "通篇缺少可量化的数据成果；请回顾过往真实项目，补充接口响应耗时优化、慢 SQL 治理前后对比、并发支撑规模、线上故障率下降或问题修复时效等真实指标。"
+    },
+    {
+      "id": "PI-3",
+      "grade": "WEAK",
+      "evidence_quote": "负责商城后台日常接口开发、维护与线上 Bug 修复。 / 参与数据库建表与团队日常代码评审。",
+      "source": "简历 - 工作经历",
+      "gap_type": "expression_gap",
+      "action_hint": "“负责”“参与”等模糊表述未能区分团队工作与个人贡献；请明确您独立主导的模块边界、做过的关键技术方案权衡及独立完成线上问题根因定位的完整闭环。"
+    },
+    {
+      "id": "PR-1",
+      "grade": "PARTIAL",
+      "evidence_quote": "2022.05 - 至今 | 某电商科技公司 | Java 开发工程师 / 负责商城后台日常接口开发、维护与线上 Bug 修复。",
+      "source": "简历 - 工作经历",
+      "gap_type": "expression_gap",
+      "action_hint": "您已在电商行业工作 4 年，具备直接的领域契合度；请具体说明商城业务的交易复杂度（如订单状态机、促销并发、库存扣减等），将行业背景转化为扎实的项目加分佐证。"
+    },
+    {
+      "id": "PR-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "简历已明确说明暂无多租户大型平台架构治理经验，属于真实加分项缺口；切勿虚构该经历，应优先通过补强核心必选项与真实电商项目佐证来提升匹配度。"
+    },
+    {
+      "id": "PR-3",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "简历已明确说明尚未接触 AI Agent 研发工作流建设，属于真实加分项缺口；请保持诚实，切勿强行写入简历，可通过夯实核心 Java 交易架构实战经验弥补。"
+    },
+    {
+      "id": "AF-1",
+      "grade": "PARTIAL",
+      "evidence_quote": "赵明 — 后端开发工程师（深圳，4年经验）",
+      "source": "简历 - 标题",
+      "gap_type": "expression_gap",
+      "action_hint": "标题清晰标明了地点（深圳）与 4 年工作年限，与目标岗位基础条件匹配；建议在标题下方增加 2~3 行个人核心优势摘要，精准对齐“电商交易系统 Java 后端开发”定位。"
+    },
+    {
+      "id": "AF-2",
+      "grade": "WEAK",
+      "evidence_quote": "负责商城后台日常接口开发、维护与线上 Bug 修复。 / 参与数据库建表与团队日常代码评审。",
+      "source": "简历 - 工作经历",
+      "gap_type": "expression_gap",
+      "action_hint": "建议新增结构化“项目经历”模块并将核心技术亮点与量化成果前置；同时，“尚未接触领域”专栏容易在初筛阶段直接放大短板，建议坚持诚实原则、不写未掌握技能的同时移除该负面专栏。"
+    }
+  ]
+}

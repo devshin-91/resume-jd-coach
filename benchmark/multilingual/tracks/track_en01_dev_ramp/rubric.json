@@ -1,0 +1,152 @@
+{
+  "company": "Ramp",
+  "role_title": "Software Engineer, Backend, Comms Platform",
+  "language": "en",
+  "domain_mode": "portfolio",
+  "pass_threshold": 80.0,
+  "ats_lexical_share": 0.5,
+  "category_weights": {
+    "must_have": 45,
+    "portfolio_impact": 25,
+    "preferred": 15,
+    "ats_framing": 15
+  },
+  "categories": {
+    "must_have": [
+      {
+        "id": "MH-1",
+        "title": "Production backend APIs, data models & async workflows",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-2",
+        "title": "Idempotent delivery, safe retries & distributed reliability",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-3",
+        "title": "End-to-end system ownership & technical direction",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "MH-4",
+        "title": "Observability, reliability & platform developer abstractions",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "MH-5",
+        "title": "Cross-functional collaboration with product & design",
+        "weight": 1,
+        "is_knockout": false
+      }
+    ],
+    "portfolio_impact": [
+      {
+        "id": "PI-1",
+        "title": "Quantified throughput, latency, or delivery-success metrics",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-2",
+        "title": "Concrete system architecture trade-offs & post-launch iteration",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "preferred": [
+      {
+        "id": "PR-1",
+        "title": "Messaging/notification platform & provider APIs (Twilio/SendGrid/Slack)",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "PR-2",
+        "title": "Internal shared platform & high-volume queue/event scaling",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "ats_framing": [
+      {
+        "id": "AF-1",
+        "title": "Backend platform headline & recruiter-scannable XYZ impact framing",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ]
+  },
+  "keywords": [
+    {
+      "term": "API",
+      "aliases": [
+        "APIs"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-1"
+    },
+    {
+      "term": "Asynchronous",
+      "aliases": [
+        "Async",
+        "Queue",
+        "Event-Driven"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-1"
+    },
+    {
+      "term": "Idempotent",
+      "aliases": [
+        "Idempotency"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "Observability",
+      "aliases": [
+        "Monitoring",
+        "Datadog",
+        "OpenTelemetry"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-4"
+    },
+    {
+      "term": "Distributed Systems",
+      "aliases": [
+        "High-Volume"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "SendGrid",
+      "aliases": [
+        "Twilio",
+        "Slack",
+        "Notification"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-1"
+    },
+    {
+      "term": "Retries",
+      "aliases": [
+        "Retry",
+        "Dead-Letter Queue",
+        "DLQ"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "MH-2"
+    }
+  ],
+  "rubric_hash": "38b45420701033ea",
+  "locked_at": "2026-11-23T01:35:10+00:00"
+}

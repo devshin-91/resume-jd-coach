@@ -1,0 +1,26 @@
+Company: Ramp
+Role: Software Engineer, Backend, Comms Platform
+Location: Remote (US) | Full time
+URL: https://jobs.ashbyhq.com/ramp/939892e5-5273-4bfc-8c41-a6c51cabb228
+
+Responsibilities:
+- Own the design and evolution of a core part of Ramp's communications platform, from technical design through launch, monitoring, and iteration
+- Build and extend integrations with messaging channels and delivery providers, including email, SMS, push, and workplace chat tools such as Slack and Microsoft Teams
+- Design delivery workflows that are idempotent, retry safely, and confirm successful delivery, so customers reliably get the messages they need without duplicate sends
+- Build communication preferences and controls that let users and administrators decide what they receive and where
+- Make the platform simple and safe for other Ramp engineers to build on, with clear abstractions, strong defaults, and good developer tooling
+- Improve the reliability, performance, and observability of the platform as message volume grows
+- Drive technical direction for your area and raise the engineering bar through design reviews, code reviews, and mentorship
+
+Required Qualifications:
+- Experience designing, building, and operating production backend systems, including APIs, data models, and asynchronous workflows
+- A track record of owning a system or product area end to end and shaping its technical direction over time
+- Strong system design judgment, especially around reliability, idempotency, and correctness in high-volume distributed systems
+- Product sense: balance speed with quality for people receiving messages
+- Clear communication and collaborative technical decision-making across product, design, and engineering
+
+Preferred Qualifications:
+- Experience building notification, messaging, or communications platforms
+- Experience integrating with messaging providers or channel APIs (Twilio, SendGrid, Slack, Microsoft Teams, WhatsApp)
+- Experience building internal platforms or shared services used by many engineering teams
+- Experience scaling high-volume, event-driven, or queue-based systems

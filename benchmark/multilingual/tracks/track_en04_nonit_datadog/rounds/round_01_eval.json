@@ -1,0 +1,43 @@
+{
+  "round": 1,
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "WEAK",
+      "evidence_quote": "Collaborated closely with fellow People Business Partners on shared HR initiatives",
+      "source": "md",
+      "gap_type": "expression_gap",
+      "action_hint": "KNOCKOUT RISK: You have 12 yrs HR experience, but 'collaborated with fellow PBPs' reads as IC peer collaboration—explicitly state your 5+ years of direct people-management scope if you managed PBPs."
+    },
+    {
+      "id": "MH-2",
+      "grade": "FULL",
+      "evidence_quote": "multi-year organizational design, annual workforce planning (1,200+ global G&A seats), compensation calibration, and performance management cycles",
+      "source": "md"
+    },
+    {
+      "id": "MH-3",
+      "grade": "FULL",
+      "evidence_quote": "Spearheaded G&A AI transformation and change management across Legal and Finance ops",
+      "source": "md"
+    },
+    {
+      "id": "PI-1",
+      "grade": "FULL",
+      "evidence_quote": "lifting top-performer retention from 84% to 93% and reducing voluntary attrition by 6.2%p YoY",
+      "source": "md"
+    },
+    {
+      "id": "PR-1",
+      "grade": "FULL",
+      "evidence_quote": "supporting global G&A functions (Finance, Legal, Ops) at a NASDAQ-listed SaaS company",
+      "source": "md"
+    },
+    {
+      "id": "AF-1",
+      "grade": "FULL",
+      "evidence_quote": "Director, People Business Partner (New York, NY)",
+      "source": "md"
+    }
+  ]
+}

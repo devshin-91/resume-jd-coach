@@ -1,0 +1,45 @@
+{
+  "round": 2,
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "FULL",
+      "evidence_quote": "上海 · 本科 · 5年人力资源经验",
+      "source": "md"
+    },
+    {
+      "id": "MH-2",
+      "grade": "FULL",
+      "evidence_quote": "针对 350 人内容安全与审核团队开展年度组织诊断与人才盘点，重构班次绩效考核与薪酬激励方案",
+      "source": "md"
+    },
+    {
+      "id": "MH-3",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "md",
+      "gap_type": "expression_gap",
+      "action_hint": "注意回退：第2轮误删了第1轮原有的武汉/成都跨城市业务对接与出差佐证，请补回并写清独立判断案例。"
+    },
+    {
+      "id": "PI-1",
+      "grade": "FULL",
+      "evidence_quote": "主动离职率由 28% 降至 16%，并将审核团队人均产能提升 19%",
+      "source": "md"
+    },
+    {
+      "id": "PR-1",
+      "grade": "STRONG_PARTIAL",
+      "evidence_quote": "某互联网视频平台 | 内容审核业务 HRBP",
+      "source": "md",
+      "gap_type": "expression_gap",
+      "action_hint": "补回跨城市 HRBP 协作范围即可满分。"
+    },
+    {
+      "id": "AF-1",
+      "grade": "FULL",
+      "evidence_quote": "互联网业务 HRBP",
+      "source": "md"
+    }
+  ]
+}

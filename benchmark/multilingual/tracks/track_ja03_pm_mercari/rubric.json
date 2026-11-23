@@ -1,0 +1,131 @@
+{
+  "company": "株式会社メルカリ（Mercari）",
+  "role_title": "プロダクトマネージャー - Mercari Marketplace",
+  "language": "ja",
+  "domain_mode": "portfolio",
+  "pass_threshold": 80.0,
+  "ats_lexical_share": 0.5,
+  "category_weights": {
+    "must_have": 45,
+    "portfolio_impact": 25,
+    "preferred": 15,
+    "ats_framing": 15
+  },
+  "categories": {
+    "must_have": [
+      {
+        "id": "MH-1",
+        "title": "WebサービスPM実務3年以上・エンジニア協働・日本語C1",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-2",
+        "title": "KPI事業成果オーナーシップ（発見→開発→GTM→学習）",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "MH-3",
+        "title": "AIツールを活用した仮説検証・プロトタイピング実績",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "MH-4",
+        "title": "SQLを用いたデータ分析・インサイト抽出実務",
+        "weight": 2,
+        "is_knockout": true
+      }
+    ],
+    "portfolio_impact": [
+      {
+        "id": "PI-1",
+        "title": "GMV/転換率など定量KPI改善の事業成果ケース",
+        "weight": 3,
+        "is_knockout": false
+      }
+    ],
+    "preferred": [
+      {
+        "id": "PR-1",
+        "title": "EC/マーケットプレイス知見・A/Bテスト・0→1/1→N経験",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "ats_framing": [
+      {
+        "id": "AF-1",
+        "title": "成果・AI駆動プロダクトマネージャーとしての訴求構成",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ]
+  },
+  "keywords": [
+    {
+      "term": "プロダクトマネジメント",
+      "aliases": [
+        "PM",
+        "プロダクトマネージャー"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-1"
+    },
+    {
+      "term": "KPI",
+      "aliases": [
+        "GMV",
+        "CVR"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "SQL",
+      "aliases": [
+        "BigQuery"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-4"
+    },
+    {
+      "term": "AI",
+      "aliases": [
+        "Gemini",
+        "Claude",
+        "生成AI"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-3"
+    },
+    {
+      "term": "アジャイル",
+      "aliases": [
+        "スクラム"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-1"
+    },
+    {
+      "term": "A/Bテスト",
+      "aliases": [
+        "ABテスト"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-1"
+    },
+    {
+      "term": "マーケットプレイス",
+      "aliases": [
+        "EC",
+        "CtoC"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-1"
+    }
+  ],
+  "rubric_hash": "75ad8799f16e7f30",
+  "locked_at": "2026-11-23T01:35:25+00:00"
+}

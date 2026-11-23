@@ -1,0 +1,121 @@
+{
+  "company": "Discord",
+  "role_title": "Staff Data Scientist, Causal Inference & Experimentation",
+  "language": "en",
+  "domain_mode": "portfolio",
+  "pass_threshold": 80.0,
+  "ats_lexical_share": 0.5,
+  "category_weights": {
+    "must_have": 55,
+    "portfolio_impact": 20,
+    "preferred": 15,
+    "ats_framing": 10
+  },
+  "categories": {
+    "must_have": [
+      {
+        "id": "MH-1",
+        "title": "Leading experimentation platform & statistical methodology validation",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-2",
+        "title": "PhD/equivalent + 4+ years causal inference & experimentation",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-3",
+        "title": "Org-wide experimentation training & data literacy education",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "MH-4",
+        "title": "Proficiency in Python, SQL, and/or R statistical computing",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "portfolio_impact": [
+      {
+        "id": "PI-1",
+        "title": "Quantified product/business impact from rigorous experimentation",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "preferred": [
+      {
+        "id": "PR-1",
+        "title": "Causal inference publications & AI/LLM experimentation workflows",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "ats_framing": [
+      {
+        "id": "AF-1",
+        "title": "Staff Experimentation / Causal Inference role framing",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ]
+  },
+  "keywords": [
+    {
+      "term": "Causal Inference",
+      "aliases": [
+        "Quasi-Experiment",
+        "Difference-in-Differences"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "Experimentation Platform",
+      "aliases": [
+        "Experimental Design"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-1"
+    },
+    {
+      "term": "A/B Testing",
+      "aliases": [
+        "AB Testing"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PI-1"
+    },
+    {
+      "term": "Python",
+      "aliases": [],
+      "tier": "must",
+      "linked_item_id": "MH-4"
+    },
+    {
+      "term": "SQL",
+      "aliases": [],
+      "tier": "must",
+      "linked_item_id": "MH-4"
+    },
+    {
+      "term": "R",
+      "aliases": [],
+      "tier": "preferred",
+      "linked_item_id": "MH-4"
+    },
+    {
+      "term": "LLM",
+      "aliases": [
+        "AI"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-1"
+    }
+  ],
+  "rubric_hash": "0f474dd4b0d05e6f",
+  "locked_at": "2026-11-23T01:35:13+00:00"
+}

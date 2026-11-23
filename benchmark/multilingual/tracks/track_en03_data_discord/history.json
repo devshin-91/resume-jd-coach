@@ -1,0 +1,227 @@
+{
+  "session": {
+    "company": "Discord",
+    "role_title": "Staff Data Scientist, Causal Inference & Experimentation",
+    "language": "en",
+    "domain_mode": "portfolio",
+    "rubric_hash": "0f474dd4b0d05e6f"
+  },
+  "rubric_hash": "0f474dd4b0d05e6f",
+  "pass_threshold": 80.0,
+  "rounds": [
+    {
+      "round": 1,
+      "evaluated_at": "2026-11-23T01:35:14+00:00",
+      "total_score": 14.0,
+      "total_score_2dp": 14.02,
+      "total_score_exact": "14.0227",
+      "pass_status": "REVISE",
+      "grace_tier_used": null,
+      "categories": {
+        "must_have": {
+          "label": "Must-Have & Core Duties",
+          "label_ko": "필수 자격 & 핵심 직무",
+          "active": true,
+          "effective_weight": 55.0,
+          "attainment_pct": 10.0,
+          "earned_points": 5.5,
+          "max_points": 55.0,
+          "item_count": 4,
+          "delta_points_pp": null
+        },
+        "portfolio_impact": {
+          "label": "Portfolio Proof & Impact",
+          "label_ko": "포트폴리오 증빙 & 성과",
+          "active": true,
+          "effective_weight": 20.0,
+          "attainment_pct": 25.0,
+          "earned_points": 5.0,
+          "max_points": 20.0,
+          "item_count": 1,
+          "delta_points_pp": null
+        },
+        "preferred": {
+          "label": "Preferred & Bonus",
+          "label_ko": "우대 사항",
+          "active": true,
+          "effective_weight": 15.0,
+          "attainment_pct": 0.0,
+          "earned_points": 0.0,
+          "max_points": 15.0,
+          "item_count": 1,
+          "delta_points_pp": null
+        },
+        "ats_framing": {
+          "label": "ATS Keywords & Role Framing",
+          "label_ko": "JD 키워드 & 포지셔닝",
+          "active": true,
+          "effective_weight": 10.0,
+          "attainment_pct": 35.2,
+          "earned_points": 3.52,
+          "max_points": 10.0,
+          "item_count": 1,
+          "delta_points_pp": null
+        }
+      },
+      "items": [
+        {
+          "id": "MH-1",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "MH-2",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "MH-3",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "MH-4",
+          "grade": "PARTIAL",
+          "earned_points_pp": 5.5,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PI-1",
+          "grade": "WEAK",
+          "earned_points_pp": 5.0,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PR-1",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "AF-1",
+          "grade": "WEAK",
+          "earned_points_pp": 1.25,
+          "gap_type": "true_gap",
+          "stalled_streak": 1
+        }
+      ],
+      "grace_recommended": false
+    },
+    {
+      "round": 2,
+      "evaluated_at": "2026-11-23T01:35:14+00:00",
+      "total_score": 34.5,
+      "total_score_2dp": 34.52,
+      "total_score_exact": "34.5227",
+      "pass_status": "REVISE",
+      "grace_tier_used": null,
+      "categories": {
+        "must_have": {
+          "label": "Must-Have & Core Duties",
+          "label_ko": "필수 자격 & 핵심 직무",
+          "active": true,
+          "effective_weight": 55.0,
+          "attainment_pct": 20.0,
+          "earned_points": 11.0,
+          "max_points": 55.0,
+          "item_count": 4,
+          "delta_points_pp": 5.5
+        },
+        "portfolio_impact": {
+          "label": "Portfolio Proof & Impact",
+          "label_ko": "포트폴리오 증빙 & 성과",
+          "active": true,
+          "effective_weight": 20.0,
+          "attainment_pct": 100.0,
+          "earned_points": 20.0,
+          "max_points": 20.0,
+          "item_count": 1,
+          "delta_points_pp": 15.0
+        },
+        "preferred": {
+          "label": "Preferred & Bonus",
+          "label_ko": "우대 사항",
+          "active": true,
+          "effective_weight": 15.0,
+          "attainment_pct": 0.0,
+          "earned_points": 0.0,
+          "max_points": 15.0,
+          "item_count": 1,
+          "delta_points_pp": 0.0
+        },
+        "ats_framing": {
+          "label": "ATS Keywords & Role Framing",
+          "label_ko": "JD 키워드 & 포지셔닝",
+          "active": true,
+          "effective_weight": 10.0,
+          "attainment_pct": 35.2,
+          "earned_points": 3.52,
+          "max_points": 10.0,
+          "item_count": 1,
+          "delta_points_pp": 0.0
+        }
+      },
+      "items": [
+        {
+          "id": "MH-1",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "MH-2",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "MH-3",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "MH-4",
+          "grade": "FULL",
+          "earned_points_pp": 11.0,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "PI-1",
+          "grade": "FULL",
+          "earned_points_pp": 20.0,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "PR-1",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "AF-1",
+          "grade": "WEAK",
+          "earned_points_pp": 1.25,
+          "gap_type": "true_gap",
+          "stalled_streak": 2
+        }
+      ],
+      "grace_recommended": false
+    }
+  ]
+}

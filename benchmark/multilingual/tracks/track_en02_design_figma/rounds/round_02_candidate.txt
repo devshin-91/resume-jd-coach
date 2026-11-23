@@ -1,0 +1,12 @@
+=== SOURCE: maya_chen_portfolio_r2_stuffed.pptx ===
+--- Slide 1 ---
+Maya Chen — Product Designer | 9 Years Experience in Marketing Websites & SaaS Dashboards
+
+--- Slide 2 ---
+Project 1: Dashboard Redesign — Updated color palette, typography, and buttons to look cleaner and more modern.
+
+--- Slide 3 ---
+Project 2: Mobile App Screens — Final mockups attached. Stakeholders loved the visual polish.
+
+--- Slide 4 ---
+Keywords & Skills: Interaction Design, Direct Manipulation, Prototyping, User Research, AI, Canvas, Auto Layout, Editor, Code-Based Prototyping, React.

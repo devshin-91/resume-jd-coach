@@ -1,0 +1,233 @@
+{
+  "company": "腾讯（Tencent）",
+  "role_title": "营销与交易产品部-云mall Java后端开发工程师",
+  "language": "zh",
+  "domain_mode": "resume_only",
+  "pass_threshold": 80.0,
+  "ats_lexical_share": 0.5,
+  "category_weights": {
+    "must_have": 45,
+    "portfolio_impact": 25,
+    "preferred": 15,
+    "ats_framing": 15
+  },
+  "categories": {
+    "must_have": [
+      {
+        "id": "MH-1",
+        "title": "三年以上 Java 后端开发经验与扎实工程实践",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-2",
+        "title": "Spring Boot / Spring Cloud / MySQL / Redis / 消息队列技术栈及数据库设计与性能优化项目经验",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-3",
+        "title": "分布式系统设计、生产稳定性保障与线上问题独立定位治理能力",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-4",
+        "title": "电商或复杂交易系统的业务分析、领域建模与核心系统端到端交付能力",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "MH-5",
+        "title": "AI 开发工具实战应用、上下文工程、生成结果验证与数据安全把控",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "MH-6",
+        "title": "跨团队协作与将业务及工程经验沉淀为 AI 可复用项目知识与研发工作流",
+        "weight": 1,
+        "is_knockout": false
+      }
+    ],
+    "portfolio_impact": [
+      {
+        "id": "PI-1",
+        "title": "代表性电商或交易核心项目完整叙事（项目背景→技术方案设计→开发上线交付）",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-2",
+        "title": "可量化的性能、稳定性或业务成果指标（如吞吐量、响应耗时、可用性、排障效率等）",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-3",
+        "title": "个人独立负责范围、关键架构权衡决策与线上故障排查闭环佐证",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "preferred": [
+      {
+        "id": "PR-1",
+        "title": "电商平台、零售 SaaS 或其他复杂交易系统实战经验",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "PR-2",
+        "title": "大型平台系统、多租户系统建设或架构治理经验",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "PR-3",
+        "title": "AI Agent 或智能化研发流程建设经验",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "ats_framing": [
+      {
+        "id": "AF-1",
+        "title": "简历顶部定位与核心优势摘要对目标岗位的契合度",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "AF-2",
+        "title": "简历结构化可读性（项目经历拆解、核心成果前置、避免空泛职责罗列）",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ]
+  },
+  "keywords": [
+    {
+      "term": "Java",
+      "aliases": [
+        "JVM",
+        "JDK"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-1"
+    },
+    {
+      "term": "Spring Boot",
+      "aliases": [
+        "SpringBoot"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "Spring Cloud",
+      "aliases": [
+        "SpringCloud",
+        "微服务"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "MySQL",
+      "aliases": [
+        "数据库设计",
+        "SQL优化"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "Redis",
+      "aliases": [
+        "分布式缓存"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "消息队列",
+      "aliases": [
+        "MQ",
+        "Kafka",
+        "RocketMQ",
+        "RabbitMQ"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "分布式系统",
+      "aliases": [
+        "分布式架构",
+        "分布式"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-3"
+    },
+    {
+      "term": "性能优化",
+      "aliases": [
+        "系统性能",
+        "性能调优"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-3"
+    },
+    {
+      "term": "电商",
+      "aliases": [
+        "复杂交易",
+        "交易系统",
+        "商城"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-4"
+    },
+    {
+      "term": "AI 开发工具",
+      "aliases": [
+        "AI编程",
+        "AI 辅助研发",
+        "Copilot",
+        "Cursor"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-5"
+    },
+    {
+      "term": "零售 SaaS",
+      "aliases": [
+        "SaaS"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-1"
+    },
+    {
+      "term": "多租户",
+      "aliases": [
+        "多租户系统",
+        "多租户架构",
+        "架构治理"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-2"
+    },
+    {
+      "term": "AI Agent",
+      "aliases": [
+        "智能体",
+        "智能化研发",
+        "智能化研发流程"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-3"
+    }
+  ],
+  "rubric_hash": "5d43c77ea4001ca6",
+  "locked_at": "2026-11-23T01:00:38+00:00"
+}

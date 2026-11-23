@@ -1,0 +1,9 @@
+=== SOURCE: jordan_lee_resume_r1.docx ===
+Jordan Lee — Software Developer (US Remote)
+Summary: Hardworking developer who likes building web applications and collaborating with team members.
+Experience — CloudLedger Inc. (2022 – Present), Backend Developer
+- Responsible for maintaining REST APIs and fixing bugs in Python and PostgreSQL.
+- Helped with sending email alerts and internal notifications when invoices were approved.
+- Worked with product managers and frontend engineers during sprint planning.
+- Assisted senior engineers with deployments and on-call tickets.
+Skills: Python, PostgreSQL, REST APIs, Git, Docker.

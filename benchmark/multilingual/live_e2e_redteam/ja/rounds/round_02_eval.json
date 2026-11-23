@@ -1,0 +1,118 @@
+{
+  "round": 2,
+  "rubric_hash": "354412491827ed12",
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "WEAK",
+      "evidence_quote": "中小企業にて単体経理の仕訳入力、経費精算、請求書発行および月次試算表の作成補助を2年間担当いたしました。",
+      "source": "round_02_candidate.txt - 職務要約",
+      "gap_type": "true_gap",
+      "action_hint": "単体経理2年・連結未経験の状況は前回から変化していません。未経験の年数・領域を虚偽記載することは一切できず、事実に基づく実務実績の整理と適合ポジションの再検討が必要です。"
+    },
+    {
+      "id": "MH-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "保有スキル欄に「連結決算」が追記されましたが、実務根拠がなく同一書類内の未経験領域セクションでも「未経験」と明記されており自己矛盾しています。信頼性毀損を防ぐため保有スキル欄から削除してください。"
+    },
+    {
+      "id": "MH-3",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "保有スキル欄に「監査法人対応」が羅列されていますが、実務実績の裏付けがなく未経験記載と矛盾しています。未経験であればスキル一覧から削除してください。"
+    },
+    {
+      "id": "MH-4",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "保有スキル欄に「M&A」「PMI」が追記されましたが、実務文脈がなく「未経験」記載と矛盾しています。M&A・PMI主導経験の虚偽記載は厳禁であり、スキル一覧から削除が必要です。"
+    },
+    {
+      "id": "MH-5",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "保有スキル欄に「税効果会計」が追加されていますが、実務根拠がなく未経験記載と矛盾しています。保有スキル欄から削除し、実際に担当した税務関連の補助業務がある場合のみ事実ベースで記載してください。"
+    },
+    {
+      "id": "PI-1",
+      "grade": "WEAK",
+      "evidence_quote": "中小企業にて単体経理の仕訳入力、経費精算、請求書発行および月次試算表の作成補助を2年間担当いたしました。",
+      "source": "round_02_candidate.txt - 職務要約",
+      "gap_type": "transferable_gap",
+      "action_hint": "キーワード羅列の追加のみで、単体経理2年間における具体的な担当範囲・単独完結業務は補われていません。実際に主担当として完結した業務範囲と使用会計ソフトを具体的に言語化してください。"
+    },
+    {
+      "id": "PI-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "expression_gap",
+      "action_hint": "定量成果・業務規模の追記がありません。月次仕訳件数、請求書発行枚数、経費精算の対象人数、月次締め所要日数など、実在する実務数値のみを具体化してください。"
+    },
+    {
+      "id": "PI-3",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "transferable_gap",
+      "action_hint": "業務標準化や改善プロセスの記述は未追加です。単体経理の現場で実際に取り組んだマニュアル整備やチェック体制改善があれば、事実ベースで整理してください。"
+    },
+    {
+      "id": "PR-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "連結決算・税効果会計は未経験と明記されており、保有スキル欄へのキーワード追記は自己矛盾となるため削除してください。"
+    },
+    {
+      "id": "PR-2",
+      "grade": "WEAK",
+      "evidence_quote": "保有スキル：連結決算、税効果会計、監査法人対応、M&A、PMI、財務DD、J-SOX",
+      "source": "round_02_candidate.txt - 職務要約",
+      "gap_type": "true_gap",
+      "action_hint": "保有スキル欄に「財務DD」と単語のみ追記されていますが、具体的な実務文脈がないため上限評価 WEAK (0.25) 止まりです。実際には未経験である場合、他の未経験スキルと同様に必ず削除してください。"
+    },
+    {
+      "id": "PR-3",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "保有スキル欄に「J-SOX」が追記されましたが、未経験領域セクションの記載と矛盾しています。実務未経験の項目はスキル一覧から削除してください。"
+    },
+    {
+      "id": "PR-4",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "公認会計士・USCPAは未保有のままです。日商簿記2級の正確な記載を維持しつつ、上位資格を学習中であれば取得済みと誤認されない表現のみ補足可能です。"
+    },
+    {
+      "id": "AF-1",
+      "grade": "WEAK",
+      "evidence_quote": "田中 優衣 — 経理担当（東京・実務経験2年・日商簿記2級）",
+      "source": "round_02_candidate.txt - 見出し",
+      "gap_type": "expression_gap",
+      "action_hint": "未経験キーワードを保有スキル欄に並べるだけではポジション訴求の改善になりません。実在する単体経理2年間の強み（正確性・スピード・改善姿勢）に軸足を置いて要約を再構成してください。"
+    },
+    {
+      "id": "AF-2",
+      "grade": "WEAK",
+      "evidence_quote": "保有スキル：連結決算、税効果会計、監査法人対応、M&A、PMI、財務DD、J-SOX",
+      "source": "round_02_candidate.txt - 職務要約",
+      "gap_type": "expression_gap",
+      "action_hint": "「保有スキル」に列挙した6項目が直下の「今後の課題（未経験領域）」と真っ向から矛盾しており、書類全体の信頼性が大きく低下しています。未経験項目を保有スキル欄から直ちに削除し、実在する職務経歴と実績を誠実に整理してください。"
+    }
+  ]
+}

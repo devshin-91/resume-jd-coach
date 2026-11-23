@@ -1,0 +1,136 @@
+{
+  "company": "株式会社SmartHR",
+  "role_title": "シニアウェブアプリケーションエンジニア（バックエンド）",
+  "language": "ja",
+  "domain_mode": "resume_only",
+  "pass_threshold": 80.0,
+  "ats_lexical_share": 0.5,
+  "category_weights": {
+    "must_have": 45,
+    "portfolio_impact": 25,
+    "preferred": 15,
+    "ats_framing": 15
+  },
+  "categories": {
+    "must_have": [
+      {
+        "id": "MH-1",
+        "title": "Webアプリケーション開発実務5年以上＋チーム開発（GitHub）",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-2",
+        "title": "商用プロダクトでのRDB論理/物理設計・性能チューニング",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-3",
+        "title": "要件整理〜運用改善の一貫主導とアーキテクチャ意思決定",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "MH-4",
+        "title": "セキュリティ/障害耐性設計・CI/CDおよびAI活用開発",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "portfolio_impact": [
+      {
+        "id": "PI-1",
+        "title": "性能改善・障害削減・開発生産性向上の定量実績",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-2",
+        "title": "トレードオフ判断の背景と自律的な改善推進プロセス",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "preferred": [
+      {
+        "id": "PR-1",
+        "title": "IDaaS/情シス領域またはSLO/SLI・AWS/GCPインフラ運用経験",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "ats_framing": [
+      {
+        "id": "AF-1",
+        "title": "シニアバックエンドとしての主体的オーナーシップ訴求",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ]
+  },
+  "keywords": [
+    {
+      "term": "RDB",
+      "aliases": [
+        "PostgreSQL",
+        "MySQL",
+        "リレーショナルデータベース"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "パフォーマンスチューニング",
+      "aliases": [
+        "性能チューニング",
+        "クエリ最適化"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "CI/CD",
+      "aliases": [
+        "GitHub Actions",
+        "CircleCI"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-4"
+    },
+    {
+      "term": "GitHub",
+      "aliases": [],
+      "tier": "must",
+      "linked_item_id": "MH-1"
+    },
+    {
+      "term": "AI",
+      "aliases": [
+        "GitHub Copilot",
+        "生成AI"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-4"
+    },
+    {
+      "term": "SLO/SLI",
+      "aliases": [
+        "SLO",
+        "SLI"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-1"
+    },
+    {
+      "term": "AWS",
+      "aliases": [
+        "GCP"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-1"
+    }
+  ],
+  "rubric_hash": "b724d5bf9733aefc",
+  "locked_at": "2026-11-23T01:35:22+00:00"
+}

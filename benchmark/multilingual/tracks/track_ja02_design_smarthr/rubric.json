@@ -1,0 +1,113 @@
+{
+  "company": "株式会社SmartHR",
+  "role_title": "プロダクトデザイナー（マネージャー候補）",
+  "language": "ja",
+  "domain_mode": "portfolio",
+  "pass_threshold": 80.0,
+  "ats_lexical_share": 0.5,
+  "category_weights": {
+    "must_have": 40,
+    "portfolio_impact": 35,
+    "preferred": 10,
+    "ats_framing": 15
+  },
+  "categories": {
+    "must_have": [
+      {
+        "id": "MH-1",
+        "title": "OOUI（オブジェクト指向UI）モデリングとB2B業務アプリ情報設計",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-2",
+        "title": "デザイン品質担保の仕組み構築とレビュー・言語化フィードバック",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-3",
+        "title": "組織課題の特定と体制・プロセス変革の推進経験",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "portfolio_impact": [
+      {
+        "id": "PI-1",
+        "title": "情報設計の判断根拠・改善プロセスを示すポートフォリオ事例",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-2",
+        "title": "品質・開発速度・ユーザー業務効率の定量成果",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "preferred": [
+      {
+        "id": "PR-1",
+        "title": "B2B SaaS・デザインシステム構築・組織マネジメント経験",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "ats_framing": [
+      {
+        "id": "AF-1",
+        "title": "デザインマネージャー候補としての組織・品質視点訴求",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ]
+  },
+  "keywords": [
+    {
+      "term": "OOUI",
+      "aliases": [
+        "オブジェクト指向UI",
+        "UIモデリング"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-1"
+    },
+    {
+      "term": "情報設計",
+      "aliases": [
+        "B2B"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-1"
+    },
+    {
+      "term": "デザインレビュー",
+      "aliases": [
+        "品質担保"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "組織変革",
+      "aliases": [
+        "体制",
+        "デザイン組織"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-3"
+    },
+    {
+      "term": "デザインシステム",
+      "aliases": [
+        "SaaS",
+        "スクラム"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-1"
+    }
+  ],
+  "rubric_hash": "144517ac35fa0112",
+  "locked_at": "2026-11-23T01:35:24+00:00"
+}

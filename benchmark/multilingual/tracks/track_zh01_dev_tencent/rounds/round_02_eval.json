@@ -1,0 +1,63 @@
+{
+  "round": 2,
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "FULL",
+      "evidence_quote": "基于 Java 17、Spring Boot、Spring Cloud 重新建模“营销计价—库存预占—支付回调”核心交易状态机",
+      "source": "gb18030 txt"
+    },
+    {
+      "id": "MH-2",
+      "grade": "FULL",
+      "evidence_quote": "使用 Redis Lua 原子扣减库存与 RocketMQ 消息队列异步削峰，通过分布式幂等键防止重复扣款；对 MySQL 订单表实施冷热分离与联合索引重构",
+      "source": "gb18030 txt"
+    },
+    {
+      "id": "MH-3",
+      "grade": "FULL",
+      "evidence_quote": "重新建模“营销计价—库存预占—支付回调”核心交易状态机",
+      "source": "gb18030 txt"
+    },
+    {
+      "id": "MH-4",
+      "grade": "FULL",
+      "evidence_quote": "推行 AI 编程助手结合业务领域文档生成边界单测与代码重构建议，坚持脱敏上下文输入与人工 Code Review 双重验证",
+      "source": "gb18030 txt"
+    },
+    {
+      "id": "PI-1",
+      "grade": "FULL",
+      "evidence_quote": "大促峰值支撑 8,500 QPS 零超卖，下单接口 P99 延迟由 680ms 降至 95ms，核心交易链路全年可用率达 99.98%",
+      "source": "gb18030 txt"
+    },
+    {
+      "id": "PI-2",
+      "grade": "FULL",
+      "evidence_quote": "独立定位并根治大促期间线程池耗尽导致的级联超时故障，线上 P1 故障同比下降 75%",
+      "source": "gb18030 txt"
+    },
+    {
+      "id": "PR-1",
+      "grade": "PARTIAL",
+      "evidence_quote": "4年电商交易与营销中台 Java/Spring Cloud 实战经验",
+      "source": "gb18030 txt",
+      "gap_type": "true_gap",
+      "action_hint": "具备电商交易经验，多租户大型治理为诚实保留项。"
+    },
+    {
+      "id": "PR-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "gb18030 txt",
+      "gap_type": "true_gap",
+      "action_hint": "已从技能栏移除矛盾声明，保持诚实即可。"
+    },
+    {
+      "id": "AF-1",
+      "grade": "FULL",
+      "evidence_quote": "高级 Java 后端开发工程师（电商营销与交易方向 · 深圳 · 4年经验）",
+      "source": "gb18030 txt"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "round": 2,
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "WEAK",
+      "evidence_quote": "上海，本科学历，2年经验",
+      "source": "md",
+      "gap_type": "true_gap",
+      "action_hint": "仍为 2 年运营背景（低于 3 年增长 PM 门槛）。"
+    },
+    {
+      "id": "MH-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "md",
+      "gap_type": "true_gap",
+      "action_hint": "真实能力缺口：无 AI 增长与实验平台经验。"
+    },
+    {
+      "id": "MH-3",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "md",
+      "gap_type": "true_gap",
+      "action_hint": "真实能力缺口：无 SQL 实战能力。"
+    },
+    {
+      "id": "PI-1",
+      "grade": "FULL",
+      "evidence_quote": "独立统筹周年庆拉新裂变与老玩家回流活动，带动新增注册 3.2 万人，活动次周留存率由 18% 提升至 27%",
+      "source": "md"
+    },
+    {
+      "id": "PR-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "md",
+      "gap_type": "true_gap",
+      "action_hint": "真实缺口。"
+    },
+    {
+      "id": "AF-1",
+      "grade": "WEAK",
+      "evidence_quote": "游戏社区用户增长运营",
+      "source": "md",
+      "gap_type": "true_gap",
+      "action_hint": "与 AI 增长产品经理定位仍有客观差距，建议匹配更契合岗位。"
+    }
+  ]
+}

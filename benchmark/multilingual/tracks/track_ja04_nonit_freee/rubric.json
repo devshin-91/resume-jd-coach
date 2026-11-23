@@ -1,0 +1,108 @@
+{
+  "company": "フリー株式会社（freee）",
+  "role_title": "経理（連結・税務・M&A/PMI）",
+  "language": "ja",
+  "domain_mode": "resume_only",
+  "pass_threshold": 80.0,
+  "ats_lexical_share": 0.5,
+  "category_weights": {
+    "must_have": 55,
+    "portfolio_impact": 20,
+    "preferred": 15,
+    "ats_framing": 10
+  },
+  "categories": {
+    "must_have": [
+      {
+        "id": "MH-1",
+        "title": "監査法人3年 / FAS 3年 / 事業会社経理3年＋連結決算1年以上",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-2",
+        "title": "連結決算・子会社管理・監査法人との論点協議完結力",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-3",
+        "title": "税金計算・税効果会計および業務標準化・統制整備",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "portfolio_impact": [
+      {
+        "id": "PI-1",
+        "title": "決算早期化・統制構築・マニュアル標準化の定量実績",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "preferred": [
+      {
+        "id": "PR-1",
+        "title": "M&A・PMI/財務DD経験または公認会計士・USCPA資格",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "ats_framing": [
+      {
+        "id": "AF-1",
+        "title": "グループ経理中核メンバーとしての専門性訴求",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ]
+  },
+  "keywords": [
+    {
+      "term": "連結決算",
+      "aliases": [
+        "連結パッケージ",
+        "開示書類"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-1"
+    },
+    {
+      "term": "監査法人",
+      "aliases": [
+        "会計監査"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "税効果会計",
+      "aliases": [
+        "税金計算",
+        "税務"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-3"
+    },
+    {
+      "term": "PMI",
+      "aliases": [
+        "M&A",
+        "財務DD"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-1"
+    },
+    {
+      "term": "公認会計士",
+      "aliases": [
+        "USCPA",
+        "J-SOX"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-1"
+    }
+  ],
+  "rubric_hash": "3a3131528549f6f8",
+  "locked_at": "2026-11-23T01:35:27+00:00"
+}

@@ -1,0 +1,102 @@
+{
+  "round": 1,
+  "rubric_hash": "327ba651aa16f90d",
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "Experimentation platform vision and roadmap leadership is a core knockout requirement explicitly absent from your background. Do not fabricate it; focus honest applications on BI/Analytics roles or build foundational experimentation infrastructure experience before targeting Staff platform roles."
+    },
+    {
+      "id": "MH-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "The role requires rigorous statistical methodology validation and causal inference mastery, whereas your resume explicitly notes no production experience with causal inference or quasi-experiments and only raw CTR comparisons. Address this honestly as a long-term skill-building area rather than trying to reword around it."
+    },
+    {
+      "id": "MH-3",
+      "grade": "WEAK",
+      "evidence_quote": "3 years building Looker dashboards and weekly SQL/Python KPI tracking for e-commerce marketing.",
+      "source": "round_01_candidate.txt - Summary",
+      "gap_type": "true_gap",
+      "action_hint": "This knockout asks for a quantitative PhD (or equivalent) plus 4+ years designing and analyzing experiments or causal inference projects. If you hold an unlisted quantitative degree, add it; otherwise recognize the seniority and experimentation-depth gap transparently."
+    },
+    {
+      "id": "MH-4",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "Developing and leading statistical methodology workshops for 50+ data scientists is absent from your experience. Only add training or enablement evidence if you have genuinely led verified internal analytics tutorials or onboarding sessions."
+    },
+    {
+      "id": "MH-5",
+      "grade": "PARTIAL",
+      "evidence_quote": "Built SQL and Python ETL scripts powering executive revenue dashboards.",
+      "source": "round_01_candidate.txt - Experience",
+      "gap_type": "expression_gap",
+      "action_hint": "You show production SQL and Python ETL work, but no statistical programming context (e.g., libraries, analytical modeling, or statistical testing in Python/SQL). Surface concrete Python/SQL analytical depth you actually performed, and keep college-only R exposure honest."
+    },
+    {
+      "id": "PI-1",
+      "grade": "WEAK",
+      "evidence_quote": "Supported two email A/B testing campaigns by comparing raw click-through rates.",
+      "source": "round_01_candidate.txt - Experience",
+      "gap_type": "true_gap",
+      "action_hint": "Comparing raw CTR on two email campaigns falls far short of Staff-level experimental design or original causal inference research. If you actually performed hypothesis testing, sample sizing, or segmentation on those campaigns, clarify your real role; otherwise treat original causal research as a genuine gap."
+    },
+    {
+      "id": "PI-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "expression_gap",
+      "action_hint": "Your RetailPulse bullets omit all measurable business outcomes. Add real, verified metrics to your existing work—such as dashboard adoption, revenue tracked, ETL runtime reduction, or actual measured CTR/conversion shifts from the two email campaigns."
+    },
+    {
+      "id": "PI-3",
+      "grade": "WEAK",
+      "evidence_quote": "Built SQL and Python ETL scripts powering executive revenue dashboards.",
+      "source": "round_01_candidate.txt - Experience",
+      "gap_type": "true_gap",
+      "action_hint": "Powering executive dashboards shows stakeholder visibility, not Staff-level cross-functional org influence across engineering, product, and 50+ data scientists. Clarify the exact teams and scope you supported honestly without inflating your title or leadership scope."
+    },
+    {
+      "id": "PR-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "You explicitly note no publications and no causal inference experience. Leave this unfabricated rather than overstating coursework or BI reporting."
+    },
+    {
+      "id": "PR-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "No AI/LLM tooling experience is present. Add this only if you genuinely built or used verified AI/LLM workflows in real analytics or documentation tasks."
+    },
+    {
+      "id": "AF-1",
+      "grade": "WEAK",
+      "evidence_quote": "3 years building Looker dashboards and weekly SQL/Python KPI tracking for e-commerce marketing.",
+      "source": "round_01_candidate.txt - Summary",
+      "gap_type": "transferable_gap",
+      "action_hint": "Your summary positions you strictly as a marketing BI analyst. You can honestly foreground transferable SQL/Python analytics and email A/B testing support, while remaining truthful that you are not yet a Staff Causal Inference Scientist."
+    },
+    {
+      "id": "AF-2",
+      "grade": "PARTIAL",
+      "evidence_quote": "Built SQL and Python ETL scripts powering executive revenue dashboards.",
+      "source": "round_01_candidate.txt - Experience",
+      "gap_type": "expression_gap",
+      "action_hint": "Your resume is concise and uses action verbs like 'Built', but lacks quantified XYZ/STAR impact bullets and uses passive 'Supported' phrasing. Strengthen verified bullets with clear scope, actions, and real numbers while keeping every claim factual."
+    }
+  ]
+}

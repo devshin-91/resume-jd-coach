@@ -1,0 +1,53 @@
+{
+  "round": 1,
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "xlsx 職務経歴書",
+      "gap_type": "true_gap",
+      "action_hint": "必須要件（事業会社経理3年＋連結1年、または監査/FAS 3年）を満たさない真の要件ギャップです。"
+    },
+    {
+      "id": "MH-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "xlsx 職務経歴書",
+      "gap_type": "true_gap",
+      "action_hint": "連結決算・監査法人対応は未経験のため虚偽記載厳禁です。"
+    },
+    {
+      "id": "MH-3",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "xlsx 職務経歴書",
+      "gap_type": "true_gap",
+      "action_hint": "税効果会計未経験のため、まずは単体月次・年次決算の標準化実績を伸ばす方向をご検討ください。"
+    },
+    {
+      "id": "PI-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "xlsx 職務経歴書",
+      "gap_type": "expression_gap",
+      "action_hint": "現在の単体経理で行った決算業務効率化やマニュアル化の定量実績があれば追記できます。"
+    },
+    {
+      "id": "PR-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "xlsx 職務経歴書",
+      "gap_type": "true_gap",
+      "action_hint": "歓迎要件のM&A/会計士資格は未保有です。"
+    },
+    {
+      "id": "AF-1",
+      "grade": "WEAK",
+      "evidence_quote": "中小企業にて単体経理の仕訳入力、経費精算、請求書発行を2年間担当いたしました",
+      "source": "xlsx 職務経歴書",
+      "gap_type": "true_gap",
+      "action_hint": "中核グループ経理ポジションとの実務レンジ差が大きいため、単体決算主担当ポジションとの併願をおすすめします。"
+    }
+  ]
+}

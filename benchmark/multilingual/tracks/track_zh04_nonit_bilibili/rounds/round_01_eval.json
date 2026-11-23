@@ -1,0 +1,51 @@
+{
+  "round": 1,
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "FULL",
+      "evidence_quote": "上海 · 本科 · 5年人力资源经验",
+      "source": "md"
+    },
+    {
+      "id": "MH-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "md",
+      "gap_type": "expression_gap",
+      "action_hint": "摆脱纯事务性入离职清单，补充你主导的组织诊断、人才盘点、绩效与员工关系专项方案。"
+    },
+    {
+      "id": "MH-3",
+      "grade": "PARTIAL",
+      "evidence_quote": "偶尔出差至武汉、成都职场支持新员工入职培训",
+      "source": "md",
+      "gap_type": "expression_gap",
+      "action_hint": "展示你在跨城市业务协作中提出独立专业判断、推动管理层共识的案例。"
+    },
+    {
+      "id": "PI-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "md",
+      "gap_type": "expression_gap",
+      "action_hint": "补充离职率下降、核心人效提升或关键岗位满编周期缩短等数据。"
+    },
+    {
+      "id": "PR-1",
+      "grade": "PARTIAL",
+      "evidence_quote": "某互联网视频平台 | HR专员 / HRBP",
+      "source": "md",
+      "gap_type": "expression_gap",
+      "action_hint": "明确你在互联网多城市业务线作为 HRBP 支持的团队规模。"
+    },
+    {
+      "id": "AF-1",
+      "grade": "WEAK",
+      "evidence_quote": "陈默 — 人事专员",
+      "source": "md",
+      "gap_type": "expression_gap",
+      "action_hint": "将抬头调整为业务型 HRBP，突出战略支撑而非行政事务。"
+    }
+  ]
+}

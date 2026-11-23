@@ -1,0 +1,51 @@
+{
+  "round": 2,
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "xlsx 職務経歴書",
+      "gap_type": "true_gap",
+      "action_hint": "真の必須要件ギャップ（経理3年＋連結1年未達）。"
+    },
+    {
+      "id": "MH-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "xlsx 職務経歴書",
+      "gap_type": "true_gap",
+      "action_hint": "連結決算・監査法人対応は未経験。"
+    },
+    {
+      "id": "MH-3",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "xlsx 職務経歴書",
+      "gap_type": "true_gap",
+      "action_hint": "税効果会計は未経験。"
+    },
+    {
+      "id": "PI-1",
+      "grade": "FULL",
+      "evidence_quote": "月次試算表の締め日数を10営業日から6営業日へ40%短縮し、仕訳修正件数を月平均14件から2件へ削減",
+      "source": "xlsx 職務経歴書"
+    },
+    {
+      "id": "PR-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "xlsx 職務経歴書",
+      "gap_type": "true_gap",
+      "action_hint": "未保有の歓迎要件。"
+    },
+    {
+      "id": "AF-1",
+      "grade": "WEAK",
+      "evidence_quote": "単体経理・月次決算改善担当・実務2年",
+      "source": "xlsx 職務経歴書",
+      "gap_type": "true_gap",
+      "action_hint": "単体決算での改善実績は明確ですが、本求人の連結・M&A必須要件には届かないため他求人併願が現実的です。"
+    }
+  ]
+}

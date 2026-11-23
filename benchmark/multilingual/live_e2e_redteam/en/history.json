@@ -1,0 +1,297 @@
+{
+  "session": {
+    "company": "Discord",
+    "role_title": "Staff Data Scientist, Causal Inference & Experimentation",
+    "language": "en",
+    "domain_mode": "resume_only",
+    "rubric_hash": "327ba651aa16f90d"
+  },
+  "rubric_hash": "327ba651aa16f90d",
+  "pass_threshold": 80.0,
+  "rounds": [
+    {
+      "round": 1,
+      "evaluated_at": "2026-11-23T01:22:10+00:00",
+      "total_score": 13.7,
+      "total_score_2dp": 13.73,
+      "total_score_exact": "13.7313",
+      "pass_status": "REVISE",
+      "grace_tier_used": null,
+      "categories": {
+        "must_have": {
+          "label": "Must-Have & Core Duties",
+          "label_ko": "필수 자격 & 핵심 직무",
+          "active": true,
+          "effective_weight": 45.0,
+          "attainment_pct": 13.5,
+          "earned_points": 6.06,
+          "max_points": 45.0,
+          "item_count": 5,
+          "delta_points_pp": null
+        },
+        "portfolio_impact": {
+          "label": "Work Proof & Measurable Impact",
+          "label_ko": "직무 증빙 & 정량 성과",
+          "active": true,
+          "effective_weight": 30.0,
+          "attainment_pct": 15.6,
+          "earned_points": 4.69,
+          "max_points": 30.0,
+          "item_count": 3,
+          "delta_points_pp": null
+        },
+        "preferred": {
+          "label": "Preferred & Bonus",
+          "label_ko": "우대 사항",
+          "active": true,
+          "effective_weight": 15.0,
+          "attainment_pct": 0.0,
+          "earned_points": 0.0,
+          "max_points": 15.0,
+          "item_count": 2,
+          "delta_points_pp": null
+        },
+        "ats_framing": {
+          "label": "ATS Keywords & Role Framing",
+          "label_ko": "JD 키워드 & 포지셔닝",
+          "active": true,
+          "effective_weight": 10.0,
+          "attainment_pct": 29.9,
+          "earned_points": 2.99,
+          "max_points": 10.0,
+          "item_count": 2,
+          "delta_points_pp": null
+        }
+      },
+      "items": [
+        {
+          "id": "MH-1",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "MH-2",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "MH-3",
+          "grade": "WEAK",
+          "earned_points_pp": 2.6,
+          "gap_type": "true_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "MH-4",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "MH-5",
+          "grade": "PARTIAL",
+          "earned_points_pp": 3.46,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PI-1",
+          "grade": "WEAK",
+          "earned_points_pp": 2.81,
+          "gap_type": "true_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PI-2",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PI-3",
+          "grade": "WEAK",
+          "earned_points_pp": 1.88,
+          "gap_type": "true_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PR-1",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PR-2",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "AF-1",
+          "grade": "WEAK",
+          "earned_points_pp": 0.63,
+          "gap_type": "transferable_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "AF-2",
+          "grade": "PARTIAL",
+          "earned_points_pp": 1.25,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        }
+      ],
+      "grace_recommended": false
+    },
+    {
+      "round": 2,
+      "evaluated_at": "2026-11-23T01:22:10+00:00",
+      "total_score": 15.3,
+      "total_score_2dp": 15.26,
+      "total_score_exact": "15.2591",
+      "pass_status": "REVISE",
+      "grace_tier_used": null,
+      "categories": {
+        "must_have": {
+          "label": "Must-Have & Core Duties",
+          "label_ko": "필수 자격 & 핵심 직무",
+          "active": true,
+          "effective_weight": 45.0,
+          "attainment_pct": 13.5,
+          "earned_points": 6.06,
+          "max_points": 45.0,
+          "item_count": 5,
+          "delta_points_pp": 0.0
+        },
+        "portfolio_impact": {
+          "label": "Work Proof & Measurable Impact",
+          "label_ko": "직무 증빙 & 정량 성과",
+          "active": true,
+          "effective_weight": 30.0,
+          "attainment_pct": 15.6,
+          "earned_points": 4.69,
+          "max_points": 30.0,
+          "item_count": 3,
+          "delta_points_pp": 0.0
+        },
+        "preferred": {
+          "label": "Preferred & Bonus",
+          "label_ko": "우대 사항",
+          "active": true,
+          "effective_weight": 15.0,
+          "attainment_pct": 12.5,
+          "earned_points": 1.88,
+          "max_points": 15.0,
+          "item_count": 2,
+          "delta_points_pp": 1.9
+        },
+        "ats_framing": {
+          "label": "ATS Keywords & Role Framing",
+          "label_ko": "JD 키워드 & 포지셔닝",
+          "active": true,
+          "effective_weight": 10.0,
+          "attainment_pct": 26.4,
+          "earned_points": 2.64,
+          "max_points": 10.0,
+          "item_count": 2,
+          "delta_points_pp": -0.4
+        }
+      },
+      "items": [
+        {
+          "id": "MH-1",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "MH-2",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "MH-3",
+          "grade": "WEAK",
+          "earned_points_pp": 2.6,
+          "gap_type": "true_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "MH-4",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "MH-5",
+          "grade": "PARTIAL",
+          "earned_points_pp": 3.46,
+          "gap_type": "expression_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "PI-1",
+          "grade": "WEAK",
+          "earned_points_pp": 2.81,
+          "gap_type": "true_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "PI-2",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "expression_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "PI-3",
+          "grade": "WEAK",
+          "earned_points_pp": 1.88,
+          "gap_type": "true_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "PR-1",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "PR-2",
+          "grade": "WEAK",
+          "earned_points_pp": 1.88,
+          "gap_type": "true_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "AF-1",
+          "grade": "WEAK",
+          "earned_points_pp": 0.63,
+          "gap_type": "transferable_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "AF-2",
+          "grade": "WEAK",
+          "earned_points_pp": 0.63,
+          "gap_type": "expression_gap",
+          "stalled_streak": 2
+        }
+      ],
+      "grace_recommended": true
+    }
+  ]
+}

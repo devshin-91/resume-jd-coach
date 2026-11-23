@@ -1,0 +1,151 @@
+{
+  "company": "腾讯（Tencent）",
+  "role_title": "营销与交易产品部-云mallJava后端开发工程师",
+  "language": "zh",
+  "domain_mode": "resume_only",
+  "pass_threshold": 80.0,
+  "ats_lexical_share": 0.5,
+  "category_weights": {
+    "must_have": 45,
+    "portfolio_impact": 25,
+    "preferred": 15,
+    "ats_framing": 15
+  },
+  "categories": {
+    "must_have": [
+      {
+        "id": "MH-1",
+        "title": "Java / Spring Boot / Spring Cloud 后端工程实践（3年以上）",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-2",
+        "title": "MySQL、Redis、消息队列设计与分布式高并发线上治理",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-3",
+        "title": "电商或复杂交易核心链路建模与全流程交付",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "MH-4",
+        "title": "AI 开发工具提效与生成结果独立验证、数据安全把关",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "portfolio_impact": [
+      {
+        "id": "PI-1",
+        "title": "高并发交易稳定性、QPS/耗时优化等量化成果",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-2",
+        "title": "个人架构设计决策与线上排障复盘深度",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "preferred": [
+      {
+        "id": "PR-1",
+        "title": "零售 SaaS / 多租户大型平台架构建设经验",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "PR-2",
+        "title": "AI Agent 或智能化研发工作流建设经验",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "ats_framing": [
+      {
+        "id": "AF-1",
+        "title": "岗位定位清晰度与项目背景-职责-成果结构化表达",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ]
+  },
+  "keywords": [
+    {
+      "term": "Java",
+      "aliases": [],
+      "tier": "must",
+      "linked_item_id": "MH-1"
+    },
+    {
+      "term": "Spring Boot",
+      "aliases": [
+        "Spring Cloud"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-1"
+    },
+    {
+      "term": "MySQL",
+      "aliases": [],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "Redis",
+      "aliases": [],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "消息队列",
+      "aliases": [
+        "Kafka",
+        "RocketMQ",
+        "MQ"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "分布式",
+      "aliases": [
+        "高并发"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "电商",
+      "aliases": [
+        "零售 SaaS",
+        "复杂交易"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-3"
+    },
+    {
+      "term": "多租户",
+      "aliases": [
+        "架构治理"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-1"
+    },
+    {
+      "term": "AI Agent",
+      "aliases": [
+        "智能化研发"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-2"
+    }
+  ],
+  "rubric_hash": "70c1836972d9011a",
+  "locked_at": "2026-11-23T01:35:16+00:00"
+}

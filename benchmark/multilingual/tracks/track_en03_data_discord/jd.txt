@@ -1,0 +1,20 @@
+Company: Discord
+Role: Staff Data Scientist, Causal Inference & Experimentation
+Location: San Francisco Bay Area
+URL: https://job-boards.greenhouse.io/discord/jobs/8652853002
+
+Responsibilities:
+- Formulate vision and roadmap for the Experimentation Platform with engineering, product, and DS stakeholders
+- Ensure statistical methodologies are sound and aligned with best practices in causal inference and experimental design
+- Lead workshops and training programs on experimentation design and causal inference across 50+ data scientists
+- Conduct original causal inference research on high-priority product questions
+
+Required Qualifications:
+- Proven experience leading experimentation platform work and validating statistical methodologies
+- PhD in a quantitative field or equivalent practical experience, plus 4+ years designing, implementing, and analyzing experiments or causal inference projects
+- Experience developing and delivering training programs / educational content on experimentation & statistical methodology
+- Proficient with Python, SQL, R, and/or other statistical programming languages
+
+Preferred Qualifications:
+- Causal inference methods translated into business decisions & publications
+- AI/LLM tools to accelerate causal inference or experimentation education workflows

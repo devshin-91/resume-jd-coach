@@ -27,15 +27,15 @@
   - `PR-1` SaaS·이커머스·CRM 마케팅 솔루션 실무 경험: `STRONG_PARTIAL → FULL` (`+1.5%p`) ✅
   - `AF-1` 타깃 포지션(SaaS/CRM 데이터 기반 Junior PM) 헤더·요약 정합성: `PARTIAL → STRONG_PARTIAL` (`+0.9%p`)
 - **정체 항목 (보완 가능 항목 2라운드 이상 `<= PARTIAL` 유지):**
-  - `MH-2` 기능 정책, 화면 흐름, 예외 케이스의 논리적 구조화 및 문서화 역량 (`WEAK`, 2R, `expression_gap`, max `+7.8%p`)
-  - `MH-3` VOC 및 제품 사용 데이터 기반 고객 문제 정의·소규모 실험·고도화 경험 (`PARTIAL`, 2R, `expression_gap`, max `+5.2%p`)
-  - `MH-4` 생성형 AI(Claude·ChatGPT 등) 업무 활용 및 결과물 정확성·적합성 자체 검증 (`PARTIAL`, 2R, `expression_gap`, max `+3.5%p`)
-  - `MH-5` 개발·CX·세일즈 등 다직군 협업 및 의견 충돌 시 근거 기반 조율 경험 (`PARTIAL`, 2R, `expression_gap`, max `+3.5%p`)
-  - `PI-1` 요구사항 분석→기능 정책/예외 케이스→출시→개선 케이스 스터디 증빙 (`WEAK`, 2R, `expression_gap`, max `+7.0%p`)
-  - `PI-2` 전/후 비교 가능한 정량 성과 지표(전환율·잔존율·CS 감소·활성화 등) (`MISSING`, 2R, `expression_gap`, max `+9.4%p`)
-  - `PI-3` 본인 주도 범위 및 빠른 실행/실패 회고·학습 기록 제시 (`WEAK`, 2R, `expression_gap`, max `+4.7%p`)
-  - `PR-2` SQL·GA4·Amplitude 등 데이터 직접 추출·분석 및 웹/API 구조 이해 (`MISSING`, 2R, `expression_gap`, max `+6.0%p`)
-  - `AF-2` 채용담당자 10초 스캔 가독성 및 핵심 기획 산출물·성과 상단 배치 (`PARTIAL`, 2R, `expression_gap`, max `+1.9%p`)
+  - `MH-2` 기능 정책, 화면 흐름, 예외 케이스의 논리적 구조화 및 문서화 역량 (`WEAK`, 2R, `expression_gap`, 최대 `+7.8%p`)
+  - `MH-3` VOC 및 제품 사용 데이터 기반 고객 문제 정의·소규모 실험·고도화 경험 (`PARTIAL`, 2R, `expression_gap`, 최대 `+5.2%p`)
+  - `MH-4` 생성형 AI(Claude·ChatGPT 등) 업무 활용 및 결과물 정확성·적합성 자체 검증 (`PARTIAL`, 2R, `expression_gap`, 최대 `+3.5%p`)
+  - `MH-5` 개발·CX·세일즈 등 다직군 협업 및 의견 충돌 시 근거 기반 조율 경험 (`PARTIAL`, 2R, `expression_gap`, 최대 `+3.5%p`)
+  - `PI-1` 요구사항 분석→기능 정책/예외 케이스→출시→개선 케이스 스터디 증빙 (`WEAK`, 2R, `expression_gap`, 최대 `+7.0%p`)
+  - `PI-2` 전/후 비교 가능한 정량 성과 지표(전환율·잔존율·CS 감소·활성화 등) (`MISSING`, 2R, `expression_gap`, 최대 `+9.4%p`)
+  - `PI-3` 본인 주도 범위 및 빠른 실행/실패 회고·학습 기록 제시 (`WEAK`, 2R, `expression_gap`, 최대 `+4.7%p`)
+  - `PR-2` SQL·GA4·Amplitude 등 데이터 직접 추출·분석 및 웹/API 구조 이해 (`MISSING`, 2R, `expression_gap`, 최대 `+6.0%p`)
+  - `AF-2` 채용담당자 10초 스캔 가독성 및 핵심 기획 산출물·성과 상단 배치 (`PARTIAL`, 2R, `expression_gap`, 최대 `+1.9%p`)
 
 ## 우선순위 보완 가이드 (직접 수정 포인트)
 

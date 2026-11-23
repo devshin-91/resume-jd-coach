@@ -1,0 +1,199 @@
+{
+  "company": "フリー株式会社（freee K.K.）",
+  "role_title": "経理（連結・税務・M&A/PMI）｜グループ経理の中核メンバー",
+  "language": "ja",
+  "domain_mode": "resume_only",
+  "pass_threshold": 80.0,
+  "ats_lexical_share": 0.5,
+  "category_weights": {
+    "must_have": 45,
+    "portfolio_impact": 25,
+    "preferred": 15,
+    "ats_framing": 15
+  },
+  "categories": {
+    "must_have": [
+      {
+        "id": "MH-1",
+        "title": "必須実務経験（監査法人3年以上・FASでのDD/PMI支援3年以上・事業会社経理3年以上＋連結決算1年以上のいずれか）",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-2",
+        "title": "連結決算・子会社管理・開示書類作成および連結統制の実務経験",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-3",
+        "title": "監査法人対応（会計監査・連結統制に関する折衝および資料対応）の実務経験",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "MH-4",
+        "title": "M&A・PMI対応（会計方針すり合わせ、連結パッケージ作成、標準化）の実務経験",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "MH-5",
+        "title": "税務実務（税金計算、税効果会計、税務統制）の経験",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "portfolio_impact": [
+      {
+        "id": "PI-1",
+        "title": "経理・決算業務における具体的な担当範囲および主体的な推進実績の明示",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-2",
+        "title": "業務規模・定量成果（対象社数、月次仕訳規模、決算早期化日数、工数削減等）の提示",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-3",
+        "title": "会計方針・業務フローの標準化や内部統制改善における具体的な課題解決プロセス",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "preferred": [
+      {
+        "id": "PR-1",
+        "title": "上場企業の連結決算・開示監査または税効果会計の高度な実務経験",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "PR-2",
+        "title": "財務DD（デューデリジェンス）・PPA（取得原価配分）の実務経験",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "PR-3",
+        "title": "J-SOX（内部統制報告制度）の整備・運用経験",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "PR-4",
+        "title": "公認会計士またはUSCPAの専門資格保有",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "ats_framing": [
+      {
+        "id": "AF-1",
+        "title": "職務要約・見出しと募集ポジション（グループ経理：連結・税務・M&A/PMI）の訴求整合性",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "AF-2",
+        "title": "採用担当者が短時間で実務レベル・担当範囲・実績を把握できる職務経歴書構成と信頼性",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ]
+  },
+  "keywords": [
+    {
+      "term": "経理",
+      "aliases": [
+        "単体経理",
+        "月次決算"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-1"
+    },
+    {
+      "term": "連結決算",
+      "aliases": [
+        "連結会計",
+        "連結統制"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "開示書類",
+      "aliases": [
+        "有価証券報告書",
+        "決算短信",
+        "開示監査"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "監査法人対応",
+      "aliases": [
+        "会計監査",
+        "監査対応"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-3"
+    },
+    {
+      "term": "M&A",
+      "aliases": [],
+      "tier": "must",
+      "linked_item_id": "MH-4"
+    },
+    {
+      "term": "PMI",
+      "aliases": [
+        "連結パッケージ",
+        "会計方針すり合わせ"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-4"
+    },
+    {
+      "term": "税効果会計",
+      "aliases": [
+        "税金計算",
+        "税務統制"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-5"
+    },
+    {
+      "term": "財務DD",
+      "aliases": [
+        "PPA",
+        "デューデリジェンス"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-2"
+    },
+    {
+      "term": "J-SOX",
+      "aliases": [
+        "JSOX",
+        "内部統制"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-3"
+    },
+    {
+      "term": "公認会計士",
+      "aliases": [
+        "USCPA"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-4"
+    }
+  ],
+  "rubric_hash": "354412491827ed12",
+  "locked_at": "2026-11-23T01:01:20+00:00"
+}

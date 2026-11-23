@@ -1,0 +1,11 @@
+# Morgan Patel — Director, People Business Partner (New York, NY)
+
+## Executive Summary
+12 years of progressive HR and People Business Partner (PBP) leadership—including 6 years directly managing and scaling teams of up to 7 PBPs—supporting global G&A functions at a NASDAQ-listed SaaS company.
+
+## Experience — VertexCloud Corp (Public High-Growth SaaS, 2019 – Present), Director, People Business Partner (G&A)
+- Directly hired, coached, and led a global team of 7 People Business Partners across New York, Dublin, and Tokyo for 6 consecutive years, establishing quarterly PBP service standards and promoting 3 direct reports to Senior/Lead PBP.
+- Partnered directly with CFO and General Counsel on multi-year organizational design, annual workforce planning (1,200+ global G&A seats), compensation calibration, and performance management cycles.
+- Spearheaded G&A AI transformation and change management across Legal and Finance ops, redesigning roles and upskilling 450 employees.
+- Resolved 35+ sensitive executive employee relations investigations with zero regulatory escalations and coached 40+ senior managers.
+- Built quarterly people-analytics retention dashboards with Finance, lifting top-performer retention from 84% to 93% and reducing voluntary attrition by 6.2%p YoY.

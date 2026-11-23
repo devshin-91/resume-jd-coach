@@ -1,0 +1,134 @@
+{
+  "company": "Figma",
+  "role_title": "Product Designer, Core Experience",
+  "language": "en",
+  "domain_mode": "portfolio",
+  "pass_threshold": 80.0,
+  "ats_lexical_share": 0.5,
+  "category_weights": {
+    "must_have": 40,
+    "portfolio_impact": 35,
+    "preferred": 10,
+    "ats_framing": 15
+  },
+  "categories": {
+    "must_have": [
+      {
+        "id": "MH-1",
+        "title": "8+ years product design leading complex software E2E",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-2",
+        "title": "Shipped portfolio showing interaction craft on complex workflows",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-3",
+        "title": "User research, data-grounded rationale & design critiques",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "MH-4",
+        "title": "AI / emerging tool prototyping & direct-manipulation exploration",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "portfolio_impact": [
+      {
+        "id": "PI-1",
+        "title": "Problem framing, interaction trade-offs & iterative prototypes",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-2",
+        "title": "Measurable adoption, task-speed, or usability improvements",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "preferred": [
+      {
+        "id": "PR-1",
+        "title": "Canvas / creative editor / direct-manipulation tool experience",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "PR-2",
+        "title": "Code-based prototyping or frontend hybrid craft",
+        "weight": 1,
+        "is_knockout": false
+      }
+    ],
+    "ats_framing": [
+      {
+        "id": "AF-1",
+        "title": "Systems-minded core interaction designer positioning",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ]
+  },
+  "keywords": [
+    {
+      "term": "Interaction Design",
+      "aliases": [
+        "Direct Manipulation"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "Prototyping",
+      "aliases": [
+        "Prototype",
+        "Prototypes"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-4"
+    },
+    {
+      "term": "User Research",
+      "aliases": [
+        "Usability Testing"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-3"
+    },
+    {
+      "term": "AI",
+      "aliases": [
+        "LLM",
+        "Generative"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-4"
+    },
+    {
+      "term": "Canvas",
+      "aliases": [
+        "Editor",
+        "Auto Layout"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-1"
+    },
+    {
+      "term": "Code-Based Prototyping",
+      "aliases": [
+        "React",
+        "HTML/CSS"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-2"
+    }
+  ],
+  "rubric_hash": "c70eb52df505eb91",
+  "locked_at": "2026-11-23T01:35:11+00:00"
+}

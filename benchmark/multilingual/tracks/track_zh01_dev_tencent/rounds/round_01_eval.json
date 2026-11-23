@@ -1,0 +1,77 @@
+{
+  "round": 1,
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "WEAK",
+      "evidence_quote": "熟练掌握 Java、Spring Boot、Spring Cloud、MySQL、Redis、消息队列",
+      "source": "gb18030 txt",
+      "gap_type": "expression_gap",
+      "action_hint": "脱离项目的“熟练掌握”清单最高仅计 WEAK(0.25)；请在商城核心交易项目中写明 Java/Spring Cloud 实际架构与模块职责。"
+    },
+    {
+      "id": "MH-2",
+      "grade": "WEAK",
+      "evidence_quote": "参与数据库表结构编写和日常代码评审",
+      "source": "gb18030 txt",
+      "gap_type": "expression_gap",
+      "action_hint": "补充 MySQL 慢查询/索引优化、Redis 缓存防击穿、MQ 异步削峰及线上故障排查实例。"
+    },
+    {
+      "id": "MH-3",
+      "grade": "WEAK",
+      "evidence_quote": "负责公司商城日常后端接口开发和维护工作",
+      "source": "gb18030 txt",
+      "gap_type": "expression_gap",
+      "action_hint": "具体展开商城订单/营销/库存核心链路建模，而非笼统写“接口开发和维护”。"
+    },
+    {
+      "id": "MH-4",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "gb18030 txt",
+      "gap_type": "expression_gap",
+      "action_hint": "如实说明你在研发中如何借助 AI 工具提效并通过单测/代码审查确保质量与数据安全。"
+    },
+    {
+      "id": "PI-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "gb18030 txt",
+      "gap_type": "expression_gap",
+      "action_hint": "补充大促 QPS、接口 P99 耗时、可用性（如 99.99%）等前后对比量化成果。"
+    },
+    {
+      "id": "PI-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "gb18030 txt",
+      "gap_type": "expression_gap",
+      "action_hint": "写清一项由你主导的方案选型权衡或高危线上故障定位复盘。"
+    },
+    {
+      "id": "PR-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "gb18030 txt",
+      "gap_type": "true_gap",
+      "action_hint": "多租户平台治理属真实能力缺口，切勿虚构；可通过电商复杂交易实战佐证弥补。"
+    },
+    {
+      "id": "PR-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "gb18030 txt",
+      "gap_type": "true_gap",
+      "action_hint": "你在专业技能写了 AI Agent 却在尚未接触领域写暂无落地经验，产生自相矛盾；请从技能栏移除。"
+    },
+    {
+      "id": "AF-1",
+      "grade": "WEAK",
+      "evidence_quote": "热爱编程，学习能力强，能吃苦耐劳，有团队精神",
+      "source": "gb18030 txt",
+      "gap_type": "expression_gap",
+      "action_hint": "去掉空泛自我评价，改为“4年电商交易 Java 后端经验 + 核心量化成果”，并按项目背景-职责-成果重构。"
+    }
+  ]
+}

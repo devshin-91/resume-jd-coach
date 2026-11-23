@@ -1,0 +1,85 @@
+{
+  "round": 1,
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "PARTIAL",
+      "evidence_quote": "Responsible for maintaining REST APIs and fixing bugs in Python and PostgreSQL",
+      "source": "docx",
+      "gap_type": "expression_gap",
+      "action_hint": "Specify data model design and asynchronous workflow architecture you built rather than passive maintenance."
+    },
+    {
+      "id": "MH-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "docx",
+      "gap_type": "expression_gap",
+      "action_hint": "Detail how you prevented duplicate sends (idempotency keys, safe retries, dead-letter handling) in invoice notifications."
+    },
+    {
+      "id": "MH-3",
+      "grade": "WEAK",
+      "evidence_quote": "Assisted senior engineers with deployments and on-call tickets",
+      "source": "docx",
+      "gap_type": "expression_gap",
+      "action_hint": "Replace 'assisted' with the exact service or feature area you owned end-to-end from RFC to production."
+    },
+    {
+      "id": "MH-4",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "docx",
+      "gap_type": "expression_gap",
+      "action_hint": "Add observability metrics/alerts and any shared abstractions built for other engineers."
+    },
+    {
+      "id": "MH-5",
+      "grade": "PARTIAL",
+      "evidence_quote": "Worked with product managers and frontend engineers during sprint planning",
+      "source": "docx",
+      "gap_type": "expression_gap",
+      "action_hint": "Show a concrete product trade-off decision made with PM/Design."
+    },
+    {
+      "id": "PI-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "docx",
+      "gap_type": "expression_gap",
+      "action_hint": "Add real message volume, delivery rate, or latency numbers before and after your changes."
+    },
+    {
+      "id": "PI-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "docx",
+      "gap_type": "expression_gap",
+      "action_hint": "Explain an architecture decision and post-launch reliability iteration."
+    },
+    {
+      "id": "PR-1",
+      "grade": "WEAK",
+      "evidence_quote": "Helped with sending email alerts and internal notifications when invoices were approved",
+      "source": "docx",
+      "gap_type": "expression_gap",
+      "action_hint": "Name the actual messaging providers (e.g., SendGrid, Twilio, Slack API) and preference controls."
+    },
+    {
+      "id": "PR-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "docx",
+      "gap_type": "expression_gap",
+      "action_hint": "Highlight queue-based scaling or internal platform usage by sibling engineering teams."
+    },
+    {
+      "id": "AF-1",
+      "grade": "WEAK",
+      "evidence_quote": "Hardworking developer who likes building web applications",
+      "source": "docx",
+      "gap_type": "expression_gap",
+      "action_hint": "Rewrite headline for Backend / Distributed Platform engineering and convert passive duties to XYZ impact bullets."
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "company": "米哈游（miHoYo）",
+  "role_title": "增长产品经理（AI方向）",
+  "language": "zh",
+  "domain_mode": "portfolio",
+  "pass_threshold": 80.0,
+  "ats_lexical_share": 0.5,
+  "category_weights": {
+    "must_have": 50,
+    "portfolio_impact": 25,
+    "preferred": 10,
+    "ats_framing": 15
+  },
+  "categories": {
+    "must_have": [
+      {
+        "id": "MH-1",
+        "title": "本科及以上 + 3年以上用户增长/产品经理经验",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-2",
+        "title": "AI 增长能力落地（智能推荐、个性化触达、A/B 实验体系）",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-3",
+        "title": "SQL 数据分析与指标体系搭建能力",
+        "weight": 2,
+        "is_knockout": true
+      }
+    ],
+    "portfolio_impact": [
+      {
+        "id": "PI-1",
+        "title": "拉新/激活/留存/转化全链路量化增长案例",
+        "weight": 3,
+        "is_knockout": false
+      }
+    ],
+    "preferred": [
+      {
+        "id": "PR-1",
+        "title": "大模型或 AI 原生产品落地经验",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "ats_framing": [
+      {
+        "id": "AF-1",
+        "title": "AI 增长产品经理定位与数据驱动叙事",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ]
+  },
+  "keywords": [
+    {
+      "term": "用户增长",
+      "aliases": [
+        "拉新",
+        "留存"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-1"
+    },
+    {
+      "term": "SQL",
+      "aliases": [],
+      "tier": "must",
+      "linked_item_id": "MH-3"
+    },
+    {
+      "term": "A/B 实验",
+      "aliases": [
+        "AB实验",
+        "A/B实验"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "智能推荐",
+      "aliases": [
+        "用户画像",
+        "个性化触达"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "大模型",
+      "aliases": [
+        "LLM",
+        "AI产品"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-1"
+    }
+  ],
+  "rubric_hash": "08f0042972b4c298",
+  "locked_at": "2026-11-23T01:35:19+00:00"
+}

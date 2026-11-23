@@ -1,0 +1,55 @@
+{
+  "round": 2,
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "FULL",
+      "evidence_quote": "商用B2B SaaSおよび基幹Webアプリケーションのバックエンド開発を6年間主導いたしました",
+      "source": "cp932 txt"
+    },
+    {
+      "id": "MH-2",
+      "grade": "FULL",
+      "evidence_quote": "PostgreSQLの論理・物理設計および複合インデックス・パーティショニングによるパフォーマンスチューニングを主導",
+      "source": "cp932 txt"
+    },
+    {
+      "id": "MH-3",
+      "grade": "FULL",
+      "evidence_quote": "同期API案と非同期ジョブキュー案のトレードオフを検証のうえ後者を採用。要件整理〜設計・実装・リリース・監視改善まで主導",
+      "source": "cp932 txt"
+    },
+    {
+      "id": "MH-4",
+      "grade": "FULL",
+      "evidence_quote": "GitHub ActionsによるCI/CDおよびGitHub Copilotを活用したテストコード自動生成フローをチーム導入",
+      "source": "cp932 txt"
+    },
+    {
+      "id": "PI-1",
+      "grade": "FULL",
+      "evidence_quote": "重要APIのP99応答時間を1.8秒から240msへ短縮いたしました",
+      "source": "cp932 txt"
+    },
+    {
+      "id": "PI-2",
+      "grade": "FULL",
+      "evidence_quote": "連携エラー率を4.2%から0.08%へ低減いたしました",
+      "source": "cp932 txt"
+    },
+    {
+      "id": "PR-1",
+      "grade": "PARTIAL",
+      "evidence_quote": "AWS（ECS/RDS）上の自動フェイルオーバー構築を実施",
+      "source": "cp932 txt",
+      "gap_type": "true_gap",
+      "action_hint": "AWS構築実績は評価済み。IDaaS/SLO未経験は正直に維持。"
+    },
+    {
+      "id": "AF-1",
+      "grade": "FULL",
+      "evidence_quote": "シニアバックエンドエンジニア・実務経験6年",
+      "source": "cp932 txt"
+    }
+  ]
+}

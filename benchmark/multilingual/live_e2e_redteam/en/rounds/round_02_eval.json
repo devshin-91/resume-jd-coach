@@ -1,0 +1,102 @@
+{
+  "round": 2,
+  "rubric_hash": "327ba651aa16f90d",
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "Listing 'Experimentation Platform' in a bare Skills line directly contradicts your Gaps & Limitations statement ('No production experience with experimentation platform engineering') and earns zero credit. Remove the unverified keyword; do not fabricate platform leadership."
+    },
+    {
+      "id": "MH-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "Listing 'Causal Inference' in Skills directly contradicts your Gaps & Limitations statement ('No production experience with ... causal inference methods, quasi-experiments') and earns zero credit. Remove it from Skills and treat causal inference mastery honestly as a true capability gap."
+    },
+    {
+      "id": "MH-3",
+      "grade": "WEAK",
+      "evidence_quote": "3 years building Looker dashboards and weekly SQL/Python KPI tracking for e-commerce marketing.",
+      "source": "round_02_candidate.txt - Summary",
+      "gap_type": "true_gap",
+      "action_hint": "No new verified education or experimentation tenure was added. The PhD (or equivalent) plus 4+ years of experimentation/causal inference requirement remains a hard knockout gap."
+    },
+    {
+      "id": "MH-4",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "Listing 'Statistical Workshops' in Skills directly contradicts your Gaps & Limitations statement ('No production experience with ... statistical workshops') and earns zero credit. Remove the contradicted claim immediately."
+    },
+    {
+      "id": "MH-5",
+      "grade": "PARTIAL",
+      "evidence_quote": "Built SQL and Python ETL scripts powering executive revenue dashboards.",
+      "source": "round_02_candidate.txt - Experience",
+      "gap_type": "expression_gap",
+      "action_hint": "Adding bare 'R' to Skills conflicts with 'Exposure only to R in college' and adds no statistical programming proof. Remove bare 'R' (or label it accurately as academic exposure) and instead specify the real Python/SQL analytical libraries, query complexity, or data pipelines you actually built at RetailPulse."
+    },
+    {
+      "id": "PI-1",
+      "grade": "WEAK",
+      "evidence_quote": "Supported two email A/B testing campaigns by comparing raw click-through rates.",
+      "source": "round_02_candidate.txt - Experience",
+      "gap_type": "true_gap",
+      "action_hint": "Adding bare 'A/B Testing' and 'Causal Inference' keywords to Skills adds zero project or research proof. Recruiters verify methodology inside real experience bullets; original causal inference research remains a true gap."
+    },
+    {
+      "id": "PI-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "expression_gap",
+      "action_hint": "Still zero quantified business or product outcomes across your RetailPulse bullets. Add verified metrics from your actual work (e.g., revenue tracked, dashboard stakeholder count, ETL time saved, or actual measured CTR/conversion outcomes from the two email campaigns)."
+    },
+    {
+      "id": "PI-3",
+      "grade": "WEAK",
+      "evidence_quote": "Built SQL and Python ETL scripts powering executive revenue dashboards.",
+      "source": "round_02_candidate.txt - Experience",
+      "gap_type": "true_gap",
+      "action_hint": "No verified evidence of Staff-level cross-functional org influence or platform governance was added. Keep your RetailPulse scope honest and do not invent 50+ data scientist leadership."
+    },
+    {
+      "id": "PR-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "",
+      "gap_type": "true_gap",
+      "action_hint": "You still explicitly report no publications and no causal inference production experience. Keep this unfabricated."
+    },
+    {
+      "id": "PR-2",
+      "grade": "WEAK",
+      "evidence_quote": "Skills: Python, SQL, R, Causal Inference, Experimentation Platform, A/B Testing, LLM, Statistical Workshops",
+      "source": "round_02_candidate.txt - Skills",
+      "gap_type": "true_gap",
+      "action_hint": "Barely listing 'LLM' in a Skills line without any project or work context is strictly capped at WEAK (0.25) under anti-keyword-stuffing rules. If you have genuinely used AI/LLM tools in a real analytics workflow, document that concrete project; otherwise remove 'LLM' from Skills."
+    },
+    {
+      "id": "AF-1",
+      "grade": "WEAK",
+      "evidence_quote": "3 years building Looker dashboards and weekly SQL/Python KPI tracking for e-commerce marketing.",
+      "source": "round_02_candidate.txt - Summary",
+      "gap_type": "transferable_gap",
+      "action_hint": "Your summary remains unchanged and positioned strictly as a marketing BI analyst. You can honestly highlight transferable SQL/Python analytics and email A/B testing support without misrepresenting yourself as a Staff Causal Inference Scientist."
+    },
+    {
+      "id": "AF-2",
+      "grade": "WEAK",
+      "evidence_quote": "Skills: Python, SQL, R, Causal Inference, Experimentation Platform, A/B Testing, LLM, Statistical Workshops",
+      "source": "round_02_candidate.txt - Skills",
+      "gap_type": "expression_gap",
+      "action_hint": "Credibility regressed because your new bare Skills line openly contradicts your Gaps & Limitations section (claiming Causal Inference, Experimentation Platform, Statistical Workshops, and R while explicitly disavowing production experience). Strip out all contradicted/unsubstantiated keywords and rewrite verified RetailPulse bullets using quantified XYZ/STAR impact."
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "round": 2,
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "md",
+      "gap_type": "true_gap",
+      "action_hint": "Still a genuine capability gap — cannot be solved via wording edits."
+    },
+    {
+      "id": "MH-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "md",
+      "gap_type": "true_gap",
+      "action_hint": "Still lacks 4+ yrs causal inference & PhD/equivalent scope."
+    },
+    {
+      "id": "MH-3",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "md",
+      "gap_type": "true_gap",
+      "action_hint": "No org-wide statistical training experience."
+    },
+    {
+      "id": "MH-4",
+      "grade": "FULL",
+      "evidence_quote": "Authored modular Python (pandas, scipy) and SQL warehouse pipelines powering 40+ self-serve revenue dashboards",
+      "source": "md"
+    },
+    {
+      "id": "PI-1",
+      "grade": "FULL",
+      "evidence_quote": "Analyzed 6 email and landing-page A/B testing campaigns with power/significance validation, lifting checkout conversion by +3.4% (+$420K annualized GMV)",
+      "source": "md"
+    },
+    {
+      "id": "PR-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "md",
+      "gap_type": "true_gap",
+      "action_hint": "True gap — keep honest."
+    },
+    {
+      "id": "AF-1",
+      "grade": "WEAK",
+      "evidence_quote": "Product & Experimentation Analyst",
+      "source": "md",
+      "gap_type": "true_gap",
+      "action_hint": "Honest seniority gap relative to Staff Data Scientist."
+    }
+  ]
+}

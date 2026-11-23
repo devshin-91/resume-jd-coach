@@ -1,0 +1,9 @@
+=== SOURCE: jordan_lee_resume_r2.docx ===
+Jordan Lee — Senior Backend Engineer, Distributed Messaging & Platform Systems (US Remote)
+Summary: Production backend engineer with 5 years owning high-volume asynchronous notification platforms, idempotent delivery APIs, and internal developer tooling.
+Experience — CloudLedger Inc. (2022 – Present), Backend Engineer (Notifications Platform Owner)
+- Owned end-to-end design, RFC review, launch, and iteration of CloudLedger's multi-channel notification platform (Python, PostgreSQL, Kafka event-driven queues) serving 4.2M transactional alerts/day.
+- Architected idempotent delivery workflows using composite idempotency keys, exponential backoff retries, and dead-letter queues (DLQ), cutting duplicate payment alerts by 99.4% and raising verified delivery SLA from 97.1% to 99.96%.
+- Built channel integrations with SendGrid (email), Twilio (SMS), and Slack webhooks alongside granular admin/user communication preference controls adopted by 6 product engineering teams via a typed internal SDK.
+- Instrumented full observability (OpenTelemetry traces, Datadog SLO dashboards, provider failover alerts), shrinking p99 notification latency from 4.8s to 620ms and cutting on-call pages by 68%.
+- Partnered directly with Product and Design to launch batched approval digests, reducing noisy customer notifications by 41% while accelerating invoice approval turnaround by 22%.

@@ -9,17 +9,18 @@ never feel abandoned, **without** sacrificing ownership, authenticity, or truth.
 ## 1. Activation Triggers
 
 ### Trigger A — Explicit User Request (Immediate Entry)
-Enter Grace Mode immediately when the user signals friction or asks for active help, e.g.:
-- "막혔어", "감이 안 잡혀", "어떻게 써야 할지 모르겠어", "이 항목 예시 좀 잡아줘"
-- "같이 고쳐보자", "초안 도와줘", "Grace 모드로 도와줘"
-- "I'm stuck on this bullet", "Can you help me draft this?", "Give me options"
+Enter Grace Mode immediately when the user signals friction or asks for active help in any supported language:
+- **Korean (`ko`):** "막혔어", "감이 안 잡혀", "어떻게 써야 할지 모르겠어", "예시 좀 잡아줘", "같이 고쳐보자", "Grace 써줘"
+- **English (`en`):** "I'm stuck on this bullet", "Not sure how to phrase this", "Can you help me draft this?", "Give me options"
+- **Chinese (`zh`):** "卡壳了", "不知道怎么写", "写不下去了", "给几个参考表达", "帮我一起改这段", "开启 Grace 辅导"
+- **Japanese (`ja`):** "書き方がわからない", "手が止まった", "どう言語化すればいいか迷っている", "表現案を出してほしい", "一緒に直してほしい", "Graceモードを使って"
 
 Ask or infer which **specific rubric item(s) or section** they are stuck on (default: top 1–2 highest-impact `expression_gap` / `transferable_gap` items).
 
 ### Trigger B — Automatic Stall Detection (Soft Offer Only!)
 `score_match.py` emits `"grace_recommendation": {"should_offer": true, ...}` ONLY when **actionable headroom remains** (`expression_gap` or `transferable_gap` uplift > 0) AND:
 - Any actionable rubric item remains stuck at `<= PARTIAL` with zero grade improvement across **2+ consecutive rounds**, OR
-- From Round 2 onward, `total_score < threshold` AND round-over-round gain `delta_score < +3.0%p`.
+- From Round 2 onward, `total_score < threshold` AND round-over-round gain `delta_score < +3.0` (`+3.0%p` / `+3.0 pp` / `+3.0pt`).
 
 *(If 0 actionable gaps remain and ONLY `true_gap` items are left, `score_match.py` sets `should_offer: false` and `honest_fit_advisory: true` — do NOT offer wording-rewrite Grace; instead give honest pivot / skill-building advice.)*
 
@@ -90,4 +91,37 @@ Start at the **lowest tier that unblocks the user**, and escalate only if they a
 2. **Honest Handling of `true_gap`:** If the user genuinely lacks a required skill or experience:
    - **Refuse politely** to fabricate it into the resume (explain it will collapse in technical/behavioral interviews and harms credibility).
    - Pivot to honest strategies: highlighting adjacent `transferable_gap` proofs, raising other `expression_gap` scores to surpass `80%`, or scoping a small real portfolio proof if time allows.
-3. **Preserve Candidate Voice:** Ask/match the user's natural register (Korean 음슴체/합니다체, English action-verb resume style) so the final document still reads coherently as one person's work.
+3. **Preserve Candidate Voice & Localized Language:** Always write Grace prompts, placeholders (`[실제 수치 입력 필요]` / `[Insert verified metric]` / `[请填入真实数据]` / `[実際の数値を記入]`), and Fact-Check Checklists strictly in the session's active language (`ko` / `en` / `zh` / `ja`) matching the candidate's natural register (Korean 음슴체/합니다체, US English action-verb resume style, Chinese 简历精炼动词句式, Japanese `職務経歴書` です・ます体 / 常体) so the final document still reads coherently as one person's work.
+
+---
+
+## 4. Multilingual Localized Grace Micro-Templates (`en` / `zh` / `ja`)
+
+When coaching in `en`, `zh`, or `ja`, use these native templates verbatim (never mix Korean boilerplate into non-Korean sessions):
+
+### English (`en`)
+- **Tier 1 Skeleton (XYZ / STAR):** `Accomplished [measurable outcome] as measured by [Insert verified metric], by [specific action/decision/tool you owned] across [scope/team].`
+- **Tier 3 Mandatory Fact-Check Checklist:**
+  ```markdown
+  ### Fact-Check Checklist (Confirm Before Adopting)
+  - [ ] `[Claim / tool / ownership scope]` — 100% matches work I personally performed
+  - [ ] `[Insert verified metric]` — Replaced with an accurate figure (or removed if unverifiable)
+  ```
+
+### Simplified Chinese (`zh`)
+- **Tier 1 Skeleton（项目背景→职责→成果）:** `面对[业务/技术痛点]，本人主导使用[具体技术/方法]落地[核心方案]，推动[核心指标]由[请填入真实前值]提升至[请填入真实后值]。`
+- **Tier 3 Mandatory Fact-Check Checklist:**
+  ```markdown
+  ### 事实核对清单（写入简历前务必逐项确认）
+  - [ ] `[所述技术/职责范围]` — 与本人真实主导或参与的经历 100% 一致
+  - [ ] `[请填入真实数据]` — 已核实并替换为准确指标（无确切数据时改为客观定性事实）
+  ```
+
+### Japanese (`ja`)
+- **Tier 1 Skeleton（職務経歴書・課題→施策→成果）:** `[課題・背景]に対し、[ご自身が主導した設計・施策・ツール]を推進。結果として[対象指標]を[実際の数値を記入]へ改善いたしました。`
+- **Tier 3 Mandatory Fact-Check Checklist:**
+  ```markdown
+  ### 事実確認チェックリスト（職務経歴書へ反映前に必須確認）
+  - [ ] `[記載した役割・使用技術・担当範囲]` — ご自身の実務経験と100%一致している
+  - [ ] `[実際の数値を記入]` — 確認済みの正確な数値へ置換済み（未確認の数値は推測で記載しない）
+  ```

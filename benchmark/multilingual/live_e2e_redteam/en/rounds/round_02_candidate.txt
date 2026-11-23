@@ -1,0 +1,11 @@
+# Jordan Taylor — Business Intelligence Analyst (San Francisco, CA)
+## Summary
+3 years building Looker dashboards and weekly SQL/Python KPI tracking for e-commerce marketing.
+## Experience
+- RetailPulse (2023–Present), BI Analyst
+  - Built SQL and Python ETL scripts powering executive revenue dashboards.
+  - Supported two email A/B testing campaigns by comparing raw click-through rates.
+Skills: Python, SQL, R, Causal Inference, Experimentation Platform, A/B Testing, LLM, Statistical Workshops
+## Gaps & Limitations
+- No production experience with experimentation platform engineering, causal inference methods, quasi-experiments, or statistical workshops.
+- Exposure only to R in college; no publications.

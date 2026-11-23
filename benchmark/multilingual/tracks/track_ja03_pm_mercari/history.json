@@ -1,0 +1,334 @@
+{
+  "session": {
+    "company": "株式会社メルカリ（Mercari）",
+    "role_title": "プロダクトマネージャー - Mercari Marketplace",
+    "language": "ja",
+    "domain_mode": "portfolio",
+    "rubric_hash": "75ad8799f16e7f30"
+  },
+  "rubric_hash": "75ad8799f16e7f30",
+  "pass_threshold": 80.0,
+  "rounds": [
+    {
+      "round": 1,
+      "evaluated_at": "2026-11-23T01:35:26+00:00",
+      "total_score": 29.4,
+      "total_score_2dp": 29.38,
+      "total_score_exact": "29.3750",
+      "pass_status": "REVISE",
+      "grace_tier_used": null,
+      "categories": {
+        "must_have": {
+          "label": "必須要件・コア業務",
+          "label_ko": "필수 자격 & 핵심 직무",
+          "active": true,
+          "effective_weight": 45.0,
+          "attainment_pct": 37.5,
+          "earned_points": 16.88,
+          "max_points": 45.0,
+          "item_count": 4,
+          "delta_points_pp": null
+        },
+        "portfolio_impact": {
+          "label": "ポートフォリオ実績・定量成果",
+          "label_ko": "포트폴리오 증빙 & 성과",
+          "active": true,
+          "effective_weight": 25.0,
+          "attainment_pct": 0.0,
+          "earned_points": 0.0,
+          "max_points": 25.0,
+          "item_count": 1,
+          "delta_points_pp": null
+        },
+        "preferred": {
+          "label": "歓迎要件",
+          "label_ko": "우대 사항",
+          "active": true,
+          "effective_weight": 15.0,
+          "attainment_pct": 50.0,
+          "earned_points": 7.5,
+          "max_points": 15.0,
+          "item_count": 1,
+          "delta_points_pp": null
+        },
+        "ats_framing": {
+          "label": "JDキーワード・ポジション訴求",
+          "label_ko": "JD 키워드 & 포지셔닝",
+          "active": true,
+          "effective_weight": 15.0,
+          "attainment_pct": 33.3,
+          "earned_points": 5.0,
+          "max_points": 15.0,
+          "item_count": 1,
+          "delta_points_pp": null
+        }
+      },
+      "items": [
+        {
+          "id": "MH-1",
+          "grade": "FULL",
+          "earned_points_pp": 13.5,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "MH-2",
+          "grade": "WEAK",
+          "earned_points_pp": 3.38,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "MH-3",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "MH-4",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PI-1",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PR-1",
+          "grade": "PARTIAL",
+          "earned_points_pp": 7.5,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "AF-1",
+          "grade": "WEAK",
+          "earned_points_pp": 1.88,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        }
+      ],
+      "grace_recommended": false
+    },
+    {
+      "round": 2,
+      "evaluated_at": "2026-11-23T01:35:26+00:00",
+      "total_score": 93.3,
+      "total_score_2dp": 93.25,
+      "total_score_exact": "93.2500",
+      "pass_status": "PASS_WITH_RISK",
+      "grace_tier_used": null,
+      "categories": {
+        "must_have": {
+          "label": "必須要件・コア業務",
+          "label_ko": "필수 자격 & 핵심 직무",
+          "active": true,
+          "effective_weight": 45.0,
+          "attainment_pct": 85.0,
+          "earned_points": 38.25,
+          "max_points": 45.0,
+          "item_count": 4,
+          "delta_points_pp": 21.4
+        },
+        "portfolio_impact": {
+          "label": "ポートフォリオ実績・定量成果",
+          "label_ko": "포트폴리오 증빙 & 성과",
+          "active": true,
+          "effective_weight": 25.0,
+          "attainment_pct": 100.0,
+          "earned_points": 25.0,
+          "max_points": 25.0,
+          "item_count": 1,
+          "delta_points_pp": 25.0
+        },
+        "preferred": {
+          "label": "歓迎要件",
+          "label_ko": "우대 사항",
+          "active": true,
+          "effective_weight": 15.0,
+          "attainment_pct": 100.0,
+          "earned_points": 15.0,
+          "max_points": 15.0,
+          "item_count": 1,
+          "delta_points_pp": 7.5
+        },
+        "ats_framing": {
+          "label": "JDキーワード・ポジション訴求",
+          "label_ko": "JD 키워드 & 포지셔닝",
+          "active": true,
+          "effective_weight": 15.0,
+          "attainment_pct": 100.0,
+          "earned_points": 15.0,
+          "max_points": 15.0,
+          "item_count": 1,
+          "delta_points_pp": 10.0
+        }
+      },
+      "items": [
+        {
+          "id": "MH-1",
+          "grade": "FULL",
+          "earned_points_pp": 13.5,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "MH-2",
+          "grade": "FULL",
+          "earned_points_pp": 13.5,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "MH-3",
+          "grade": "FULL",
+          "earned_points_pp": 9.0,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "MH-4",
+          "grade": "WEAK",
+          "earned_points_pp": 2.25,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PI-1",
+          "grade": "FULL",
+          "earned_points_pp": 25.0,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "PR-1",
+          "grade": "FULL",
+          "earned_points_pp": 15.0,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "AF-1",
+          "grade": "FULL",
+          "earned_points_pp": 7.5,
+          "gap_type": null,
+          "stalled_streak": 0
+        }
+      ],
+      "grace_recommended": false
+    },
+    {
+      "round": 3,
+      "evaluated_at": "2026-11-23T01:35:27+00:00",
+      "total_score": 100.0,
+      "total_score_2dp": 100.0,
+      "total_score_exact": "100.0000",
+      "pass_status": "PASS",
+      "grace_tier_used": null,
+      "categories": {
+        "must_have": {
+          "label": "必須要件・コア業務",
+          "label_ko": "필수 자격 & 핵심 직무",
+          "active": true,
+          "effective_weight": 45.0,
+          "attainment_pct": 100.0,
+          "earned_points": 45.0,
+          "max_points": 45.0,
+          "item_count": 4,
+          "delta_points_pp": 6.7
+        },
+        "portfolio_impact": {
+          "label": "ポートフォリオ実績・定量成果",
+          "label_ko": "포트폴리오 증빙 & 성과",
+          "active": true,
+          "effective_weight": 25.0,
+          "attainment_pct": 100.0,
+          "earned_points": 25.0,
+          "max_points": 25.0,
+          "item_count": 1,
+          "delta_points_pp": 0.0
+        },
+        "preferred": {
+          "label": "歓迎要件",
+          "label_ko": "우대 사항",
+          "active": true,
+          "effective_weight": 15.0,
+          "attainment_pct": 100.0,
+          "earned_points": 15.0,
+          "max_points": 15.0,
+          "item_count": 1,
+          "delta_points_pp": 0.0
+        },
+        "ats_framing": {
+          "label": "JDキーワード・ポジション訴求",
+          "label_ko": "JD 키워드 & 포지셔닝",
+          "active": true,
+          "effective_weight": 15.0,
+          "attainment_pct": 100.0,
+          "earned_points": 15.0,
+          "max_points": 15.0,
+          "item_count": 1,
+          "delta_points_pp": 0.0
+        }
+      },
+      "items": [
+        {
+          "id": "MH-1",
+          "grade": "FULL",
+          "earned_points_pp": 13.5,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "MH-2",
+          "grade": "FULL",
+          "earned_points_pp": 13.5,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "MH-3",
+          "grade": "FULL",
+          "earned_points_pp": 9.0,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "MH-4",
+          "grade": "FULL",
+          "earned_points_pp": 9.0,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "PI-1",
+          "grade": "FULL",
+          "earned_points_pp": 25.0,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "PR-1",
+          "grade": "FULL",
+          "earned_points_pp": 15.0,
+          "gap_type": null,
+          "stalled_streak": 0
+        },
+        {
+          "id": "AF-1",
+          "grade": "FULL",
+          "earned_points_pp": 7.5,
+          "gap_type": null,
+          "stalled_streak": 0
+        }
+      ],
+      "grace_recommended": false
+    }
+  ]
+}

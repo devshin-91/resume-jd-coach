@@ -1,7 +1,7 @@
 # Coaching Report & Round-Diff Template (`resume-jd-coach`)
 
 Use this structure when presenting evaluation results to the user after running `score_match.py`.
-Keep language aligned with the user's language (Korean by default when user speaks Korean; English if user speaks English).
+Keep language **strictly aligned** with the session language (`ko`, `en`, `zh`, or `ja`) with **zero cross-language leakage** — `score_match.py --report-out` automatically renders native headers, tables, badges, warnings, and CTAs for all 4 languages.
 
 ---
 

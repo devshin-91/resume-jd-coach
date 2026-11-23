@@ -1,0 +1,61 @@
+{
+  "round": 1,
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "md",
+      "gap_type": "true_gap",
+      "action_hint": "Genuine gap: never led an experimentation platform; do not fabricate."
+    },
+    {
+      "id": "MH-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "md",
+      "gap_type": "true_gap",
+      "action_hint": "Genuine gap: lacks PhD/4+ yrs causal inference depth; consider Senior Product Analyst roles first."
+    },
+    {
+      "id": "MH-3",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "md",
+      "gap_type": "true_gap",
+      "action_hint": "No workshops or statistical curriculum delivered."
+    },
+    {
+      "id": "MH-4",
+      "grade": "PARTIAL",
+      "evidence_quote": "Built Looker dashboards and automated weekly KPI reports using SQL and Python",
+      "source": "md",
+      "gap_type": "expression_gap",
+      "action_hint": "Specify statistical modeling or Python data-pipeline complexity beyond BI reporting."
+    },
+    {
+      "id": "PI-1",
+      "grade": "WEAK",
+      "evidence_quote": "Supported two basic email A/B testing sends by comparing raw click-through rates",
+      "source": "md",
+      "gap_type": "expression_gap",
+      "action_hint": "Quantify business impact and statistical significance checks from those tests if run."
+    },
+    {
+      "id": "PR-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "md",
+      "gap_type": "true_gap",
+      "action_hint": "True gap — no causal publications or LLM experimentation tools."
+    },
+    {
+      "id": "AF-1",
+      "grade": "WEAK",
+      "evidence_quote": "Business Intelligence Analyst",
+      "source": "md",
+      "gap_type": "true_gap",
+      "action_hint": "Role level/specialization mismatch with Staff Causal Inference scope."
+    }
+  ]
+}

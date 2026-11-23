@@ -1,0 +1,53 @@
+{
+  "round": 1,
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "WEAK",
+      "evidence_quote": "社区内容运营专员（上海，本科学历，2年经验）",
+      "source": "md",
+      "gap_type": "true_gap",
+      "action_hint": "真实年限与职能差距（2年运营 vs 3年以上增长PM硬性要求），无法仅靠话术弥补。"
+    },
+    {
+      "id": "MH-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "md",
+      "gap_type": "true_gap",
+      "action_hint": "尚无智能推荐、个性化触达与 A/B 实验体系落地经历，严禁虚构。"
+    },
+    {
+      "id": "MH-3",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "md",
+      "gap_type": "true_gap",
+      "action_hint": "真实技能缺口：尚未掌握 SQL 数据分析。"
+    },
+    {
+      "id": "PI-1",
+      "grade": "WEAK",
+      "evidence_quote": "负责官方社区拉新裂变海报策划与发奖执行，提升社区活跃度",
+      "source": "md",
+      "gap_type": "expression_gap",
+      "action_hint": "可如实补充真实裂变拉新人数和老玩家回流转化率。"
+    },
+    {
+      "id": "PR-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "md",
+      "gap_type": "true_gap",
+      "action_hint": "无大模型产品经验，如实留空。"
+    },
+    {
+      "id": "AF-1",
+      "grade": "WEAK",
+      "evidence_quote": "社区内容运营专员",
+      "source": "md",
+      "gap_type": "true_gap",
+      "action_hint": "建议优先投递社区运营/初级用户运营岗位，同时系统补齐 SQL 与增长实验基础。"
+    }
+  ]
+}

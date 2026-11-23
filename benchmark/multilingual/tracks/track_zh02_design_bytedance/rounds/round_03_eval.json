@@ -1,0 +1,54 @@
+{
+  "round": 3,
+  "grace_tier_used": 2,
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "FULL",
+      "evidence_quote": "视觉传达设计本科 | 6年 UI/UX 实战经验",
+      "source": "pptx Slide 1"
+    },
+    {
+      "id": "MH-2",
+      "grade": "FULL",
+      "evidence_quote": "主动向产品经理提出拆解长表单并前置收益测算器，否决了“强弹窗引导”旧方案；A/B 迭代 3 轮后，新手首购转化率提升 +14.6%",
+      "source": "pptx Slide 2"
+    },
+    {
+      "id": "MH-3",
+      "grade": "FULL",
+      "evidence_quote": "搭建核心页面埋点监控看板，持续跟踪点击率与7日复访率，将关键行情模块次日留存提升 +6.8%p",
+      "source": "pptx Slide 3"
+    },
+    {
+      "id": "MH-4",
+      "grade": "FULL",
+      "evidence_quote": "引入 Figma AI 与内部 LoRA 生图工作流自动化产出金融营销素材与多端交互草图，交付周期由 3 天压缩至 0.8 天",
+      "source": "pptx Slide 4"
+    },
+    {
+      "id": "PI-1",
+      "grade": "FULL",
+      "evidence_quote": "通过漏斗数据监控发现风险测评页跳出率高达 58%，主动向产品经理提出拆解长表单并前置收益测算器",
+      "source": "pptx Slide 2"
+    },
+    {
+      "id": "PI-2",
+      "grade": "FULL",
+      "evidence_quote": "新手首购转化率提升 +14.6%，申购完成耗时缩短 37%",
+      "source": "pptx Slide 2"
+    },
+    {
+      "id": "PR-1",
+      "grade": "FULL",
+      "evidence_quote": "稳健理财申购链路体验与业务转化重构",
+      "source": "pptx Slide 2"
+    },
+    {
+      "id": "AF-1",
+      "grade": "FULL",
+      "evidence_quote": "高级用户体验设计师（金融产品与增长方向）",
+      "source": "pptx Slide 1"
+    }
+  ]
+}

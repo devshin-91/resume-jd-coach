@@ -1,0 +1,67 @@
+{
+  "round": 2,
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "FULL",
+      "evidence_quote": "视觉传达设计本科 | 6年设计经验",
+      "source": "pptx Slide 1"
+    },
+    {
+      "id": "MH-2",
+      "grade": "WEAK",
+      "evidence_quote": "配合产品优化了信息层级，页面更清晰，用户反馈体验更好",
+      "source": "pptx Slide 2",
+      "gap_type": "expression_gap",
+      "action_hint": "仍停留在“用户反馈更好”的定性描述，缺少产品需求质疑与具体漏斗数据。"
+    },
+    {
+      "id": "MH-3",
+      "grade": "WEAK",
+      "evidence_quote": "理财App首页改版",
+      "source": "pptx Slide 2",
+      "gap_type": "expression_gap",
+      "action_hint": "未补充数据监控指标与迭代轮次。"
+    },
+    {
+      "id": "MH-4",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "pptx",
+      "gap_type": "expression_gap",
+      "action_hint": "仍缺少 AI 工具提效案例。"
+    },
+    {
+      "id": "PI-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "pptx",
+      "gap_type": "expression_gap",
+      "action_hint": "缺少方案取舍逻辑。"
+    },
+    {
+      "id": "PI-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "pptx",
+      "gap_type": "expression_gap",
+      "action_hint": "缺少任何量化业务转化指标。"
+    },
+    {
+      "id": "PR-1",
+      "grade": "WEAK",
+      "evidence_quote": "理财App首页改版",
+      "source": "pptx Slide 2",
+      "gap_type": "expression_gap",
+      "action_hint": "需展开金融产品增长体验案例。"
+    },
+    {
+      "id": "AF-1",
+      "grade": "PARTIAL",
+      "evidence_quote": "高级UI/用户体验设计师",
+      "source": "pptx Slide 1",
+      "gap_type": "expression_gap",
+      "action_hint": "标题有改善，但作品集正文结构仍停留在纯视觉展示。"
+    }
+  ]
+}

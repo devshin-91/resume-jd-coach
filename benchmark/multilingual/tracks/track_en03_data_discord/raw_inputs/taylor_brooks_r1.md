@@ -1,0 +1,13 @@
+# Taylor Brooks — Business Intelligence Analyst (San Francisco, CA)
+
+## Summary
+3 years building executive dashboards and ad-hoc analytics in SQL and Python for e-commerce operations.
+
+## Experience
+- **RetailPulse (2023 – Present), BI Analyst**
+  - Built Looker dashboards and automated weekly KPI reports using SQL and Python.
+  - Supported two basic email A/B testing sends by comparing raw click-through rates.
+
+## Gaps & Limitations
+- No production experience with experimentation platform architecture, causal inference methods, quasi-experiments, or statistical methodology validation.
+- Exposure only to R in an undergraduate course; never taught statistics workshops or published research.

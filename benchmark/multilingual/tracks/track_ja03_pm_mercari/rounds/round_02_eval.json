@@ -1,0 +1,49 @@
+{
+  "round": 2,
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "FULL",
+      "evidence_quote": "プロダクトマネージャー・4年",
+      "source": "md"
+    },
+    {
+      "id": "MH-2",
+      "grade": "FULL",
+      "evidence_quote": "CtoCマーケットプレイス出品フローの離脱課題をUXリサーチャーと特定し、法務・CSと連携したGTMとリリース後のA/Bテスト改善",
+      "source": "md"
+    },
+    {
+      "id": "MH-3",
+      "grade": "FULL",
+      "evidence_quote": "Gemini・NotebookLMによるユーザーインタビュー要約と、Cursorを用いたインタラクティブプロトタイプ検証を導入",
+      "source": "md"
+    },
+    {
+      "id": "MH-4",
+      "grade": "WEAK",
+      "evidence_quote": "SQL（基礎学習）",
+      "source": "md",
+      "gap_type": "expression_gap",
+      "action_hint": "KNOCKOUT警告：スキル欄の「SQL（基礎学習）」のみでは WEAK(0.25) です。実務で自らBigQuery/SQLを叩いて意思決定した事例を追記してください。"
+    },
+    {
+      "id": "PI-1",
+      "grade": "FULL",
+      "evidence_quote": "出品完了率を+18.4%・月間GMVを+1.4億円向上",
+      "source": "md"
+    },
+    {
+      "id": "PR-1",
+      "grade": "FULL",
+      "evidence_quote": "CtoCマーケットプレイス出品フロー",
+      "source": "md"
+    },
+    {
+      "id": "AF-1",
+      "grade": "FULL",
+      "evidence_quote": "プロダクトマネージャー（EC・マーケットプレイス領域 / 日本語ネイティブ C1）",
+      "source": "md"
+    }
+  ]
+}

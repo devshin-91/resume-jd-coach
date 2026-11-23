@@ -1,0 +1,325 @@
+{
+  "session": {
+    "company": "フリー株式会社（freee K.K.）",
+    "role_title": "経理（連結・税務・M&A/PMI）｜グループ経理の中核メンバー",
+    "language": "ja",
+    "domain_mode": "resume_only",
+    "rubric_hash": "354412491827ed12"
+  },
+  "rubric_hash": "354412491827ed12",
+  "pass_threshold": 80.0,
+  "rounds": [
+    {
+      "round": 1,
+      "evaluated_at": "2026-11-23T01:22:11+00:00",
+      "total_score": 8.9,
+      "total_score_2dp": 8.85,
+      "total_score_exact": "8.8511",
+      "pass_status": "REVISE",
+      "grace_tier_used": null,
+      "categories": {
+        "must_have": {
+          "label": "必須要件・コア業務",
+          "label_ko": "필수 자격 & 핵심 직무",
+          "active": true,
+          "effective_weight": 45.0,
+          "attainment_pct": 6.3,
+          "earned_points": 2.81,
+          "max_points": 45.0,
+          "item_count": 5,
+          "delta_points_pp": null
+        },
+        "portfolio_impact": {
+          "label": "職務実績・定量成果",
+          "label_ko": "직무 증빙 & 정량 성과",
+          "active": true,
+          "effective_weight": 25.0,
+          "attainment_pct": 9.4,
+          "earned_points": 2.34,
+          "max_points": 25.0,
+          "item_count": 3,
+          "delta_points_pp": null
+        },
+        "preferred": {
+          "label": "歓迎要件",
+          "label_ko": "우대 사항",
+          "active": true,
+          "effective_weight": 15.0,
+          "attainment_pct": 0.0,
+          "earned_points": 0.0,
+          "max_points": 15.0,
+          "item_count": 4,
+          "delta_points_pp": null
+        },
+        "ats_framing": {
+          "label": "JDキーワード・ポジション訴求",
+          "label_ko": "JD 키워드 & 포지셔닝",
+          "active": true,
+          "effective_weight": 15.0,
+          "attainment_pct": 24.6,
+          "earned_points": 3.69,
+          "max_points": 15.0,
+          "item_count": 2,
+          "delta_points_pp": null
+        }
+      },
+      "items": [
+        {
+          "id": "MH-1",
+          "grade": "WEAK",
+          "earned_points_pp": 2.81,
+          "gap_type": "true_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "MH-2",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "MH-3",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "MH-4",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "MH-5",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PI-1",
+          "grade": "WEAK",
+          "earned_points_pp": 2.34,
+          "gap_type": "transferable_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PI-2",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PI-3",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "transferable_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PR-1",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PR-2",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PR-3",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PR-4",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "AF-1",
+          "grade": "WEAK",
+          "earned_points_pp": 0.94,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "AF-2",
+          "grade": "PARTIAL",
+          "earned_points_pp": 1.88,
+          "gap_type": "expression_gap",
+          "stalled_streak": 1
+        }
+      ],
+      "grace_recommended": false
+    },
+    {
+      "round": 2,
+      "evaluated_at": "2026-11-23T01:22:11+00:00",
+      "total_score": 9.3,
+      "total_score_2dp": 9.29,
+      "total_score_exact": "9.2923",
+      "pass_status": "REVISE",
+      "grace_tier_used": null,
+      "categories": {
+        "must_have": {
+          "label": "必須要件・コア業務",
+          "label_ko": "필수 자격 & 핵심 직무",
+          "active": true,
+          "effective_weight": 45.0,
+          "attainment_pct": 6.3,
+          "earned_points": 2.81,
+          "max_points": 45.0,
+          "item_count": 5,
+          "delta_points_pp": 0.0
+        },
+        "portfolio_impact": {
+          "label": "職務実績・定量成果",
+          "label_ko": "직무 증빙 & 정량 성과",
+          "active": true,
+          "effective_weight": 25.0,
+          "attainment_pct": 9.4,
+          "earned_points": 2.34,
+          "max_points": 25.0,
+          "item_count": 3,
+          "delta_points_pp": 0.0
+        },
+        "preferred": {
+          "label": "歓迎要件",
+          "label_ko": "우대 사항",
+          "active": true,
+          "effective_weight": 15.0,
+          "attainment_pct": 6.3,
+          "earned_points": 0.94,
+          "max_points": 15.0,
+          "item_count": 4,
+          "delta_points_pp": 0.9
+        },
+        "ats_framing": {
+          "label": "JDキーワード・ポジション訴求",
+          "label_ko": "JD 키워드 & 포지셔닝",
+          "active": true,
+          "effective_weight": 15.0,
+          "attainment_pct": 21.3,
+          "earned_points": 3.2,
+          "max_points": 15.0,
+          "item_count": 2,
+          "delta_points_pp": -0.5
+        }
+      },
+      "items": [
+        {
+          "id": "MH-1",
+          "grade": "WEAK",
+          "earned_points_pp": 2.81,
+          "gap_type": "true_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "MH-2",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "MH-3",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "MH-4",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "MH-5",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "PI-1",
+          "grade": "WEAK",
+          "earned_points_pp": 2.34,
+          "gap_type": "transferable_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "PI-2",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "expression_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "PI-3",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "transferable_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "PR-1",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "PR-2",
+          "grade": "WEAK",
+          "earned_points_pp": 0.94,
+          "gap_type": "true_gap",
+          "stalled_streak": 1
+        },
+        {
+          "id": "PR-3",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "PR-4",
+          "grade": "MISSING",
+          "earned_points_pp": 0.0,
+          "gap_type": "true_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "AF-1",
+          "grade": "WEAK",
+          "earned_points_pp": 0.94,
+          "gap_type": "expression_gap",
+          "stalled_streak": 2
+        },
+        {
+          "id": "AF-2",
+          "grade": "WEAK",
+          "earned_points_pp": 0.94,
+          "gap_type": "expression_gap",
+          "stalled_streak": 2
+        }
+      ],
+      "grace_recommended": true
+    }
+  ]
+}

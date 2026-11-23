@@ -1,0 +1,59 @@
+{
+  "round": 3,
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "FULL",
+      "evidence_quote": "9+ Years Leading Complex Software E2E",
+      "source": "pptx Slide 1"
+    },
+    {
+      "id": "MH-2",
+      "grade": "FULL",
+      "evidence_quote": "Visual Workflow Canvas & Auto Layout Engine (Shipped to 180K creators): Led exploration through launch of a constraint-based direct manipulation canvas editor",
+      "source": "pptx Slide 2"
+    },
+    {
+      "id": "MH-3",
+      "grade": "FULL",
+      "evidence_quote": "Ran 24 contextual inquiry user research sessions and rejected nested inspector panels in favor of on-canvas handles",
+      "source": "pptx Slide 2"
+    },
+    {
+      "id": "MH-4",
+      "grade": "FULL",
+      "evidence_quote": "Hybrid AI Generation + Direct Manipulation Editing: Built interactive React & HTML/CSS code-based prototypes letting users prompt layout variations and refine spacing live on canvas",
+      "source": "pptx Slide 3"
+    },
+    {
+      "id": "PI-1",
+      "grade": "FULL",
+      "evidence_quote": "rejected nested inspector panels in favor of on-canvas handles, cutting complex layout build time by 44%",
+      "source": "pptx Slide 2"
+    },
+    {
+      "id": "PI-2",
+      "grade": "FULL",
+      "evidence_quote": "Weekly active AI-assisted edits reached 62% with 4.7/5 craft score",
+      "source": "pptx Slide 3"
+    },
+    {
+      "id": "PR-1",
+      "grade": "FULL",
+      "evidence_quote": "constraint-based direct manipulation canvas editor",
+      "source": "pptx Slide 2"
+    },
+    {
+      "id": "PR-2",
+      "grade": "FULL",
+      "evidence_quote": "Built interactive React & HTML/CSS code-based prototypes",
+      "source": "pptx Slide 3"
+    },
+    {
+      "id": "AF-1",
+      "grade": "FULL",
+      "evidence_quote": "Staff Product Designer, Core Canvas & Interactive Systems",
+      "source": "pptx Slide 1"
+    }
+  ]
+}

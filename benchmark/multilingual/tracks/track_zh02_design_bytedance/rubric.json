@@ -1,0 +1,131 @@
+{
+  "company": "字节跳动（ByteDance）",
+  "role_title": "高级用户体验设计师-财经",
+  "language": "zh",
+  "domain_mode": "portfolio",
+  "pass_threshold": 80.0,
+  "ats_lexical_share": 0.5,
+  "category_weights": {
+    "must_have": 40,
+    "portfolio_impact": 35,
+    "preferred": 10,
+    "ats_framing": 15
+  },
+  "categories": {
+    "must_have": [
+      {
+        "id": "MH-1",
+        "title": "设计类本科及以上学历 + 5年以上 UI/产品设计经验",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-2",
+        "title": "成熟产品设计案例作品集与业务转化判断力",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-3",
+        "title": "金融/增长类产品体验优化与数据监控迭代",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "MH-4",
+        "title": "AI 设计工具提效落地能力",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "portfolio_impact": [
+      {
+        "id": "PI-1",
+        "title": "需求拆解、方案权衡逻辑与易用性重构深度",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-2",
+        "title": "业务转化率、留存或设计提效量化数据佐证",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "preferred": [
+      {
+        "id": "PR-1",
+        "title": "财经/金融科技产品全链路增长设计沉淀",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "ats_framing": [
+      {
+        "id": "AF-1",
+        "title": "高级体验/增长设计师定位与作品集叙事结构",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ]
+  },
+  "keywords": [
+    {
+      "term": "金融产品",
+      "aliases": [
+        "财经",
+        "理财",
+        "信贷"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-3"
+    },
+    {
+      "term": "用户体验",
+      "aliases": [
+        "UX",
+        "UI"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-1"
+    },
+    {
+      "term": "业务转化",
+      "aliases": [
+        "增长",
+        "转化率"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "数据",
+      "aliases": [
+        "埋点",
+        "漏斗"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-3"
+    },
+    {
+      "term": "AI工具",
+      "aliases": [
+        "AI设计",
+        "Midjourney",
+        "Figma AI"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-4"
+    },
+    {
+      "term": "作品集",
+      "aliases": [
+        "案例"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    }
+  ],
+  "rubric_hash": "b630aecab297307e",
+  "locked_at": "2026-11-23T01:35:17+00:00"
+}

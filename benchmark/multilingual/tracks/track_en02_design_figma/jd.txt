@@ -1,0 +1,21 @@
+Company: Figma
+Role: Product Designer, Core Experience
+Location: San Francisco, CA • New York, NY • Remote United States
+URL: https://job-boards.greenhouse.io/figma/jobs/6231027004?gh_jid=6231027004
+
+Responsibilities:
+- Lead the design of core editor experiences, including foundational concepts like Auto Layout, Text, and canvas interactions
+- Define and champion a clear vision for how the editor should evolve with product and engineering partners
+- Explore how direct manipulation, AI, and code can work together via prototyping
+- Ground decisions in user research, product data, and close observation
+- Participate in design critiques, mentor peers, and share best practices
+
+Required Qualifications:
+- 8+ years of experience in product design, leading complex software projects from exploration through launch and iteration
+- A portfolio of shipped work demonstrating interaction design and visual craft, making sophisticated workflows simple
+- Structured thinking, clearly articulated rationale, and user-centered research
+- Experience researching, prototyping, or building products with AI and other emerging tools
+
+Preferred Qualifications:
+- Designing creative tools, editors, canvas interfaces, or direct manipulation interactions
+- Design/development hybrid background or code-based prototyping (React/CSS/HTML)

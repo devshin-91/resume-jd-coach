@@ -1,0 +1,61 @@
+{
+  "round": 2,
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "WEAK",
+      "evidence_quote": "スキル一覧：OOUI、情報設計、B2B",
+      "source": "pptx Slide 4",
+      "gap_type": "expression_gap",
+      "action_hint": "スキル羅列のみは WEAK(0.25) 上限です。実際のOOUIモデリング事例をスライド化してください。"
+    },
+    {
+      "id": "MH-2",
+      "grade": "WEAK",
+      "evidence_quote": "デザインレビュー、組織変革、デザインシステム",
+      "source": "pptx Slide 4",
+      "gap_type": "expression_gap",
+      "action_hint": "具体的なレビュー基準や品質担保の仕組みを実例で示してください。"
+    },
+    {
+      "id": "MH-3",
+      "grade": "WEAK",
+      "evidence_quote": "デザインレビュー、組織変革",
+      "source": "pptx Slide 4",
+      "gap_type": "expression_gap",
+      "action_hint": "組織変革の具体アクションと結果を明記してください。"
+    },
+    {
+      "id": "PI-1",
+      "grade": "WEAK",
+      "evidence_quote": "見た目を明るく整理しました",
+      "source": "pptx Slide 3",
+      "gap_type": "expression_gap",
+      "action_hint": "設計判断の理由を事例ごとに言語化してください。"
+    },
+    {
+      "id": "PI-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "pptx",
+      "gap_type": "expression_gap",
+      "action_hint": "定量成果がまだありません。"
+    },
+    {
+      "id": "PR-1",
+      "grade": "WEAK",
+      "evidence_quote": "デザインシステム、SaaS",
+      "source": "pptx Slide 4",
+      "gap_type": "expression_gap",
+      "action_hint": "デザインシステム運用の具体実績が必要です。"
+    },
+    {
+      "id": "AF-1",
+      "grade": "WEAK",
+      "evidence_quote": "スキル一覧：OOUI、情報設計、B2B",
+      "source": "pptx Slide 4",
+      "gap_type": "expression_gap",
+      "action_hint": "キーワード羅列スライドを廃止し、ケーススタディ中心へ差し替えてください。"
+    }
+  ]
+}

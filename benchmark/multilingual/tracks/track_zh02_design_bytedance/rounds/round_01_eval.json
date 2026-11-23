@@ -1,0 +1,67 @@
+{
+  "round": 1,
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "FULL",
+      "evidence_quote": "视觉传达设计本科 | 6年设计经验",
+      "source": "pptx Slide 1"
+    },
+    {
+      "id": "MH-2",
+      "grade": "WEAK",
+      "evidence_quote": "重新排版了图标和配色，整体页面更大气简洁",
+      "source": "pptx Slide 2",
+      "gap_type": "expression_gap",
+      "action_hint": "仅展示视觉美化不足以过初筛，需补充你对产品需求的独立判断与业务转化优化逻辑。"
+    },
+    {
+      "id": "MH-3",
+      "grade": "WEAK",
+      "evidence_quote": "理财App首页改版",
+      "source": "pptx Slide 2",
+      "gap_type": "expression_gap",
+      "action_hint": "补充理财产品核心漏斗数据监控与迭代复盘。"
+    },
+    {
+      "id": "MH-4",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "pptx",
+      "gap_type": "expression_gap",
+      "action_hint": "补充你使用 AI 设计工具（如 Figma AI / Midjourney / 生图工作流）提升出图或原型效率的实例。"
+    },
+    {
+      "id": "PI-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "pptx",
+      "gap_type": "expression_gap",
+      "action_hint": "按“业务问题→用户痛点→方案对比取舍→最终上线”重构作品集页面。"
+    },
+    {
+      "id": "PI-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "pptx",
+      "gap_type": "expression_gap",
+      "action_hint": "补充开户/申购转化率、点击率或设计交付提效量化结果。"
+    },
+    {
+      "id": "PR-1",
+      "grade": "WEAK",
+      "evidence_quote": "理财App首页改版",
+      "source": "pptx Slide 2",
+      "gap_type": "expression_gap",
+      "action_hint": "深化财经场景（合规信息披露、风险提示与转化平衡）的设计沉淀。"
+    },
+    {
+      "id": "AF-1",
+      "grade": "WEAK",
+      "evidence_quote": "苏莹 — UI设计师",
+      "source": "pptx Slide 1",
+      "gap_type": "expression_gap",
+      "action_hint": "聚焦“高级用户体验设计师（金融增长方向）”定位。"
+    }
+  ]
+}

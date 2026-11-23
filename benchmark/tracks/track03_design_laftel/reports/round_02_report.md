@@ -31,14 +31,14 @@
 - **⚠️ 점수 하락 항목 (의도치 않은 삭제 여부 확인):**
   - `AF-2` 포트폴리오 스캔 가독성 및 핵심 프로젝트 상단 배치: `PARTIAL → WEAK` (`-0.9%p`)
 - **정체 항목 (보완 가능 항목 2라운드 이상 `<= PARTIAL` 유지):**
-  - `MH-1` 3년 이상 프로덕트 디자인 경력 및 문제 정의→UX/UI 설계→출시 후 검증 E2E 성과 (`PARTIAL`, 2R, `expression_gap`, max `+5.0%p`)
-  - `MH-2` Figma 기반 체계적 파일 구조화·디자인시스템·핸드오프 스토리보드 및 디자인 검수 역량 (`WEAK`, 2R, `expression_gap`, max `+7.5%p`)
-  - `PI-1` 시안 나열이 아닌 사용자 문제·IA/유저플로우·엣지케이스 포함 심층 케이스 스터디 (`WEAK`, 2R, `expression_gap`, max `+9.8%p`)
-  - `PI-2` 출시 후 OKR/KPI·전환율·과업 완료율 등 전/후 정량 검증 지표 (`MISSING`, 2R, `expression_gap`, max `+13.1%p`)
-  - `PI-3` 디자인시스템/개발 핸드오프 품질 및 본인 기여도(%) 명확성 (`MISSING`, 2R, `expression_gap`, max `+8.8%p`)
-  - `PR-2` 커머스·커뮤니티·구독/콘텐츠 0->1 프로덕트 디자인 또는 나만의 무기(리서치·모션·라이팅) (`PARTIAL`, 2R, `expression_gap`, max `+2.0%p`)
-  - `AF-1` 타깃 포지션(E2E 데이터·AI 활용 프로덕트 디자이너) 요약·포지셔닝 일치 (`PARTIAL`, 2R, `expression_gap`, max `+1.9%p`)
-  - `AF-2` 포트폴리오 스캔 가독성 및 핵심 프로젝트 상단 배치 (`WEAK`, 2R, `expression_gap`, max `+2.8%p`)
+  - `MH-1` 3년 이상 프로덕트 디자인 경력 및 문제 정의→UX/UI 설계→출시 후 검증 E2E 성과 (`PARTIAL`, 2R, `expression_gap`, 최대 `+5.0%p`)
+  - `MH-2` Figma 기반 체계적 파일 구조화·디자인시스템·핸드오프 스토리보드 및 디자인 검수 역량 (`WEAK`, 2R, `expression_gap`, 최대 `+7.5%p`)
+  - `PI-1` 시안 나열이 아닌 사용자 문제·IA/유저플로우·엣지케이스 포함 심층 케이스 스터디 (`WEAK`, 2R, `expression_gap`, 최대 `+9.8%p`)
+  - `PI-2` 출시 후 OKR/KPI·전환율·과업 완료율 등 전/후 정량 검증 지표 (`MISSING`, 2R, `expression_gap`, 최대 `+13.1%p`)
+  - `PI-3` 디자인시스템/개발 핸드오프 품질 및 본인 기여도(%) 명확성 (`MISSING`, 2R, `expression_gap`, 최대 `+8.8%p`)
+  - `PR-2` 커머스·커뮤니티·구독/콘텐츠 0->1 프로덕트 디자인 또는 나만의 무기(리서치·모션·라이팅) (`PARTIAL`, 2R, `expression_gap`, 최대 `+2.0%p`)
+  - `AF-1` 타깃 포지션(E2E 데이터·AI 활용 프로덕트 디자이너) 요약·포지셔닝 일치 (`PARTIAL`, 2R, `expression_gap`, 최대 `+1.9%p`)
+  - `AF-2` 포트폴리오 스캔 가독성 및 핵심 프로젝트 상단 배치 (`WEAK`, 2R, `expression_gap`, 최대 `+2.8%p`)
 
 ## 우선순위 보완 가이드 (직접 수정 포인트)
 

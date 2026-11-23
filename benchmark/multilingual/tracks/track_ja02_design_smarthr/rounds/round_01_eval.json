@@ -1,0 +1,61 @@
+{
+  "round": 1,
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "pptx",
+      "gap_type": "expression_gap",
+      "action_hint": "OOUIモデリングやB2B業務アプリの情報設計判断を具体事例として示してください。"
+    },
+    {
+      "id": "MH-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "pptx",
+      "gap_type": "expression_gap",
+      "action_hint": "デザインレビューの観点や品質担保の仕組み構築事例を明記してください。"
+    },
+    {
+      "id": "MH-3",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "pptx",
+      "gap_type": "expression_gap",
+      "action_hint": "組織のボトルネックや体制・プロセス改善を主導した経験があれば追記してください。"
+    },
+    {
+      "id": "PI-1",
+      "grade": "WEAK",
+      "evidence_quote": "見た目を明るく整理しました",
+      "source": "pptx Slide 3",
+      "gap_type": "expression_gap",
+      "action_hint": "表層ビジュアルだけでなく、課題定義・構造判断の理由を言語化してください。"
+    },
+    {
+      "id": "PI-2",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "pptx",
+      "gap_type": "expression_gap",
+      "action_hint": "業務時間短縮や手戻り削減などの定量効果を加えてください。"
+    },
+    {
+      "id": "PR-1",
+      "grade": "MISSING",
+      "evidence_quote": "",
+      "source": "pptx",
+      "gap_type": "expression_gap",
+      "action_hint": "B2B SaaS・デザインシステム・マネジメント経験があれば記載してください。"
+    },
+    {
+      "id": "AF-1",
+      "grade": "WEAK",
+      "evidence_quote": "Web・UIデザイナー ポートフォリオ",
+      "source": "pptx Slide 1",
+      "gap_type": "expression_gap",
+      "action_hint": "マネージャー候補にふさわしい品質・組織リード視点へ再構成してください。"
+    }
+  ]
+}

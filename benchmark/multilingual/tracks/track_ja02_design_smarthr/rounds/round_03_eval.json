@@ -1,0 +1,47 @@
+{
+  "round": 3,
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "FULL",
+      "evidence_quote": "タスク起点で分断されていた18画面を、オブジェクト指向UI（OOUI）モデリングにより5つの主要オブジェクトへ再統合",
+      "source": "pptx Slide 2"
+    },
+    {
+      "id": "MH-2",
+      "grade": "FULL",
+      "evidence_quote": "週次デザインレビュー基準と言語化ルーブリックおよびFigmaデザインシステムを整備",
+      "source": "pptx Slide 3"
+    },
+    {
+      "id": "MH-3",
+      "grade": "FULL",
+      "evidence_quote": "デザイナー6名の属人化課題を解消するため、週次デザインレビュー基準と言語化ルーブリックおよびFigmaデザインシステムを整備",
+      "source": "pptx Slide 3"
+    },
+    {
+      "id": "PI-1",
+      "grade": "FULL",
+      "evidence_quote": "B2B労務・請求SaaS管理画面のOOUI情報設計刷新",
+      "source": "pptx Slide 2"
+    },
+    {
+      "id": "PI-2",
+      "grade": "FULL",
+      "evidence_quote": "顧客の月次処理時間を34%短縮・問い合わせ件数を41%削減",
+      "source": "pptx Slide 2"
+    },
+    {
+      "id": "PR-1",
+      "grade": "FULL",
+      "evidence_quote": "エンジニア・PMとスクラムで検証",
+      "source": "pptx Slide 2"
+    },
+    {
+      "id": "AF-1",
+      "grade": "FULL",
+      "evidence_quote": "プロダクトデザインマネージャー（B2B SaaS・OOUI・デザイン組織推進）",
+      "source": "pptx Slide 1"
+    }
+  ]
+}
