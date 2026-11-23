@@ -34,6 +34,7 @@ An Antigravity Agent Skill (`SKILL.md`) validated across **6 real Korean job fam
 ```text
 resume-jd-coach/
 ├── README.md
+├── CONTRIBUTORS.md                      # Role attribution between human owner (@devshin-91) and AI partner (@antigravity-bot)
 ├── LICENSE                              # Non-Commercial Source-Available License
 ├── THIRD_PARTY_NOTICES.md               # Python stdlib, optional PDF libs, skill spec, benchmark JD attributions
 ├── skill/
@@ -97,6 +98,18 @@ See full audit details in [docs/RHAIF_AUDIT_REPORT.md](./docs/RHAIF_AUDIT_REPORT
 
 ---
 
+## Contributors
+
+This project is co-authored by a human product architect and **Google Antigravity** AI agents. See full bilingual role breakdown in [CONTRIBUTORS.md](./CONTRIBUTORS.md).
+
+| Contributor | Role | Key Contributions |
+| :--- | :--- | :--- |
+| <img src="https://github.com/devshin-91.png?size=48" width="24" height="24" align="absmiddle" alt="devshin-91" /> [**`@devshin-91`**](https://github.com/devshin-91) | **Human Project Owner, Architect & RHAIF Human Calibrator** | `80%` pass gate & coach-first design, 3-tier Grace philosophy, Knowledge Work alignment, 6-job-family + RHAIF validation design, v1.1/v1.2 Human Calibration decisions, Zero-PII & non-commercial licensing governance |
+| <img src="https://github.com/antigravity-bot.png?size=48" width="24" height="24" align="absmiddle" alt="antigravity-bot" /> [**`@antigravity-bot`**](https://github.com/antigravity-bot) | **Google Antigravity AI Co-Developer, Benchmark Runner & RHAIF Auditor** | `SKILL.md` & stdlib Python engine (`Gemini 4 Neon (XHigh)`), live Wanted JD collection (`Gemini 3.8 Flash` browser subagents), 6-track 15-round benchmark, cold live LLM E2E red-team, independent RHAIF audit (`67 → 89/100 PASS`), v1.1/v1.2 hardening & 17-test verification |
+
+---
+
 ## License
 
-Licensed for **Non-Commercial Use Only**. See [LICENSE](./LICENSE) and [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md).
+Licensed for **Non-Commercial Use Only**. See [LICENSE](./LICENSE) and [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md).  
+Copyright (c) 2026 [`devshin-91`](https://github.com/devshin-91) (Co-authored with Google Antigravity [`@antigravity-bot`](https://github.com/antigravity-bot)).
