@@ -1,8 +1,8 @@
-# `resume-jd-coach` (v2.1 · Multilingual `ko` / `en` / `zh` / `ja`)
+# `resume-jd-coach` (v2.2 · Multilingual `ko` / `en` / `zh` / `ja` · Suggestion-Only)
 
-> **Coach-First Multilingual Resume & Portfolio ↔ Job Description Match Evaluator (`80%` Pass Gate) with Deterministic Python Scoring, Locked Rubrics, Multi-Round Δ Tracking, and 3-Tier Grace Escalation.**
+> **Coach-First, Suggestion-Only Multilingual Resume & Portfolio ↔ Job Description Match Evaluator (`80%` Pass Gate) with Deterministic Python Scoring, Locked Rubrics, Experience-Gate & Equivalent-Skill Judgment, Multi-Round Δ Tracking, 3-Tier Grace Escalation, and Mandatory AI-Judgment Disclaimers.**
 
-An Antigravity Agent Skill (`SKILL.md`) validated across **4 languages & representative hiring markets** (**Korea `ko` · United States `en` · China `zh` · Japan `ja`**), **18 live real-world job postings (44 evaluation rounds)**, **33/33 automated unit & regression tests**, **4-language Cold Live LLM E2E Red-Team runs**, and **Independent RLAIF (AI-Feedback Constitutional Audit) cycles** (`v1: 67 → 89/100 PASS`, `v2 multilingual: 74.5 → 91.5/100 PASS`).
+An Antigravity Agent Skill (`SKILL.md`) validated across **4 languages & representative hiring markets** (**Korea `ko` · United States `en` · China `zh` · Japan `ja`**), **18 live real-world job postings (44 evaluation rounds)**, **39/39 automated unit & policy regression tests**, **5 Cold-Start Live LLM E2E Red-Team runs** (including `v2.2` adversarial direct-rewrite refusal), **Independent RLAIF (AI-Feedback Constitutional Audit) cycles** (`v1: 67 → 89/100 PASS`, `v2 multilingual: 74.5 → 91.5/100 PASS`), and **v2.2 Human-in-the-Loop Policy Calibration**.
 
 ---
 
@@ -19,15 +19,17 @@ An Antigravity Agent Skill (`SKILL.md`) validated across **4 languages & represe
    - Zero external pip dependencies (Python 3 Standard Library only).
    - `Decimal` `ROUND_HALF_UP` exact conservation (`score + sum(uplifts) == 100.0%`) and display-consistent scoreboard sums (`score + gap == threshold`).
    - **Native `ko` / `en` / `zh` / `ja` support:** NFKC full-width normalization (`ＡＷＳ`→`AWS`, `ＳＱＬ`→`SQL`), locale-native units (`%p` / `pp` / `pt`), mode-aware labels (`portfolio` vs `resume_only`), and zero cross-language leakage.
-   - **Negation- & Contradiction-Aware ATS Scanner:** Excludes terms appearing only in unexperienced/negated phrasing across all 4 languages (including Japanese Keigo `ございません`/`いただいた`, Chinese `暂未接触`/`不具备`, English `don't have`/`no production experience`, Korean `미경험`), and awards **`0.0` ATS credit** to self-contradictory keyword stuffing (`contradictory_mentions`).
+   - **Negation- & Contradiction-Aware ATS Scanner (`v2.2` Human `>= 80%` Partial Rule):** Excludes terms appearing only in unexperienced/negated phrasing across all 4 languages (including Japanese Keigo `ございません`/`いただいた`, Chinese `暂未接触`/`不具备`, English `don't have`/`no production experience`, Korean `미경험`), and awards **`0.0` ATS credit** to self-contradictory keyword mentions (`contradictory_mentions`) even when the linked item is `PARTIAL`. Credit is granted ONLY after asking the human applicant and receiving explicit confirmation that their verified partial experience covers **`>= 80%`** of the JD requirement (`contradiction_human_confirmations`).
    - **Hardened `--strict-quotes`:** Enforces verbatim / contiguous n-gram grounding (including CJK character trigrams) **plus 100% numeric + magnitude-unit lock** (blocking `5千 → 5万`, `5K → 5M`, `2 → 50` fabrication), while capping bare skills-list keyword stuffing at **`WEAK (0.25)`**.
    - **Multilingual Document Extractor (`extract_doc.py`):** Zero-dependency parsing for `.md`, `.txt` (UTF-8/UTF-16 + zero-mojibake auto-detection for `gb18030`, `cp932`, `cp949`/`iso2022_kr`, `cp1252`), `.docx` (nested table/textbox & `mc:Fallback`-safe), `.xlsx` (multi-sheet Japanese `履歴書`/`職務経歴書`, skipping `<rPh>` furigana & hidden tabs), `.pptx` (visual slide order + `mc:Fallback`-safe), `.hwpx` (nested table-safe), `.html`, plus PDF hooks and loud legacy `.hwp`/`.doc`/`.xls` rejection.
-4. **3-Tier Graduated Grace Mode (벽을 느낄 때 보조 모드):**
-   - Triggers on explicit user request (`ko`/`en`/`zh`/`ja`) or automatic stall detection (`2R+` consecutive stall on actionable items or `< +3.0` gain while `< 80%`), alongside independent `honest_fit_advisory` / `honest_fit_knockout` warnings whenever `true_gap`s block honest `80%` reachability.
-   - **Tier 1:** Socratic interview questions + localized XYZ/STAR/Case-Study skeleton.
-   - **Tier 2:** 2–3 fact-grounded phrasing options with explicit localized metric placeholders.
-   - **Tier 3:** Targeted section pair-draft + mandatory localized Fact-Check Checklist.
-   - **Zero Fabrication Across All Tiers:** Strictly refuses inventing unheld skills, tools, employers, or metrics.
+4. **Honest Unreachable Verdict (`< 80%`) & Experience-Year Gate vs Equivalent-Skill (`v2.2`):**
+   - When `80.0%` is unreachable (`UNREACHABLE` / `UNREACHABLE_HARD_EXPERIENCE_GATE`), states clearly that `80%` is **unreachable**, suppresses Grace for chasing an impossible `80%`, and outputs a structured **3-pillar growth roadmap (Experience · Projects · Attitude & Positioning)**.
+   - **Mandatory Experience-Year Gate (`experience_gate`):** If a JD requires `X years of experience` without an equivalent-skill clause (`allows_equivalent_skill: false`) and the candidate lacks those years → strictly judged **`UNREACHABLE_HARD_EXPERIENCE_GATE`**.
+   - **Equivalent-Skill Exception (`경력에 준하는 실력`):** If the JD accepts equivalent practical skill (`allows_equivalent_skill: true`) and verified artifacts meet the target bar (`meets_bar: true`) → judged **`CONDITIONAL_EQUIVALENT_SKILL`**, explains the concrete reason why limited possibility remains, and activates **suggestion-only Grace**.
+5. **Strictly Suggestion-Only Coaching, Direct-Rewrite Refusal & Mandatory AI Disclaimer (`v2.2`):**
+   - **Direct-Rewrite Refusal (`"됐고 수정해줘"`):** Even if the user explicitly demands direct editing or final copy rewriting (`ko`/`en`/`zh`/`ja`), the coach **ALWAYS refuses** and preserves original files untouched—emphasizing that **every final sentence and expression in a resume/portfolio must be decided and owned solely by the human applicant**.
+   - **3-Tier Suggestion-Only Grace Mode:** Offers Tier 1 (Socratic questions + skeleton), Tier 2 (fact-grounded options A·B with metric placeholders), or Tier 3 (targeted section structural blueprint + mandatory Fact-Check & Human Authorship Checklist)—never ghostwriting or fabricating unheld facts.
+   - **Mandatory AI-Judgment Fallibility Disclaimer:** Every rendered Markdown report (`ko`/`en`/`zh`/`ja`) and user response explicitly states that the match percentage is an AI estimate that can be wrong, and true role fit must be judged by the human applicant.
 
 ---
 
@@ -40,16 +42,16 @@ resume-jd-coach/
 ├── LICENSE                                        # Non-Commercial Source-Available License
 ├── THIRD_PARTY_NOTICES.md                         # Python stdlib, optional PDF libs, skill spec, 18 benchmark JD attributions
 ├── skill/
-│   └── resume-jd-coach/                           # Ready-to-install Antigravity Skill (v2.1 · ko/en/zh/ja)
+│   └── resume-jd-coach/                           # Ready-to-install Antigravity Skill (v2.2 · ko/en/zh/ja · Suggestion-Only)
 │       ├── SKILL.md
 │       ├── references/
 │       │   ├── scoring-rubric.md
-│       │   ├── grace-coaching-playbook.md         # 3-tier Grace protocol + en/zh/ja micro-templates
+│       │   ├── grace-coaching-playbook.md         # Suggestion-only 3-tier Grace + 4-lang direct-rewrite refusal scripts
 │       │   └── report-template.md
 │       ├── scripts/
 │       │   ├── extract_doc.py                     # .md/.txt/.docx/.xlsx/.pptx/.hwpx/.html + CJK/cp1252 auto-decode + PDF hook
-│       │   ├── score_match.py                     # 4-lang deterministic rubric lock, scoring, ATS, round diff & native reports
-│       │   └── test_resume_jd_coach.py            # 33 unit & RLAIF regression tests
+│       │   ├── score_match.py                     # 4-lang deterministic scoring, experience_gate, >=80% partial, AI disclaimer
+│       │   └── test_resume_jd_coach.py            # 39 unit, RLAIF & v2.2 Human-Calibration policy tests
 │       └── examples/
 │           ├── sample_rubric.json
 │           └── sample_eval_r1.json
@@ -57,7 +59,8 @@ resume-jd-coach/
 │   ├── run_benchmark.py                           # Korean 6-job-family 15-round benchmark runner
 │   ├── benchmark_summary.json
 │   ├── tracks/                                    # 6 Korean Wanted real-JD tracks
-│   ├── live_e2e_redteam/                          # Korean Cold Live LLM E2E Red-Team run
+│   ├── live_e2e_redteam/                          # Korean Cold Live LLM E2E Red-Team run (v1.x)
+│   ├── live_e2e_redteam_v22_ko/                   # Korean v2.2 Cold Live E2E Policy Check (rewrite refusal + equiv-skill + Redis 80%)
 │   └── multilingual/                              # 3-country (US en, China zh, Japan ja) 12-track 29-round benchmark
 │       ├── run_multilingual_benchmark.py          # Reproducible 12-track multilingual runner (.docx/.pptx/.xlsx/gb18030/cp932)
 │       ├── tracks_en.py / tracks_zh.py / tracks_ja.py
@@ -85,7 +88,7 @@ Compatible with both **Software Engineering** and **Knowledge Work** layouts in 
 ## Running Verification Tests
 
 ```bash
-# 1. Run all 33 unit & RLAIF regression tests (zero external dependencies)
+# 1. Run all 39 unit, RLAIF & v2.2 policy tests (zero external dependencies)
 python -B skill/resume-jd-coach/scripts/test_resume_jd_coach.py
 
 # 2. Re-run the Korean 6-job-family 15-round benchmark
@@ -103,11 +106,11 @@ See full reports in [docs/RLAIF_AUDIT_REPORT_V1.md](./docs/RLAIF_AUDIT_REPORT_V1
 
 | Verification Milestone | Result |
 | :--- | :--- |
-| Automated Unit & Regression Suite (`test_resume_jd_coach.py`) | **33 / 33 OK** (4-lang ATS negation/contradiction/NFKC, CJK trigrams + numeric-unit quote lock, `.xlsx` `<rPh>` furigana & hidden sheets, `gb18030`/`cp932`/`iso2022_kr`/`cp1252`, `.hwpx`/`.docx`/`.pptx`/`.pdf`, 2-round `en`/`zh`/`ja` zero-leakage CLI E2E) |
+| Automated Unit & Policy Regression Suite (`test_resume_jd_coach.py`) | **39 / 39 OK** (4-lang ATS negation/contradiction/NFKC, `>= 80%` human-confirmed partial scope, hard `experience_gate` vs `CONDITIONAL_EQUIVALENT_SKILL`, 3-pillar unreachable roadmap, mode-aware 4-lang AI disclaimer, CJK trigrams + numeric-unit quote lock, `.xlsx`/`.hwpx`/`.docx`/`.pptx`/`.pdf`, 2-round `en`/`zh`/`ja` zero-leakage CLI E2E) |
 | Korean 6-Job-Family Real-JD Benchmark (`benchmark/run_benchmark.py`) | **6 / 6 Tracks · 15 / 15 Rounds** passed `--strict-quotes` (Wanted live JDs: Dev, PM, Design, Marketing, Data, Non-IT HR) |
 | 3-Country Multilingual Real-JD Benchmark (`benchmark/multilingual/`) | **12 / 12 Tracks · 29 / 29 Rounds** passed `--strict-quotes` with **0 cross-language / `%p` leaks** (US `en` × 4 · China `zh` × 4 · Japan `ja` × 4, failing native resumes across `.docx`/`.pptx`/`.xlsx`/`gb18030`/`cp932`/`.md`) |
-| 4-Language Cold Live LLM E2E Red-Team (`ko` · `en` · `zh` · `ja`) | Contradictory keyword stuffing earned **`0.0` ATS credit** (`ja` red-team gain suppressed `+5.2pt → +0.4pt`), `honest_fit_advisory` triggered, and **all 4 languages cleanly refused Grace Tier 3 fabrication** |
-| Independent RLAIF Constitutional Judge Audits | **v1 (`ko`):** `67 → 89 / 100` (**✅ PASS**, `+22 pts` + Human-in-the-Loop Calibration) · **v2 (`ko`/`en`/`zh`/`ja`):** `74.5 → 91.5 / 100` (**✅ PASS**, `+17.0 pts` + residual `P1-R1` closed) |
+| 5 Cold-Start Live LLM E2E Red-Teams (`ko` · `en` · `zh` · `ja` + `v2.2 ko`) | Contradictory keyword stuffing earned **`0.0` ATS credit**, `honest_fit_advisory` triggered, all 4 languages cleanly refused fabrication, and **`v2.2` Cold Live E2E cleanly refused `"됐고 직접 수정해줘"` (SHA-256 unchanged), asked for `>= 80%` Redis scope confirmation, explained `CONDITIONAL_EQUIVALENT_SKILL` + Grace, and included the AI disclaimer** |
+| Independent RLAIF Constitutional Judge Audits | **v1 (`ko`):** `67 → 89 / 100` (**✅ PASS**, `+22 pts` + Human-in-the-Loop Calibration) · **v2 (`ko`/`en`/`zh`/`ja`):** `74.5 → 91.5 / 100` (**✅ PASS**, `+17.0 pts`) · **v2.2:** Human-in-the-Loop Policy Calibration (`39/39 OK`) |
 
 ---
 
@@ -117,8 +120,8 @@ This project is co-authored by a human product architect and **Google Antigravit
 
 | Contributor | Role | Key Contributions |
 | :--- | :--- | :--- |
-| <img src="https://github.com/devshin-91.png?size=48" width="24" height="24" align="absmiddle" alt="devshin-91" /> [**`@devshin-91`**](https://github.com/devshin-91) | **Human Project Owner, Architect & Human-in-the-Loop Calibrator** | `80%` pass gate & coach-first design, 3-tier Grace philosophy, Knowledge Work alignment, 4-language cross-domain validation direction, v1.1 Human-in-the-Loop Calibration decisions, `RLAIF` terminology rigor, Zero-PII & non-commercial licensing governance |
-| <img src="https://github.com/antigravity-bot.png?size=48" width="24" height="24" align="absmiddle" alt="antigravity-bot" /> [**`@antigravity-bot`**](https://github.com/antigravity-bot) | **Google Antigravity AI Co-Developer, Benchmark Runner & Independent RLAIF Auditor** | `SKILL.md` & stdlib Python engine (`Gemini 4 Neon (XHigh)`), 4-country live JD collection (`Gemini 3.8 Flash` browser subagents), 18-track 44-round benchmarks, 4-language cold live LLM E2E red-teams, independent RLAIF audits (`v1: 89/100`, `v2: 91.5/100 PASS`), v1.1–v2.1 hardening & 33-test verification |
+| <img src="https://github.com/devshin-91.png?size=48" width="24" height="24" align="absmiddle" alt="devshin-91" /> [**`@devshin-91`**](https://github.com/devshin-91) | **Human Project Owner, Architect & Human-in-the-Loop Calibrator** | `80%` pass gate & suggestion-only coaching philosophy, 3-tier Grace design, 4-language validation direction, **v1.1 & v2.2 Human-in-the-Loop Calibration** (contradiction 0 credit / `>= 80%` human partial rule, hard experience gate vs equivalent-skill Grace, unconditional direct-rewrite refusal & human authorship responsibility, mandatory AI-judgment disclaimer), `RLAIF` terminology rigor, Zero-PII & non-commercial licensing governance |
+| <img src="https://github.com/antigravity-bot.png?size=48" width="24" height="24" align="absmiddle" alt="antigravity-bot" /> [**`@antigravity-bot`**](https://github.com/antigravity-bot) | **Google Antigravity AI Co-Developer, Benchmark Runner & Independent RLAIF Auditor** | `SKILL.md` & stdlib Python engine (`Gemini 4 Neon (XHigh)`), 4-country live JD collection (`Gemini 3.8 Flash` browser subagents), 18-track 44-round benchmarks, 5 cold-start live LLM E2E red-teams, independent RLAIF audits (`v1: 89/100`, `v2: 91.5/100 PASS`), v1.1–v2.2 hardening & 39-test verification |
 
 ---
 

@@ -65,3 +65,22 @@
 3. **표시 반올림 합계 100% 정합 (`P0-3`):** `display_score + gap_to_pass == threshold` 및 `display_score + uplift == projected` 완전 일치.
 4. **다국어 문서 파서 & 인용 검증 강화 (`P1-1`, `P1-2`, `P1-3`, `P1-R1`):** 일본 Excel `.xlsx` `<rPh>` 후리가나·숨김 시트 제외, `.pptx` `mc:Fallback` 제거, `gb18030`/`cp932`/`cp949`(`iso2022_kr` 엄격 KS X 1001)/`cp1252` 무깨짐 자동 판별, `--strict-quotes` CJK 트라이그램 + 숫자·단위 잠금(`5千→5万`, `5K→5M`), 카타카나 경계.
 5. **언어별 네이티브 출력 & 정직 적합도 분기 (`P1-4`, `P1-5`, `P1-6`):** `%p`/`pp`/`pt` 단위 분리, `domain_mode`별 문서 명사 분리, `honest_fit_advisory` / `honest_fit_knockout` 독립 출력, `sample_eval_r1.json` `WEAK(0.25)` 교정, `en`/`zh`/`ja` Grace 마이크로 템플릿 추가.
+
+---
+
+## 5. `v2.2` Human-in-the-Loop 정책 보정 및 실전 검증 (`39 / 39 OK`)
+
+프로젝트 소유자([`@devshin-91`](https://github.com/devshin-91))의 최종 정책 확정(Human-in-the-Loop Calibration)에 따라 아래 4대 원칙을 `score_match.py`, `SKILL.md`, `references/*`에 결정론적 로직과 가드레일로 반영하고, 신규 단위 테스트 6종(총 **`39 / 39 OK`**) 및 콜드 스타트 라이브 E2E 검증([`benchmark/live_e2e_redteam_v22_ko/final_response.md`](../benchmark/live_e2e_redteam_v22_ko/final_response.md))으로 마감했습니다.
+
+1. **자기모순 키워드 ATS 0점 유지 + 사람 확인 `>= 80%` 부분 인정 규칙:**
+   - 보유·미경험 충돌 키워드는 연결 항목이 `PARTIAL`이어도 자동 불인정(`0.0` ATS 가점)을 유지합니다.
+   - 대신 해당 `PARTIAL` 경험이 공고 요구 범위의 몇 `%`를 차지하는지 지원자(사람)에게 확인하고, **본인이 `80% 이상`을 명시적으로 확인한 경우(`contradiction_human_confirmations`)**에 한해 합리적 부분 점수를 반영합니다.
+2. **80% 도달 불가 명시 + 3축 보완 로드맵 + 경력 연수 게이트 vs 경력에 준하는 실력:**
+   - `80.0%` 도달이 불가능한 경우 도달 불가(`UNREACHABLE` / `UNREACHABLE_HARD_EXPERIENCE_GATE`)를 명확히 선언하고, 불필요한 Grace를 억제하는 대신 **경험 · 프로젝트 · 태도/포지셔닝** 3축 보완 로드맵을 제시합니다.
+   - 경력 `X`년을 필수로 요구하며 대체 조항이 없는 공고(`allows_equivalent_skill: false`)에 경력이 없으면 **`UNREACHABLE_HARD_EXPERIENCE_GATE`**로 엄격 판정합니다.
+   - 반대로 **"경력에 준하는 실력"**을 인정하는 공고(`allows_equivalent_skill: true`)라면 제출 실력이 공고 수준에 맞는지 평가하고, 부합 시 **`CONDITIONAL_EQUIVALENT_SKILL`**로 제한적 가능성과 그 근거를 제시하며 **제안 전용 Grace**를 제공합니다.
+3. **무조건 제안 전용 & 직접 수정 요청 거절 (`"됐고 수정해줘"`):**
+   - 사용자가 `"됐고 내 이력서 파일 직접 수정해줘"` 등 직접 대필·수정을 명시적으로 요구하더라도 **무조건 정중히 거절**하며, **"이력서·포트폴리오에 들어갈 최종 표현과 문장은 반드시 사람(지원자 본인)이 결정하고 책임져야 한다"**는 원칙을 강조합니다.
+   - 콜드 스타트 라이브 E2E 검증(`v22_ko_policy`)에서 에이전트가 `resume.txt` 원본을 일절 변경하지 않고(SHA-256 동일) 거절 원칙·`Redis >= 80%` 확인 질문·`CONDITIONAL_EQUIVALENT_SKILL` + Grace 안내·AI 면책 고지를 모두 준수함을 실증했습니다.
+4. **AI 판단 오류 가능성 고지 의무화 (4개국어 · 전 모드):**
+   - `ko`/`en`/`zh`/`ja` 모든 자동 생성 리포트와 코치 응답에 *"본 일치율은 AI 판단이므로 틀릴 수 있으며, 실제 적합도와 최종 문장의 판단·책임은 사람에게 있다"*는 면책 고지를 문서 모드(`portfolio` vs `resume_only`)에 맞춰 필수 출력합니다.
