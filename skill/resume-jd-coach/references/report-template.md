@@ -1,7 +1,7 @@
 # Coaching Report & Round-Diff Template (`resume-jd-coach`)
 
 Use this structure when presenting evaluation results to the user after running `score_match.py`.
-Keep language **strictly aligned** with the session language (`ko`, `en`, `zh`, or `ja`) with **zero cross-language leakage** — `score_match.py --report-out` automatically renders native headers, tables, badges, warnings, and CTAs for all 4 languages.
+Keep language **strictly aligned** with the session language (`ko`, `en`, `zh`, or `ja`) with **zero cross-language leakage**. `score_match.py --report-out` automatically renders native headers, tables, badges, warnings, and CTAs for all 4 languages.
 
 ---
 
@@ -41,26 +41,26 @@ Status badges:
 ## 3. Round-over-Round Progress Summary (Round 2+ Only)
 
 - **해결/상승된 항목 (`Improved / Resolved`):** `항목명 (PARTIAL → FULL, +X.X%p)`
-- **점수 하락 항목 (`Regressed` — 의도치 않은 삭제 여부 확인):** *(only if any)*
+- **점수 하락 항목 (`Regressed`, 의도치 않은 삭제 여부 확인):** *(only if any)*
 - **아직 미해결 항목 (`Still Open`):** count + highlight stalled items (`⚠️ 2라운드 연속 정체`)
 
 ---
 
-## 4. Priority Revision Guide (Coach-First — Do NOT Rewrite!)
+## 4. Priority Revision Guide (Coach-First: Do NOT Rewrite)
 
 Sort by **highest `+X.X%p` uplift potential first**. Group or tag clearly by `gap_type`:
 
-### 🎯 최우선 수정 포인트 (표현·증빙 보강으로 빠른 점수 상승 — `expression_gap`)
+### 최우선 수정 포인트 (표현·증빙 보강으로 빠른 점수 상승, `expression_gap`)
 For each item:
-1. **`[항목명]`** — 현재 `{GRADE}` → `FULL` 도달 시 **`+{uplift}%p`**
+1. **`[항목명]`** (현재 `{GRADE}` → `FULL` 도달 시 **`+{uplift}%p`**)
    - **공고 요구 맥락:** (1 sentence grounded in JD)
    - **현재 이력서/포트폴리오 진단:** (cite verbatim what was found or absent, e.g., "프로젝트 A에 기술 스택만 나열되어 있고 성과/본인 역할이 빠져 있음")
-   - **직접 고칠 포인트:** (concrete, actionable coaching direction — *what* to surface, *where* to place it, *what evidence* convinces a hiring manager — **never write the final resume paragraph for them in default mode**)
+   - **직접 고칠 포인트:** (concrete, actionable coaching direction covering *what* to surface, *where* to place it, and *what evidence* convinces a hiring manager; **never write the final resume paragraph for them**)
 
-### 🌉 유사 경험 연결 포인트 (`transferable_gap`)
+### 유사 경험 연결 포인트 (`transferable_gap`)
 - Explain how to honestly bridge adjacent experience to the JD's core requirement without exaggerating.
 
-### 🧭 실제 미보유 역량 점검 (`true_gap` — 창작 금지)
+### 실제 미보유 역량 점검 (`true_gap`, 창작 금지)
 - State transparently that wording tweaks cannot invent missing experience; advise whether other items alone can carry the candidate over `80%` (give the math: e.g., "표현 보강 항목만 챙겨도 최대 `+18.4%p` 상승해 `82.9%` 도달 가능") or suggest realistic mitigation.
 
 ---
@@ -77,7 +77,7 @@ For each item:
 
 - **If `REVISE` (Normal):**
   - Give a crisp 2–4 item "이번 라운드 핵심 미션" showing the fastest path across `80.0%`.
-  - Invite the user: *"위 포인트를 반영해 이력서/포트폴리오를 수정하신 뒤 다시 올려주시면 **Round {N+1}**으로 동일 기준 재평가를 진행하겠습니다. 진행하다가 막히는 항목이 생기면 언제든 말씀해 주세요 — 1~3단계 보조 모드(Grace)로 같이 풀어드릴 수 있습니다."*
+  - Invite the user: *"위 포인트를 참고해 이력서/포트폴리오를 직접 수정하신 뒤 다시 올려주시면 **Round {N+1}**으로 동일 기준 재평가를 진행하겠습니다. 막히는 항목이 생기면 언제든 말씀해 주세요. 1~3단계 제안 전용 보조 모드(Grace)로 방향을 잡아드릴 수 있습니다."*
 - **If `REVISE` + `grace_recommendation.should_offer == true`:**
   - Append the explicit, gentle Grace Offer from [grace-coaching-playbook.md](./grace-coaching-playbook.md#1-activation-triggers), naming the specific stalled item(s).
 - **If `PASS`:**
@@ -88,5 +88,5 @@ For each item:
 ## 7. Mandatory AI-Judgment & Human-Authorship Disclaimer (Always Last)
 
 Every generated report (`score_match.py`) and every user-facing chat response MUST close with an explicit localized disclaimer stating:
-1. Match percentage and diagnostics are **AI judgments and may be inaccurate** — true role fit must be judged by the human applicant.
-2. Suggestions are **proposal-only** — final wording and sentences in the resume/portfolio are strictly the human applicant's decision and responsibility.
+1. Match percentage and diagnostics are **AI judgments and may be inaccurate**. True role fit must be judged by the human applicant.
+2. Suggestions are **proposal-only**. Final wording and sentences in the resume/portfolio are strictly the human applicant's decision and responsibility.

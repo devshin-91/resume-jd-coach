@@ -1,6 +1,6 @@
-# Grace Mode Coaching Playbook — Strictly Suggestion-Only (벽을 느낄 때 제안 전용 3단계 보조 프로토콜)
+# Grace Mode Coaching Playbook: Strictly Suggestion-Only (벽을 느낄 때 제안 전용 3단계 보조 프로토콜)
 
-Grace Mode exists so users who hit writer's block — or who qualify for an **equivalent-skill (`경력에 준하는 실력`)** window — receive structured, actionable **suggestions** without ever surrendering authorship, responsibility, or truth.
+Grace Mode helps users who hit writer's block (or who qualify for an **equivalent-skill / `경력에 준하는 실력`** window) receive structured, actionable **suggestions** without surrendering authorship, responsibility, or truth.
 
 > [!CAUTION]
 > **ABSOLUTE SUGGESTION-ONLY RULE (직접 수정·대필 절대 거절):**
@@ -16,7 +16,7 @@ Grace Mode exists so users who hit writer's block — or who qualify for an **eq
 
 ## 1. Activation Triggers
 
-### Trigger A — Explicit User Request (Immediate Entry)
+### Trigger A: Explicit User Request (Immediate Entry)
 Enter Grace Mode immediately when the user signals friction or asks for active help in any supported language:
 - **Korean (`ko`):** "막혔어", "감이 안 잡혀", "어떻게 써야 할지 모르겠어", "예시 좀 잡아줘", "같이 고쳐보자", "Grace 써줘"
 - **English (`en`):** "I'm stuck on this bullet", "Not sure how to phrase this", "Can you help me draft this?", "Give me options"
@@ -25,17 +25,17 @@ Enter Grace Mode immediately when the user signals friction or asks for active h
 
 Ask or infer which **specific rubric item(s) or section** they are stuck on (default: top 1–2 highest-impact `expression_gap` / `transferable_gap` items).
 
-### Trigger B — Automatic Engine Signal (Soft Offer Only!)
+### Trigger B: Automatic Engine Signal (Soft Offer Only!)
 `score_match.py` emits `"grace_recommendation": {"should_offer": true, ...}` ONLY in two situations:
 1. **`reachability_status == "CONDITIONAL_EQUIVALENT_SKILL"`:** The JD requires X years of experience **but explicitly accepts equivalent practical skill**, AND the candidate's verified artifacts plausibly match the JD's level. Clearly state *why* that narrow possibility exists, and offer suggestion-only Grace!
 2. **`reachability_status == "REACHABLE"`** with actionable headroom AND (any actionable item stalled `<= PARTIAL` for **2+ consecutive rounds** OR Round 2+ gain `delta_score < +3.0`).
 
-*(Whenever `reachability_status` is `UNREACHABLE` or `UNREACHABLE_HARD_EXPERIENCE_GATE`, `score_match.py` strictly sets `should_offer: false` and `honest_fit_advisory: true` — **do NOT offer Grace to chase an impossible 80%**; state clearly that `80%` is unreachable and present the concrete **Experience / Projects / Attitude & Positioning** deficit roadmap instead!)*
+*(Whenever `reachability_status` is `UNREACHABLE` or `UNREACHABLE_HARD_EXPERIENCE_GATE`, `score_match.py` strictly sets `should_offer: false` and `honest_fit_advisory: true`. **Do NOT offer Grace to chase an impossible 80%**; state clearly that `80%` is unreachable and present the concrete **Experience / Projects / Attitude & Positioning** deficit roadmap instead.)*
 
 When recording the next round's `round_NN_eval.json` after providing Grace help, set `"grace_tier_used": 1 | 2 | 3` so `score_match.py` tracks escalation cleanly (`Tier 1 → Tier 2 → Tier 3`).
 
 When Trigger B fires, **DO NOT jump into rewriting**. Append a warm, pressure-free offer at the end of the Round report:
-> **보조 모드(Grace) 안내:** `[항목명]`이 2라운드 연속 정체되어 있거나 점수 상승 폭이 작아 고민이 되실 수 있어요. 직접 더 다듬어 보셔도 좋고, 막히는 지점이 있다면 **"1단계(질문+구조 뼈대) / 2단계(사실 기반 표현 선택지 A·B) / 3단계(해당 항목 공동 초안)"** 중 원하시는 단계로 바로 보조해 드릴 수 있습니다. 어떻게 진행할까요?
+> **보조 모드(Grace · 제안 전용) 안내:** `[항목명]`이 2라운드 연속 정체되어 있거나 점수 상승 폭이 작아 고민이 되실 수 있어요. 직접 더 다듬어 보셔도 좋고, 막히는 지점이 있다면 **"1단계(질문+구조 뼈대 제안) / 2단계(사실 기반 표현 선택지 A·B 제안) / 3단계(특정 항목 구조 제안 + 사실·책임 체크리스트)"** 중 원하시는 단계로 제안해 드릴 수 있습니다. 어떻게 진행할까요?
 
 ---
 
@@ -43,7 +43,7 @@ When Trigger B fires, **DO NOT jump into rewriting**. Append a warm, pressure-fr
 
 Start at the **lowest tier that unblocks the user**, and escalate only if they ask or remain stuck.
 
-### Grace Tier 1 — Socratic Questions + Structural Frame (생각 꺼내기 + 뼈대)
+### Grace Tier 1: Socratic Questions + Structural Frame (생각 꺼내기 + 뼈대)
 **Goal:** Help the user recall concrete facts they forgot to include, while keeping 100% of the writing in their voice.
 1. Ask **2–4 crisp, easy-to-answer questions** anchored to an existing project/experience in their resume or portfolio.
 2. Provide a **fill-in-the-blank structural skeleton** matched to the item type:
@@ -63,7 +63,7 @@ Start at the **lowest tier that unblocks the user**, and escalate only if they a
 
 ---
 
-### Grace Tier 2 — Fact-Grounded Phrasing Options (A/B/C 표현 선택지)
+### Grace Tier 2: Fact-Grounded Phrasing Options (A/B/C 표현 선택지)
 **Goal:** Unblock users who know *what* they did (from their resume or Tier 1 answers) but struggle with *how* to phrase it sharply for this JD.
 - Present **2–3 distinct options** strictly built from verified user facts:
   - **Option A (임팩트·지표 중심):** Outcome first, action second.
@@ -76,17 +76,17 @@ Start at the **lowest tier that unblocks the user**, and escalate only if they a
 
 ---
 
-### Grace Tier 3 — Targeted Section Structural Proposal — Suggestion-Only (막힌 항목 구조 제안 · 직접 수정 불가)
-**Goal:** Maximum suggestion-only scaffolding when a user is deeply stuck on a specific section/project — **never** a direct file edit or final ghostwritten copy.
-1. Scope strictly to the **requested blocked section(s)** — refuse full-resume rewrites or direct file edits.
+### Grace Tier 3: Targeted Section Structural Proposal (Suggestion-Only / 막힌 항목 구조 제안 · 직접 수정 불가)
+**Goal:** Maximum suggestion-only scaffolding when a user is deeply stuck on a specific section/project, never a direct file edit or final ghostwritten copy.
+1. Scope strictly to the **requested blocked section(s)** and refuse full-resume rewrites or direct file edits.
 2. Propose an annotated structural example built **ONLY** from confirmed facts (marking all unconfirmed metrics with localized `[실제 수치 입력 필요]` placeholders) and explicitly instruct the user to rewrite and decide the final sentences in their own words.
 3. **Mandatory Human Authorship & Fact-Check Checklist (사실 검증 및 본인 책임 체크리스트):**
    Immediately below the suggested structure, require the user to verify both truth and personal authorship before adopting anything:
    ```markdown
    ### 사실 검증 및 본인 결정 체크리스트 (적용 전 확인 필수)
-   - [ ] `[주장/도구/역할]` — 실제 본인 수행 내용과 100% 일치함
-   - [ ] `[미확인 수치 플레이스홀더]` — 실제 측정/기억 가능한 수치로 직접 기입 완료
-   - [ ] 최종 문장과 표현을 내 목소리로 직접 검토·결정했으며, 면접에서 이 내용에 대해 책임 있게 설명할 수 있음
+   - [ ] `[주장/도구/역할]`: 실제 본인 수행 내용과 100% 일치함
+   - [ ] `[미확인 수치 플레이스홀더]`: 실제 측정/기억 가능한 수치로 직접 기입 완료
+   - [ ] 최종 문장과 표현을 내 목소리로 직접 검토·결정했으며, 면접에서 이 내용을 책임 있게 설명할 수 있음
    ```
 4. Once the user writes their own revised section and brings it back, return to **Step 5 (Round `N+1` Re-Evaluation)**.
 

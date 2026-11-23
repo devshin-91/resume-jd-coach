@@ -12,10 +12,10 @@ Default universal category weights (sum = `100`):
 | :--- | :--- | :---: | :--- |
 | `must_have` | 필수 자격 & 핵심 직무 / Must-Have & Core Duties / 核心任职要求与主要职责 / 必須要件・コア業務 | **45%** | Explicit mandatory requirements (`자격요건`, `필수`, `Required`, `任职要求`, `必須条件`) and primary day-to-day responsibilities (`주요업무`, `Responsibilities`, `岗位职责`, `業務内容`). |
 | `portfolio_impact` | 포트폴리오 증빙 & 성과 / Portfolio Proof & Impact / 作品集佐证与量化成果 / ポートフォリオ実績・定量成果 | **25%** | Concrete work artifacts, case studies, problem→action→result depth, measurable outcomes, and clear personal ownership vs team effort. *(For `resume_only` non-portfolio roles, switches to `직무 증빙 & 정량 성과` / `Work Proof & Measurable Impact` / `项目/工作佐证与量化成果` / `職務実績・定量成果`.)* |
-| `preferred` | 우대 사항 / Preferred & Bonus / 加分项与优先条件 / 歓迎要件 | **15%** | Explicit bonus qualifications (`우대사항`, `Preferred`, `加分项/优先`, `歓迎条件`). If the JD lists none, leave empty — `score_match.py` auto-normalizes active category weights to `100%`. |
+| `preferred` | 우대 사항 / Preferred & Bonus / 加分项与优先条件 / 歓迎要件 | **15%** | Explicit bonus qualifications (`우대사항`, `Preferred`, `加分项/优先`, `歓迎条件`). If the JD lists none, leave empty; `score_match.py` auto-normalizes active category weights to `100%`. |
 | `ats_framing` | JD 키워드 & 포지셔닝 / ATS Keywords & Role Framing / JD 关键词与岗位定位 / JDキーワード・ポジション訴求 | **15%** | Split between **deterministic NFKC & negation-aware lexical JD keyword coverage** (`ats_lexical_share`, default `0.50`) and **human recruiter framing** (`0.50`: summary/headline positioning, role-level match, scannability, JD terminology alignment). |
 
-### Role-Adaptive Weight Presets (Optional — Choose *Before* Locking Round 1)
+### Role-Adaptive Weight Presets (Optional: Choose *Before* Locking Round 1)
 Keep the default `45 / 25 / 15 / 15` unless the target role strongly warrants one of these presets:
 - **Portfolio-Heavy Creative / Design / Frontend / Product Roles:** `40 / 35 / 10 / 15`
 - **Junior / Entry-Level / New Grad Roles (신입·주니어):** `40 / 30 / 10 / 20` (elevates project proof + clear role framing over seniority credentials)
@@ -35,7 +35,7 @@ Once `rubric.json` is initialized (`--init-rubric`), weights and items are **loc
    - `ats_framing`: 2–3 framing items (e.g., "상단 요약/헤드라인의 타깃 직무 정합성", "채용담당자 10초 스캔 가독성 및 핵심 성과 상단 배치") **plus** `keywords` list (`must` and `preferred` terms with Korean/English aliases).
 2. **Relative Item Weights (`weight`):**
    - Use integer weights `1`, `2`, or `3` inside each category:
-     - `3` = Core pillar / repeatedly emphasized in JD
+     - `3` = Core requirement repeatedly emphasized in JD
      - `2` = Standard explicit requirement
      - `1` = Secondary / supporting detail
 3. **Knockout Flag (`"is_knockout": true`):**
@@ -49,7 +49,7 @@ Once `rubric.json` is initialized (`--init-rubric`), weights and items are **loc
    - **Ban Overly Broad Umbrella Aliases:** NEVER add generic umbrella words as aliases for specialized technical/domain terms across any language (e.g., `자동화`/`관리`, `management`/`design`, `自动化`/`管理`/`开发`, `自動化`/`開発`/`運用`).
    - `score_match.py` applies NFKC normalization (e.g., full-width `ＡＷＳ`→`AWS`, `ＳＱＬ`→`SQL`) and automatically ignores matches occurring inside negative/unexperienced phrasing across `ko`, `en`, `zh`, and `ja` (e.g., `"Spark 미경험"`, `"no production experience with Spark"`, `"暂未接触 Kubernetes"`, `"Sparkは未経験"`), while flagging `contradictory_mentions` when positive and negative claims conflict.
 5. **Domain & Language Configuration (`rubric.json` top-level):**
-   - `"language": "ko" | "en" | "zh" | "ja"` — keep all rubric titles, coaching feedback, and reports strictly in the selected language (zero cross-language leakage).
+   - `"language": "ko" | "en" | "zh" | "ja"`: keep all rubric titles, coaching feedback, and reports strictly in the selected language (zero cross-language leakage).
    - `"domain_mode": "portfolio"` (default) or `"resume_only"` (switches `portfolio_impact` label to work/measurable-impact wording for non-portfolio roles such as HR/HRBP, Finance/Accounting, Operations, Legal).
 6. **Country-Specific Resume & Evaluation Calibration (`ko` / `en` / `zh` / `ja`):**
    - **United States (`en`):** Expect action-verb + quantified XYZ/STAR impact bullets, clear top-level role alignment, and strict enforcement of years/degree/portfolio knockouts (`Required` vs `Bonus`). Penalize passive `"Responsible for..."` duty dumps without outcome/scale.
@@ -61,7 +61,7 @@ Once `rubric.json` is initialized (`--init-rubric`), weights and items are **loc
 
 ## 3. 5-Level Evidence Grading Scale (Anti-Inflation Anchors)
 
-Assign every item one of the 5 anchored grades. **Never inflate grades to make a user feel better — inflated scores sabotage real interviews.**
+Assign every item one of the 5 anchored grades. **Never inflate grades to make a user feel better; inflated scores sabotage real interviews.**
 
 | Grade | Multiplier | Strict Operational Criteria |
 | :--- | :---: | :--- |
@@ -83,13 +83,13 @@ If a candidate edits Round 2 merely by dropping bare keywords into a skills list
 
 Classify every item graded `< FULL` into one of three honest gap types:
 
-1. **`expression_gap` (표현·증빙 부족 — 최우선 빠른 개선 영역)**
+1. **`expression_gap` (표현·증빙 부족: 최우선 빠른 개선 영역)**
    - The candidate's resume/portfolio hints they likely *did* this work (or adjacent parts of the same project), but omitted metrics, personal ownership, JD-aligned terminology, or portfolio visuals/architecture/rationale.
    - *Coaching action:* Point to the exact existing project/role and ask what concrete actions, constraints, decisions, or numbers can be surfaced.
 2. **`transferable_gap` (유사·전이 역량 연결 필요)**
    - The candidate lacks the exact named tool/domain, but has closely related experience (e.g., PyTorch vs TensorFlow, Figma vs Sketch, B2C growth vs B2B PLG, MySQL vs PostgreSQL).
    - *Coaching action:* Guide the candidate to bridge the underlying principle honestly ("X 환경에서 유사한 Y 문제를 해결한 경험") without claiming hands-on mastery of a tool they haven't used.
-3. **`true_gap` (실제 미보유 역량 — 창작 절대 금지)**
+3. **`true_gap` (실제 미보유 역량: 창작 절대 금지)**
    - Genuine absence of a required skill, credential, or experience scope.
    - *Coaching action:* State candidly that this cannot be fixed by wording tweaks. Offer honest strategic options:
      - Compensate via stronger proof on other `expression_gap` items to cross `80%` honestly,
@@ -104,10 +104,10 @@ Classify every item graded `< FULL` into one of three honest gap types:
 - Exact `Decimal` arithmetic (`ROUND_HALF_UP` across both JSON & Markdown tables) prevents boundary or sum contradictions.
 - **Knockout Risk Rule:** Any `is_knockout: true` item graded **`MISSING (0.00)` or `WEAK (0.25)`** triggers a Knockout Risk warning (prevents bypassing with 1 bare keyword).
 - Verdict states:
-  - **`PASS`**: `exact_score >= threshold` AND `knockout_risks == []`
-  - **`PASS_WITH_RISK`**: `exact_score >= threshold` AND `len(knockout_risks) > 0`
-  - **`REVISE`**: `exact_score < threshold`
-- **Contradictory Keyword Policy (`v2.2` Human-Confirmed `>= 80%` Rule):** Keywords appearing in BOTH positive and negative contexts (`contradictory_mention`) earn **`0.0` ATS credit** by default — and are **NOT** auto-credited even if linked to a `PARTIAL` item. Ask the human user what percentage (`0–100%`) of the JD's required scope their real partial experience covers; ONLY if the human explicitly confirms **`>= 80%`**, record `"contradiction_human_confirmations": {"<term>": {"coverage_pct": 85, "rationale": "..."}}` in `round_NN_eval.json` to grant reasonable partial credit. Never guess `coverage_pct` on the user's behalf.
+  - `PASS`: `exact_score >= threshold` AND `knockout_risks == []`
+  - `PASS_WITH_RISK`: `exact_score >= threshold` AND `len(knockout_risks) > 0`
+  - `REVISE`: `exact_score < threshold`
+- **Contradictory Keyword Policy (`v2.2` Human-Confirmed `>= 80%` Rule):** Keywords appearing in BOTH positive and negative contexts (`contradictory_mention`) earn **`0.0` ATS credit** by default and are **NOT** auto-credited even if linked to a `PARTIAL` item. Ask the human user what percentage (`0–100%`) of the JD's required scope their real partial experience covers; ONLY if the human explicitly confirms **`>= 80%`**, record `"contradiction_human_confirmations": {"<term>": {"coverage_pct": 85, "rationale": "..."}}` in `round_NN_eval.json` to grant reasonable partial credit. Never guess `coverage_pct` on the user's behalf.
 - **Unreachable (`< 80%`) & Experience-Year Gate Policy (`v2.2`):**
   - Tag mandatory experience-year requirements in `must_have` with `"experience_gate": {"required_years": X, "allows_equivalent_skill": true | false}`.
   - If `allows_equivalent_skill == false` and candidate lacks those years (`true_gap`) → judge strictly **`UNREACHABLE_HARD_EXPERIENCE_GATE`** ("80% 도달 불가"), suppress Grace, and output concrete `growth_gaps` (`experience`, `projects`, `attitude_framing`).
