@@ -56,4 +56,20 @@
 - *Include only verified terms inside real project context; bare skills-list stuffing is capped at `WEAK (0.25)`.*
 
 > [!IMPORTANT]
-> **Honest Role-Fit Advisory:** All remaining gaps are `true_gap` items (zero actionable wording gaps left). Rather than fabricating missing qualifications, consider building a small genuine proof artifact or targeting better-aligned postings.
+> **Threshold (80.0%) Unreachable:** All remaining gaps are genuine capability gaps (`true_gap`), so reaching **80.0% is currently unreachable** via wording changes. Focus on filling the missing experience, project, and attitude/positioning pillars below rather than forcing edits.
+
+## What to Build & Fill Next (Experience · Projects · Attitude & Positioning)
+
+- **Experience (Years & Hands-On Scope):**
+  - `MH-1` Leading experimentation platform & statistical methodology validation — Still a genuine capability gap — cannot be solved via wording edits.
+  - `MH-2` PhD/equivalent + 4+ years causal inference & experimentation — Still lacks 4+ yrs causal inference & PhD/equivalent scope.
+  - `MH-3` Org-wide experimentation training & data literacy education — No org-wide statistical training experience.
+- **Projects & Artifacts (Verifiable Proof):**
+  - `PR-1` Causal inference publications & AI/LLM experimentation workflows — True gap — keep honest.
+- **Attitude & Positioning (Ownership & Collaboration):**
+  - `AF-1` Staff Experimentation / Causal Inference role framing — Honest seniority gap relative to Staff Data Scientist.
+
+---
+
+> [!NOTE]
+> **AI Judgment Disclaimer & Human Responsibility:** This match score and diagnostic are AI-generated estimates and may be inaccurate. True role fit—and every final sentence or expression placed in your resume/portfolio—must be judged and owned solely by the human applicant. (This coach offers suggestions only and refuses direct rewrite requests.)

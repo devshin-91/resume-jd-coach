@@ -27,3 +27,8 @@
    - **Revision Direction:** KNOCKOUT RISK: You have 12 yrs HR experience, but 'collaborated with fellow PBPs' reads as IC peer collaboration—explicitly state your 5+ years of direct people-management scope if you managed PBPs.
 
 *You cleared the overall threshold, but please review the Knockout Risk warning above before submitting.*
+
+---
+
+> [!NOTE]
+> **AI Judgment Disclaimer & Human Responsibility:** This match score and diagnostic are AI-generated estimates and may be inaccurate. True role fit—and every final sentence or expression placed in your resume—must be judged and owned solely by the human applicant. (This coach offers suggestions only and refuses direct rewrite requests.)

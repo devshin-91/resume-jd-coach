@@ -29,3 +29,8 @@
   - `AF-1` Systems-minded core interaction designer positioning: `WEAK → FULL` (`+5.6 pp`) ✅
 
 *Congratulations! Your application passed the locked rubric threshold with zero knockout risks.*
+
+---
+
+> [!NOTE]
+> **AI Judgment Disclaimer & Human Responsibility:** This match score and diagnostic are AI-generated estimates and may be inaccurate. True role fit—and every final sentence or expression placed in your resume/portfolio—must be judged and owned solely by the human applicant. (This coach offers suggestions only and refuses direct rewrite requests.)

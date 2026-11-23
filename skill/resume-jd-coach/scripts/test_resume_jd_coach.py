@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Automated self-test suite for resume-jd-coach v2.1 multilingual scripts."""
+"""Automated self-test suite for resume-jd-coach v2.2 multilingual & human-calibrated scripts."""
 
 from __future__ import annotations
 
@@ -375,7 +375,7 @@ class TestScoringMathAndGuardrailsV11(unittest.TestCase):
         self.assertEqual(res["projected_expression_only_score"], res["total_score"])
         self.assertLess(res["projected_with_transferable_cap"], 80.0)
         md = score_match.render_markdown_report(res)
-        self.assertIn("단독 도달 어려움", md)
+        self.assertIn("단독 도달 불가", md)
         self.assertIn("유사경험 현실 상한", md)
 
 
@@ -1318,8 +1318,10 @@ class TestRLAIFV21HardeningRegressions(unittest.TestCase):
         res = score_match.evaluate_round(rubric, ev, candidate_text=cand, strict_quotes=True)
         # Even though AF-1 is an expression_gap, projected max is way below 80% & knockout MH-1 is true_gap!
         self.assertTrue(res["grace_recommendation"]["honest_fit_advisory"])
+        self.assertFalse(res["grace_recommendation"]["should_offer"])
         md = score_match.render_markdown_report(res)
-        self.assertIn("Honest Role-Fit Advisory", md)
+        self.assertIn("Threshold (80.0%) Unreachable", md)
+        self.assertIn("What to Build & Fill Next", md)
 
     def test_p1_5_locale_units_mode_aware_nouns_dedup_alias_and_pass_regression_cta(self) -> None:
         rubric = _make_minimal_rubric(language="en", domain_mode="resume_only")
@@ -1397,6 +1399,211 @@ class TestRLAIFV21HardeningRegressions(unittest.TestCase):
         md = score_match.render_markdown_report(res)
         self.assertIn("hard Knockout requirement is a genuine `true_gap`", md)
         self.assertNotIn("below the `80.0%` threshold", md)
+
+
+class TestHumanCalibrationV22Policies(unittest.TestCase):
+    def test_v22_contradictory_partial_0_credit_unless_human_confirms_80pct(self) -> None:
+        rubric = _make_minimal_rubric(language="ko")
+        rubric["keywords"] = [
+            {"term": "Redis", "aliases": [], "tier": "must", "linked_item_id": "MH-2"},
+            {"term": "Go", "aliases": [], "tier": "must", "linked_item_id": "MH-1"},
+        ]
+        rubric["rubric_hash"] = score_match.compute_rubric_hash(rubric)
+        cand = (
+            "경력: Go 백엔드 개발 및 Redis 캐시 운영.\n"
+            "아직 해 보지 않은 것\n"
+            "Redis 멀티리전 클러스터 운영\n"
+        )
+        base_ev = {
+            "round": 1,
+            "items": [
+                {"id": "MH-1", "grade": "FULL", "evidence_quote": "Go 백엔드 개발"},
+                {"id": "MH-2", "grade": "PARTIAL", "evidence_quote": "Redis 캐시 운영", "gap_type": "expression_gap"},
+                {"id": "PI-1", "grade": "FULL", "evidence_quote": "Go 백엔드 개발"},
+                {"id": "PR-1", "grade": "FULL", "evidence_quote": "Go 백엔드 개발"},
+                {"id": "AF-1", "grade": "FULL", "evidence_quote": "Go 백엔드 개발"},
+            ],
+        }
+        # 1. Linked item is PARTIAL, NO human confirmation -> MUST stay 0 ATS credit!
+        r_no_conf = score_match.evaluate_round(rubric, base_ev, candidate_text=cand, strict_quotes=True)
+        redis_no = next(d for d in r_no_conf["ats_keywords"]["details"] if d["term"] == "Redis")
+        self.assertFalse(redis_no["matched"])
+        self.assertTrue(redis_no["contradictory_mention"])
+        self.assertEqual(r_no_conf["ats_keywords"]["matched_count"], 1)
+
+        # 2. Human confirms only 79% (< 80%) -> STILL 0 ATS credit!
+        ev_79 = json.loads(json.dumps(base_ev))
+        ev_79["contradiction_human_confirmations"] = {"Redis": {"coverage_pct": 79, "rationale": "캐시 일부만 담당"}}
+        r_79 = score_match.evaluate_round(rubric, ev_79, candidate_text=cand, strict_quotes=True)
+        redis_79 = next(d for d in r_79["ats_keywords"]["details"] if d["term"] == "Redis")
+        self.assertFalse(redis_79["matched"])
+        self.assertTrue(redis_79["contradictory_mention"])
+
+        # 3. Human explicitly confirms 85% (>= 80%) -> reasonable partial ATS credit granted!
+        ev_85 = json.loads(json.dumps(base_ev))
+        ev_85["contradiction_human_confirmations"] = {
+            "Redis": {"coverage_pct": 85, "rationale": "JD 핵심인 캐시·분산락·세션 실무 85% 커버"}
+        }
+        r_85 = score_match.evaluate_round(rubric, ev_85, candidate_text=cand, strict_quotes=True)
+        redis_85 = next(d for d in r_85["ats_keywords"]["details"] if d["term"] == "Redis")
+        self.assertTrue(redis_85["matched"])
+        self.assertTrue(redis_85["human_confirmed_partial"])
+        self.assertFalse(redis_85["contradictory_mention"])
+        self.assertEqual(r_85["ats_keywords"]["matched_count"], 2)
+        md_85 = score_match.render_markdown_report(r_85)
+        self.assertIn("사람 확인 기반 부분 인정 반영 (`>= 80%` 범위 충족)", md_85)
+        self.assertIn("85.0%", md_85)
+
+    def test_v22_hard_experience_gate_unreachable_suppresses_grace_and_shows_3pillar_roadmap(self) -> None:
+        rubric = _make_minimal_rubric(language="ko")
+        rubric["categories"]["must_have"][0]["experience_gate"] = {
+            "required_years": 5,
+            "allows_equivalent_skill": False,
+        }
+        rubric["rubric_hash"] = score_match.compute_rubric_hash(rubric)
+        cand = "Go 토이 프로젝트 수행. 신입 지원자입니다."
+        ev1 = {
+            "round": 1,
+            "items": [
+                {"id": "MH-1", "grade": "MISSING", "evidence_quote": "", "gap_type": "true_gap", "action_hint": "실무 경력 5년 필수 요건 미충족"},
+                {"id": "MH-2", "grade": "PARTIAL", "evidence_quote": "Go 토이 프로젝트 수행", "gap_type": "expression_gap", "action_hint": "실무 규모 아키텍처 경험 필요"},
+                {"id": "PI-1", "grade": "WEAK", "evidence_quote": "Go 토이 프로젝트 수행", "gap_type": "expression_gap", "action_hint": "실사용자 트래픽 기반 프로젝트 성과 보강"},
+                {"id": "PR-1", "grade": "MISSING", "evidence_quote": "", "gap_type": "true_gap"},
+                {"id": "AF-1", "grade": "WEAK", "evidence_quote": "신입 지원자입니다", "gap_type": "expression_gap", "action_hint": "문제 해결 태도와 오너십 중심 요약 보강"},
+            ],
+            "growth_gaps": {
+                "experience": ["실무 백엔드 경력 5년 축적 필요"],
+                "projects": ["실제 트래픽을 처리하는 프로덕션 수준 프로젝트 구축 필요"],
+                "attitude_framing": ["단순 과제 수행이 아닌 장애 대응·협업 오너십 태도 어필 필요"],
+            },
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            hp = Path(tmp) / "h.json"
+            r1 = score_match.evaluate_round(rubric, ev1, candidate_text=cand, strict_quotes=True)
+            score_match.update_history(hp, r1)
+            ev2 = json.loads(json.dumps(ev1))
+            ev2["round"] = 2
+            r2 = score_match.evaluate_round(rubric, ev2, candidate_text=cand, history=json.loads(hp.read_text(encoding="utf-8")), strict_quotes=True)
+            self.assertEqual(r2["grace_recommendation"]["reachability_status"], "UNREACHABLE_HARD_EXPERIENCE_GATE")
+            self.assertFalse(r2["grace_recommendation"]["should_offer"])
+            self.assertTrue(r2["grace_recommendation"]["honest_fit_advisory"])
+            md2 = score_match.render_markdown_report(r2)
+            self.assertIn("도달 불가 판정 (필수 경력 연수 요건 미달)", md2)
+            self.assertIn("경험 (경력·실무 범위)", md2)
+            self.assertIn("프로젝트 (실전 증빙·산출물)", md2)
+            self.assertIn("태도 & 포지셔닝", md2)
+            self.assertNotIn("보조 모드(Grace · 제안 전용) 안내", md2)
+
+    def test_v22_equivalent_skill_allowed_meets_bar_leaves_possibility_and_offers_grace(self) -> None:
+        rubric = _make_minimal_rubric(language="ko")
+        rubric["categories"]["must_have"][0]["experience_gate"] = {
+            "required_years": 3,
+            "allows_equivalent_skill": True,
+        }
+        rubric["rubric_hash"] = score_match.compute_rubric_hash(rubric)
+        cand = "Go 오픈소스 분산 큐 메인테이너(일 10만 요청 처리). 데이터 분석 파이프라인 구축."
+        ev_pass_equiv = {
+            "round": 1,
+            "items": [
+                {"id": "MH-1", "grade": "PARTIAL", "evidence_quote": "Go 오픈소스 분산 큐 메인테이너(일 10만 요청 처리)", "gap_type": "true_gap", "action_hint": "정규 경력 3년은 없으나 동등 실력 증빙 가능"},
+                {"id": "MH-2", "grade": "FULL", "evidence_quote": "Go 오픈소스 분산 큐 메인테이너(일 10만 요청 처리)"},
+                {"id": "PI-1", "grade": "PARTIAL", "evidence_quote": "일 10만 요청 처리", "gap_type": "expression_gap", "action_hint": "장애 복구·성능 지표를 상세화하세요"},
+                {"id": "PR-1", "grade": "FULL", "evidence_quote": "데이터 분석 파이프라인 구축"},
+                {"id": "AF-1", "grade": "PARTIAL", "evidence_quote": "Go 오픈소스 분산 큐 메인테이너", "gap_type": "expression_gap", "action_hint": "3년차 수준 실무 역량임을 상단에 명료히 제시"},
+            ],
+            "equivalent_skill_assessments": {
+                "MH-1": {
+                    "meets_bar": True,
+                    "reason": "일 10만 요청을 처리하는 오픈소스 분산 큐 메인테이너 경력이 공고의 3년차 백엔드 설계 수준에 준하는 실력으로 판단됨",
+                }
+            },
+        }
+        r_eq = score_match.evaluate_round(rubric, ev_pass_equiv, candidate_text=cand, strict_quotes=True)
+        self.assertEqual(r_eq["grace_recommendation"]["reachability_status"], "CONDITIONAL_EQUIVALENT_SKILL")
+        self.assertTrue(r_eq["grace_recommendation"]["should_offer"])
+        self.assertEqual(r_eq["grace_recommendation"]["suggested_tier"], 1)
+        md_eq = score_match.render_markdown_report(r_eq)
+        self.assertIn("제한적 가능성 있음 (경력에 준하는 실력 인정 공고)", md_eq)
+        self.assertIn("오픈소스 분산 큐 메인테이너 경력", md_eq)
+        self.assertIn("보조 모드(Grace · 제안 전용) 안내", md_eq)
+
+        # If equivalent skill does NOT meet the bar -> strictly UNREACHABLE and Grace suppressed!
+        ev_fail_equiv = json.loads(json.dumps(ev_pass_equiv))
+        ev_fail_equiv["equivalent_skill_assessments"] = {
+            "MH-1": {"meets_bar": False, "reason": "기초 CRUD 학습 수준으로 3년차 수준에 미달"}
+        }
+        r_no = score_match.evaluate_round(rubric, ev_fail_equiv, candidate_text=cand, strict_quotes=True)
+        self.assertEqual(r_no["grace_recommendation"]["reachability_status"], "UNREACHABLE_HARD_EXPERIENCE_GATE")
+        self.assertFalse(r_no["grace_recommendation"]["should_offer"])
+
+    def test_v22_unreachable_general_suppresses_grace_even_with_expression_gaps(self) -> None:
+        rubric = _make_minimal_rubric(language="en", domain_mode="resume_only")
+        cand = "Go Brief summary"
+        ev1 = {
+            "round": 1,
+            "items": [
+                {"id": "MH-1", "grade": "MISSING", "evidence_quote": "", "gap_type": "true_gap"},
+                {"id": "MH-2", "grade": "MISSING", "evidence_quote": "", "gap_type": "true_gap"},
+                {"id": "PI-1", "grade": "MISSING", "evidence_quote": "", "gap_type": "true_gap"},
+                {"id": "PR-1", "grade": "MISSING", "evidence_quote": "", "gap_type": "true_gap"},
+                {"id": "AF-1", "grade": "WEAK", "evidence_quote": "Brief summary", "gap_type": "expression_gap"},
+            ],
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            hp = Path(tmp) / "h.json"
+            r1 = score_match.evaluate_round(rubric, ev1, candidate_text=cand, strict_quotes=True)
+            score_match.update_history(hp, r1)
+            ev2 = json.loads(json.dumps(ev1))
+            ev2["round"] = 2
+            r2 = score_match.evaluate_round(rubric, ev2, candidate_text=cand, history=json.loads(hp.read_text(encoding="utf-8")), strict_quotes=True)
+            self.assertEqual(r2["grace_recommendation"]["reachability_status"], "UNREACHABLE")
+            self.assertFalse(r2["grace_recommendation"]["should_offer"])
+            md = score_match.render_markdown_report(r2)
+            self.assertIn("Unreachable", md)
+            self.assertIn("What to Build & Fill Next", md)
+
+    def test_v22_mandatory_ai_disclaimer_and_suggestion_only_notice_all_4_languages(self) -> None:
+        checks = {
+            "ko": ("AI 판단 한계 및 최종 책임 안내", None),
+            "en": ("AI Judgment Disclaimer & Human Responsibility", score_match.HANGUL_OR_CJK_RE),
+            "zh": ("AI 评估局限与人工最终责任说明", re.compile(r"[\uac00-\ud7af\u3040-\u30ff]")),
+            "ja": ("AI判定の限界および最終責任について", re.compile(r"[\uac00-\ud7af]")),
+        }
+        for lang, (expected_phrase, forbid_rx) in checks.items():
+            rubric = _make_minimal_rubric(language=lang, domain_mode="resume_only")
+            rubric["keywords"] = [{"term": "Go", "aliases": [], "tier": "must"}]
+            rubric["rubric_hash"] = score_match.compute_rubric_hash(rubric)
+            cand = "Go Built X Built Y Case Study Bonus Summary"
+            ev = {
+                "round": 1,
+                "items": [
+                    {"id": "MH-1", "grade": "FULL", "evidence_quote": "Built X"},
+                    {"id": "MH-2", "grade": "FULL", "evidence_quote": "Built Y"},
+                    {"id": "PI-1", "grade": "FULL", "evidence_quote": "Case Study"},
+                    {"id": "PR-1", "grade": "FULL", "evidence_quote": "Bonus"},
+                    {"id": "AF-1", "grade": "FULL", "evidence_quote": "Summary"},
+                ],
+            }
+            res = score_match.evaluate_round(rubric, ev, candidate_text=cand, strict_quotes=True)
+            md = score_match.render_markdown_report(res)
+            self.assertIn(expected_phrase, md, f"Missing AI disclaimer in {lang}")
+            if forbid_rx is not None:
+                self.assertIsNone(forbid_rx.search(md), f"Cross-language leakage in {lang} disclaimer")
+
+    def test_v22_experience_gate_hash_backward_compatibility(self) -> None:
+        r_plain = _make_minimal_rubric(language="ko")
+        h_plain = score_match.compute_rubric_hash(r_plain)
+        r_gate = json.loads(json.dumps(r_plain))
+        r_gate["categories"]["must_have"][0]["experience_gate"] = {
+            "required_years": 3,
+            "allows_equivalent_skill": False,
+        }
+        h_gate = score_match.compute_rubric_hash(r_gate)
+        self.assertNotEqual(h_plain, h_gate)
+        # Changing allows_equivalent_skill mid-session MUST change rubric_hash!
+        r_gate2 = json.loads(json.dumps(r_gate))
+        r_gate2["categories"]["must_have"][0]["experience_gate"]["allows_equivalent_skill"] = True
+        self.assertNotEqual(h_gate, score_match.compute_rubric_hash(r_gate2))
 
 
 if __name__ == "__main__":

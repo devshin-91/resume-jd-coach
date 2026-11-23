@@ -82,3 +82,11 @@ For each item:
   - Append the explicit, gentle Grace Offer from [grace-coaching-playbook.md](./grace-coaching-playbook.md#1-activation-triggers), naming the specific stalled item(s).
 - **If `PASS`:**
   - Summarize top 3 competitive strengths to lean on in interviews, optionally share 1–2 polish tips, and confirm they are ready to apply!
+
+---
+
+## 7. Mandatory AI-Judgment & Human-Authorship Disclaimer (Always Last)
+
+Every generated report (`score_match.py`) and every user-facing chat response MUST close with an explicit localized disclaimer stating:
+1. Match percentage and diagnostics are **AI judgments and may be inaccurate** — true role fit must be judged by the human applicant.
+2. Suggestions are **proposal-only** — final wording and sentences in the resume/portfolio are strictly the human applicant's decision and responsibility.

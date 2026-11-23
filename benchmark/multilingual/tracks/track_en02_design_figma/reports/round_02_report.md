@@ -77,5 +77,10 @@
 3. **`PI-2` Measurable adoption, task-speed, or usability improvements** (`MISSING` · up to `+14.0 pp`)
 
 > [!TIP]
-> **Grace Assistance Available (Suggested: Tier 1):** Actionable item(s) stalled for 2+ rounds: MH-1(8+ years product design leading complex software E2E), MH-2(Shipped portfolio showing interaction craft on complex workflows), PI-1(Problem framing, interaction trade-offs & iterative prototypes)
-> Keep revising on your own, or opt in to **Tier 1 (Questions + Skeleton) / Tier 2 (Fact-Grounded Options A·B) / Tier 3 (Targeted Pair-Draft)** whenever you feel stuck.
+> **Grace Assistance Available — Suggestion-Only (Suggested: Tier 1):** Actionable item(s) stalled for 2+ rounds: MH-1(8+ years product design leading complex software E2E), MH-2(Shipped portfolio showing interaction craft on complex workflows), PI-1(Problem framing, interaction trade-offs & iterative prototypes)
+> Keep revising on your own, or opt in to **Tier 1 (Questions + Skeleton) / Tier 2 (Fact-Grounded Options A·B) / Tier 3 (Suggestion-Only Section Structure + Fact-Check Checklist)**. *(Direct rewrites are strictly refused—the human applicant must own and decide every sentence.)*
+
+---
+
+> [!NOTE]
+> **AI Judgment Disclaimer & Human Responsibility:** This match score and diagnostic are AI-generated estimates and may be inaccurate. True role fit—and every final sentence or expression placed in your resume/portfolio—must be judged and owned solely by the human applicant. (This coach offers suggestions only and refuses direct rewrite requests.)

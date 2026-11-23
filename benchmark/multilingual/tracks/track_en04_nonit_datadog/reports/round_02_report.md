@@ -21,3 +21,8 @@
   - `MH-1` 10+ yrs HR/PBP experience INCLUDING 5+ yrs leading a PBP team: `WEAK → FULL` (`+6.8 pp`) ✅
 
 *Congratulations! Your application passed the locked rubric threshold with zero knockout risks.*
+
+---
+
+> [!NOTE]
+> **AI Judgment Disclaimer & Human Responsibility:** This match score and diagnostic are AI-generated estimates and may be inaccurate. True role fit—and every final sentence or expression placed in your resume—must be judged and owned solely by the human applicant. (This coach offers suggestions only and refuses direct rewrite requests.)

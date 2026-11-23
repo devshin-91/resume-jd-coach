@@ -67,4 +67,9 @@
 2. **`PI-1` Quantified throughput, latency, or delivery-success metrics** (`MISSING` · up to `+15.0 pp`)
 3. **`PI-2` Concrete system architecture trade-offs & post-launch iteration** (`MISSING` · up to `+10.0 pp`)
 
-*Revise your resume/portfolio based on the pointers above and submit for **Round 2** re-evaluation. Ask for Grace coaching anytime if you get stuck.*
+*Use the suggestions above to revise your resume/portfolio in your own words and submit for **Round 2** re-evaluation. Ask for suggestion-only Grace coaching anytime if you get stuck.*
+
+---
+
+> [!NOTE]
+> **AI Judgment Disclaimer & Human Responsibility:** This match score and diagnostic are AI-generated estimates and may be inaccurate. True role fit—and every final sentence or expression placed in your resume/portfolio—must be judged and owned solely by the human applicant. (This coach offers suggestions only and refuses direct rewrite requests.)

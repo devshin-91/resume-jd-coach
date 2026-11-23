@@ -1,0 +1,118 @@
+{
+  "round": 1,
+  "rubric_hash": "9b49e54380bf6c51",
+  "equivalent_skill_assessments": {
+    "MH-1": {
+      "meets_bar": true,
+      "reason": "정규 기업 백엔드 경력 3년은 없으나, GitHub Star 1,800+ 규모 Go 분산 API 게이트웨이(OpenGate-Go) 핵심 메인테이너로서 핵심 라우터·서킷 브레이커 설계, 일 12만 요청 벤치마크 p99 지연 84% 단축(240ms→38ms), 99.95% 가용성 확보, 14명 외부 컨트리뷰터 PR 리뷰 및 릴리스 파이프라인 운영 등 실전 수준의 엔지니어링 역량이 확인되어 '이에 준하는 실력' 조항 기준 제한적인 도전 가능성이 있습니다."
+    }
+  },
+  "growth_gaps": {
+    "experience": [
+      "정규 기업 프로덕션 결제·정산 환경에서의 3년 이상 실무 운영 및 온콜·장애 대응 경험 부재(공고의 '경력에 준하는 실력' 조항을 통해 오픈소스 메인테이너 실적으로 제한적 어필 가능)",
+      "Redis 클러스터 구성, 분산 락(Distributed Lock) 및 대규모 분산 처리 실무 운영 경험 부재"
+    ],
+    "projects": [
+      "PaySim-Local 결제 정산 시뮬레이터에 실제 동시성·부하 검증 지표, 정산/트랜잭션 일관성 설계, 그리고 검증 가능한 GitHub/아키텍처 자료 보강 필요",
+      "비동기 큐(Kafka/RabbitMQ/SQS 등)와 캐시를 결합한 장애 격리 아키텍처 실전 구현 경험 미확인"
+    ],
+    "attitude_framing": [
+      "상단 요약이 '정규 실무 경력 없음'을 앞세워 방어적으로 시작하므로, 거짓 없이 신입/졸업예정 신분을 유지하되 검증된 오픈소스 메인테이너·성능 최적화 실적을 전면 배치할 필요",
+      "Redis를 보유 기술과 미경험 영역에 동시에 적어 자기모순 경고가 발생하므로, 실제 수행한 범위를 일관되고 투명하게 구분해 기술할 필요"
+    ]
+  },
+  "items": [
+    {
+      "id": "MH-1",
+      "grade": "PARTIAL",
+      "evidence_quote": "GitHub Star 1,800+ 규모 Go API 게이트웨이의 핵심 라우터 및 서킷 브레이커 모듈 설계·유지보수 담당",
+      "source": "resume.txt - 핵심 프로젝트 및 오픈소스 실적 (OpenGate-Go)",
+      "gap_type": "true_gap",
+      "action_hint": "정규 기업 3년 경력 자체는 허위로 채울 수 없습니다. 대신 공고가 '이에 준하는 실력'을 명시하므로, OpenGate-Go의 실제 사용자 채택 사례·프로덕션 버그/장애 이슈 대응·장기 유지보수 책임을 검증 가능한 링크와 함께 전면 부각해 실력 동등성을 입증하세요."
+    },
+    {
+      "id": "MH-2",
+      "grade": "STRONG_PARTIAL",
+      "evidence_quote": "일 평균 12만 요청을 처리하는 커뮤니티 벤치마크 환경에서 커넥션 풀링 및 워커 튜닝으로 p99 응답 지연을 240ms에서 38ms로 84% 단축",
+      "source": "resume.txt - 핵심 프로젝트 및 오픈소스 실적 (OpenGate-Go)",
+      "gap_type": "expression_gap",
+      "action_hint": "Go 고트래픽 설계·튜닝 역량은 강하지만 현재는 '커뮤니티 벤치마크 환경' 중심 서술입니다. 실제 수행한 범위 안에서 피크 TPS·동시 접속 규모, 병목 프로파일링 방식, 릴리스 파이프라인 운영 중 모니터링·롤백·장애 대응 절차를 구체화하세요."
+    },
+    {
+      "id": "MH-3",
+      "grade": "WEAK",
+      "evidence_quote": "Redis 단일 인스턴스를 이용해 단순 조회 응답 캐싱 기능만 로컬 테스트 수준으로 연동",
+      "source": "resume.txt - 핵심 프로젝트 및 오픈소스 실적 (PaySim-Local)",
+      "gap_type": "true_gap",
+      "action_hint": "로컬 단일 인스턴스 단순 조회 캐싱만 확인되며, Redis 클러스터·분산 락·대규모 분산 처리 실무 운영은 명시적으로 미경험입니다. 절대 미경험 역량을 부풀리지 말고, 실제 경험한 TTL 캐싱 범위를 정직하게 구분해 적되 별도 실전 검증(예: 분산 락·클러스터 장애 시나리오 학습/구현) 계획이나 보완 방향을 점검하세요."
+    },
+    {
+      "id": "MH-4",
+      "grade": "PARTIAL",
+      "evidence_quote": "Python FastAPI + PostgreSQL 기반 멱등성 키(Idempotency Key) 결제 API 구현",
+      "source": "resume.txt - 핵심 프로젝트 및 오픈소스 실적 (PaySim-Local)",
+      "gap_type": "transferable_gap",
+      "action_hint": "개인 시뮬레이터 수준의 멱등성 결제 API 구현만 한 줄로 언급되어 있습니다. 실제 구현한 범위 안에서 중복 결제 방지·트랜잭션 격리 수준·정산 상태 전이 설계 및 동시 요청 테스트 결과를 구체화하고, OpenGate-Go의 고트래픽 안정화 원리가 결제 API에 어떻게 전이되는지 정직하게 연결하세요."
+    },
+    {
+      "id": "MH-5",
+      "grade": "PARTIAL",
+      "evidence_quote": "업스트림 장애 시 자동 폴백과 슬라이딩 윈도우 레이트 리미터를 구현하여 99.95% 가용성 유지",
+      "source": "resume.txt - 핵심 프로젝트 및 오픈소스 실적 (OpenGate-Go)",
+      "gap_type": "transferable_gap",
+      "action_hint": "서킷 브레이커·자동 폴백·레이트 리미터 기반 장애 격리 역량은 뚜렷하나, 공고가 요구하는 '캐시 및 비동기 큐 기반' 장애 격리 중 비동기 큐 경험이 부재합니다. 없는 비동기 큐 경험을 지어내지 말고, 기존 장애 전파 차단·백프레셔/폴백 설계 원리를 구체화해 전이 가능성을 설명하세요."
+    },
+    {
+      "id": "PI-1",
+      "grade": "STRONG_PARTIAL",
+      "evidence_quote": "GitHub Star 1,800+ 규모 Go API 게이트웨이의 핵심 라우터 및 서킷 브레이커 모듈 설계·유지보수 담당",
+      "source": "resume.txt - 핵심 프로젝트 및 오픈소스 실적 (OpenGate-Go)",
+      "gap_type": "expression_gap",
+      "action_hint": "오픈소스 메인테이너 및 결제 시뮬레이터라는 주제 적합성은 우수합니다. 각 프로젝트의 핵심 아키텍처 구조, 검토한 대안과 기술적 트레이드오프, 그리고 채용담당자가 직접 확인할 수 있는 GitHub 저장소·대표 PR·벤치마크 리포트 링크를 보강하세요."
+    },
+    {
+      "id": "PI-2",
+      "grade": "STRONG_PARTIAL",
+      "evidence_quote": "일 평균 12만 요청을 처리하는 커뮤니티 벤치마크 환경에서 커넥션 풀링 및 워커 튜닝으로 p99 응답 지연을 240ms에서 38ms로 84% 단축",
+      "source": "resume.txt - 핵심 프로젝트 및 오픈소스 실적 (OpenGate-Go)",
+      "gap_type": "expression_gap",
+      "action_hint": "OpenGate-Go의 p99 지연(240ms→38ms) 및 99.95% 가용성 지표는 매우 설득력 있습니다. 측정 조건(피크 TPS, 동시성 수, 장애 주입 시나리오)을 명시하고, PaySim-Local에서도 실제로 측정한 중복 요청 방어·응답 시간 지표가 있다면 사실 범위 내에서 추가하세요."
+    },
+    {
+      "id": "PI-3",
+      "grade": "STRONG_PARTIAL",
+      "evidence_quote": "14명의 외부 컨트리뷰터 PR 코드 리뷰 및 릴리스 파이프라인 운영",
+      "source": "resume.txt - 핵심 프로젝트 및 오픈소스 실적 (OpenGate-Go)",
+      "gap_type": "expression_gap",
+      "action_hint": "외부 컨트리뷰터 14명 PR 리뷰 및 릴리스 운영은 훌륭한 오너십 근거입니다. 본인이 직접 내린 핵심 아키텍처 의사결정(예: 슬라이딩 윈도우 선택 근거, 서킷 브레이커 임계치 기준, PR 리뷰/품질 기준)을 1~2가지 구체 사례로 드러내세요."
+    },
+    {
+      "id": "PR-1",
+      "grade": "FULL",
+      "evidence_quote": "1. OpenGate-Go (오픈소스 분산 API 게이트웨이 핵심 메인테이너, 2025.03 ~ 현재)",
+      "source": "resume.txt - 핵심 프로젝트 및 오픈소스 실적 (OpenGate-Go)"
+    },
+    {
+      "id": "PR-2",
+      "grade": "FULL",
+      "evidence_quote": "일 평균 12만 요청을 처리하는 커뮤니티 벤치마크 환경에서 커넥션 풀링 및 워커 튜닝으로 p99 응답 지연을 240ms에서 38ms로 84% 단축",
+      "source": "resume.txt - 핵심 프로젝트 및 오픈소스 실적 (OpenGate-Go)"
+    },
+    {
+      "id": "AF-1",
+      "grade": "PARTIAL",
+      "evidence_quote": "컴퓨터공학 전공 졸업 예정(정규 실무 경력 없음). 고성능 Go 네트워크 서버와 오픈소스 분산 미들웨어 개발에 집중해 왔습니다.",
+      "source": "resume.txt - 요약",
+      "gap_type": "expression_gap",
+      "action_hint": "상단 요약이 '정규 실무 경력 없음'을 가장 먼저 노출해 강점이 가려집니다. 졸업 예정 사실은 정직하게 유지하되, 공고의 '이에 준하는 실력' 및 '결제 플랫폼 고트래픽 안정화' 관점에 맞춰 Star 1,800+ 오픈소스 메인테이너·p99 84% 단축·결제 멱등성 API 구현 역량이 첫 2~3줄에 드러나도록 포지셔닝을 재구성하세요."
+    },
+    {
+      "id": "AF-2",
+      "grade": "PARTIAL",
+      "evidence_quote": "Go, Python, PostgreSQL, Docker, Redis (단일 노드 TTL 캐시 연동 경험)",
+      "source": "resume.txt - 보유 기술",
+      "gap_type": "expression_gap",
+      "action_hint": "Redis가 [보유 기술]과 [미경험 및 보완 예정 영역]에 동시에 등장해 ATS 자기모순(0점 처리)과 채용담당자 혼선을 유발합니다. 실제 숙련도·범위를 일관된 기준으로 명확히 구분하고, OpenGate-Go 및 PaySim-Local의 검증 링크(GitHub/PR/벤치마크)와 핵심 성과 수치를 상단 스캔이 쉽게 배치하세요."
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Deterministic scoring, rubric lock, multilingual negation-aware ATS audit, and round-diff engine for resume-jd-coach (v2.1).
+"""Deterministic scoring, rubric lock, multilingual negation-aware ATS audit, and round-diff engine for resume-jd-coach (v2.2).
 
 Supports 4 native languages: Korean (ko), English (en), Simplified Chinese (zh), Japanese (ja).
 Zero external dependencies (Python 3 Standard Library only).
@@ -103,37 +103,52 @@ I18N: dict[str, dict[str, Any]] = {
         "evidence_missing": "   - **현재 근거:** 제출 문서에서 확인되지 않음",
         "revision_dir": "   - **수정 포인트:** {hint}",
         "ats_heading": "## JD 키워드 점검 (ATS 스캔)",
-        "contra_warn": "> **문서 내 자기모순 키워드 경고 (ATS 점수 0점 처리):** {terms} 키워드가 '보유/스킬' 문맥과 '미경험/부정' 문맥에 동시에 등장하여 매칭 점수에서 제외되었습니다. 서류 신뢰도를 위해 실제 미보유 항목은 스킬란에서 제거하세요.",
+        "contra_warn": "> **문서 내 자기모순 키워드 경고 (ATS 점수 0점 처리):** {terms} 키워드가 '보유/스킬' 문맥과 '미경험/부정' 문맥에 동시에 등장하여 매칭 점수에서 제외되었습니다(연결 항목이 `PARTIAL`이어도 자동 불인정). 서류 신뢰도를 위해 미보유 항목은 제거하거나, 실제 부분 경험이 공고 요구 범위의 **80% 이상**을 차지한다면 본인 확인을 거쳐 합리적 부분 인정 여부를 재판정할 수 있습니다.",
+        "contra_confirmed_note": "- *사람 확인 기반 부분 인정 반영 (`>= 80%` 범위 충족):* {fmt}",
         "missing_must": "- **필수 키워드 미반영:** {fmt}",
         "missing_pref": "- **우대 키워드 미반영:** {fmt}",
         "negated_note": "- *참고: {terms} 키워드는 미경험/부정 문맥에서만 확인되어 매칭에서 정확히 제외되었습니다.*",
         "ats_tip": "- *실제 경험·사용 사실이 있는 키워드만 구체적 프로젝트 맥락 안에 반영하세요. 근거 없는 스킬 나열은 `WEAK(0.25)` 상한이 적용됩니다.*",
         "mission_reach": "## 이번 라운드 핵심 미션 (최단 {threshold}% 돌파 TOP 3)",
-        "mission_unreach": "## 최대 보강 가능 항목 (표현·유사경험 보강만으로 {threshold}% 단독 도달 어려움)",
+        "mission_unreach": "## 최대 보강 가능 항목 (표현·유사경험 보강만으로 {threshold}% 단독 도달 불가)",
         "gain_transferable": "유사경험 현실 상한 `+{cap}{u}` (FULL 기준 `+{full}{u}`)",
         "gain_full": "최대 `+{full}{u}`",
         "honest_fit_only": (
-            "> **정직한 직무 적합도 안내:** 남은 미충족 항목이 모두 실제 미보유 역량(`true_gap`)입니다. "
-            "표현 수정만으로 합격선을 인위적으로 맞추려 하기보다, 소규모 실전 포트폴리오 보강 또는 보유 강점이 더 잘 맞는 공고 병행 지원을 권장합니다."
+            "> **합격선({threshold}%) 도달 불가 판정:** 남은 미충족 항목이 모두 실제 미보유 역량(`true_gap`)이므로 현재 기준으로는 **{threshold}% 도달이 불가합니다**. "
+            "허위 창작이나 무리한 표현 수정으로 점수를 채우려 하기보다, 아래 부족 영역을 실제로 채우거나 현재 강점에 맞는 공고를 우선 탐색하세요."
         ),
         "honest_fit_capped": (
-            "> **정직한 직무 적합도 안내:** 실제 미보유 역량(`true_gap`)으로 인해 표현·유사경험 보강을 모두 반영해도 최대 도달 가능 점수가 `{hi}%`(합격선 `{threshold}%` 미만)입니다. "
-            "허위 창작 없이 현재 경력을 정리하는 한편, 보유 강점에 더 부합하는 공고 병행 지원이나 실전 역량 보강을 권장합니다."
+            "> **합격선({threshold}%) 도달 불가 판정:** 실제 미보유 역량(`true_gap`)으로 인해 표현·유사경험을 모두 보강해도 최대 도달 가능 점수가 `{hi}%`로 **{threshold}% 도달이 불가합니다**. "
+            "아래 부족 영역(경험·프로젝트·태도)을 중심으로 실제 역량을 보완하는 방향을 권장합니다."
         ),
         "honest_fit_knockout": (
-            "> **정직한 직무 적합도 안내:** 다른 항목 보강으로 종합 점수는 `{hi}%`까지 올릴 수 있으나, 핵심 필수 요건(Knockout) 중 실제 미보유 역량(`true_gap`)이 존재합니다. "
-            "허위 기재 없이 해당 요건의 실제 보완 가능성이나 대안 공고 병행 지원을 함께 검토하세요."
+            "> **합격선({threshold}%) 도달 불가 판정 (핵심 Knockout 미달):** 다른 항목 보강 시 산술 점수는 `{hi}%`까지 오를 수 있으나, 핵심 필수 요건(Knockout) 중 실제 미보유 역량(`true_gap`)이 있어 현재 조건에서는 도달 불가로 판정합니다."
         ),
-        "grace_offer_hdr": "> **보조 모드(Grace) 제안 (권장 시작: Tier {tier}):** {reasons}",
+        "unreachable_hard_exp": (
+            "> **합격선({threshold}%) 도달 불가 판정 (필수 경력 연수 요건 미달):** 본 공고는 필수 경력 요건({items})을 요구하며 '경력에 준하는 실력' 대체 인정을 명시하지 않았습니다. 해당 경력이 부재하므로 **현재 기준 도달 불가**로 판정합니다."
+        ),
+        "equiv_skill_banner": (
+            "> **제한적 가능성 있음 (경력에 준하는 실력 인정 공고):** 본 공고는 경력에 준하는 실력을 인정하며, 현재 제출된 실력 근거를 검토한 결과 제한적인 도전 가능성이 확인되었습니다.\n"
+            "{reasons}"
+        ),
+        "equiv_tag": "경력 {years}년 대체 가능",
+        "years_tag": "경력 {years}년",
+        "growth_roadmap_hdr": "## {threshold}% 도달 불가에 따른 보완 로드맵 (채워야 할 영역)",
+        "growth_exp_label": "- **경험 (경력·실무 범위):**",
+        "growth_proj_label": "- **프로젝트 (실전 증빙·산출물):**",
+        "growth_att_label": "- **태도 & 포지셔닝 (오너십·문제해결·협업):**",
+        "grace_offer_hdr": "> **보조 모드(Grace · 제안 전용) 안내 (권장 시작: Tier {tier}):** {reasons}",
         "grace_offer_body": (
-            "> 직접 더 다듬어 보셔도 좋고, 막히는 항목이 있다면 **1단계(질문+뼈대) / 2단계(사실 기반 표현 A·B안) / 3단계(특정 항목 공동 초안)** 중 원하시는 단계로 바로 보조해 드릴 수 있습니다."
+            "> 직접 더 다듬어 보셔도 좋고, 막히는 항목이 있다면 **1단계(질문+구조 뼈대 제안) / 2단계(사실 기반 표현 선택지 A·B 제안) / 3단계(특정 항목 구조 제안 + 사실·책임 체크리스트)** 중 원하시는 단계로 제안해 드릴 수 있습니다. *(직접 수정 대행은 불가하며 최종 문장 결정 책임은 지원자 본인에게 있습니다.)*"
         ),
+        "grace_reason_equiv": "경력에 준하는 실력 인정 공고에서 제한적 가능성 확인: {items}",
         "grace_reason_stalled": "동일 보완 가능 항목이 2라운드 이상 정체됨: {names}",
         "grace_reason_low_gain": "직전 라운드 대비 점수 상승폭이 +3.0%p 미만 ({delta})",
-        "cta_revise": "*위 포인트를 반영해 {doc}를 직접 수정하신 뒤 **Round {next_r}** 재평가를 요청해 주세요. 막히는 항목이 있으면 언제든 보조 모드(Grace 1~3단계)를 요청하실 수 있습니다.*",
+        "cta_revise": "*위 포인트를 참고해 {doc}를 직접 수정하신 뒤 **Round {next_r}** 재평가를 요청해 주세요. 막히는 항목이 있으면 언제든 제안 전용 보조 모드(Grace 1~3단계)를 요청하실 수 있습니다.*",
         "cta_pass_risk": "*종합 점수는 합격선을 넘겼습니다. 다만 위 Knockout 필수요건 경고를 확인하신 뒤, 실제 보유 역량이라면 간단히 반영해 최종 재점검하시는 것을 권장합니다.*",
         "cta_pass": "*축하합니다! 잠금 루브릭 기준 합격선을 돌파했으며 핵심 Knockout 누락도 없습니다. 강점 항목을 면접 핵심 어필 포인트로 활용해 보세요.*",
         "cta_pass_regression_note": "*참고: 합격선을 넘겼지만 위 점수 하락 항목(`{ids}`)에 의도치 않은 삭제가 없는지 제출 전 한 번 더 확인하세요.*",
+        "ai_disclaimer": "> **AI 판단 한계 및 최종 책임 안내:** 본 일치율과 진단은 AI의 기준 해석·텍스트 분석에 기반한 참고 지표이며 틀릴 수 있습니다. 실제 공고 적합도 판단과 {doc}에 들어갈 최종 표현·문장의 결정 및 책임은 반드시 지원자 본인(사람)에게 있습니다. (본 코치는 제안만 제공하며 직접 수정 요청은 거절합니다.)",
     },
     "en": {
         "unit_pp": "pp",
@@ -177,37 +192,52 @@ I18N: dict[str, dict[str, Any]] = {
         "evidence_missing": "   - **Current Evidence:** Not found in submitted documents",
         "revision_dir": "   - **Revision Direction:** {hint}",
         "ats_heading": "## JD Keywords Audit (ATS Lexical Scan)",
-        "contra_warn": "> **Self-Contradictory Keyword Warning (0 ATS Credit Awarded):** {terms} appeared in BOTH positive (skills/claims) and negative (unexperienced) sections of the document and were excluded from ATS credit. Remove unverified claims to protect credibility.",
+        "contra_warn": "> **Self-Contradictory Keyword Warning (0 ATS Credit Awarded):** {terms} appeared in BOTH positive and negative contexts and received 0 ATS credit (not granted automatically even when linked to `PARTIAL`). Remove unverified claims—or if your verified partial experience covers **>= 80%** of the JD's required scope, confirm that coverage explicitly with the human applicant before granting partial credit.",
+        "contra_confirmed_note": "- *Human-Confirmed Partial Scope Credit (`>= 80%` coverage verified):* {fmt}",
         "missing_must": "- **Missing Must Keywords:** {fmt}",
         "missing_pref": "- **Missing Preferred Keywords:** {fmt}",
         "negated_note": "- *Note: {terms} appeared only inside negative/unexperienced phrasing and were correctly excluded.*",
         "ats_tip": "- *Include only verified terms inside real project context; bare skills-list stuffing is capped at `WEAK (0.25)`.*",
         "mission_reach": "## Next Round Fastest Path Mission (Top 3)",
-        "mission_unreach": "## Highest-Impact Fixes (Threshold {threshold}% Unlikely Without True Gaps)",
+        "mission_unreach": "## Highest-Impact Gaps (Threshold {threshold}% Unreachable Under Current Profile)",
         "gain_transferable": "realistic cap `+{cap} {u}` (full `+{full} {u}`)",
         "gain_full": "up to `+{full} {u}`",
         "honest_fit_only": (
-            "> **Honest Role-Fit Advisory:** All remaining gaps are `true_gap` items (zero actionable wording gaps left). "
-            "Rather than fabricating missing qualifications, consider building a small genuine proof artifact or targeting better-aligned postings."
+            "> **Threshold ({threshold}%) Unreachable:** All remaining gaps are genuine capability gaps (`true_gap`), so reaching **{threshold}% is currently unreachable** via wording changes. "
+            "Focus on filling the missing experience, project, and attitude/positioning pillars below rather than forcing edits."
         ),
         "honest_fit_capped": (
-            "> **Honest Role-Fit Advisory:** Due to genuine capability gaps (`true_gap`), even resolving every actionable expression/transferable gap caps your honest reachable score at `{hi}%` (below the `{threshold}%` threshold). "
-            "Polish your verified experience honestly, and consider targeting roles aligned with your current strengths alongside medium-term upskilling."
+            "> **Threshold ({threshold}%) Unreachable:** Due to genuine capability gaps (`true_gap`), even resolving every actionable gap caps your score at `{hi}%`, making **{threshold}% unreachable** under your current profile. "
+            "Review the deficit roadmap below to see what concrete experience, projects, and framing to build next."
         ),
         "honest_fit_knockout": (
-            "> **Honest Role-Fit Advisory:** Although fixing actionable gaps could raise your aggregate score to `{hi}%`, at least one hard Knockout requirement is a genuine `true_gap`. "
-            "Never fabricate missing knockouts; weigh whether real-world upskilling or parallel better-aligned postings make stronger sense."
+            "> **Threshold ({threshold}%) Unreachable (Hard Knockout Gap):** Although other edits could raise the raw score to `{hi}%`, a hard Knockout requirement is a genuine `true_gap`, making this posting currently unreachable."
         ),
-        "grace_offer_hdr": "> **Grace Assistance Available (Suggested: Tier {tier}):** {reasons}",
+        "unreachable_hard_exp": (
+            "> **Threshold ({threshold}%) Unreachable (Mandatory Experience Gate):** This posting mandates required years of experience ({items}) without an equivalent-skill exception. Without that experience, this requirement is judged **unreachable**."
+        ),
+        "equiv_skill_banner": (
+            "> **Limited Possibility Open (Equivalent-Skill Posting):** This posting explicitly accepts equivalent practical skill in lieu of stated years, and your verified artifacts show plausible alignment with the target bar:\n"
+            "{reasons}"
+        ),
+        "equiv_tag": "{years}y equiv.",
+        "years_tag": "{years}y",
+        "growth_roadmap_hdr": "## What to Build & Fill Next (Experience · Projects · Attitude & Positioning)",
+        "growth_exp_label": "- **Experience (Years & Hands-On Scope):**",
+        "growth_proj_label": "- **Projects & Artifacts (Verifiable Proof):**",
+        "growth_att_label": "- **Attitude & Positioning (Ownership & Collaboration):**",
+        "grace_offer_hdr": "> **Grace Assistance Available — Suggestion-Only (Suggested: Tier {tier}):** {reasons}",
         "grace_offer_body": (
-            "> Keep revising on your own, or opt in to **Tier 1 (Questions + Skeleton) / Tier 2 (Fact-Grounded Options A·B) / Tier 3 (Targeted Pair-Draft)** whenever you feel stuck."
+            "> Keep revising on your own, or opt in to **Tier 1 (Questions + Skeleton) / Tier 2 (Fact-Grounded Options A·B) / Tier 3 (Suggestion-Only Section Structure + Fact-Check Checklist)**. *(Direct rewrites are strictly refused—the human applicant must own and decide every sentence.)*"
         ),
+        "grace_reason_equiv": "Equivalent-skill posting shows plausible potential: {items}",
         "grace_reason_stalled": "Actionable item(s) stalled for 2+ rounds: {names}",
         "grace_reason_low_gain": "Round-over-round gain below +3.0 pp ({delta})",
-        "cta_revise": "*Revise your {doc} based on the pointers above and submit for **Round {next_r}** re-evaluation. Ask for Grace coaching anytime if you get stuck.*",
+        "cta_revise": "*Use the suggestions above to revise your {doc} in your own words and submit for **Round {next_r}** re-evaluation. Ask for suggestion-only Grace coaching anytime if you get stuck.*",
         "cta_pass_risk": "*You cleared the overall threshold, but please review the Knockout Risk warning above before submitting.*",
         "cta_pass": "*Congratulations! Your application passed the locked rubric threshold with zero knockout risks.*",
         "cta_pass_regression_note": "*Note: Although you passed the threshold, please double-check the regressed item(s) (`{ids}`) above to ensure no valuable proof was accidentally removed.*",
+        "ai_disclaimer": "> **AI Judgment Disclaimer & Human Responsibility:** This match score and diagnostic are AI-generated estimates and may be inaccurate. True role fit—and every final sentence or expression placed in your {doc}—must be judged and owned solely by the human applicant. (This coach offers suggestions only and refuses direct rewrite requests.)",
     },
     "zh": {
         "unit_pp": "pp",
@@ -251,37 +281,52 @@ I18N: dict[str, dict[str, Any]] = {
         "evidence_missing": "   - **当前材料佐证：** 提交材料中未检索到相关证据",
         "revision_dir": "   - **修改方向：** {hint}",
         "ats_heading": "## JD 关键词扫描（ATS 词法核查）",
-        "contra_warn": "> **材料内部自相矛盾警告（不计 ATS 匹配得分）：** {terms} 同时出现在“已掌握技能”与“未接触/暂无经验”语境中，系统已取消其匹配得分。为维护可信度，请从技能栏中移除未实际掌握的条目。",
+        "contra_warn": "> **材料内部自相矛盾警告（ATS 计 0 分）：** {terms} 同时出现在“已掌握”与“未接触/暂无经验”语境中，系统已取消其 ATS 得分（即使关联项为 `PARTIAL` 亦不自动给分）。请移除未实际掌握条目；若您真实掌握的部分经验经本人确认已覆盖岗位该项要求的 **80% 及以上**，可在明确确认范围后纳入合理部分加分。",
+        "contra_confirmed_note": "- *经本人确认的合理部分范围计分（覆盖率 `>= 80%`）：* {fmt}",
         "missing_must": "- **缺失核心关键词：** {fmt}",
         "missing_pref": "- **缺失加分关键词：** {fmt}",
         "negated_note": "- *说明：{terms} 仅出现在“未接触/暂无经验”等否定语境中，系统已准确将其排除在匹配之外。*",
         "ats_tip": "- *请仅将真实用过的技术或方法融入具体项目描述中；脱离项目的技能清单堆砌（如仅写“了解/熟悉”）最高仅计 `WEAK (0.25)`。*",
         "mission_reach": "## 下一轮最快冲线任务（突破 {threshold}% TOP 3）",
-        "mission_unreach": "## 最高收益补强项（仅靠表达与迁移优化恐难单独达到 {threshold}%）",
+        "mission_unreach": "## 当前无法达到 {threshold}% 通过线的核心短板",
         "gain_transferable": "迁移上限 `+{cap} {u}`（满分参考 `+{full} {u}`）",
         "gain_full": "最高 `+{full} {u}`",
         "honest_fit_only": (
-            "> **诚实人岗匹配建议：** 剩余未达标项均为真实能力缺口（`true_gap`），已无可通过话术润色提升的空间。"
-            "切勿虚构经历强凑分数，建议补充真实小型实战作品，或优先投递与现有优势更契合的岗位。"
+            "> **无法达到通过线（{threshold}%）判定：** 剩余未达标项均为真实能力缺口（`true_gap`），仅靠文字润色**无法达到 {threshold}%**。"
+            "切勿虚构经历，请参考下方短板清单重点补齐真实经验、实战项目与岗位定位。"
         ),
         "honest_fit_capped": (
-            "> **诚实人岗匹配建议：** 受核心真实能力缺口（`true_gap`）限制，即使补齐全部可优化表达与迁移项，诚实可达上限仍为 `{hi}%`（低于通过线 `{threshold}%`）。"
-            "建议在如实打磨现有优势的同时，优先匹配契合度更高的岗位并规划中长期能力补齐。"
+            "> **无法达到通过线（{threshold}%）判定：** 受真实能力缺口（`true_gap`）限制，即使补齐全部可优化表达项，上限仍为 `{hi}%`，当前条件**无法达到 {threshold}%**。"
+            "请参考下方短板清单规划后续能力建设或匹配更契合岗位。"
         ),
         "honest_fit_knockout": (
-            "> **诚实人岗匹配建议：** 尽管补强其余表达项可将总分提升至 `{hi}%`，但仍存在属于真实能力缺口（`true_gap`）的核心一票否决项（Knockout）。"
-            "切勿虚构经历，建议同时评估契合度更高的岗位或先补齐核心实战能力。"
+            "> **无法达到通过线（{threshold}%）判定（核心 Knockout 缺口）：** 尽管其余优化可将总分拉升至 `{hi}%`，但核心一票否决项存在真实缺口（`true_gap`），当前条件判定为无法达标。"
         ),
-        "grace_offer_hdr": "> **可选分级辅导（Grace 模式 · 建议起点：第 {tier} 级）：** {reasons}",
+        "unreachable_hard_exp": (
+            "> **无法达到通过线（{threshold}%）判定（硬性工作年限门槛未达标）：** 本岗位明确要求工作年限（{items}）且未声明接受同等实战能力替代，因缺乏对应年限经验，判定为**当前无法达标**。"
+        ),
+        "equiv_skill_banner": (
+            "> **保留有限机会（岗位认可同等实战能力）：** 本岗位允许以同等实战实力替代工作年限，结合您当前已展示的项目与能力深度，存在有限冲击可能：\n"
+            "{reasons}"
+        ),
+        "equiv_tag": "相当于 {years} 年经验",
+        "years_tag": "{years} 年经验",
+        "growth_roadmap_hdr": "## 后续需要补齐的短板（经验 · 项目 · 态度与定位）",
+        "growth_exp_label": "- **经验（年限与核心实务范围）：**",
+        "growth_proj_label": "- **项目（可验证实战作品与量化成果）：**",
+        "growth_att_label": "- **态度与定位（主人翁意识、问题拆解与跨团队协作）：**",
+        "grace_offer_hdr": "> **可选分级辅导（Grace 仅限建议 · 建议起点：第 {tier} 级）：** {reasons}",
         "grace_offer_body": (
-            "> 您可以继续自主修改；若在某个模块卡壳，随时可开启 **第 1 级（启发式提问+框架）/ 第 2 级（基于事实的 A/B 表达方案）/ 第 3 级（指定段落联合起草+事实核对表）**。"
+            "> 您可以继续自主润色；若卡壳可开启 **第 1 级（提问+框架建议）/ 第 2 级（事实基础表达选项 A/B）/ 第 3 级（指定段落结构建议+事实与责任核对表）**。*（严格拒绝代改/重写，最终文字决定权与责任归求职者本人。）*"
         ),
+        "grace_reason_equiv": "认可同等实战能力的岗位存在有限冲击可能：{items}",
         "grace_reason_stalled": "同一可优化项连续停滞 2 轮及以上：{names}",
         "grace_reason_low_gain": "较上一轮提分幅度不足 +3.0 pp（{delta}）",
-        "cta_revise": "*请参考以上修改方向自行润色{doc}，完成后提交进入 **第 {next_r} 轮** 同标准复评。如遇写作瓶颈，随时可申请 Grace 1~3 级辅导。*",
+        "cta_revise": "*请参考以上建议用您自己的话修改{doc}，完成后提交进入 **第 {next_r} 轮** 同标准复评。如遇瓶颈可随时开启仅限建议的 Grace 辅导。*",
         "cta_pass_risk": "*综合得分已超过通过线，但投递前请务必核查上方 Knockout 核心门槛风险；若实际具备该经历，建议快速补充后复验。*",
         "cta_pass": "*恭喜！您的{doc}已在锁定评分标准下顺利通过阈值，且无核心 Knockout 缺失。可将高分优势项整理为面试重点案例。*",
         "cta_pass_regression_note": "*提示：虽然总分已达标，但投递前请确认上方回退项（`{ids}`）是否被误删，以免损失原有亮点。*",
+        "ai_disclaimer": "> **AI 评估局限与人工最终责任说明：** 本匹配度分数及诊断结果基于 AI 文本分析生成，可能存在误差。真实岗位契合度判断以及最终写入{doc}的每一句表达与措辞，均须由求职者本人（人类）独立决定并承担责任。（本工具仅提供建议，拒绝代为直接修改文档。）",
     },
     "ja": {
         "unit_pp": "pt",
@@ -325,37 +370,52 @@ I18N: dict[str, dict[str, Any]] = {
         "evidence_missing": "   - **現在の記載根拠:** 提出書類内に該当記載なし",
         "revision_dir": "   - **改善ポイント:** {hint}",
         "ats_heading": "## 求人キーワード点検（ATS語彙スキャン）",
-        "contra_warn": "> **書類内の自己矛盾キーワード警告（ATS加点対象外）:** {terms} が「保有スキル」と「未経験・否定」の両方の文脈に出現したため、ATS加点から除外しました。書類の信頼性を守るため、実務未経験の項目はスキル一覧から削除してください。",
+        "contra_warn": "> **書類内の自己矛盾キーワード警告（ATS 0点処理）:** {terms} が「保有スキル」と「未経験・否定」の両文脈に出現したためATS加点から除外しました（紐づく項目が `PARTIAL` でも自動加点しません）。未経験項目は削除するか、実務でカバーできている範囲が求人要件の **80%以上** であるとご本人が確認できる場合のみ、範囲確認のうえ再評価してください。",
+        "contra_confirmed_note": "- *ご本人確認済みの妥当な部分範囲加点（カバー率 `>= 80%`）:* {fmt}",
         "missing_must": "- **未反映の必須キーワード:** {fmt}",
         "missing_pref": "- **未反映の歓迎キーワード:** {fmt}",
         "negated_note": "- *補足: {terms} は未経験・否定文脈のみで検出されたため、正しくマッチ対象外として処理されました。*",
         "ats_tip": "- *実務経験のある用語のみ具体的なプロジェクト文脈に織り込んでください。根拠のないスキル羅列は `WEAK (0.25)` が上限となります。*",
         "mission_reach": "## 次回ラウンド最優先ミッション（最短 {threshold}% 突破 TOP 3）",
-        "mission_unreach": "## 最大改善可能項目（表現・類似経験の補強のみでは {threshold}% 到達困難）",
+        "mission_unreach": "## 合格基準（{threshold}%）到達不可の主要ギャップ",
         "gain_transferable": "類似経験上限 `+{cap}{u}`（FULL基準 `+{full}{u}`）",
         "gain_full": "最大 `+{full}{u}`",
         "honest_fit_only": (
-            "> **正直なポジション適合度のご案内:** 残る未充足項目はすべて未経験・未保有要件（`true_gap`）です。"
-            "表現調整のみで無理に基準点を目指さず、小規模な実践アウトプットの追加や強みが活きる他求人の併願をおすすめします。"
+            "> **合格基準（{threshold}%）到達不可判定:** 残る未充足項目はすべて未経験・未保有要件（`true_gap`）のため、現時点では **{threshold}% 到達不可** と判定します。"
+            "表現調整で無理に合わせず、下記の不足領域（経験・プロジェクト・姿勢）を埋める実務補完をご検討ください。"
         ),
         "honest_fit_capped": (
-            "> **正直なポジション適合度のご案内:** 必須の未経験要件（`true_gap`）があるため、改善可能な表現・類似経験をすべて補強しても現実的な上限は `{hi}%`（合格基準 `{threshold}%` 未満）にとどまります。"
-            "虚偽記載は行わず、強みを活かせる他求人の併願や中長期的な実務補完も併せてご検討ください。"
+            "> **合格基準（{threshold}%）到達不可判定:** 未経験要件（`true_gap`）により改善可能項目をすべて補強しても上限は `{hi}%` にとどまるため、現時点では **{threshold}% 到達不可** と判定します。"
+            "下記の不足領域を確認のうえ、実務補完または適合度の高い求人への応募をご検討ください。"
         ),
         "honest_fit_knockout": (
-            "> **正直なポジション適合度のご案内:** 他の改善可能項目の補強により総合スコアは `{hi}%` まで伸ばせる見込みですが、必須要件（Knockout）に未経験項目（`true_gap`）が含まれています。"
-            "虚偽記載は厳禁とし、他求人の併願や実務補完計画も併せてご検討ください。"
+            "> **合格基準（{threshold}%）到達不可判定（必須Knockout未充足）:** 他項目の補強で総合点は `{hi}%` に達し得ますが、必須要件（Knockout）に未経験項目（`true_gap`）があるため到達不可と判定します。"
         ),
-        "grace_offer_hdr": "> **段階的サポート（Graceモード・推奨開始: Tier {tier}）:** {reasons}",
+        "unreachable_hard_exp": (
+            "> **合格基準（{threshold}%）到達不可判定（必須実務年数未達）:** 本求人は必須経験年数（{items}）を求めており「同等の実務スキル」による代替規定がありません。該当経験が不足しているため**到達不可**と判定します。"
+        ),
+        "equiv_skill_banner": (
+            "> **限定的な可能性あり（経験年数相当のスキル認定求人）:** 本求人は実務年数に相当するスキルを認めており、ご提出内容から求人水準に近い可能性が確認されました。\n"
+            "{reasons}"
+        ),
+        "equiv_tag": "実務{years}年相当",
+        "years_tag": "実務{years}年",
+        "growth_roadmap_hdr": "## 今後補うべき不足領域（経験・プロジェクト・姿勢/訴求）",
+        "growth_exp_label": "- **経験（実務年数・担当領域）:**",
+        "growth_proj_label": "- **プロジェクト（実務実績・アウトプット）:**",
+        "growth_att_label": "- **姿勢・訴求（主体性・課題解決・協働）:**",
+        "grace_offer_hdr": "> **段階的サポート（Grace 提案専用・推奨開始: Tier {tier}）:** {reasons}",
         "grace_offer_body": (
-            "> ご自身での修正を継続いただいても構いませんし、手が止まった項目があれば **Tier 1（深掘り質問＋構成テンプレート）/ Tier 2（事実ベースの表現案A・B）/ Tier 3（対象箇所の共同ドラフト＋事実確認チェックリスト）** で支援可能です。"
+            "> ご自身での修正を継続いただいても構いませんし、手が止まった項目があれば **Tier 1（深掘り質問＋構成案）/ Tier 2（事実ベースの表現候補A・B）/ Tier 3（対象箇所の構成提案＋事実・責任確認チェックリスト）** を提案可能です。*（直接の書き換え代行はお断りしており、最終文章の決定責任は応募者ご本人にあります。）*"
         ),
+        "grace_reason_equiv": "実務相当スキル認定求人での限定的な可能性を確認: {items}",
         "grace_reason_stalled": "改善可能な同一項目が2回連続で停滞: {names}",
         "grace_reason_low_gain": "前回ラウンド比の上昇幅が +3.0pt 未満（{delta}）",
-        "cta_revise": "*上記ポイントを踏まえて{doc}をご自身で修正のうえ、**Round {next_r}** の再評価をご依頼ください。詰まった箇所があればいつでも Grace（1〜3段階）サポートをお呼びいただけます。*",
+        "cta_revise": "*上記提案を踏まえて{doc}をご自身の言葉で修正のうえ、**Round {next_r}** の再評価をご依頼ください。詰まった箇所があればいつでも提案専用の Grace サポートをお呼びいただけます。*",
         "cta_pass_risk": "*総合スコアは合格基準を満たしていますが、応募前に上記の必須要件（Knockout）警告をご確認ください。実務経験がある場合は追記後の最終チェックをおすすめします。*",
         "cta_pass": "*おめでとうございます！ロック済み評価基準で合格ラインを突破し、必須要件（Knockout）の欠落もありません。高評価ポイントを面接での強みとしてご活用ください。*",
         "cta_pass_regression_note": "*補足: 合格基準は満たしていますが、スコア低下項目（`{ids}`）に意図しない削除がないか応募前にご確認ください。*",
+        "ai_disclaimer": "> **AI判定の限界および最終責任について:** 本マッチ率および診断結果はAIによる分析に基づく参考値であり、誤りが含まれる可能性があります。実際の適合度の判断および{doc}に記載する最終的な表現・文章の決定責任は、すべて応募者ご本人（人）にあります。（本ツールは提案のみを行い、直接の書き換え代行はお断りします。）",
     },
 }
 
@@ -555,6 +615,22 @@ def _dec_norm(val: Any) -> str:
     return format(d, "f")
 
 
+def _canonical_rubric_item(item: dict[str, Any]) -> dict[str, Any]:
+    out: dict[str, Any] = {
+        "id": str(item["id"]),
+        "title": str(item["title"]),
+        "weight": _dec_norm(item.get("weight", 1)),
+        "is_knockout": bool(item.get("is_knockout", False)),
+    }
+    if item.get("experience_gate"):
+        eg = item["experience_gate"]
+        out["experience_gate"] = {
+            "required_years": _dec_norm(eg["required_years"]),
+            "allows_equivalent_skill": bool(eg.get("allows_equivalent_skill", False)),
+        }
+    return out
+
+
 def compute_rubric_hash(rubric: dict[str, Any]) -> str:
     """Compute canonical SHA-256 hash over locked rubric fields (excluding lock metadata)."""
     canonical = {
@@ -569,15 +645,7 @@ def compute_rubric_hash(rubric: dict[str, Any]) -> str:
             for cat in CATEGORY_ORDER
         },
         "categories": {
-            cat: [
-                {
-                    "id": str(item["id"]),
-                    "title": str(item["title"]),
-                    "weight": _dec_norm(item.get("weight", 1)),
-                    "is_knockout": bool(item.get("is_knockout", False)),
-                }
-                for item in rubric.get("categories", {}).get(cat, [])
-            ]
+            cat: [_canonical_rubric_item(item) for item in rubric.get("categories", {}).get(cat, [])]
             for cat in CATEGORY_ORDER
         },
         "keywords": [
@@ -652,6 +720,20 @@ def validate_rubric(rubric: dict[str, Any]) -> tuple[dict[str, dict[str, Any]], 
                     f"KNOCKOUT_WEIGHT_ERROR: Knockout item '{item_id}' must have weight >= 2 (got {weight}) "
                     "so core screening gates cannot be artificially minimized."
                 )
+            exp_gate_norm: dict[str, Any] | None = None
+            raw_eg = item.get("experience_gate")
+            if raw_eg is not None:
+                if cat != "must_have":
+                    raise ValueError(f"Item '{item_id}' has experience_gate outside 'must_have'.")
+                if not isinstance(raw_eg, dict) or "required_years" not in raw_eg:
+                    raise ValueError(f"Item '{item_id}' experience_gate must be an object with 'required_years'.")
+                req_yrs = _dec(raw_eg["required_years"])
+                if req_yrs <= Decimal("0"):
+                    raise ValueError(f"Item '{item_id}' experience_gate.required_years must be > 0, got {req_yrs}")
+                exp_gate_norm = {
+                    "required_years": float(req_yrs),
+                    "allows_equivalent_skill": bool(raw_eg.get("allows_equivalent_skill", False)),
+                }
             item_map[item_id] = {
                 "id": item_id,
                 "category": cat,
@@ -659,6 +741,7 @@ def validate_rubric(rubric: dict[str, Any]) -> tuple[dict[str, dict[str, Any]], 
                 "description": str(item.get("description", "")),
                 "weight": weight,
                 "is_knockout": is_ko,
+                "experience_gate": exp_gate_norm,
             }
 
     keywords = rubric.get("keywords", [])
@@ -808,14 +891,36 @@ def _is_match_negated(line: str, start: int, end: int, line_in_neg_section: bool
     return bool(LOCAL_NEGATION_RE.search(f"{short_prefix}{line[start:end]}{short_suffix}"))
 
 
-def audit_ats_keywords(keywords: list[dict[str, Any]], candidate_text: str) -> dict[str, Any]:
+def audit_ats_keywords(
+    keywords: list[dict[str, Any]],
+    candidate_text: str,
+    contradiction_human_confirmations: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     """Run deterministic ko/en/zh/ja NFKC-normalized, boundary-aware & negation-aware lexical keyword matching.
 
-    Anti-stuffing policy: keywords appearing in BOTH positive and negative contexts (`contradictory_mention`)
-    receive 0.0 ATS credit until the contradiction is resolved.
+    v2.2 Human-Calibrated Anti-Stuffing Policy:
+      - Contradictory keywords (both positive and negative contexts) earn 0.0 ATS credit by default,
+        even when linked to a PARTIAL rubric item.
+      - ONLY if the human applicant explicitly confirms partial scope coverage >= 80% for that keyword
+        via `contradiction_human_confirmations` is partial ATS credit reasonably granted.
     """
     lines = [_nfkc(ln) for ln in candidate_text.splitlines()]
     neg_section_flags = _compute_negated_line_flags(lines)
+
+    norm_confirmations: dict[str, dict[str, Any]] = {}
+    if contradiction_human_confirmations:
+        if not isinstance(contradiction_human_confirmations, dict):
+            raise ValueError("contradiction_human_confirmations must be an object mapping keyword term -> {coverage_pct, rationale}.")
+        for k_term, conf in contradiction_human_confirmations.items():
+            if not isinstance(conf, dict) or "coverage_pct" not in conf:
+                raise ValueError(f"Human confirmation for '{k_term}' must include numeric 'coverage_pct'.")
+            pct = _dec(conf["coverage_pct"])
+            if pct < Decimal("0") or pct > Decimal("100"):
+                raise ValueError(f"Human confirmation coverage_pct for '{k_term}' must be in [0, 100], got {pct}")
+            norm_confirmations[_nfkc(str(k_term)).strip().lower()] = {
+                "coverage_pct": pct,
+                "rationale": str(conf.get("rationale", "")).strip(),
+            }
 
     results: list[dict[str, Any]] = []
     total_w = Decimal("0")
@@ -842,7 +947,19 @@ def audit_ats_keywords(keywords: list[dict[str, Any]], candidate_text: str) -> d
                         matched_surface = m.group(0)
 
         is_contradictory = (matched_surface is not None) and saw_negated
-        is_matched = (matched_surface is not None) and (not saw_negated)
+        human_conf = norm_confirmations.get(_nfkc(term).lower())
+        human_confirmed_partial = False
+        human_confirmed_pct: float | None = None
+        human_rationale = ""
+
+        if is_contradictory and human_conf is not None:
+            human_confirmed_pct = float(_round1(human_conf["coverage_pct"]))
+            human_rationale = human_conf["rationale"]
+            if human_conf["coverage_pct"] >= Decimal("80"):
+                human_confirmed_partial = True
+
+        # Strictly 0.0 ATS credit on contradictions unless human explicitly confirmed >= 80% scope coverage
+        is_matched = (matched_surface is not None) and ((not saw_negated) or human_confirmed_partial)
         if is_matched:
             matched_w += weight
 
@@ -856,7 +973,10 @@ def audit_ats_keywords(keywords: list[dict[str, Any]], candidate_text: str) -> d
                 "matched": is_matched,
                 "matched_surface": matched_surface if is_matched else None,
                 "negated_mention": (matched_surface is None) and saw_negated,
-                "contradictory_mention": is_contradictory,
+                "contradictory_mention": is_contradictory and (not human_confirmed_partial),
+                "human_confirmed_partial": human_confirmed_partial,
+                "human_confirmed_coverage_pct": human_confirmed_pct,
+                "human_confirmation_rationale": human_rationale,
             }
         )
 
@@ -1105,7 +1225,11 @@ def evaluate_round(
         )
 
     if keywords and candidate_text is not None:
-        ats_audit = audit_ats_keywords(keywords, candidate_text)
+        ats_audit = audit_ats_keywords(
+            keywords,
+            candidate_text,
+            contradiction_human_confirmations=eval_data.get("contradiction_human_confirmations"),
+        )
     else:
         ats_audit = {
             "checked": False,
@@ -1459,14 +1583,109 @@ def evaluate_round(
     u = t["unit_pp"]
     has_actionable_headroom = (expression_items_uplift > Decimal("0")) or (transferable_capped_uplift > Decimal("0"))
     has_true_gap_knockout = any(kr.get("gap_type") == "true_gap" for kr in knockout_risks)
-    # Emit honest_fit_advisory whenever true_gaps prevent reaching threshold OR zero actionable gaps remain
-    honest_fit_advisory = (pass_status == "REVISE") and (
-        (not has_actionable_headroom) or (projected_with_transferable < threshold) or has_true_gap_knockout
-    )
 
+    # v2.2 Experience-Year Gate vs Equivalent-Skill Evaluation
+    equiv_assessments = eval_data.get("equivalent_skill_assessments") or {}
+    if not isinstance(equiv_assessments, dict):
+        raise ValueError("equivalent_skill_assessments must be an object mapping item_id -> {meets_bar, reason}.")
+
+    hard_experience_blockers: list[dict[str, Any]] = []
+    equivalent_skill_openings: list[dict[str, Any]] = []
+    for r in item_results:
+        eg = item_map[r["id"]].get("experience_gate")
+        if not eg:
+            continue
+        if r["grade"] != "FULL" and r["gap_type"] == "true_gap":
+            if not eg["allows_equivalent_skill"]:
+                hard_experience_blockers.append(
+                    {
+                        "id": r["id"],
+                        "title": r["title"],
+                        "required_years": eg["required_years"],
+                        "allows_equivalent_skill": False,
+                    }
+                )
+            else:
+                assess = equiv_assessments.get(r["id"]) or {}
+                meets_bar = bool(assess.get("meets_bar", False))
+                reason = str(assess.get("reason", "")).strip()
+                if meets_bar and reason:
+                    equivalent_skill_openings.append(
+                        {
+                            "id": r["id"],
+                            "title": r["title"],
+                            "required_years": eg["required_years"],
+                            "reason": reason,
+                        }
+                    )
+                else:
+                    hard_experience_blockers.append(
+                        {
+                            "id": r["id"],
+                            "title": r["title"],
+                            "required_years": eg["required_years"],
+                            "allows_equivalent_skill": True,
+                            "reason": reason,
+                        }
+                    )
+
+    if pass_status in ("PASS", "PASS_WITH_RISK"):
+        reachability_status = "REACHED"
+    elif hard_experience_blockers:
+        reachability_status = "UNREACHABLE_HARD_EXPERIENCE_GATE"
+    elif equivalent_skill_openings:
+        reachability_status = "CONDITIONAL_EQUIVALENT_SKILL"
+    elif (not has_actionable_headroom) or (projected_with_transferable < threshold) or has_true_gap_knockout:
+        reachability_status = "UNREACHABLE"
+    else:
+        reachability_status = "REACHABLE"
+
+    is_unreachable = reachability_status.startswith("UNREACHABLE")
+    honest_fit_advisory = is_unreachable
+
+    # Build structured deficit roadmap (Experience / Projects / Attitude & Positioning) for unreachable candidates
+    raw_growth = eval_data.get("growth_gaps") or {}
+    if not isinstance(raw_growth, dict):
+        raise ValueError("growth_gaps must be an object with optional 'experience', 'projects', 'attitude_framing' lists.")
+    growth_exp = [str(x).strip() for x in raw_growth.get("experience", []) if str(x).strip()]
+    growth_proj = [str(x).strip() for x in raw_growth.get("projects", []) if str(x).strip()]
+    growth_att = [str(x).strip() for x in raw_growth.get("attitude_framing", []) if str(x).strip()]
+    if is_unreachable:
+        if not growth_exp:
+            growth_exp = [
+                f"`{r['id']}` {r['title']}" + (f" — {r['action_hint']}" if r["action_hint"] else "")
+                for r in item_results
+                if r["category"] == "must_have" and r["grade"] != "FULL"
+            ][:3]
+        if not growth_proj:
+            growth_proj = [
+                f"`{r['id']}` {r['title']}" + (f" — {r['action_hint']}" if r["action_hint"] else "")
+                for r in item_results
+                if r["category"] in ("portfolio_impact", "preferred") and r["grade"] != "FULL"
+            ][:3]
+        if not growth_att:
+            growth_att = [
+                f"`{r['id']}` {r['title']}" + (f" — {r['action_hint']}" if r["action_hint"] else "")
+                for r in item_results
+                if r["category"] == "ats_framing" and r["grade"] != "FULL"
+            ][:2]
+    growth_roadmap = {
+        "experience": growth_exp,
+        "projects": growth_proj,
+        "attitude_framing": growth_att,
+    }
+
+    # v2.2 Grace Gating:
+    # - Suppress Grace when UNREACHABLE (do not chase an impossible 80%; show concrete deficit roadmap instead)
+    # - Actively offer Grace (suggestion-only) when CONDITIONAL_EQUIVALENT_SKILL leaves a plausible path open
+    # - Normal Round 2+ stall / low-gain Grace offer when REACHABLE
     should_offer_grace = False
     grace_reasons: list[str] = []
-    if pass_status == "REVISE" and round_num >= 2 and has_actionable_headroom:
+    if reachability_status == "CONDITIONAL_EQUIVALENT_SKILL":
+        should_offer_grace = True
+        eq_names = ", ".join(f"{e['id']}({e['title']})" for e in equivalent_skill_openings)
+        grace_reasons.append(t["grace_reason_equiv"].format(items=eq_names))
+    elif reachability_status == "REACHABLE" and round_num >= 2 and has_actionable_headroom:
         if actionable_stalled_items:
             should_offer_grace = True
             names = ", ".join(f"{it['id']}({it['title']})" for it in actionable_stalled_items[:3])
@@ -1495,8 +1714,13 @@ def evaluate_round(
     grace_recommendation = {
         "should_offer": should_offer_grace,
         "suggested_tier": suggested_tier,
+        "suggestion_only_policy": True,
+        "reachability_status": reachability_status,
         "honest_fit_advisory": honest_fit_advisory,
         "has_actionable_headroom": has_actionable_headroom,
+        "hard_experience_blockers": hard_experience_blockers,
+        "equivalent_skill_openings": equivalent_skill_openings,
+        "growth_roadmap": growth_roadmap,
         "reasons": grace_reasons,
         "stalled_item_ids": [it["id"] for it in actionable_stalled_items],
     }
@@ -1561,6 +1785,7 @@ def evaluate_round(
             "missing_preferred": [d for d in clean_kw_details if not d["matched"] and d["tier"] == "preferred"],
             "negated_mentions": [d for d in clean_kw_details if d.get("negated_mention")],
             "contradictory_mentions": [d for d in clean_kw_details if d.get("contradictory_mention")],
+            "human_confirmed_partials": [d for d in clean_kw_details if d.get("human_confirmed_partial")],
             "details": clean_kw_details,
         },
         "round_diff": {
@@ -1774,7 +1999,8 @@ def render_markdown_report(res: dict[str, Any]) -> str:
         mp = res["ats_keywords"]["missing_preferred"]
         neg = res["ats_keywords"]["negated_mentions"]
         contra = res["ats_keywords"].get("contradictory_mentions", [])
-        if mm or mp or contra:
+        hconf = res["ats_keywords"].get("human_confirmed_partials", [])
+        if mm or mp or contra or hconf:
             lines.append(t["ats_heading"])
             lines.append("")
             if contra:
@@ -1782,6 +2008,13 @@ def render_markdown_report(res: dict[str, Any]) -> str:
                 lines.append("> [!WARNING]")
                 lines.append(t["contra_warn"].format(terms=c_terms))
                 lines.append("")
+            if hconf:
+                hc_fmt = ", ".join(
+                    f"`{k['term']}` ({_fmt1(k['human_confirmed_coverage_pct'])}%)"
+                    + (f" — {k['human_confirmation_rationale']}" if k.get("human_confirmation_rationale") else "")
+                    for k in hconf
+                )
+                lines.append(t["contra_confirmed_note"].format(fmt=hc_fmt))
             if mm:
                 fmt = ", ".join(_format_kw_with_aliases(k) for k in mm)
                 lines.append(t["missing_must"].format(fmt=fmt))
@@ -1795,10 +2028,14 @@ def render_markdown_report(res: dict[str, Any]) -> str:
             lines.append("")
 
     gr = res["grace_recommendation"]
+    rstatus = gr.get("reachability_status", "REACHABLE")
     if res["pass_status"] == "REVISE":
         actionable_top3 = [p for p in res["top_priorities"] if p["gap_type"] != "true_gap"][:3]
         if actionable_top3:
-            can_reach = _dec(res["projected_with_transferable_cap"]) >= _dec(res["pass_threshold"])
+            can_reach = (not rstatus.startswith("UNREACHABLE")) and (
+                _dec(res["projected_with_transferable_cap"]) >= _dec(res["pass_threshold"])
+                or rstatus == "CONDITIONAL_EQUIVALENT_SKILL"
+            )
             mission_heading = (
                 t["mission_reach"].format(threshold=_fmt1(res["pass_threshold"]))
                 if can_reach
@@ -1817,17 +2054,63 @@ def render_markdown_report(res: dict[str, Any]) -> str:
                     gain_txt = t["gain_full"].format(full=_fmt1(p["uplift_to_full_pp"]), u=u)
                 lines.append(f"{i}. **`{p['id']}` {p['title']}** (`{p['grade']}`{sep}{gain_txt})")
             lines.append("")
-        if gr["honest_fit_advisory"]:
-            if not gr.get("has_actionable_headroom", False):
-                adv_text = t["honest_fit_only"]
+
+        if rstatus == "CONDITIONAL_EQUIVALENT_SKILL" and gr.get("equivalent_skill_openings"):
+            eq_lines = "\n".join(
+                "> - **`{id}` {title}** (`{tag}`): {reason}".format(
+                    id=e["id"],
+                    title=e["title"],
+                    tag=t["equiv_tag"].format(years=f"{e['required_years']:g}"),
+                    reason=e["reason"],
+                )
+                for e in gr["equivalent_skill_openings"]
+            )
+            lines.extend(["> [!NOTE]", t["equiv_skill_banner"].format(reasons=eq_lines), ""])
+        elif gr["honest_fit_advisory"]:
+            if rstatus == "UNREACHABLE_HARD_EXPERIENCE_GATE" and gr.get("hard_experience_blockers"):
+                bl_txt = ", ".join(
+                    "`{id}` {title} ({tag})".format(
+                        id=b["id"],
+                        title=b["title"],
+                        tag=t["years_tag"].format(years=f"{b['required_years']:g}"),
+                    )
+                    for b in gr["hard_experience_blockers"]
+                )
+                adv_text = t["unreachable_hard_exp"].format(
+                    threshold=_fmt1(res["pass_threshold"]),
+                    items=bl_txt,
+                )
+            elif not gr.get("has_actionable_headroom", False):
+                adv_text = t["honest_fit_only"].format(threshold=_fmt1(res["pass_threshold"]))
             elif _dec(res["projected_with_transferable_cap"]) < _dec(res["pass_threshold"]):
                 adv_text = t["honest_fit_capped"].format(
                     hi=_fmt1(res["projected_with_transferable_cap"]),
                     threshold=_fmt1(res["pass_threshold"]),
                 )
             else:
-                adv_text = t["honest_fit_knockout"].format(hi=_fmt1(res["projected_with_transferable_cap"]))
+                adv_text = t["honest_fit_knockout"].format(
+                    hi=_fmt1(res["projected_with_transferable_cap"]),
+                    threshold=_fmt1(res["pass_threshold"]),
+                )
             lines.extend(["> [!IMPORTANT]", adv_text, ""])
+
+            # Concrete Experience / Projects / Attitude deficit roadmap for unreachable candidates
+            rmap = gr.get("growth_roadmap") or {}
+            if any(rmap.get(k) for k in ("experience", "projects", "attitude_framing")):
+                lines.append(t["growth_roadmap_hdr"].format(threshold=_fmt1(res["pass_threshold"])))
+                lines.append("")
+                for key, lbl_key in (
+                    ("experience", "growth_exp_label"),
+                    ("projects", "growth_proj_label"),
+                    ("attitude_framing", "growth_att_label"),
+                ):
+                    entries = rmap.get(key) or []
+                    if entries:
+                        lines.append(t[lbl_key])
+                        for e in entries:
+                            lines.append(f"  - {e}")
+                lines.append("")
+
         if gr["should_offer"]:
             lines.extend(
                 [
@@ -1849,6 +2132,9 @@ def render_markdown_report(res: dict[str, Any]) -> str:
             reg_ids = ", ".join(it["id"] for it in res["round_diff"]["regressed_items"])
             lines.append(t["cta_pass_regression_note"].format(ids=reg_ids))
         lines.append("")
+
+    # Mandatory AI-Judgment Fallibility & Human Responsibility Disclaimer (ALL 4 languages, EVERY report)
+    lines.extend(["---", "", "> [!NOTE]", t["ai_disclaimer"].format(doc=doc_noun), ""])
 
     return "\n".join(lines).strip() + "\n"
 
@@ -1929,7 +2215,7 @@ def main() -> int:
     if hasattr(sys.stderr, "reconfigure"):
         sys.stderr.reconfigure(encoding="utf-8")
 
-    parser = argparse.ArgumentParser(description="Deterministic rubric lock & multilingual match scorer for resume-jd-coach (v2.1).")
+    parser = argparse.ArgumentParser(description="Deterministic rubric lock & multilingual match scorer for resume-jd-coach (v2.2).")
     parser.add_argument("--init-rubric", help="Validate and stamp rubric_hash onto rubric.json, then exit.")
     parser.add_argument("--rubric", help="Path to locked rubric.json.")
     parser.add_argument("--eval", dest="eval_path", help="Path to round_NN_eval.json.")

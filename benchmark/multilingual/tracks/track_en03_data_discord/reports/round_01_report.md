@@ -57,10 +57,27 @@
 - *Note: `Causal Inference`, `Experimentation Platform`, `R` appeared only inside negative/unexperienced phrasing and were correctly excluded.*
 - *Include only verified terms inside real project context; bare skills-list stuffing is capped at `WEAK (0.25)`.*
 
-## Highest-Impact Fixes (Threshold 80.0% Unlikely Without True Gaps)
+## Highest-Impact Gaps (Threshold 80.0% Unreachable Under Current Profile)
 
 1. **`PI-1` Quantified product/business impact from rigorous experimentation** (`WEAK` · up to `+15.0 pp`)
 2. **`MH-4` Proficiency in Python, SQL, and/or R statistical computing** (`PARTIAL` · up to `+5.5 pp`)
 
 > [!IMPORTANT]
-> **Honest Role-Fit Advisory:** Due to genuine capability gaps (`true_gap`), even resolving every actionable expression/transferable gap caps your honest reachable score at `34.5%` (below the `80.0%` threshold). Polish your verified experience honestly, and consider targeting roles aligned with your current strengths alongside medium-term upskilling.
+> **Threshold (80.0%) Unreachable:** Due to genuine capability gaps (`true_gap`), even resolving every actionable gap caps your score at `34.5%`, making **80.0% unreachable** under your current profile. Review the deficit roadmap below to see what concrete experience, projects, and framing to build next.
+
+## What to Build & Fill Next (Experience · Projects · Attitude & Positioning)
+
+- **Experience (Years & Hands-On Scope):**
+  - `MH-1` Leading experimentation platform & statistical methodology validation — Genuine gap: never led an experimentation platform; do not fabricate.
+  - `MH-2` PhD/equivalent + 4+ years causal inference & experimentation — Genuine gap: lacks PhD/4+ yrs causal inference depth; consider Senior Product Analyst roles first.
+  - `MH-3` Org-wide experimentation training & data literacy education — No workshops or statistical curriculum delivered.
+- **Projects & Artifacts (Verifiable Proof):**
+  - `PI-1` Quantified product/business impact from rigorous experimentation — Quantify business impact and statistical significance checks from those tests if run.
+  - `PR-1` Causal inference publications & AI/LLM experimentation workflows — True gap — no causal publications or LLM experimentation tools.
+- **Attitude & Positioning (Ownership & Collaboration):**
+  - `AF-1` Staff Experimentation / Causal Inference role framing — Role level/specialization mismatch with Staff Causal Inference scope.
+
+---
+
+> [!NOTE]
+> **AI Judgment Disclaimer & Human Responsibility:** This match score and diagnostic are AI-generated estimates and may be inaccurate. True role fit—and every final sentence or expression placed in your resume/portfolio—must be judged and owned solely by the human applicant. (This coach offers suggestions only and refuses direct rewrite requests.)

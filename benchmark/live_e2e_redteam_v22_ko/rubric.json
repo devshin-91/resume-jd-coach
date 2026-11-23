@@ -1,0 +1,197 @@
+{
+  "company": "클라우드페이(가상)",
+  "role_title": "백엔드 엔지니어 (결제 플랫폼팀)",
+  "language": "ko",
+  "domain_mode": "portfolio",
+  "pass_threshold": 80.0,
+  "ats_lexical_share": 0.5,
+  "category_weights": {
+    "must_have": 45,
+    "portfolio_impact": 25,
+    "preferred": 15,
+    "ats_framing": 15
+  },
+  "categories": {
+    "must_have": [
+      {
+        "id": "MH-1",
+        "title": "백엔드 실무 경력 3년 이상 (또는 이에 준하는 실력 증명)",
+        "weight": 3,
+        "is_knockout": true,
+        "experience_gate": {
+          "required_years": 3,
+          "allows_equivalent_skill": true
+        }
+      },
+      {
+        "id": "MH-2",
+        "title": "Go 또는 Python 기반 고트래픽 API 서버 설계 및 운영 경험",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-3",
+        "title": "Redis 기반 캐싱 및 분산 처리 실무 활용 경험",
+        "weight": 3,
+        "is_knockout": true
+      },
+      {
+        "id": "MH-4",
+        "title": "결제·정산 핵심 API 서버 설계·개발 및 고트래픽 안정화 역량",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "MH-5",
+        "title": "캐시 및 비동기 큐 기반 장애 격리 아키텍처 개선 역량",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "portfolio_impact": [
+      {
+        "id": "PI-1",
+        "title": "고트래픽·결제 백엔드 핵심 문제와 연결된 실전 프로젝트·오픈소스 아키텍처 증빙",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-2",
+        "title": "전/후 비교 가능한 정량 성능·안정성 지표(지연시간·TPS·가용성 등) 제시",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PI-3",
+        "title": "본인 설계·의사결정 범위 및 협업·코드리뷰 오너십 명확화",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "preferred": [
+      {
+        "id": "PR-1",
+        "title": "대규모 오픈소스 프로젝트 메인테이너 또는 프로덕션 장애 복구 성과 보유",
+        "weight": 3,
+        "is_knockout": false
+      },
+      {
+        "id": "PR-2",
+        "title": "정량적 성능 지표(지연시간, TPS, 가용성 등) 기반의 시스템 개선 경험",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ],
+    "ats_framing": [
+      {
+        "id": "AF-1",
+        "title": "상단 요약 및 포지셔닝의 타깃 직무(결제 플랫폼 백엔드) 정합성",
+        "weight": 2,
+        "is_knockout": false
+      },
+      {
+        "id": "AF-2",
+        "title": "채용담당자 10초 스캔 가독성·증빙 링크 및 기술 보유/미경험 구분 명확성",
+        "weight": 2,
+        "is_knockout": false
+      }
+    ]
+  },
+  "keywords": [
+    {
+      "term": "Go",
+      "aliases": [
+        "Golang"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "Python",
+      "aliases": [
+        "FastAPI"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "Redis",
+      "aliases": [],
+      "tier": "must",
+      "linked_item_id": "MH-3"
+    },
+    {
+      "term": "API 서버",
+      "aliases": [
+        "API 게이트웨이",
+        "결제 API"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-2"
+    },
+    {
+      "term": "결제",
+      "aliases": [
+        "정산",
+        "멱등성"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-4"
+    },
+    {
+      "term": "분산 처리",
+      "aliases": [
+        "분산 락",
+        "Redis 클러스터"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-3"
+    },
+    {
+      "term": "비동기 큐",
+      "aliases": [
+        "메시지 큐",
+        "Kafka",
+        "RabbitMQ",
+        "SQS",
+        "Message Queue"
+      ],
+      "tier": "must"
+    },
+    {
+      "term": "장애 격리",
+      "aliases": [
+        "서킷 브레이커",
+        "자동 폴백",
+        "Circuit Breaker",
+        "Fallback"
+      ],
+      "tier": "must",
+      "linked_item_id": "MH-5"
+    },
+    {
+      "term": "오픈소스",
+      "aliases": [
+        "메인테이너",
+        "Open Source",
+        "Maintainer"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-1"
+    },
+    {
+      "term": "지연시간",
+      "aliases": [
+        "응답 지연",
+        "p99",
+        "Latency",
+        "TPS",
+        "가용성"
+      ],
+      "tier": "preferred",
+      "linked_item_id": "PR-2"
+    }
+  ],
+  "rubric_hash": "9b49e54380bf6c51",
+  "locked_at": "2026-11-23T02:02:15+00:00"
+}
