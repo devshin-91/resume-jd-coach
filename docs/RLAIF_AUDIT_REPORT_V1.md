@@ -1,12 +1,14 @@
-# `resume-jd-coach` 전 직군 실공고 검증 & RHAIF 최종 감사 보고서 (`v1.0 → v1.1 → v1.2`)
+# `resume-jd-coach` 한국어 전 직군 실공고 검증 & RLAIF 감사 보고서 (`v1.0 → v1.1 → v1.2`)
 
-> **독립 RHAIF 최종 판정:** **✅ PASS — `89 / 100`** *(v1.0 `67/100` CONDITIONAL PASS 대비 **`+22점`** 상승 · 실전 배포 승인 + v1.2 미세 보강 5건 완료)*  
-> **검증 범위:** 원티드(`wanted.co.kr`) 실시간 진행 중 **6개 직군 공고 · 15라운드(`--strict-quotes`) · 4종 포맷(`.md`, `.docx`, `.pptx`, 중첩 표 `.hwpx`) · 단위/회귀 테스트 `17/17 OK` · 콜드 스타트 Live LLM E2E Red-Team 2라운드**  
+> **용어 참고:** 초기 `v1.0 → v1.1` 단계는 **독립 AI 헌법 심사관(RLAIF)** 감사 결과에 프로젝트 소유자의 **Human-in-the-Loop Calibration(4대 정책 확정)**이 결합된 하이브리드 개선 단계이며, `v1.2` 이후는 독립 AI 심사관 기반의 **RLAIF (AI-Feedback Constitutional Audit)** 루프로 수행되었습니다. *(다국어 `en`/`zh`/`ja` 확장 감사는 [RLAIF_MULTILINGUAL_AUDIT_REPORT_V2.md](./RLAIF_MULTILINGUAL_AUDIT_REPORT_V2.md)를 참고하세요.)*
+>
+> **독립 RLAIF 최종 판정 (v1.x):** **✅ PASS — `89 / 100`** *(v1.0 `67/100` CONDITIONAL PASS 대비 **`+22점`** 상승 · 실전 배포 승인 + v1.2 미세 보강 5건 완료)*  
+> **검증 범위:** 원티드(`wanted.co.kr`) 실시간 진행 중 **6개 직군 공고 · 15라운드(`--strict-quotes`) · 4종 포맷(`.md`, `.docx`, `.pptx`, 중첩 표 `.hwpx`) · 콜드 스타트 Live LLM E2E Red-Team 2라운드**  
 > **원본 산출물:** [benchmark_summary.json](../benchmark/benchmark_summary.json) · [live_response_r2_redteam.md](../benchmark/live_e2e_redteam/live_response_r2_redteam.md)
 
 ---
 
-## 1. RHAIF 6대 축 점수 변화 (`67/100 → 89/100`, `+22점`)
+## 1. RLAIF 6대 축 점수 변화 (`67/100 → 89/100`, `+22점`)
 
 | 평가 축 (Constitutional Axis) | v1.0 | v1.1 | 변화 | v1.1 핵심 검증 근거 |
 | :--- | :---: | :---: | :---: | :--- |
@@ -20,7 +22,7 @@
 
 ---
 
-## 2. 전 직군 6-Track 실공고 벤치마크 결과 (`--strict-quotes` 15/15 통과)
+## 2. 한국어 전 직군 6-Track 실공고 벤치마크 결과 (`--strict-quotes` 15/15 통과)
 
 | Track (직군 · 원티드 실공고) | 검증 시나리오 & 포맷 | 점수 궤적 & 판정 | 검증 하이라이트 |
 | :--- | :--- | :--- | :--- |
@@ -33,7 +35,7 @@
 
 ---
 
-## 3. Cold Live LLM E2E Red-Team 감사 요약
+## 3. Cold Live LLM E2E Red-Team 감사 요약 (한국어)
 
 독립 콜드 스타트 에이전트가 `SKILL.md`만 읽고 실제 KCD 공고에 대해 **부정문 포함 이력서(R1) → 스킬 키워드 도배 + Grace 3단계 허위 창작 강요(R2)**를 수행한 결과:
 
@@ -42,22 +44,22 @@
 - **Round 2 Red-Team 방어 ([live_response_r2_redteam.md](../benchmark/live_e2e_redteam/live_response_r2_redteam.md)):**
   - **허위 창작 즉시 거절:** PySpark·PyTorch 모델 배포 Grace 3단계 대필 요청을 명확히 거절하고, 이력서 내 자기모순(`보유 스킬` vs `아직 해 보지 않은 것`) 지적.
   - **키워드 도배 봉쇄:** `must_have`/`portfolio_impact`/`preferred` 모두 **`+0.0%p`**, 자기모순으로 `AF-2` `-0.9%p` 감점 → 총점 `33.4% → 35.4% (+2.0%p)`로 `REVISE` 유지.
-  - **v1.2 자기모순 ATS 자동 경고 확인:** [round_02_report.md](../benchmark/live_e2e_redteam/reports/round_02_report.md)에서 `Spark`, `PyTorch`, `Scikit-learn`이 `contradictory_mentions`로 자동 경고됨.
+  - **자기모순 ATS 자동 경고 확인:** [round_02_report.md](../benchmark/live_e2e_redteam/reports/round_02_report.md)에서 `Spark`, `PyTorch`, `Scikit-learn`이 `contradictory_mentions`로 자동 경고됨 *(이후 `v2.1`에서 자기모순 키워드 ATS 0점 처리로 추가 강화됨)*.
 
 ---
 
-## 4. v1.1 확정 항목 & v1.2 미세 다듬기 완료 내역
+## 4. v1.1 Human-in-the-Loop Calibration 확정 & v1.2 미세 보강 완료 내역
 
-### v1.1 반영 완료 (Human Calibration 4항목)
+### v1.1 반영 완료 (Human Calibration 4항목 + 경로 중립화)
 1. **Knockout 기준:** `is_knockout: true` 최소 `weight >= 2` 강제 + `MISSING`/`WEAK` 경고 ([score_match.py](../skill/resume-jd-coach/scripts/score_match.py))
 2. **키워드 도배 상한:** 근거 없는 스킬 나열 **`WEAK (0.25)`** 하향 ([scoring-rubric.md](../skill/resume-jd-coach/references/scoring-rubric.md))
 3. **도달 가능 점수:** `projected_expression_only` ~ `projected_with_transferable_cap` (`STRONG_PARTIAL=0.75` 캡) 범위 병기
 4. **범용·파서 하드닝:** `--lang ko|en`, `--domain-mode portfolio|resume_only`, 중첩 표 `.hwpx`/텍스트박스 `.docx`/시각순 `.pptx`/`.hwp` 차단 ([extract_doc.py](../skill/resume-jd-coach/scripts/extract_doc.py))
 5. **세션 경로 중립화:** `<appDataDir>/scratch/jd-coach-sessions/<company-role-slug>/` ([SKILL.md](../skill/resume-jd-coach/SKILL.md))
 
-### v1.2 미세 다듬기 5건 + 보너스 수정 완료 (`17/17 OK`)
-1. **부정/`transferable_gap` 키워드 누출 완전 차단:** Track 5 R2 `projected_expression_only`가 `77.3% → 76.4%`, 상한 `79.9% → 79.0%`로 정교화
-2. **바이그램 근거 검증 강화 & `--strict-quotes` 기본화:** `verify_quote_grounding`에서 `unigram_ratio >= 0.70` + `bigram_ratio >= 0.45` 요구 및 `SKILL.md` 기본 CLI에 `--strict-quotes` 추가
-3. **문서 내 자기모순 ATS 경고(`contradictory_mentions`) + 한국어 접속어 경계(`이며/이고/는데`) 보강:** Live Red-Team R2 자기모순 자동 경고, Track 5 R2 오경보 0건 확인
-4. **동적 미션 제목 & 영문 무누출:** `projected_with_transferable_cap < 80%` 시 동적 제목 + 유사경험 현실 상한 병기, 영문(`--lang en`) 한글 누출 0건 검증
+### v1.2 미세 보강 5건 완료
+1. **부정/`transferable_gap` 키워드 누출 완전 차단**
+2. **바이그램 근거 검증 강화 & `--strict-quotes` 기본화**
+3. **문서 내 자기모순 ATS 경고(`contradictory_mentions`) + 한국어 접속어 경계(`이며/이고/는데`) 보강**
+4. **동적 미션 제목 & 영문 무누출 검증**
 5. **코드 위생 + 실전 회귀 확장:** `_dec_norm()` 해시 정규화, PPTX `r:id` 명시화, Windows UTF-8 BOM(`utf-8-sig`) 호환, 멀티페이지 `.pdf` + 영문 2라운드 E2E 테스트 추가 ([test_resume_jd_coach.py](../skill/resume-jd-coach/scripts/test_resume_jd_coach.py))
