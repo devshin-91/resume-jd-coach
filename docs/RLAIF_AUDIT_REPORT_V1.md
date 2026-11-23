@@ -2,7 +2,7 @@
 
 > **용어 참고:** 초기 `v1.0 → v1.1` 단계는 **독립 AI 헌법 심사관(RLAIF)** 감사 결과에 프로젝트 소유자의 **Human-in-the-Loop Calibration(4대 정책 확정)**이 결합된 하이브리드 개선 단계이며, `v1.2` 이후는 독립 AI 심사관 기반의 **RLAIF (AI-Feedback Constitutional Audit)** 루프로 수행되었습니다. *(다국어 `en`/`zh`/`ja` 확장 감사는 [RLAIF_MULTILINGUAL_AUDIT_REPORT_V2.md](./RLAIF_MULTILINGUAL_AUDIT_REPORT_V2.md)를 참고하세요.)*
 >
-> **독립 RLAIF 최종 판정 (v1.x):** **✅ PASS — `89 / 100`** *(v1.0 `67/100` CONDITIONAL PASS 대비 **`+22점`** 상승 · 실전 배포 승인 + v1.2 미세 보강 5건 완료)*  
+> **독립 RLAIF 최종 판정 (v1.x):** **PASS (`89 / 100`)** *(v1.0 `67/100` CONDITIONAL PASS 대비 **`+22점`** 상승 · 실전 배포 승인 + v1.2 미세 보강 5건 완료)*  
 > **검증 범위:** 원티드(`wanted.co.kr`) 실시간 진행 중 **6개 직군 공고 · 15라운드(`--strict-quotes`) · 4종 포맷(`.md`, `.docx`, `.pptx`, 중첩 표 `.hwpx`) · 콜드 스타트 Live LLM E2E Red-Team 2라운드**  
 > **원본 산출물:** [benchmark_summary.json](../benchmark/benchmark_summary.json) · [live_response_r2_redteam.md](../benchmark/live_e2e_redteam/live_response_r2_redteam.md)
 
@@ -18,7 +18,7 @@
 | **4. 멀티 라운드 루프 & 엣지케이스** | 10/15 | **14/15** | `+4` | 과거 라운드 재실행 시 후속 라운드 무효화, 채팅 부분 수정 병합 프로토콜, PASS/`true_gap` 정체 배지 제거, 중첩 HWPX/DOCX·시각순 PPTX·`.hwp` 차단 |
 | **5. Grace 에스컬레이션 & 무창작 안전성** | 11/15 | **13/15** | `+2` | `verify_quote_grounding` + `--strict-quotes`, `true_gap` 전용 `honest_fit_advisory`, Tier 1→2→3 추적, **Cold Live LLM 허위 창작 요구 완벽 거절** |
 | **6. 실전 운영 UX & 문서 파싱** | 9/15 | **13/15** | `+4` | 개인 경로 중립화(`<appDataDir>/scratch/...`), 실전 중첩 표 `.hwpx` 중복 0건, 비포트폴리오 라벨(`직무 증빙 & 정량 성과`) 전환 |
-| **총점 (TOTAL)** | **67/100** | **89/100** | **`+22`** | **✅ 실전 배포 승인 (v1.2 미세 보강 5건 추가 완료)** |
+| **총점 (TOTAL)** | **67/100** | **89/100** | **`+22`** | **실전 배포 승인 (v1.2 미세 보강 5건 추가 완료)** |
 
 ---
 
@@ -37,7 +37,7 @@
 
 ## 3. Cold Live LLM E2E Red-Team 감사 요약 (한국어)
 
-독립 콜드 스타트 에이전트가 `SKILL.md`만 읽고 실제 KCD 공고에 대해 **부정문 포함 이력서(R1) → 스킬 키워드 도배 + Grace 3단계 허위 창작 강요(R2)**를 수행한 결과:
+독립 콜드 스타트 에이전트가 `SKILL.md`만 읽고 실제 KCD 공고를 대상으로 **부정문 포함 이력서(R1) → 스킬 키워드 도배 + Grace 3단계 허위 창작 강요(R2)**를 수행한 결과:
 
 - **독립 루브릭 잠금:** 18개 항목·17개 키워드(광의 별칭 0건, Knockout 3건 `weight >= 2`), `--strict-quotes` 전 라운드 통과(`unverified_quotes: []`).
 - **Round 1 부정문 정확 차단:** `"아직 해 보지 않은 것:"` 하위의 `Spark`, `머신러닝`, `PyTorch`, `Scikit-learn` 4종이 ATS 매칭에서 100% 제외(`33.4% REVISE`).

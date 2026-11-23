@@ -1,6 +1,6 @@
 # `resume-jd-coach` 다국어(`ko`/`en`/`zh`/`ja`) 확장·실공고 검증 및 독립 RLAIF 감사 보고서 (`v2.0 → v2.1`)
 
-> **독립 RLAIF 최종 판정 (v2.1):** **✅ PASS — `91.5 / 100`** *(v2.0 `74.5 / 100` CONDITIONAL PASS 대비 **`+17.0점`** 상승 · 재감사 잔여 `P1-R1` 및 P2 4건 추가 마감 완료)*  
+> **독립 RLAIF 최종 판정 (v2.1):** **PASS (`91.5 / 100`)** *(v2.0 `74.5 / 100` CONDITIONAL PASS 대비 **`+17.0점`** 상승 · 재감사 잔여 `P1-R1` 및 P2 4건 추가 마감 완료)*  
 > **검증 범위:** 미국(`en`) · 중국(`zh`) · 일본(`ja`) **3개 대표 국가 × 4개 직군 = 12개 최신 공개 실공고 · 29라운드(`--strict-quotes 29/29`, 타 언어 누출 `0건`) · 6종 포맷(`.md`, `.docx`, `.pptx`, `.xlsx`, `gb18030`, `cp932`) · 3개국 콜드 스타트 Live LLM E2E Red-Team · 기존 한국어 6트랙 15라운드 하위 호환성(`15/15`) · 자동화 테스트 `33 / 33 OK`**  
 > **원본 산출물:** [multilingual_benchmark_summary.json](../benchmark/multilingual/multilingual_benchmark_summary.json) · [run_multilingual_benchmark.py](../benchmark/multilingual/run_multilingual_benchmark.py)
 
@@ -16,7 +16,7 @@
 | 4 | **불합격형 이력서 현실성·12트랙 전 직군 벤치마크** | 15 | 11.5 | **12.0** | `+0.5` | 3개국 12개 최신 실공고·29라운드 전원 `--strict-quotes` 및 `0` 누출 통과 |
 | 5 | **다국어 Grace 에스컬레이션 & 무창작 Red-Team 방어** | 15 | 12.5 | **14.5** | `+2.0` | `en`/`zh`/`ja` 3개국 콜드 스타트 모두 Grace 3단계 허위 창작 정중 거절, `honest_fit_advisory` 독립 발화(`honest_fit_knockout` 분기 추가), `sample_eval_r1.json` `WEAK(0.25)` 교정 |
 | 6 | **결정론·테스트 커버리지(`33`종)·하위 호환성·운영 완성도** | 10 | 7.0 | **9.5** | `+2.5` | **P0-3 마감:** `score + gap == threshold` 표시 반올림 완전 일치, `zh`/`ja` 2라운드 CLI 테스트 완결, 한국어 6트랙 15라운드 `15/15` 하위 호환 검증, `PASS` 회귀 경고 및 중복 별칭 제거 |
-| | **총점 (TOTAL)** | **100** | **74.5** | **91.5** | **`+17.0`** | **✅ `PASS` (`>= 85`) + 재감사 잔여 `P1-R1`/P2 4건 추가 마감 (`33/33 OK`)** |
+| | **총점 (TOTAL)** | **100** | **74.5** | **91.5** | **`+17.0`** | **`PASS` (`>= 85`) + 재감사 잔여 `P1-R1`/P2 4건 추가 마감 (`33/33 OK`)** |
 
 ---
 
@@ -75,8 +75,8 @@
 1. **자기모순 키워드 ATS 0점 유지 + 사람 확인 `>= 80%` 부분 인정 규칙:**
    - 보유·미경험 충돌 키워드는 연결 항목이 `PARTIAL`이어도 자동 불인정(`0.0` ATS 가점)을 유지합니다.
    - 대신 해당 `PARTIAL` 경험이 공고 요구 범위의 몇 `%`를 차지하는지 지원자(사람)에게 확인하고, **본인이 `80% 이상`을 명시적으로 확인한 경우(`contradiction_human_confirmations`)**에 한해 합리적 부분 점수를 반영합니다.
-2. **80% 도달 불가 명시 + 3축 보완 로드맵 + 경력 연수 게이트 vs 경력에 준하는 실력:**
-   - `80.0%` 도달이 불가능한 경우 도달 불가(`UNREACHABLE` / `UNREACHABLE_HARD_EXPERIENCE_GATE`)를 명확히 선언하고, 불필요한 Grace를 억제하는 대신 **경험 · 프로젝트 · 태도/포지셔닝** 3축 보완 로드맵을 제시합니다.
+2. **80% 도달 불가 명시 · 경험/프로젝트/태도 보완 로드맵 · 경력 연수 게이트 vs 경력에 준하는 실력:**
+   - `80.0%` 도달이 불가능한 경우 도달 불가(`UNREACHABLE` / `UNREACHABLE_HARD_EXPERIENCE_GATE`)를 명확히 선언하고, 불필요한 Grace를 억제하는 대신 **경험 · 프로젝트 · 태도/포지셔닝** 보완 로드맵을 제시합니다.
    - 경력 `X`년을 필수로 요구하며 대체 조항이 없는 공고(`allows_equivalent_skill: false`)에 경력이 없으면 **`UNREACHABLE_HARD_EXPERIENCE_GATE`**로 엄격 판정합니다.
    - 반대로 **"경력에 준하는 실력"**을 인정하는 공고(`allows_equivalent_skill: true`)라면 제출 실력이 공고 수준에 맞는지 평가하고, 부합 시 **`CONDITIONAL_EQUIVALENT_SKILL`**로 제한적 가능성과 그 근거를 제시하며 **제안 전용 Grace**를 제공합니다.
 3. **무조건 제안 전용 & 직접 수정 요청 거절 (`"됐고 수정해줘"`):**

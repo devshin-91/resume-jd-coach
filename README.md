@@ -3,8 +3,8 @@
 > [!CAUTION]
 > **Strictly for Reference Only · Human Ultimate Accountability (순전히 참고용 · 최고책임자인 인간의 직접 결정 원칙)**
 >
-> - **Reference Only (AI Can Be Wrong):** Every match score, gap diagnosis, and suggestion produced by `resume-jd-coach` is **strictly for reference only**. Because it is based on AI judgment, it **can be inaccurate or wrong**—true job fit must always be judged by the human applicant.
-> - **Human as Sole Accountable Owner (Suggestion-Only):** This skill **only offers suggestions** and unconditionally refuses requests to directly edit or rewrite your documents. Ultimately, every expression and sentence that goes into a resume or portfolio **must be decided directly by the human applicant, who holds sole ultimate responsibility**.
+> - **Reference Only (AI Can Be Wrong):** Every match score, gap diagnosis, and suggestion produced by `resume-jd-coach` is **strictly for reference only**. Because it relies on AI judgment, it **can be inaccurate or wrong**. True job fit must always be judged by the human applicant.
+> - **Human as Sole Accountable Owner (Suggestion-Only):** This skill **only offers suggestions** and unconditionally refuses requests to directly edit or rewrite your documents. Every expression and sentence placed in a resume or portfolio **must be decided directly by the human applicant, who holds sole ultimate responsibility**.
 >
 > - **순전히 참고용 (AI 판단은 틀릴 수 있음):** 본 도구가 제시하는 모든 공고 일치율·진단·제안은 **순전히 참고용**입니다. AI의 판단에 기반하므로 **틀릴 수 있으며**, 실제 공고 적합도는 반드시 사람(지원자)이 직접 판단해야 합니다.
 > - **최고책임자인 사람의 직접 결정 (제안 전용 · 직접 수정 거절):** 본 스킬은 **무조건 제안만 제공**하며, 직접 수정·대필 요청(`"됐고 수정해줘"` 등)은 모두 거절합니다. 이력서와 포트폴리오에 최종적으로 들어가는 표현과 문장은 결국 **최고책임자인 사람(지원자 본인)이 직접 결정하고 책임져야 합니다.**
@@ -18,8 +18,8 @@ An Antigravity Agent Skill (`SKILL.md`) validated across **4 languages & represe
 ## Core Design Philosophy
 
 1. **`80.0%` Pass Gate (`REVISE` / `PASS_WITH_RISK` / `PASS`):**
-   - `< 80.0%` → **`REVISE`**: Diagnoses exact gaps, explains *why* the JD cares, ranks fixes by exact uplift potential (`%p` / `pp` / `pt`), and invites **self-revision** rather than silently ghostwriting.
-   - `>= 80.0%` with Knockout risk (`is_knockout: true` graded `MISSING` or `WEAK`) → **`PASS_WITH_RISK`**: Never hides screening blockers behind a high aggregate score.
+   - `< 80.0%` → **`REVISE`**: Diagnoses exact gaps, explains *why* the JD cares, ranks fixes by exact uplift potential (`%p` / `pp` / `pt`), and guides **self-revision**.
+   - `>= 80.0%` with Knockout risk (`is_knockout: true` graded `MISSING` or `WEAK`) → **`PASS_WITH_RISK`**: Flags screening blockers even when the aggregate score clears the threshold.
    - `>= 80.0%` with zero Knockout risks → **`PASS`** (with automatic caveat if any item regressed during revision).
 2. **Locked Rubric ("No Moving the Goalposts"):**
    - Round 1 decomposes the target JD into 4 weighted dimensions (`must_have`, `portfolio_impact`, `preferred`, `ats_framing`) and locks a canonical SHA-256 `rubric_hash` (`score_match.py --init-rubric`).
@@ -32,12 +32,12 @@ An Antigravity Agent Skill (`SKILL.md`) validated across **4 languages & represe
    - **Hardened `--strict-quotes`:** Enforces verbatim / contiguous n-gram grounding (including CJK character trigrams) **plus 100% numeric + magnitude-unit lock** (blocking `5千 → 5万`, `5K → 5M`, `2 → 50` fabrication), while capping bare skills-list keyword stuffing at **`WEAK (0.25)`**.
    - **Multilingual Document Extractor (`extract_doc.py`):** Zero-dependency parsing for `.md`, `.txt` (UTF-8/UTF-16 + zero-mojibake auto-detection for `gb18030`, `cp932`, `cp949`/`iso2022_kr`, `cp1252`), `.docx` (nested table/textbox & `mc:Fallback`-safe), `.xlsx` (multi-sheet Japanese `履歴書`/`職務経歴書`, skipping `<rPh>` furigana & hidden tabs), `.pptx` (visual slide order + `mc:Fallback`-safe), `.hwpx` (nested table-safe), `.html`, plus PDF hooks and loud legacy `.hwp`/`.doc`/`.xls` rejection.
 4. **Honest Unreachable Verdict (`< 80%`) & Experience-Year Gate vs Equivalent-Skill (`v2.2`):**
-   - When `80.0%` is unreachable (`UNREACHABLE` / `UNREACHABLE_HARD_EXPERIENCE_GATE`), states clearly that `80%` is **unreachable**, suppresses Grace for chasing an impossible `80%`, and outputs a structured **3-pillar growth roadmap (Experience · Projects · Attitude & Positioning)**.
+   - When `80.0%` is unreachable (`UNREACHABLE` / `UNREACHABLE_HARD_EXPERIENCE_GATE`), states clearly that `80%` is **unreachable**, suppresses Grace for chasing an impossible `80%`, and outputs a concrete **growth roadmap across Experience, Projects, and Attitude/Positioning**.
    - **Mandatory Experience-Year Gate (`experience_gate`):** If a JD requires `X years of experience` without an equivalent-skill clause (`allows_equivalent_skill: false`) and the candidate lacks those years → strictly judged **`UNREACHABLE_HARD_EXPERIENCE_GATE`**.
    - **Equivalent-Skill Exception (`경력에 준하는 실력`):** If the JD accepts equivalent practical skill (`allows_equivalent_skill: true`) and verified artifacts meet the target bar (`meets_bar: true`) → judged **`CONDITIONAL_EQUIVALENT_SKILL`**, explains the concrete reason why limited possibility remains, and activates **suggestion-only Grace**.
 5. **Strictly Suggestion-Only Coaching, Direct-Rewrite Refusal & Mandatory AI Disclaimer (`v2.2`):**
-   - **Direct-Rewrite Refusal (`"됐고 수정해줘"`):** Even if the user explicitly demands direct editing or final copy rewriting (`ko`/`en`/`zh`/`ja`), the coach **ALWAYS refuses** and preserves original files untouched—emphasizing that **every final sentence and expression in a resume/portfolio must be decided and owned solely by the human applicant**.
-   - **3-Tier Suggestion-Only Grace Mode:** Offers Tier 1 (Socratic questions + skeleton), Tier 2 (fact-grounded options A·B with metric placeholders), or Tier 3 (targeted section structural blueprint + mandatory Fact-Check & Human Authorship Checklist)—never ghostwriting or fabricating unheld facts.
+   - **Direct-Rewrite Refusal (`"됐고 수정해줘"`):** Even if the user explicitly demands direct editing or final copy rewriting (`ko`/`en`/`zh`/`ja`), the coach **ALWAYS refuses** and keeps original files untouched. Every final sentence and expression in a resume/portfolio must be decided and owned solely by the human applicant.
+   - **3-Tier Suggestion-Only Grace Mode:** Offers Tier 1 (Socratic questions + skeleton), Tier 2 (fact-grounded options A·B with metric placeholders), or Tier 3 (targeted section structural blueprint + mandatory Fact-Check & Human Authorship Checklist), with zero ghostwriting or fabricated facts.
    - **Mandatory AI-Judgment Fallibility Disclaimer:** Every rendered Markdown report (`ko`/`en`/`zh`/`ja`) and user response explicitly states that the match percentage is an AI estimate that can be wrong, and true role fit must be judged by the human applicant.
 
 ---
@@ -115,11 +115,11 @@ See full reports in [docs/RLAIF_AUDIT_REPORT_V1.md](./docs/RLAIF_AUDIT_REPORT_V1
 
 | Verification Milestone | Result |
 | :--- | :--- |
-| Automated Unit & Policy Regression Suite (`test_resume_jd_coach.py`) | **39 / 39 OK** (4-lang ATS negation/contradiction/NFKC, `>= 80%` human-confirmed partial scope, hard `experience_gate` vs `CONDITIONAL_EQUIVALENT_SKILL`, 3-pillar unreachable roadmap, mode-aware 4-lang AI disclaimer, CJK trigrams + numeric-unit quote lock, `.xlsx`/`.hwpx`/`.docx`/`.pptx`/`.pdf`, 2-round `en`/`zh`/`ja` zero-leakage CLI E2E) |
+| Automated Unit & Policy Regression Suite (`test_resume_jd_coach.py`) | **39 / 39 OK** (4-lang ATS negation/contradiction/NFKC, `>= 80%` human-confirmed partial scope, hard `experience_gate` vs `CONDITIONAL_EQUIVALENT_SKILL`, unreachable growth roadmap across Experience/Projects/Attitude, mode-aware 4-lang AI disclaimer, CJK trigrams + numeric-unit quote lock, `.xlsx`/`.hwpx`/`.docx`/`.pptx`/`.pdf`, 2-round `en`/`zh`/`ja` zero-leakage CLI E2E) |
 | Korean 6-Job-Family Real-JD Benchmark (`benchmark/run_benchmark.py`) | **6 / 6 Tracks · 15 / 15 Rounds** passed `--strict-quotes` (Wanted live JDs: Dev, PM, Design, Marketing, Data, Non-IT HR) |
 | 3-Country Multilingual Real-JD Benchmark (`benchmark/multilingual/`) | **12 / 12 Tracks · 29 / 29 Rounds** passed `--strict-quotes` with **0 cross-language / `%p` leaks** (US `en` × 4 · China `zh` × 4 · Japan `ja` × 4, failing native resumes across `.docx`/`.pptx`/`.xlsx`/`gb18030`/`cp932`/`.md`) |
 | 5 Cold-Start Live LLM E2E Red-Teams (`ko` · `en` · `zh` · `ja` + `v2.2 ko`) | Contradictory keyword stuffing earned **`0.0` ATS credit**, `honest_fit_advisory` triggered, all 4 languages cleanly refused fabrication, and **`v2.2` Cold Live E2E cleanly refused `"됐고 직접 수정해줘"` (SHA-256 unchanged), asked for `>= 80%` Redis scope confirmation, explained `CONDITIONAL_EQUIVALENT_SKILL` + Grace, and included the AI disclaimer** |
-| Independent RLAIF Constitutional Judge Audits | **v1 (`ko`):** `67 → 89 / 100` (**✅ PASS**, `+22 pts` + Human-in-the-Loop Calibration) · **v2 (`ko`/`en`/`zh`/`ja`):** `74.5 → 91.5 / 100` (**✅ PASS**, `+17.0 pts`) · **v2.2:** Human-in-the-Loop Policy Calibration (`39/39 OK`) |
+| Independent RLAIF Constitutional Judge Audits | **v1 (`ko`):** `67 → 89 / 100` (**PASS**, `+22 pts` + Human-in-the-Loop Calibration) · **v2 (`ko`/`en`/`zh`/`ja`):** `74.5 → 91.5 / 100` (**PASS**, `+17.0 pts`) · **v2.2:** Human-in-the-Loop Policy Calibration (`39/39 OK`) |
 
 ---
 
