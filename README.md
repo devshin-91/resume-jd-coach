@@ -1,6 +1,15 @@
 # `resume-jd-coach` (v2.2 · Multilingual `ko` / `en` / `zh` / `ja` · Suggestion-Only)
 
-> **Coach-First, Suggestion-Only Multilingual Resume & Portfolio ↔ Job Description Match Evaluator (`80%` Pass Gate) with Deterministic Python Scoring, Locked Rubrics, Experience-Gate & Equivalent-Skill Judgment, Multi-Round Δ Tracking, 3-Tier Grace Escalation, and Mandatory AI-Judgment Disclaimers.**
+> [!CAUTION]
+> **Strictly for Reference Only · Human Ultimate Accountability (순전히 참고용 · 최고책임자인 인간의 직접 결정 원칙)**
+>
+> - **Reference Only (AI Can Be Wrong):** Every match score, gap diagnosis, and suggestion produced by `resume-jd-coach` is **strictly for reference only**. Because it is based on AI judgment, it **can be inaccurate or wrong**—true job fit must always be judged by the human applicant.
+> - **Human as Sole Accountable Owner (Suggestion-Only):** This skill **only offers suggestions** and unconditionally refuses requests to directly edit or rewrite your documents. Ultimately, every expression and sentence that goes into a resume or portfolio **must be decided directly by the human applicant, who holds sole ultimate responsibility**.
+>
+> - **순전히 참고용 (AI 판단은 틀릴 수 있음):** 본 도구가 제시하는 모든 공고 일치율·진단·제안은 **순전히 참고용**입니다. AI의 판단에 기반하므로 **틀릴 수 있으며**, 실제 공고 적합도는 반드시 사람(지원자)이 직접 판단해야 합니다.
+> - **최고책임자인 사람의 직접 결정 (제안 전용 · 직접 수정 거절):** 본 스킬은 **무조건 제안만 제공**하며, 직접 수정·대필 요청(`"됐고 수정해줘"` 등)은 모두 거절합니다. 이력서와 포트폴리오에 최종적으로 들어가는 표현과 문장은 결국 **최고책임자인 사람(지원자 본인)이 직접 결정하고 책임져야 합니다.**
+
+**Coach-First, Suggestion-Only Multilingual Resume & Portfolio ↔ Job Description Match Evaluator (`80%` Pass Gate) with Deterministic Python Scoring, Locked Rubrics, Experience-Gate & Equivalent-Skill Judgment, Multi-Round Δ Tracking, 3-Tier Grace Escalation, and Mandatory AI-Judgment Disclaimers.**
 
 An Antigravity Agent Skill (`SKILL.md`) validated across **4 languages & representative hiring markets** (**Korea `ko` · United States `en` · China `zh` · Japan `ja`**), **18 live real-world job postings (44 evaluation rounds)**, **39/39 automated unit & policy regression tests**, **5 Cold-Start Live LLM E2E Red-Team runs** (including `v2.2` adversarial direct-rewrite refusal), **Independent RLAIF (AI-Feedback Constitutional Audit) cycles** (`v1: 67 → 89/100 PASS`, `v2 multilingual: 74.5 → 91.5/100 PASS`), and **v2.2 Human-in-the-Loop Policy Calibration**.
 
